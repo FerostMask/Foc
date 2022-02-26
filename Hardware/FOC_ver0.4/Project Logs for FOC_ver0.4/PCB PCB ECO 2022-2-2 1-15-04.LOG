@@ -1,0 +1,80 @@
+Removed Pin From Net: NetName=GND Pin=JP1-0
+Removed Pin From Net: NetName=GND Pin=JP1-0
+Removed Pin From Net: NetName=GND Pin=JP3-0
+Removed Pin From Net: NetName=GND Pin=JP3-0
+Removed Pin From Net: NetName=GND Pin=JP4-0
+Removed Pin From Net: NetName=GND Pin=JP4-0
+Change Component Description : Designator=U3 Old Description=IC New Description=IC | 低压线性稳压器
+Change Component Description : Designator=V1 Old Description=IC New Description=IC | 低压线性稳压芯片
+Change Component Description : Designator=Q1 Old Description=三极管 New Description=三极管 | 高频放大-PNP型
+Change Component Description : Designator=D3 Old Description=二极管 New Description=二极管 | 白色LED
+Change Component Description : Designator=D4 Old Description=二极管 New Description=二极管 | 白色LED
+Change Component Description : Designator=D1 Old Description=二极管 New Description=二极管 | 肖特基二极管
+Change Component Description : Designator=D2 Old Description=二极管 New Description=二极管 | 肖特基二极管
+Change Component Description : Designator=DZ1 Old Description=二极管 New Description=二极管 | 齐纳二极管
+Change Component Description : Designator=DZ2 Old Description=二极管 New Description=二极管 | 齐纳二极管
+Change Component Description : Designator=JP2 Old Description=插接件 New Description=插接件 | 4P接插件
+Change Component Description : Designator=JP5 Old Description=插接件 New Description=插接件 | 6*2P接插件
+Change Component Description : Designator=JP3 Old Description=插接件 New Description=插接件 | SH系列
+Change Component Description : Designator=JP4 Old Description=插接件 New Description=插接件 | SH系列
+Change Component Description : Designator=J-1 Old Description=插接件 New Description=插接件 | 电源接口
+Change Component Description : Designator=JP1 Old Description=显示屏 New Description=显示屏 | 1.14寸液晶显示屏
+Change Component Description : Designator=Y1 Old Description=晶振 New Description=晶振 | 村田贴片
+Change Component Description : Designator=E1 Old Description=电容 New Description=电容 | 电解电容
+Change Component Description : Designator=E2 Old Description=电容 New Description=电容 | 钽电容
+Change Component Description : Designator=E3 Old Description=电容 New Description=电容 | 钽电容
+Change Component Description : Designator=C1 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C2 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C3 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C4 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C5 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C6 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C7 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C8 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C9 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C10 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C11 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C12 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C13 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C14 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C15 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C16 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C17 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C18 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C19 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C20 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C21 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C22 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C23 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C24 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C25 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C26 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C27 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C28 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=C29 Old Description=电容 New Description=电容 | 陶瓷电容
+Change Component Description : Designator=L1 Old Description=电感 New Description=电感 | 贴片功率电感
+Change Component Description : Designator=R1 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R2 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R3 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R4 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R5 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R6 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R7 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R8 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R9 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R10 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R11 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R12 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R13 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R14 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R15 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R16 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R17 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=R18 Old Description=电阻 New Description=电阻 | 贴片电阻
+Change Component Description : Designator=K1 Old Description=轻触开关 New Description=轻触开关 | 3.4x3.5四脚
+Change Component Description : Designator=K2 Old Description=轻触开关 New Description=轻触开关 | 3.4x3.5四脚
+Added Pin To Net: NetName=UART_RX Pin=JP3-4
+Added Net: Name=UART_RX
+Added Pin To Net: NetName=UART_TX Pin=JP3-3
+Added Net: Name=UART_TX
+Added Room: Name=Main

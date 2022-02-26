@@ -1,0 +1,23 @@
+Added Component: Designator=JP1(IPS1.14 FPC0.5 2H-WS-8P)
+Add component (AddParameter): Name = "BOM名称"; Value = "FPC连接器"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "学习资源"; Value = "www.ooocke.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "版权归属"; Value = "源创客"; VariantName = "[No Variations]"
+Added Component: Designator=JP2(SH1.0-6P)
+Add component (AddParameter): Name = "BOM名称"; Value = "6P连接器"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "联系卖家 免费技术支持"; Value = "封装库来自淘宝卖家ID：黄晶宝石"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "联系卖家 免费查找封装"; Value = "唯一出售店铺网址https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Added Component: Designator=JP3(SH1.0-6P)
+Add component (AddParameter): Name = "BOM名称"; Value = "6P连接器"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "联系卖家 免费技术支持"; Value = "封装库来自淘宝卖家ID：黄晶宝石"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "联系卖家 免费查找封装"; Value = "唯一出售店铺网址https://shop463601444.taobao.com"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJP1_1 Pin=JP1-1
+Added Pin To Net: NetName=GND Pin=JP1-2
+Added Pin To Net: NetName=IPS_RES Pin=JP1-3
+Added Pin To Net: NetName=IPS_DC Pin=JP1-4
+Added Pin To Net: NetName=IPS_SDA Pin=JP1-5
+Added Pin To Net: NetName=IPS_SCL Pin=JP1-6
+Added Pin To Net: NetName=IPS3V3 Pin=JP1-7
+Added Pin To Net: NetName=IPS_CS Pin=JP1-8
+Added Member To Class: ClassName=Main Member=Component JP1 IPS1.14
+Added Member To Class: ClassName=Main Member=Component JP2 CON-6P
+Added Member To Class: ClassName=Main Member=Component JP3 CON-6P

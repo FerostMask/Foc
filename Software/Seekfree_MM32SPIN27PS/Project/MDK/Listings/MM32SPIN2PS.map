@@ -1,0 +1,2090 @@
+Component: ARM Compiler 5.06 update 6 (build 750) Tool: armlink [4d35ed]
+
+==============================================================================
+
+Section Cross References
+
+    isr.o(i.DMA1_Channel1_IRQHandler) refers to hal_dma.o(i.DMA_GetFlagStatus) for DMA_GetFlagStatus
+    isr.o(i.DMA1_Channel1_IRQHandler) refers to hal_dma.o(i.DMA_ClearFlag) for DMA_ClearFlag
+    isr.o(i.DMA1_Channel2_3_IRQHandler) refers to hal_dma.o(i.DMA_GetFlagStatus) for DMA_GetFlagStatus
+    isr.o(i.DMA1_Channel2_3_IRQHandler) refers to hal_dma.o(i.DMA_ClearFlag) for DMA_ClearFlag
+    isr.o(i.DMA1_Channel4_5_IRQHandler) refers to hal_dma.o(i.DMA_GetFlagStatus) for DMA_GetFlagStatus
+    isr.o(i.DMA1_Channel4_5_IRQHandler) refers to hal_dma.o(i.DMA_ClearFlag) for DMA_ClearFlag
+    isr.o(i.DMA1_Channel4_5_IRQHandler) refers to seekfree_7725.o(i.ov7725_dma) for ov7725_dma
+    isr.o(i.DMA1_Channel4_5_IRQHandler) refers to seekfree_uart_7725.o(i.ov7725_uart_dma) for ov7725_uart_dma
+    isr.o(i.DMA1_Channel4_5_IRQHandler) refers to seekfree_mt9v03x.o(i.mt9v03x_dma) for mt9v03x_dma
+    isr.o(i.DMA1_Channel4_5_IRQHandler) refers to common.o(.data) for camera_type
+    isr.o(i.EXTI0_1_IRQHandler) refers to hal_exti.o(i.EXTI_GetITStatus) for EXTI_GetITStatus
+    isr.o(i.EXTI0_1_IRQHandler) refers to hal_exti.o(i.EXTI_ClearFlag) for EXTI_ClearFlag
+    isr.o(i.EXTI2_3_IRQHandler) refers to hal_exti.o(i.EXTI_GetITStatus) for EXTI_GetITStatus
+    isr.o(i.EXTI2_3_IRQHandler) refers to hal_exti.o(i.EXTI_ClearFlag) for EXTI_ClearFlag
+    isr.o(i.EXTI4_15_IRQHandler) refers to hal_exti.o(i.EXTI_GetITStatus) for EXTI_GetITStatus
+    isr.o(i.EXTI4_15_IRQHandler) refers to hal_exti.o(i.EXTI_ClearFlag) for EXTI_ClearFlag
+    isr.o(i.EXTI4_15_IRQHandler) refers to seekfree_7725.o(i.ov7725_vsync) for ov7725_vsync
+    isr.o(i.EXTI4_15_IRQHandler) refers to seekfree_uart_7725.o(i.ov7725_uart_vsync) for ov7725_uart_vsync
+    isr.o(i.EXTI4_15_IRQHandler) refers to seekfree_mt9v03x.o(i.mt9v03x_vsync) for mt9v03x_vsync
+    isr.o(i.EXTI4_15_IRQHandler) refers to common.o(.data) for camera_type
+    isr.o(i.UART1_IRQHandler) refers to zf_uart.o(i.uart_getchar) for uart_getchar
+    isr.o(i.UART1_IRQHandler) refers to seekfree_ips114_spi.o(i.ips114_showuint8) for ips114_showuint8
+    isr.o(i.UART1_IRQHandler) refers to isr.o(.data) for count
+    isr.o(i.UART2_IRQHandler) refers to seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt) for ov7725_cof_uart_interrupt
+    isr.o(i.UART2_IRQHandler) refers to seekfree_mt9v03x.o(i.mt9v03x_uart_callback) for mt9v03x_uart_callback
+    isr.o(i.UART2_IRQHandler) refers to common.o(.data) for camera_type
+    main.o(i.main) refers to board.o(i.board_init) for board_init
+    main.o(i.main) refers to zf_pwm.o(i.pwm_init_self) for pwm_init_self
+    main.o(i.main) refers to seekfree_ips114_spi.o(i.ips114_init) for ips114_init
+    main.o(i.main) refers to zf_uart.o(i.uart_init) for uart_init
+    main.o(i.main) refers to zf_uart.o(i.uart_putchar) for uart_putchar
+    spi_master.o(i.master_init) refers to spi_master.o(i.__ARM_common_ll_muluu) for __ARM_common_ll_muluu
+    spi_master.o(i.master_init) refers to uldiv.o(.text) for __aeabi_uldivmod
+    spi_master.o(i.master_init) refers to zf_systick.o(i.systick_timing) for systick_timing
+    spi_master.o(i.master_init) refers to zf_spi.o(i.spi_init) for spi_init
+    spi_master.o(i.master_init) refers to spi_master.o(i.wifi_set_info) for wifi_set_info
+    spi_master.o(i.master_init) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    spi_master.o(i.master_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    spi_master.o(i.master_init) refers to spi_master.o(.data) for master
+    spi_master.o(i.spi_send) refers to memcpya.o(.text) for __aeabi_memcpy
+    spi_master.o(i.spi_send) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    spi_master.o(i.spi_send) refers to spi_master.o(.data) for master
+    spi_master.o(i.wifi_set_info) refers to strlen.o(.text) for strlen
+    spi_master.o(i.wifi_set_info) refers to memcpya.o(.text) for __aeabi_memcpy
+    spi_master.o(i.wifi_set_info) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    spi_master.o(i.wifi_set_info) refers to spi_master.o(.data) for wifi
+    spi_master.o(.data) refers to spi_master.o(i.master_init) for master_init
+    spi_master.o(.data) refers to spi_master.o(.conststring) for .conststring
+    board.o(i.board_init) refers to zf_uart.o(i.uart_init) for uart_init
+    common.o(i.nvic_init) refers to hal_misc.o(i.NVIC_Init) for NVIC_Init
+    seekfree_printf.o(i.number_conversion_ascii) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_printf.o(i.number_conversion_ascii) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_printf.o(i.zf_sprintf) refers to seekfree_printf.o(i.number_conversion_ascii) for number_conversion_ascii
+    seekfree_printf.o(i.zf_sprintf) refers to seekfree_printf.o(i.printf_reverse_order) for printf_reverse_order
+    seekfree_printf.o(i.zf_sprintf) refers to memcpya.o(.text) for __aeabi_memcpy
+    seekfree_printf.o(i.zf_sprintf) refers to dfixi.o(.text) for __aeabi_d2iz
+    seekfree_printf.o(i.zf_sprintf) refers to cdcmple.o(.text) for __aeabi_cdcmple
+    seekfree_printf.o(i.zf_sprintf) refers to dflti.o(.text) for __aeabi_i2d
+    seekfree_printf.o(i.zf_sprintf) refers to dadd.o(.text) for __aeabi_drsub
+    seekfree_printf.o(i.zf_sprintf) refers to dmul.o(.text) for __aeabi_dmul
+    system_mm32spin2xx_p.o(i.AutoCalPllFactor) refers to uidiv.o(.text) for __aeabi_uidivmod
+    system_mm32spin2xx_p.o(i.SetSysClock) refers to system_mm32spin2xx_p.o(i.SetSysClockToXX) for SetSysClockToXX
+    system_mm32spin2xx_p.o(i.SetSysClockToXX) refers to uidiv.o(.text) for __aeabi_uidivmod
+    system_mm32spin2xx_p.o(i.SetSysClockToXX) refers to system_mm32spin2xx_p.o(i.AutoCalPllFactor) for AutoCalPllFactor
+    system_mm32spin2xx_p.o(i.SetSysClockToXX) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    system_mm32spin2xx_p.o(i.SystemInit) refers to system_mm32spin2xx_p.o(i.SetSysClock) for SetSysClock
+    startup_mm32spin2xx_p_keil.o(RESET) refers to startup_mm32spin2xx_p_keil.o(STACK) for __initial_sp
+    startup_mm32spin2xx_p_keil.o(RESET) refers to startup_mm32spin2xx_p_keil.o(.text) for Reset_Handler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to common.o(i.NMI_Handler) for NMI_Handler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to common.o(i.HardFault_Handler) for HardFault_Handler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to common.o(i.SVC_Handler) for SVC_Handler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to common.o(i.PendSV_Handler) for PendSV_Handler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.EXTI0_1_IRQHandler) for EXTI0_1_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.EXTI2_3_IRQHandler) for EXTI2_3_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.EXTI4_15_IRQHandler) for EXTI4_15_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.DMA1_Channel1_IRQHandler) for DMA1_Channel1_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.DMA1_Channel2_3_IRQHandler) for DMA1_Channel2_3_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.DMA1_Channel4_5_IRQHandler) for DMA1_Channel4_5_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM1_BRK_UP_TRG_COM_IRQHandler) for TIM1_BRK_UP_TRG_COM_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM2_IRQHandler) for TIM2_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM3_IRQHandler) for TIM3_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM8_BRK_UP_TRG_COM_IRQHandler) for TIM8_BRK_UP_TRG_COM_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM14_IRQHandler) for TIM14_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM16_IRQHandler) for TIM16_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.TIM17_IRQHandler) for TIM17_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.UART1_IRQHandler) for UART1_IRQHandler
+    startup_mm32spin2xx_p_keil.o(RESET) refers to isr.o(i.UART2_IRQHandler) for UART2_IRQHandler
+    startup_mm32spin2xx_p_keil.o(.text) refers to startup_mm32spin2xx_p_keil.o(STACK) for __initial_sp
+    startup_mm32spin2xx_p_keil.o(.text) refers to system_mm32spin2xx_p.o(i.SystemInit) for SystemInit
+    startup_mm32spin2xx_p_keil.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    zf_adc.o(i.adc_convert) refers to zf_adc.o(.data) for adc_index
+    zf_adc.o(i.adc_init) refers to zf_adc.o(i.adc_pin_init) for adc_pin_init
+    zf_adc.o(i.adc_init) refers to zf_adc.o(.data) for adc_resolution
+    zf_adc.o(i.adc_mean_filter) refers to zf_adc.o(i.adc_convert) for adc_convert
+    zf_adc.o(i.adc_mean_filter) refers to uidiv.o(.text) for __aeabi_uidivmod
+    zf_adc.o(i.adc_pin_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    zf_camera.o(i.camera_dma_init) refers to hal_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    zf_camera.o(i.camera_dma_init) refers to hal_dma.o(i.DMA_DeInit) for DMA_DeInit
+    zf_camera.o(i.camera_dma_init) refers to hal_dma.o(i.DMA_Init) for DMA_Init
+    zf_camera.o(i.camera_dma_init) refers to hal_dma.o(i.DMA_ITConfig) for DMA_ITConfig
+    zf_camera.o(i.camera_dma_init) refers to hal_dma.o(i.DMA_Cmd) for DMA_Cmd
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_rcc.o(i.RCC_APB2PeriphClockCmd) for RCC_APB2PeriphClockCmd
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    zf_camera.o(i.camera_tim_etr_init) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_TimeBaseInit) for TIM_TimeBaseInit
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_ETRClockMode1Config) for TIM_ETRClockMode1Config
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_SelectInputTrigger) for TIM_SelectInputTrigger
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_SelectSlaveMode) for TIM_SelectSlaveMode
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_SelectMasterSlaveMode) for TIM_SelectMasterSlaveMode
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_Cmd) for TIM_Cmd
+    zf_camera.o(i.camera_tim_etr_init) refers to hal_tim.o(i.TIM_DMACmd) for TIM_DMACmd
+    zf_camera.o(i.camera_tim_etr_init) refers to zf_tim.o(.data) for tim_index
+    zf_exti.o(i.exti_even_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    zf_exti.o(i.exti_even_init) refers to hal_exti.o(i.EXTI_LineConfig) for EXTI_LineConfig
+    zf_exti.o(i.exti_even_init) refers to hal_exti.o(i.EXTI_StructInit) for EXTI_StructInit
+    zf_exti.o(i.exti_even_init) refers to hal_exti.o(i.EXTI_Init) for EXTI_Init
+    zf_exti.o(i.exti_interrupt_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    zf_exti.o(i.exti_interrupt_init) refers to hal_exti.o(i.EXTI_LineConfig) for EXTI_LineConfig
+    zf_exti.o(i.exti_interrupt_init) refers to hal_exti.o(i.EXTI_StructInit) for EXTI_StructInit
+    zf_exti.o(i.exti_interrupt_init) refers to hal_exti.o(i.EXTI_Init) for EXTI_Init
+    zf_exti.o(i.exti_interrupt_init) refers to hal_misc.o(i.NVIC_Init) for NVIC_Init
+    zf_flash.o(i.flash_erase_page) refers to hal_flash.o(i.FLASH_Unlock) for FLASH_Unlock
+    zf_flash.o(i.flash_erase_page) refers to hal_flash.o(i.FLASH_ClearFlag) for FLASH_ClearFlag
+    zf_flash.o(i.flash_erase_page) refers to hal_flash.o(i.FLASH_ErasePage) for FLASH_ErasePage
+    zf_flash.o(i.flash_erase_page) refers to hal_flash.o(i.FLASH_Lock) for FLASH_Lock
+    zf_flash.o(i.flash_erase_page) refers to zf_flash.o(.data) for gFlashStatus
+    zf_flash.o(i.flash_page_program) refers to zf_flash.o(i.flash_check) for flash_check
+    zf_flash.o(i.flash_page_program) refers to zf_flash.o(i.flash_erase_page) for flash_erase_page
+    zf_flash.o(i.flash_page_program) refers to hal_flash.o(i.FLASH_Unlock) for FLASH_Unlock
+    zf_flash.o(i.flash_page_program) refers to hal_flash.o(i.FLASH_ProgramWord) for FLASH_ProgramWord
+    zf_flash.o(i.flash_page_program) refers to hal_flash.o(i.FLASH_Lock) for FLASH_Lock
+    zf_flash.o(i.flash_page_program) refers to zf_flash.o(.data) for gFlashStatus
+    zf_gpio.o(i.afio_init) refers to zf_gpio.o(.data) for gpio_group
+    zf_gpio.o(i.gpio_dir) refers to zf_gpio.o(.data) for gpio_group
+    zf_gpio.o(i.gpio_get) refers to zf_gpio.o(.data) for gpio_group
+    zf_gpio.o(i.gpio_init) refers to zf_gpio.o(.data) for gpio_group
+    zf_gpio.o(i.gpio_set) refers to zf_gpio.o(.data) for gpio_group
+    zf_gpio.o(i.gpio_toggle) refers to zf_gpio.o(.data) for gpio_group
+    zf_pit.o(i.tim_interrupt_disable) refers to zf_tim.o(.data) for tim_index
+    zf_pit.o(i.tim_interrupt_enable) refers to zf_tim.o(.data) for tim_index
+    zf_pit.o(i.tim_interrupt_init) refers to uidiv.o(.text) for __aeabi_uidivmod
+    zf_pit.o(i.tim_interrupt_init) refers to hal_misc.o(i.NVIC_Init) for NVIC_Init
+    zf_pit.o(i.tim_interrupt_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    zf_pit.o(i.tim_interrupt_init) refers to zf_tim.o(.data) for tim_index
+    zf_pit.o(i.tim_interrupt_init_ms) refers to hal_misc.o(i.NVIC_Init) for NVIC_Init
+    zf_pit.o(i.tim_interrupt_init_ms) refers to zf_tim.o(.data) for tim_index
+    zf_pit.o(i.tim_interrupt_init_us) refers to hal_misc.o(i.NVIC_Init) for NVIC_Init
+    zf_pit.o(i.tim_interrupt_init_us) refers to zf_tim.o(.data) for tim_index
+    zf_pwm.o(i.pwm_disable) refers to zf_tim.o(.data) for tim_index
+    zf_pwm.o(i.pwm_disable) refers to zf_pwm.o(.bss) for pwm_enable_state
+    zf_pwm.o(i.pwm_duty_updata) refers to ffltui.o(.text) for __aeabi_ui2f
+    zf_pwm.o(i.pwm_duty_updata) refers to fdiv.o(.text) for __aeabi_fdiv
+    zf_pwm.o(i.pwm_duty_updata) refers to fmul.o(.text) for __aeabi_fmul
+    zf_pwm.o(i.pwm_duty_updata) refers to ffixui.o(.text) for __aeabi_f2uiz
+    zf_pwm.o(i.pwm_duty_updata) refers to zf_tim.o(.data) for tim_index
+    zf_pwm.o(i.pwm_enable) refers to zf_pwm.o(.bss) for pwm_enable_state
+    zf_pwm.o(i.pwm_enable) refers to zf_tim.o(.data) for tim_index
+    zf_pwm.o(i.pwm_init) refers to uidiv.o(.text) for __aeabi_uidivmod
+    zf_pwm.o(i.pwm_init) refers to ffltui.o(.text) for __aeabi_ui2f
+    zf_pwm.o(i.pwm_init) refers to fdiv.o(.text) for __aeabi_fdiv
+    zf_pwm.o(i.pwm_init) refers to fmul.o(.text) for __aeabi_fmul
+    zf_pwm.o(i.pwm_init) refers to ffixui.o(.text) for __aeabi_f2uiz
+    zf_pwm.o(i.pwm_init) refers to zf_pwm.o(i.pwm_pin_init) for pwm_pin_init
+    zf_pwm.o(i.pwm_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    zf_pwm.o(i.pwm_init) refers to zf_tim.o(.data) for tim_index
+    zf_pwm.o(i.pwm_init) refers to zf_pwm.o(.bss) for pwm_enable_state
+    zf_pwm.o(i.pwm_init_self) refers to zf_pwm.o(i.pwm_init) for pwm_init
+    zf_pwm.o(i.pwm_init_self) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_pwm.o(i.pwm_pin_init) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_spi.o(i.spi_init) refers to zf_spi.o(i.spi_pin_init) for spi_pin_init
+    zf_spi.o(i.spi_init) refers to uidiv.o(.text) for __aeabi_uidivmod
+    zf_spi.o(i.spi_init) refers to zf_spi.o(.data) for spi_index
+    zf_spi.o(i.spi_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    zf_spi.o(i.spi_mosi) refers to zf_spi.o(.data) for spi_index
+    zf_spi.o(i.spi_pin_init) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_systick.o(i.systick_delay_ms) refers to uidiv.o(.text) for __aeabi_uidivmod
+    zf_systick.o(i.systick_delay_ms) refers to zf_systick.o(i.systick_delay) for systick_delay
+    zf_systick.o(i.systick_delay_ms) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    zf_systick.o(i.systick_timing) refers to zf_systick.o(i.__NVIC_SetPriority) for __NVIC_SetPriority
+    zf_tim.o(i.tim_counter_get_count) refers to zf_tim.o(.data) for tim_index
+    zf_tim.o(i.tim_counter_init) refers to zf_tim.o(i.tim_counter_pin_init) for tim_counter_pin_init
+    zf_tim.o(i.tim_counter_init) refers to zf_tim.o(.data) for tim_index
+    zf_tim.o(i.tim_counter_pin_init) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_tim.o(i.tim_counter_rst) refers to zf_tim.o(.data) for tim_index
+    zf_tim.o(i.tim_encoder_get_count) refers to zf_tim.o(.data) for tim_index
+    zf_tim.o(i.tim_encoder_init) refers to zf_tim.o(i.tim_encoder_pin_init) for tim_encoder_pin_init
+    zf_tim.o(i.tim_encoder_init) refers to zf_tim.o(.data) for tim_index
+    zf_tim.o(i.tim_encoder_pin_init) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_tim.o(i.tim_encoder_rst) refers to zf_tim.o(.data) for tim_index
+    zf_uart.o(i.uart_getchar) refers to zf_uart.o(.data) for uart_index
+    zf_uart.o(i.uart_init) refers to zf_uart.o(i.uart_pin_init) for uart_pin_init
+    zf_uart.o(i.uart_init) refers to uidiv.o(.text) for __aeabi_uidivmod
+    zf_uart.o(i.uart_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    zf_uart.o(i.uart_pin_init) refers to zf_gpio.o(i.afio_init) for afio_init
+    zf_uart.o(i.uart_putbuff) refers to zf_uart.o(.data) for uart_index
+    zf_uart.o(i.uart_putchar) refers to zf_uart.o(.data) for uart_index
+    zf_uart.o(i.uart_putstr) refers to zf_uart.o(i.uart_putchar) for uart_putchar
+    zf_uart.o(i.uart_query) refers to zf_uart.o(.data) for uart_index
+    zf_uart.o(i.uart_rx_irq) refers to common.o(i.nvic_init) for nvic_init
+    zf_uart.o(i.uart_rx_irq) refers to zf_uart.o(.data) for uart_index
+    zf_uart.o(i.uart_tx_irq) refers to common.o(i.nvic_init) for nvic_init
+    zf_uart.o(i.uart_tx_irq) refers to zf_uart.o(.data) for uart_index
+    seekfree_18tft.o(i.lcd_clear) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_clear) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_display_chinese) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_display_chinese) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_displayimage032) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_displayimage032) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_18tft.o(i.lcd_displayimage032) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_displayimage032_zoom) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_displayimage032_zoom) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_18tft.o(i.lcd_displayimage032_zoom) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_displayimage7725) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_displayimage7725) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_displayimage8660_zoom) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_displayimage8660_zoom) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_18tft.o(i.lcd_displayimage8660_zoom) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_drawpoint) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_drawpoint) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_init) refers to zf_spi.o(i.spi_init) for spi_init
+    seekfree_18tft.o(i.lcd_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_18tft.o(i.lcd_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_18tft.o(i.lcd_init) refers to seekfree_18tft.o(i.lcd_writeIndex) for lcd_writeIndex
+    seekfree_18tft.o(i.lcd_init) refers to seekfree_18tft.o(i.lcd_writeData) for lcd_writeData
+    seekfree_18tft.o(i.lcd_init) refers to seekfree_18tft.o(i.lcd_clear) for lcd_clear
+    seekfree_18tft.o(i.lcd_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    seekfree_18tft.o(i.lcd_init) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_18tft.o(i.lcd_set_region) refers to seekfree_18tft.o(i.lcd_writeIndex) for lcd_writeIndex
+    seekfree_18tft.o(i.lcd_set_region) refers to seekfree_18tft.o(i.lcd_writeData) for lcd_writeData
+    seekfree_18tft.o(i.lcd_showchar) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.lcd_showchar) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_18tft.o(i.lcd_showchar) refers to seekfree_font.o(.constdata) for tft_ascii
+    seekfree_18tft.o(i.lcd_showfloat) refers to cdrcmple.o(.text) for __aeabi_cdrcmple
+    seekfree_18tft.o(i.lcd_showfloat) refers to seekfree_printf.o(i.zf_sprintf) for zf_sprintf
+    seekfree_18tft.o(i.lcd_showfloat) refers to seekfree_18tft.o(i.lcd_showstr) for lcd_showstr
+    seekfree_18tft.o(i.lcd_showint16) refers to seekfree_18tft.o(i.lcd_showchar) for lcd_showchar
+    seekfree_18tft.o(i.lcd_showint16) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_18tft.o(i.lcd_showint32) refers to seekfree_printf.o(i.zf_sprintf) for zf_sprintf
+    seekfree_18tft.o(i.lcd_showint32) refers to seekfree_18tft.o(i.lcd_showstr) for lcd_showstr
+    seekfree_18tft.o(i.lcd_showint8) refers to seekfree_18tft.o(i.lcd_showchar) for lcd_showchar
+    seekfree_18tft.o(i.lcd_showint8) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_18tft.o(i.lcd_showstr) refers to seekfree_18tft.o(i.lcd_showchar) for lcd_showchar
+    seekfree_18tft.o(i.lcd_showuint16) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_18tft.o(i.lcd_showuint16) refers to seekfree_18tft.o(i.lcd_showchar) for lcd_showchar
+    seekfree_18tft.o(i.lcd_showuint8) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_18tft.o(i.lcd_showuint8) refers to seekfree_18tft.o(i.lcd_showchar) for lcd_showchar
+    seekfree_18tft.o(i.lcd_writeData) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_18tft.o(i.lcd_writeData) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_18tft.o(i.lcd_writeIndex) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_18tft.o(i.lcd_writeIndex) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_18tft.o(i.lcd_writedata_16bit) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_18tft.o(i.lcd_writedata_16bit) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_18tft.o(i.showimage) refers to seekfree_18tft.o(i.lcd_clear) for lcd_clear
+    seekfree_18tft.o(i.showimage) refers to seekfree_18tft.o(i.lcd_set_region) for lcd_set_region
+    seekfree_18tft.o(i.showimage) refers to seekfree_18tft.o(i.lcd_writedata_16bit) for lcd_writedata_16bit
+    seekfree_7725.o(i.ov7725_dma) refers to seekfree_7725.o(.data) for ov7725_finish_flag
+    seekfree_7725.o(i.ov7725_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_7725.o(i.ov7725_init) refers to zf_gpio.o(i.gpio_get) for gpio_get
+    seekfree_7725.o(i.ov7725_init) refers to seekfree_7725.o(i.ov7725_simiic_init) for ov7725_simiic_init
+    seekfree_7725.o(i.ov7725_init) refers to seekfree_7725.o(i.ov7725_reg_init) for ov7725_reg_init
+    seekfree_7725.o(i.ov7725_init) refers to seekfree_uart_7725.o(i.ov7725_uart_dma_init) for ov7725_uart_dma_init
+    seekfree_7725.o(i.ov7725_init) refers to seekfree_uart_7725.o(i.ov7725_uart_tim_etr_init) for ov7725_uart_tim_etr_init
+    seekfree_7725.o(i.ov7725_init) refers to seekfree_uart_7725.o(i.ov7725_uart_exti_init) for ov7725_uart_exti_init
+    seekfree_7725.o(i.ov7725_init) refers to common.o(.data) for camera_type
+    seekfree_7725.o(i.ov7725_init) refers to seekfree_7725.o(.bss) for ov7725_image_bin
+    seekfree_7725.o(i.ov7725_read_ch) refers to seekfree_7725.o(i.ov7725_simiic_delay) for ov7725_simiic_delay
+    seekfree_7725.o(i.ov7725_read_ch) refers to zf_gpio.o(i.gpio_dir) for gpio_dir
+    seekfree_7725.o(i.ov7725_read_ch) refers to zf_gpio.o(i.gpio_get) for gpio_get
+    seekfree_7725.o(i.ov7725_read_ch) refers to seekfree_7725.o(i.ov7725_simiic_sendack) for ov7725_simiic_sendack
+    seekfree_7725.o(i.ov7725_read_ch) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_7725.o(i.ov7725_reg_init) refers to seekfree_7725.o(i.ov7725_simiic_write_reg) for ov7725_simiic_write_reg
+    seekfree_7725.o(i.ov7725_reg_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_7725.o(i.ov7725_reg_init) refers to seekfree_7725.o(i.ov7725_simiic_read_reg) for ov7725_simiic_read_reg
+    seekfree_7725.o(i.ov7725_sccb_waitack) refers to zf_gpio.o(i.gpio_dir) for gpio_dir
+    seekfree_7725.o(i.ov7725_sccb_waitack) refers to seekfree_7725.o(i.ov7725_simiic_delay) for ov7725_simiic_delay
+    seekfree_7725.o(i.ov7725_sccb_waitack) refers to zf_gpio.o(i.gpio_get) for gpio_get
+    seekfree_7725.o(i.ov7725_sccb_waitack) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_7725.o(i.ov7725_send_ch) refers to seekfree_7725.o(i.ov7725_simiic_delay) for ov7725_simiic_delay
+    seekfree_7725.o(i.ov7725_send_ch) refers to seekfree_7725.o(i.ov7725_sccb_waitack) for ov7725_sccb_waitack
+    seekfree_7725.o(i.ov7725_send_ch) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_7725.o(i.ov7725_simiic_delay) refers to seekfree_7725.o(.data) for ov7725_simiic_delay_time
+    seekfree_7725.o(i.ov7725_simiic_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_7725.o(i.ov7725_simiic_read_reg) refers to seekfree_7725.o(i.ov7725_simiic_start) for ov7725_simiic_start
+    seekfree_7725.o(i.ov7725_simiic_read_reg) refers to seekfree_7725.o(i.ov7725_send_ch) for ov7725_send_ch
+    seekfree_7725.o(i.ov7725_simiic_read_reg) refers to seekfree_7725.o(i.ov7725_simiic_stop) for ov7725_simiic_stop
+    seekfree_7725.o(i.ov7725_simiic_read_reg) refers to seekfree_7725.o(i.ov7725_read_ch) for ov7725_read_ch
+    seekfree_7725.o(i.ov7725_simiic_sendack) refers to seekfree_7725.o(i.ov7725_simiic_delay) for ov7725_simiic_delay
+    seekfree_7725.o(i.ov7725_simiic_sendack) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_7725.o(i.ov7725_simiic_start) refers to seekfree_7725.o(i.ov7725_simiic_delay) for ov7725_simiic_delay
+    seekfree_7725.o(i.ov7725_simiic_start) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_7725.o(i.ov7725_simiic_stop) refers to seekfree_7725.o(i.ov7725_simiic_delay) for ov7725_simiic_delay
+    seekfree_7725.o(i.ov7725_simiic_stop) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_7725.o(i.ov7725_simiic_write_reg) refers to seekfree_7725.o(i.ov7725_simiic_start) for ov7725_simiic_start
+    seekfree_7725.o(i.ov7725_simiic_write_reg) refers to seekfree_7725.o(i.ov7725_send_ch) for ov7725_send_ch
+    seekfree_7725.o(i.ov7725_simiic_write_reg) refers to seekfree_7725.o(i.ov7725_simiic_stop) for ov7725_simiic_stop
+    seekfree_absolute_encoder.o(i.encoder_angle_spi) refers to seekfree_absolute_encoder.o(i.spi_wr_byte) for spi_wr_byte
+    seekfree_absolute_encoder.o(i.encoder_angle_spi) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_absolute_encoder.o(i.encoder_init_spi) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_absolute_encoder.o(i.encoder_init_spi) refers to zf_spi.o(i.spi_init) for spi_init
+    seekfree_absolute_encoder.o(i.encoder_init_spi) refers to seekfree_absolute_encoder.o(i.encoder_self5_check) for encoder_self5_check
+    seekfree_absolute_encoder.o(i.encoder_init_spi) refers to seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) for encoder_spi_w_reg_byte
+    seekfree_absolute_encoder.o(i.encoder_init_spi) refers to seekfree_absolute_encoder.o(i.set_zero_position_spi) for set_zero_position_spi
+    seekfree_absolute_encoder.o(i.encoder_init_spi) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    seekfree_absolute_encoder.o(i.encoder_self5_check) refers to seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) for encoder_spi_r_reg_byte
+    seekfree_absolute_encoder.o(i.encoder_speed_spi) refers to seekfree_absolute_encoder.o(i.spi_wr_byte) for spi_wr_byte
+    seekfree_absolute_encoder.o(i.encoder_speed_spi) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_absolute_encoder.o(i.encoder_speed_spi) refers to seekfree_absolute_encoder.o(.data) for new_angle
+    seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) refers to seekfree_absolute_encoder.o(i.spi_wr_byte) for spi_wr_byte
+    seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) refers to spi_master.o(i.__ARM_common_ll_muluu) for __ARM_common_ll_muluu
+    seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) refers to uldiv.o(.text) for __aeabi_uldivmod
+    seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) refers to zf_systick.o(i.systick_delay) for systick_delay
+    seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) refers to seekfree_absolute_encoder.o(i.spi_wr_byte) for spi_wr_byte
+    seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) refers to spi_master.o(i.__ARM_common_ll_muluu) for __ARM_common_ll_muluu
+    seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) refers to uldiv.o(.text) for __aeabi_uldivmod
+    seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) refers to zf_systick.o(i.systick_delay) for systick_delay
+    seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    seekfree_absolute_encoder.o(i.set_zero_position_spi) refers to seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte) for encoder_spi_w_reg_byte
+    seekfree_absolute_encoder.o(i.spi_wr_byte) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_icm20602.o(i.get_icm20602_accdata) refers to seekfree_iic.o(i.simiic_read_regs) for simiic_read_regs
+    seekfree_icm20602.o(i.get_icm20602_accdata) refers to seekfree_icm20602.o(.data) for icm_acc_x
+    seekfree_icm20602.o(i.get_icm20602_accdata_spi) refers to seekfree_icm20602.o(i.icm_spi_r_reg_bytes) for icm_spi_r_reg_bytes
+    seekfree_icm20602.o(i.get_icm20602_accdata_spi) refers to seekfree_icm20602.o(.data) for icm_acc_x
+    seekfree_icm20602.o(i.get_icm20602_gyro) refers to seekfree_iic.o(i.simiic_read_regs) for simiic_read_regs
+    seekfree_icm20602.o(i.get_icm20602_gyro) refers to seekfree_icm20602.o(.data) for icm_gyro_x
+    seekfree_icm20602.o(i.get_icm20602_gyro_spi) refers to seekfree_icm20602.o(i.icm_spi_r_reg_bytes) for icm_spi_r_reg_bytes
+    seekfree_icm20602.o(i.get_icm20602_gyro_spi) refers to seekfree_icm20602.o(.data) for icm_gyro_x
+    seekfree_icm20602.o(i.icm20602_init) refers to seekfree_iic.o(i.simiic_init) for simiic_init
+    seekfree_icm20602.o(i.icm20602_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_icm20602.o(i.icm20602_init) refers to seekfree_icm20602.o(i.icm20602_self1_check) for icm20602_self1_check
+    seekfree_icm20602.o(i.icm20602_init) refers to seekfree_iic.o(i.simiic_write_reg) for simiic_write_reg
+    seekfree_icm20602.o(i.icm20602_init) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to zf_spi.o(i.spi_init) for spi_init
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to seekfree_icm20602.o(i.icm20602_self3_check) for icm20602_self3_check
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to seekfree_icm20602.o(i.icm_spi_w_reg_byte) for icm_spi_w_reg_byte
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to seekfree_icm20602.o(i.icm_spi_r_reg_byte) for icm_spi_r_reg_byte
+    seekfree_icm20602.o(i.icm20602_init_spi) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    seekfree_icm20602.o(i.icm20602_self1_check) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_icm20602.o(i.icm20602_self1_check) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_icm20602.o(i.icm20602_self3_check) refers to seekfree_icm20602.o(i.icm_spi_r_reg_byte) for icm_spi_r_reg_byte
+    seekfree_icm20602.o(i.icm20602_self3_check) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_icm20602.o(i.icm_spi_r_reg_byte) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_icm20602.o(i.icm_spi_r_reg_byte) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_icm20602.o(i.icm_spi_r_reg_bytes) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_icm20602.o(i.icm_spi_r_reg_bytes) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_icm20602.o(i.icm_spi_w_reg_byte) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_icm20602.o(i.icm_spi_w_reg_byte) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.read_ch) refers to seekfree_iic.o(i.simiic_delay) for simiic_delay
+    seekfree_iic.o(i.read_ch) refers to zf_gpio.o(i.gpio_dir) for gpio_dir
+    seekfree_iic.o(i.read_ch) refers to seekfree_iic.o(i.simiic_sendack) for simiic_sendack
+    seekfree_iic.o(i.read_ch) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.sccb_waitack) refers to zf_gpio.o(i.gpio_dir) for gpio_dir
+    seekfree_iic.o(i.sccb_waitack) refers to seekfree_iic.o(i.simiic_delay) for simiic_delay
+    seekfree_iic.o(i.sccb_waitack) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.send_ch) refers to seekfree_iic.o(i.simiic_delay) for simiic_delay
+    seekfree_iic.o(i.send_ch) refers to seekfree_iic.o(i.sccb_waitack) for sccb_waitack
+    seekfree_iic.o(i.send_ch) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.simiic_delay) refers to seekfree_iic.o(.data) for simiic_delay_time
+    seekfree_iic.o(i.simiic_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_iic.o(i.simiic_read_reg) refers to seekfree_iic.o(i.simiic_start) for simiic_start
+    seekfree_iic.o(i.simiic_read_reg) refers to seekfree_iic.o(i.send_ch) for send_ch
+    seekfree_iic.o(i.simiic_read_reg) refers to seekfree_iic.o(i.simiic_stop) for simiic_stop
+    seekfree_iic.o(i.simiic_read_reg) refers to seekfree_iic.o(i.read_ch) for read_ch
+    seekfree_iic.o(i.simiic_read_regs) refers to seekfree_iic.o(i.simiic_start) for simiic_start
+    seekfree_iic.o(i.simiic_read_regs) refers to seekfree_iic.o(i.send_ch) for send_ch
+    seekfree_iic.o(i.simiic_read_regs) refers to seekfree_iic.o(i.simiic_stop) for simiic_stop
+    seekfree_iic.o(i.simiic_read_regs) refers to seekfree_iic.o(i.read_ch) for read_ch
+    seekfree_iic.o(i.simiic_sendack) refers to seekfree_iic.o(i.simiic_delay) for simiic_delay
+    seekfree_iic.o(i.simiic_sendack) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.simiic_start) refers to seekfree_iic.o(i.simiic_delay) for simiic_delay
+    seekfree_iic.o(i.simiic_start) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.simiic_stop) refers to seekfree_iic.o(i.simiic_delay) for simiic_delay
+    seekfree_iic.o(i.simiic_stop) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_iic.o(i.simiic_write_reg) refers to seekfree_iic.o(i.simiic_start) for simiic_start
+    seekfree_iic.o(i.simiic_write_reg) refers to seekfree_iic.o(i.send_ch) for send_ch
+    seekfree_iic.o(i.simiic_write_reg) refers to seekfree_iic.o(i.simiic_stop) for simiic_stop
+    seekfree_ips114_spi.o(i.ips114_clear) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_clear) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_display_chinese) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_display_chinese) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_displayimage032) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_displayimage032) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_ips114_spi.o(i.ips114_displayimage032) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_displayimage032_zoom) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_displayimage032_zoom) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_ips114_spi.o(i.ips114_displayimage032_zoom) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_displayimage032_zoom1) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_displayimage032_zoom1) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_ips114_spi.o(i.ips114_displayimage032_zoom1) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_displayimage7725) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_displayimage7725) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom1) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom1) refers to uidiv.o(.text) for __aeabi_uidivmod
+    seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom1) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_drawpoint) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_drawpoint) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_init) refers to zf_spi.o(i.spi_init) for spi_init
+    seekfree_ips114_spi.o(i.ips114_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_ips114_spi.o(i.ips114_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_ips114_spi.o(i.ips114_init) refers to seekfree_ips114_spi.o(i.ips114_writeIndex) for ips114_writeIndex
+    seekfree_ips114_spi.o(i.ips114_init) refers to seekfree_ips114_spi.o(i.ips114_writeData) for ips114_writeData
+    seekfree_ips114_spi.o(i.ips114_init) refers to seekfree_ips114_spi.o(i.ips114_clear) for ips114_clear
+    seekfree_ips114_spi.o(i.ips114_init) refers to system_mm32spin2xx_p.o(.data) for SystemCoreClock
+    seekfree_ips114_spi.o(i.ips114_init) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_ips114_spi.o(i.ips114_set_region) refers to seekfree_ips114_spi.o(i.ips114_writeIndex) for ips114_writeIndex
+    seekfree_ips114_spi.o(i.ips114_set_region) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_showchar) refers to seekfree_ips114_spi.o(i.ips114_set_region) for ips114_set_region
+    seekfree_ips114_spi.o(i.ips114_showchar) refers to seekfree_ips114_spi.o(i.ips114_writedata_16bit) for ips114_writedata_16bit
+    seekfree_ips114_spi.o(i.ips114_showchar) refers to seekfree_font.o(.constdata) for tft_ascii
+    seekfree_ips114_spi.o(i.ips114_showfloat) refers to cdrcmple.o(.text) for __aeabi_cdrcmple
+    seekfree_ips114_spi.o(i.ips114_showfloat) refers to seekfree_printf.o(i.zf_sprintf) for zf_sprintf
+    seekfree_ips114_spi.o(i.ips114_showfloat) refers to seekfree_ips114_spi.o(i.ips114_showstr) for ips114_showstr
+    seekfree_ips114_spi.o(i.ips114_showint16) refers to seekfree_ips114_spi.o(i.ips114_showchar) for ips114_showchar
+    seekfree_ips114_spi.o(i.ips114_showint16) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_ips114_spi.o(i.ips114_showint32) refers to seekfree_printf.o(i.zf_sprintf) for zf_sprintf
+    seekfree_ips114_spi.o(i.ips114_showint32) refers to seekfree_ips114_spi.o(i.ips114_showstr) for ips114_showstr
+    seekfree_ips114_spi.o(i.ips114_showint8) refers to seekfree_ips114_spi.o(i.ips114_showchar) for ips114_showchar
+    seekfree_ips114_spi.o(i.ips114_showint8) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_ips114_spi.o(i.ips114_showstr) refers to seekfree_ips114_spi.o(i.ips114_showchar) for ips114_showchar
+    seekfree_ips114_spi.o(i.ips114_showuint16) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_ips114_spi.o(i.ips114_showuint16) refers to seekfree_ips114_spi.o(i.ips114_showchar) for ips114_showchar
+    seekfree_ips114_spi.o(i.ips114_showuint8) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_ips114_spi.o(i.ips114_showuint8) refers to seekfree_ips114_spi.o(i.ips114_showchar) for ips114_showchar
+    seekfree_ips114_spi.o(i.ips114_writeData) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_ips114_spi.o(i.ips114_writeData) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_ips114_spi.o(i.ips114_writeIndex) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_ips114_spi.o(i.ips114_writeIndex) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_ips114_spi.o(i.ips114_writedata_16bit) refers to zf_spi.o(i.spi_mosi) for spi_mosi
+    seekfree_ips114_spi.o(i.ips114_writedata_16bit) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_l3g4200d.o(i.get_l3g4200d) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_l3g4200d.o(i.get_l3g4200d) refers to seekfree_iic.o(i.simiic_read_regs) for simiic_read_regs
+    seekfree_l3g4200d.o(i.get_l3g4200d) refers to seekfree_l3g4200d.o(.data) for gyro_x
+    seekfree_l3g4200d.o(i.l3g4200d_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_l3g4200d.o(i.l3g4200d_init) refers to seekfree_l3g4200d.o(i.l3g4200d_self_check) for l3g4200d_self_check
+    seekfree_l3g4200d.o(i.l3g4200d_init) refers to seekfree_iic.o(i.simiic_write_reg) for simiic_write_reg
+    seekfree_l3g4200d.o(i.l3g4200d_init) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_l3g4200d.o(i.l3g4200d_self_check) refers to seekfree_iic.o(i.simiic_write_reg) for simiic_write_reg
+    seekfree_l3g4200d.o(i.l3g4200d_self_check) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_mma8451.o(i.get_mma8451) refers to seekfree_iic.o(i.simiic_read_regs) for simiic_read_regs
+    seekfree_mma8451.o(i.get_mma8451) refers to seekfree_mma8451.o(.data) for acc_x
+    seekfree_mma8451.o(i.mma8451_self_check) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_mma8451.o(i.mma845x_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_mma8451.o(i.mma845x_init) refers to seekfree_mma8451.o(i.mma8451_self_check) for mma8451_self_check
+    seekfree_mma8451.o(i.mma845x_init) refers to seekfree_iic.o(i.simiic_write_reg) for simiic_write_reg
+    seekfree_mpu6050.o(i.get_accdata) refers to seekfree_iic.o(i.simiic_read_regs) for simiic_read_regs
+    seekfree_mpu6050.o(i.get_accdata) refers to seekfree_mpu6050.o(.data) for mpu_acc_x
+    seekfree_mpu6050.o(i.get_gyro) refers to seekfree_iic.o(i.simiic_read_regs) for simiic_read_regs
+    seekfree_mpu6050.o(i.get_gyro) refers to seekfree_mpu6050.o(.data) for mpu_gyro_x
+    seekfree_mpu6050.o(i.mpu6050_init) refers to seekfree_iic.o(i.simiic_init) for simiic_init
+    seekfree_mpu6050.o(i.mpu6050_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_mpu6050.o(i.mpu6050_init) refers to seekfree_mpu6050.o(i.mpu6050_self1_check) for mpu6050_self1_check
+    seekfree_mpu6050.o(i.mpu6050_init) refers to seekfree_iic.o(i.simiic_write_reg) for simiic_write_reg
+    seekfree_mpu6050.o(i.mpu6050_self1_check) refers to seekfree_iic.o(i.simiic_write_reg) for simiic_write_reg
+    seekfree_mpu6050.o(i.mpu6050_self1_check) refers to seekfree_iic.o(i.simiic_read_reg) for simiic_read_reg
+    seekfree_mt9v03x.o(i.get_config) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_mt9v03x.o(i.get_config) refers to seekfree_mt9v03x.o(.data) for uart_receive_flag
+    seekfree_mt9v03x.o(i.get_version) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_mt9v03x.o(i.get_version) refers to seekfree_mt9v03x.o(.data) for uart_receive_flag
+    seekfree_mt9v03x.o(i.mt9v03x_dma) refers to seekfree_mt9v03x.o(.data) for mt9v03x_finish_flag
+    seekfree_mt9v03x.o(i.mt9v03x_dma_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_mt9v03x.o(i.mt9v03x_dma_init) refers to hal_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    seekfree_mt9v03x.o(i.mt9v03x_dma_init) refers to zf_camera.o(i.camera_dma_init) for camera_dma_init
+    seekfree_mt9v03x.o(i.mt9v03x_dma_init) refers to common.o(i.nvic_init) for nvic_init
+    seekfree_mt9v03x.o(i.mt9v03x_dma_init) refers to common.o(.data) for camera_buffer_addr
+    seekfree_mt9v03x.o(i.mt9v03x_exti_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_mt9v03x.o(i.mt9v03x_exti_init) refers to zf_exti.o(i.exti_interrupt_init) for exti_interrupt_init
+    seekfree_mt9v03x.o(i.mt9v03x_exti_init) refers to common.o(i.nvic_init) for nvic_init
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to zf_uart.o(i.uart_init) for uart_init
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to zf_uart.o(i.uart_rx_irq) for uart_rx_irq
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(i.get_config) for get_config
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(i.set_config) for set_config
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(i.mt9v03x_dma_init) for mt9v03x_dma_init
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(i.mt9v03x_tim1_etr_init) for mt9v03x_tim1_etr_init
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(i.mt9v03x_exti_init) for mt9v03x_exti_init
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to common.o(.data) for camera_type
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(.bss) for mt9v03x_image
+    seekfree_mt9v03x.o(i.mt9v03x_init) refers to seekfree_mt9v03x.o(.data) for uart_receive_flag
+    seekfree_mt9v03x.o(i.mt9v03x_tim1_etr_init) refers to zf_camera.o(i.camera_tim_etr_init) for camera_tim_etr_init
+    seekfree_mt9v03x.o(i.mt9v03x_uart_callback) refers to zf_uart.o(.data) for uart_index
+    seekfree_mt9v03x.o(i.mt9v03x_uart_callback) refers to seekfree_mt9v03x.o(.data) for receive
+    seekfree_mt9v03x.o(i.seekfree_sendimg_03x) refers to zf_uart.o(i.uart_putchar) for uart_putchar
+    seekfree_mt9v03x.o(i.seekfree_sendimg_03x) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_mt9v03x.o(i.set_config) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_mt9v03x.o(i.set_config) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_mt9v03x.o(i.set_config) refers to seekfree_mt9v03x.o(.data) for uart_receive_flag
+    seekfree_mt9v03x.o(i.set_exposure_time) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_mt9v03x.o(i.set_exposure_time) refers to seekfree_mt9v03x.o(.data) for uart_receive_flag
+    seekfree_mt9v03x.o(i.set_mt9v03x_reg) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_mt9v03x.o(i.set_mt9v03x_reg) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_mt9v03x.o(i.set_mt9v03x_reg) refers to seekfree_mt9v03x.o(.data) for uart_receive_flag
+    seekfree_oled.o(i.oled_clrpixel) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_clrpixel) refers to seekfree_oled.o(i.oled_wrcmd) for oled_wrcmd
+    seekfree_oled.o(i.oled_clrpixel) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_dis_bmp) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_dis_bmp) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_fill) refers to seekfree_oled.o(i.oled_wrcmd) for oled_wrcmd
+    seekfree_oled.o(i.oled_fill) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_hexascii) refers to idiv.o(.text) for __aeabi_idivmod
+    seekfree_oled.o(i.oled_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_oled.o(i.oled_init) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_oled.o(i.oled_init) refers to seekfree_oled.o(i.oled_wrcmd) for oled_wrcmd
+    seekfree_oled.o(i.oled_init) refers to seekfree_oled.o(i.oled_fill) for oled_fill
+    seekfree_oled.o(i.oled_init) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_init) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_oled.o(i.oled_int16) refers to seekfree_oled.o(i.oled_p6x8str) for oled_p6x8str
+    seekfree_oled.o(i.oled_int16) refers to seekfree_oled.o(i.oled_hexascii) for oled_hexascii
+    seekfree_oled.o(i.oled_p6x8str) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_p6x8str) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_p6x8str) refers to seekfree_font.o(.constdata) for oled_6x8
+    seekfree_oled.o(i.oled_p8x16str) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_p8x16str) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_p8x16str) refers to seekfree_font.o(.constdata) for oled_8x16
+    seekfree_oled.o(i.oled_print_chinese) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_print_chinese) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_printf_float) refers to cdrcmple.o(.text) for __aeabi_cdrcmple
+    seekfree_oled.o(i.oled_printf_float) refers to seekfree_printf.o(i.zf_sprintf) for zf_sprintf
+    seekfree_oled.o(i.oled_printf_float) refers to seekfree_oled.o(i.oled_p6x8str) for oled_p6x8str
+    seekfree_oled.o(i.oled_printf_int32) refers to seekfree_printf.o(i.zf_sprintf) for zf_sprintf
+    seekfree_oled.o(i.oled_printf_int32) refers to seekfree_oled.o(i.oled_p6x8str) for oled_p6x8str
+    seekfree_oled.o(i.oled_putpixel) refers to seekfree_oled.o(i.oled_set_pos) for oled_set_pos
+    seekfree_oled.o(i.oled_putpixel) refers to seekfree_oled.o(i.oled_wrcmd) for oled_wrcmd
+    seekfree_oled.o(i.oled_putpixel) refers to seekfree_oled.o(i.oled_wrdat) for oled_wrdat
+    seekfree_oled.o(i.oled_set_pos) refers to seekfree_oled.o(i.oled_wrcmd) for oled_wrcmd
+    seekfree_oled.o(i.oled_uint16) refers to seekfree_oled.o(i.oled_hexascii) for oled_hexascii
+    seekfree_oled.o(i.oled_uint16) refers to seekfree_oled.o(i.oled_p6x8str) for oled_p6x8str
+    seekfree_oled.o(i.oled_wrcmd) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_oled.o(i.oled_wrdat) refers to zf_gpio.o(.data) for gpio_group
+    seekfree_tsl1401.o(i.ccd_collect) refers to zf_gpio.o(i.gpio_set) for gpio_set
+    seekfree_tsl1401.o(i.ccd_collect) refers to zf_adc.o(i.adc_convert) for adc_convert
+    seekfree_tsl1401.o(i.ccd_collect) refers to seekfree_tsl1401.o(.data) for ccd_adc_ch
+    seekfree_tsl1401.o(i.ccd_collect) refers to seekfree_tsl1401.o(.bss) for ccd_data
+    seekfree_tsl1401.o(i.ccd_init) refers to zf_adc.o(i.adc_init) for adc_init
+    seekfree_tsl1401.o(i.ccd_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_tsl1401.o(i.ccd_init) refers to zf_pit.o(i.tim_interrupt_init) for tim_interrupt_init
+    seekfree_tsl1401.o(i.ccd_init) refers to seekfree_tsl1401.o(.data) for ccd_adc_ch
+    seekfree_tsl1401.o(i.ccd_send_data) refers to zf_uart.o(i.uart_putchar) for uart_putchar
+    seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt) refers to zf_uart.o(.data) for uart_index
+    seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt) refers to seekfree_uart_7725.o(.data) for ov7725_uart_receive
+    seekfree_uart_7725.o(i.ov7725_get_all_config) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_uart_7725.o(i.ov7725_get_all_config) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_uart_7725.o(i.ov7725_get_all_config) refers to seekfree_uart_7725.o(.data) for ov7725_uart_receive_flag
+    seekfree_uart_7725.o(i.ov7725_get_version) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_uart_7725.o(i.ov7725_get_version) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_uart_7725.o(i.ov7725_get_version) refers to seekfree_uart_7725.o(.data) for ov7725_uart_receive_flag
+    seekfree_uart_7725.o(i.ov7725_set_all_config) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_uart_7725.o(i.ov7725_set_all_config) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_uart_7725.o(i.ov7725_set_all_config) refers to seekfree_uart_7725.o(.data) for ov7725_uart_receive_flag
+    seekfree_uart_7725.o(i.ov7725_uart_dma) refers to seekfree_uart_7725.o(.data) for ov7725_uart_finish_flag
+    seekfree_uart_7725.o(i.ov7725_uart_dma_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_uart_7725.o(i.ov7725_uart_dma_init) refers to hal_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    seekfree_uart_7725.o(i.ov7725_uart_dma_init) refers to zf_camera.o(i.camera_dma_init) for camera_dma_init
+    seekfree_uart_7725.o(i.ov7725_uart_dma_init) refers to common.o(i.nvic_init) for nvic_init
+    seekfree_uart_7725.o(i.ov7725_uart_dma_init) refers to common.o(.data) for camera_buffer_addr
+    seekfree_uart_7725.o(i.ov7725_uart_exti_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_uart_7725.o(i.ov7725_uart_exti_init) refers to zf_exti.o(i.exti_interrupt_init) for exti_interrupt_init
+    seekfree_uart_7725.o(i.ov7725_uart_exti_init) refers to common.o(i.nvic_init) for nvic_init
+    seekfree_uart_7725.o(i.ov7725_uart_get_id) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_uart_7725.o(i.ov7725_uart_get_id) refers to zf_systick.o(i.systick_delay_ms) for systick_delay_ms
+    seekfree_uart_7725.o(i.ov7725_uart_get_id) refers to seekfree_uart_7725.o(.data) for ov7725_uart_receive_flag
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to zf_gpio.o(i.gpio_get) for gpio_get
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to zf_uart.o(i.uart_init) for uart_init
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to zf_uart.o(i.uart_rx_irq) for uart_rx_irq
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(i.ov7725_set_all_config) for ov7725_set_all_config
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(i.ov7725_get_all_config) for ov7725_get_all_config
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(i.ov7725_uart_dma_init) for ov7725_uart_dma_init
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(i.ov7725_uart_tim_etr_init) for ov7725_uart_tim_etr_init
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(i.ov7725_uart_exti_init) for ov7725_uart_exti_init
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to common.o(.data) for camera_type
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(.bss) for ov7725_uart_image_bin
+    seekfree_uart_7725.o(i.ov7725_uart_init) refers to seekfree_uart_7725.o(.data) for ov7725_uart_receive_flag
+    seekfree_uart_7725.o(i.ov7725_uart_tim_etr_init) refers to zf_camera.o(i.camera_tim_etr_init) for camera_tim_etr_init
+    seekfree_uart_7725.o(i.seekfree_sendimg_7725) refers to zf_uart.o(i.uart_putchar) for uart_putchar
+    seekfree_virsco.o(i.data_conversion) refers to seekfree_virsco.o(i.CRC_CHECK) for CRC_CHECK
+    seekfree_virsco.o(i.data_conversion) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_wireless.o(i.seekfree_wireless_init) refers to zf_gpio.o(i.gpio_init) for gpio_init
+    seekfree_wireless.o(i.seekfree_wireless_init) refers to zf_uart.o(i.uart_init) for uart_init
+    seekfree_wireless.o(i.seekfree_wireless_init) refers to zf_uart.o(i.uart_rx_irq) for uart_rx_irq
+    seekfree_wireless.o(i.seekfree_wireless_send_buff) refers to zf_gpio.o(i.gpio_get) for gpio_get
+    seekfree_wireless.o(i.seekfree_wireless_send_buff) refers to zf_uart.o(i.uart_putbuff) for uart_putbuff
+    seekfree_wireless.o(i.wireless_uart_callback) refers to zf_uart.o(.data) for uart_index
+    seekfree_wireless.o(i.wireless_uart_callback) refers to seekfree_wireless.o(.data) for wireless_rx_index
+    seekfree_wireless.o(i.wireless_uart_callback) refers to seekfree_wireless.o(.bss) for wireless_rx_buffer
+    hal_adc.o(i.ADC_DeInit) refers to hal_rcc.o(i.exRCC_APB2PeriphReset) for exRCC_APB2PeriphReset
+    hal_adc.o(i.ADC_RegularChannelConfig) refers to hal_adc.o(i.ADC_TempSensorVrefintCmd) for ADC_TempSensorVrefintCmd
+    hal_adc.o(i.ADC_TempSensorCmd) refers to hal_adc.o(i.ADC_TempSensorVrefintCmd) for ADC_TempSensorVrefintCmd
+    hal_adc.o(i.ADC_VrefintCmd) refers to hal_adc.o(i.ADC_TempSensorVrefintCmd) for ADC_TempSensorVrefintCmd
+    hal_bkp.o(i.exBKP_Init) refers to hal_rcc.o(i.RCC_APB1PeriphClockCmd) for RCC_APB1PeriphClockCmd
+    hal_div.o(i.Divider_Calc) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_dma.o(i.DMA_DeInit) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_dma.o(i.exDMA_ClearITPendingBit) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_exti.o(i.EXTI_DeInit) refers to hal_exti.o(i.exEXTI_LineDisable) for exEXTI_LineDisable
+    hal_flash.o(i.FLASH_EnableWriteProtection) refers to hal_flash.o(i.FLASH_ProgramOptionHalfWord) for FLASH_ProgramOptionHalfWord
+    hal_flash.o(i.FLASH_EraseAllPages) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_EraseOptionBytes) refers to hal_flash.o(i.FLASH_OPTB_Enable) for FLASH_OPTB_Enable
+    hal_flash.o(i.FLASH_EraseOptionBytes) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_ErasePage) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_EraseProtect) refers to hal_flash.o(i.FLASH_OPTB_Enable) for FLASH_OPTB_Enable
+    hal_flash.o(i.FLASH_EraseProtect) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_ProgramHalfWord) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_ProgramOptionByteData) refers to hal_flash.o(i.FLASH_OPTB_Enable) for FLASH_OPTB_Enable
+    hal_flash.o(i.FLASH_ProgramOptionByteData) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_ProgramOptionHalfWord) refers to hal_flash.o(i.FLASH_OPTB_Enable) for FLASH_OPTB_Enable
+    hal_flash.o(i.FLASH_ProgramOptionHalfWord) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_ProgramProtect) refers to hal_flash.o(i.FLASH_ProgramOptionHalfWord) for FLASH_ProgramOptionHalfWord
+    hal_flash.o(i.FLASH_ProgramWord) refers to hal_flash.o(i.FLASH_ProgramHalfWord) for FLASH_ProgramHalfWord
+    hal_flash.o(i.FLASH_UserOptionByteConfig) refers to hal_flash.o(i.FLASH_OPTB_Enable) for FLASH_OPTB_Enable
+    hal_flash.o(i.FLASH_UserOptionByteConfig) refers to hal_flash.o(i.FLASH_WaitForLastOperation) for FLASH_WaitForLastOperation
+    hal_flash.o(i.FLASH_WaitForLastOperation) refers to hal_flash.o(i.FLASH_GetStatus) for FLASH_GetStatus
+    hal_flash.o(i.exFLASH_EraseEE) refers to hal_flash.o(i.FLASH_Unlock) for FLASH_Unlock
+    hal_flash.o(i.exFLASH_EraseEE) refers to hal_flash.o(i.FLASH_ErasePage) for FLASH_ErasePage
+    hal_flash.o(i.exFLASH_EraseEE) refers to hal_flash.o(i.FLASH_Lock) for FLASH_Lock
+    hal_flash.o(i.exFLASH_Locate) refers to hal_flash.o(i.exFLASH_FindEmpty) for exFLASH_FindEmpty
+    hal_flash.o(i.exFLASH_Locate) refers to idiv.o(.text) for __aeabi_idivmod
+    hal_flash.o(i.exFLASH_ProgramEE) refers to hal_flash.o(i.FLASH_Unlock) for FLASH_Unlock
+    hal_flash.o(i.exFLASH_ProgramEE) refers to hal_flash.o(i.FLASH_ProgramHalfWord) for FLASH_ProgramHalfWord
+    hal_flash.o(i.exFLASH_ProgramEE) refers to hal_flash.o(i.FLASH_Lock) for FLASH_Lock
+    hal_flash.o(i.exFLASH_ReadEE) refers to hal_flash.o(i.exFLASH_Locate) for exFLASH_Locate
+    hal_flash.o(i.exFLASH_WriteEE) refers to hal_flash.o(i.exFLASH_Locate) for exFLASH_Locate
+    hal_flash.o(i.exFLASH_WriteEE) refers to hal_flash.o(i.exFLASH_EraseEE) for exFLASH_EraseEE
+    hal_flash.o(i.exFLASH_WriteEE) refers to hal_flash.o(i.exFLASH_ProgramEE) for exFLASH_ProgramEE
+    hal_flash.o(i.exFLASH_WriteEE) refers to idiv.o(.text) for __aeabi_idivmod
+    hal_gpio.o(i.GPIO_DeInit) refers to hal_rcc.o(i.RCC_AHBPeriphClockCmd) for RCC_AHBPeriphClockCmd
+    hal_i2c.o(i.I2C_CheckEvent) refers to hal_i2c.o(.data) for I2C_CMD_DIR
+    hal_i2c.o(i.I2C_DMACmd) refers to hal_i2c.o(.data) for I2C_DMA_DIR
+    hal_i2c.o(i.I2C_DeInit) refers to hal_rcc.o(i.exRCC_APB1PeriphReset) for exRCC_APB1PeriphReset
+    hal_i2c.o(i.I2C_GetFlagStatus) refers to hal_i2c.o(.data) for I2C_CMD_DIR
+    hal_i2c.o(i.I2C_ITConfig) refers to hal_i2c.o(i.I2C_ReadCmd) for I2C_ReadCmd
+    hal_i2c.o(i.I2C_Init) refers to hal_rcc.o(i.RCC_GetPCLK1Freq) for RCC_GetPCLK1Freq
+    hal_i2c.o(i.I2C_Init) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_i2c.o(i.I2C_ReceiveData) refers to hal_i2c.o(.data) for I2C_CMD_DIR
+    hal_iwdg.o(i.IWDG_SetPrescaler) refers to hal_iwdg.o(i.PVU_CheckStatus) for PVU_CheckStatus
+    hal_iwdg.o(i.IWDG_SetReload) refers to hal_iwdg.o(i.RVU_CheckStatus) for RVU_CheckStatus
+    hal_iwdg.o(i.PVU_CheckStatus) refers to hal_iwdg.o(i.IWDG_GetFlagStatus) for IWDG_GetFlagStatus
+    hal_iwdg.o(i.RVU_CheckStatus) refers to hal_iwdg.o(i.IWDG_GetFlagStatus) for IWDG_GetFlagStatus
+    hal_pwr.o(i.PWR_DeInit) refers to hal_rcc.o(i.exRCC_APB1PeriphReset) for exRCC_APB1PeriphReset
+    hal_rcc.o(i.RCC_GetClocksFreq) refers to hal_rcc.o(i.RCC_GetSysClockFreq) for RCC_GetSysClockFreq
+    hal_rcc.o(i.RCC_GetClocksFreq) refers to hal_rcc.o(i.RCC_GetHCLKFreq) for RCC_GetHCLKFreq
+    hal_rcc.o(i.RCC_GetClocksFreq) refers to hal_rcc.o(i.RCC_GetPCLK1Freq) for RCC_GetPCLK1Freq
+    hal_rcc.o(i.RCC_GetClocksFreq) refers to hal_rcc.o(i.RCC_GetPCLK2Freq) for RCC_GetPCLK2Freq
+    hal_rcc.o(i.RCC_GetClocksFreq) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_rcc.o(i.RCC_GetHCLKFreq) refers to hal_rcc.o(i.RCC_GetSysClockFreq) for RCC_GetSysClockFreq
+    hal_rcc.o(i.RCC_GetHCLKFreq) refers to hal_rcc.o(.data) for tbPresc
+    hal_rcc.o(i.RCC_GetPCLK1Freq) refers to hal_rcc.o(i.RCC_GetHCLKFreq) for RCC_GetHCLKFreq
+    hal_rcc.o(i.RCC_GetPCLK1Freq) refers to hal_rcc.o(.data) for tbPresc
+    hal_rcc.o(i.RCC_GetPCLK2Freq) refers to hal_rcc.o(i.RCC_GetHCLKFreq) for RCC_GetHCLKFreq
+    hal_rcc.o(i.RCC_GetPCLK2Freq) refers to hal_rcc.o(.data) for tbPresc
+    hal_rcc.o(i.RCC_GetSysClockFreq) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_rcc.o(i.RCC_PLLConfig) refers to memcpya.o(.text) for __aeabi_memcpy4
+    hal_rcc.o(i.RCC_PLLConfig) refers to hal_rcc.o(i.RCC_PLLDMDNConfig) for RCC_PLLDMDNConfig
+    hal_rcc.o(i.RCC_WaitForFlagStartUp) refers to hal_rcc.o(i.RCC_GetFlagStatus) for RCC_GetFlagStatus
+    hal_rcc.o(i.RCC_WaitForHSEStartUp) refers to hal_rcc.o(i.RCC_GetFlagStatus) for RCC_GetFlagStatus
+    hal_rcc.o(i.exRCC_SystickEnable) refers to hal_rcc.o(i.RCC_GetHCLKFreq) for RCC_GetHCLKFreq
+    hal_rcc.o(i.exRCC_SystickEnable) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_rcc.o(i.exRCC_SystickEnable) refers to hal_rcc.o(i.__NVIC_SetPriority) for __NVIC_SetPriority
+    hal_spi.o(i.SPI_DeInit) refers to hal_rcc.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
+    hal_spi.o(i.SPI_DeInit) refers to hal_rcc.o(i.RCC_APB2PeriphResetCmd) for RCC_APB2PeriphResetCmd
+    hal_tim.o(i.TIM_DeInit) refers to hal_rcc.o(i.exRCC_APB2PeriphReset) for exRCC_APB2PeriphReset
+    hal_tim.o(i.TIM_DeInit) refers to hal_rcc.o(i.exRCC_APB1PeriphReset) for exRCC_APB1PeriphReset
+    hal_tim.o(i.TIM_ETRClockMode1Config) refers to hal_tim.o(i.TIM_ETRConfig) for TIM_ETRConfig
+    hal_tim.o(i.TIM_ETRClockMode2Config) refers to hal_tim.o(i.TIM_ETRConfig) for TIM_ETRConfig
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TI1_Configure) for TI1_Configure
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TIM_SetIC1Prescaler) for TIM_SetIC1Prescaler
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TI2_Configure) for TI2_Configure
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TIM_SetIC2Prescaler) for TIM_SetIC2Prescaler
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TI3_Configure) for TI3_Configure
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TIM_SetIC3Prescaler) for TIM_SetIC3Prescaler
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TI4_Configure) for TI4_Configure
+    hal_tim.o(i.TIM_ICInit) refers to hal_tim.o(i.TIM_SetIC4Prescaler) for TIM_SetIC4Prescaler
+    hal_tim.o(i.TIM_ITRxExternalClockConfig) refers to hal_tim.o(i.TIM_SelectInputTrigger) for TIM_SelectInputTrigger
+    hal_tim.o(i.TIM_PWMIConfig) refers to hal_tim.o(i.TI1_Configure) for TI1_Configure
+    hal_tim.o(i.TIM_PWMIConfig) refers to hal_tim.o(i.TIM_SetIC1Prescaler) for TIM_SetIC1Prescaler
+    hal_tim.o(i.TIM_PWMIConfig) refers to hal_tim.o(i.TI2_Configure) for TI2_Configure
+    hal_tim.o(i.TIM_PWMIConfig) refers to hal_tim.o(i.TIM_SetIC2Prescaler) for TIM_SetIC2Prescaler
+    hal_tim.o(i.TIM_TIxExternalClockConfig) refers to hal_tim.o(i.TI2_Configure) for TI2_Configure
+    hal_tim.o(i.TIM_TIxExternalClockConfig) refers to hal_tim.o(i.TI1_Configure) for TI1_Configure
+    hal_tim.o(i.TIM_TIxExternalClockConfig) refers to hal_tim.o(i.TIM_SelectInputTrigger) for TIM_SelectInputTrigger
+    hal_uart.o(i.UART_DeInit) refers to hal_rcc.o(i.exRCC_APB1PeriphReset) for exRCC_APB1PeriphReset
+    hal_uart.o(i.UART_DeInit) refers to hal_rcc.o(i.exRCC_APB2PeriphReset) for exRCC_APB2PeriphReset
+    hal_uart.o(i.UART_Init) refers to hal_rcc.o(i.RCC_GetPCLK2Freq) for RCC_GetPCLK2Freq
+    hal_uart.o(i.UART_Init) refers to hal_rcc.o(i.RCC_GetPCLK1Freq) for RCC_GetPCLK1Freq
+    hal_uart.o(i.UART_Init) refers to uidiv.o(.text) for __aeabi_uidivmod
+    hal_uid.o(i.GetChipUID) refers to hal_uid.o(.bss) for device_id_data
+    hal_wwdg.o(i.WWDG_DeInit) refers to hal_rcc.o(i.exRCC_APB1PeriphReset) for exRCC_APB1PeriphReset
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry8b.o(.ARM.Collect$$$$0000000A) for _main_cpp_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry9a.o(.ARM.Collect$$$$0000000B) for _main_init
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry5.o(.ARM.Collect$$$$00000004) for _main_scatterload
+    entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
+    idiv.o(.text) refers to uidiv.o(.text) for __aeabi_uidivmod
+    uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    fmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    fdiv.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    fdiv.o(.text) refers to fepilogue.o(.text) for _float_round
+    dadd.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
+    dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    ffltui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    ffltui.o(.text) refers to fepilogue.o(.text) for _float_epilogue
+    dflti.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dflti.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    ffixui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfixi.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfixi.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    cdcmple.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cdrcmple.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
+    entry2.o(.ARM.Collect$$$$00002712) refers to startup_mm32spin2xx_p_keil.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to startup_mm32spin2xx_p_keil.o(STACK) for __initial_sp
+    entry2.o(__vectab_stack_and_reset_area) refers to entry.o(.ARM.Collect$$$$00000000) for __main
+    entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
+    entry9a.o(.ARM.Collect$$$$0000000B) refers to main.o(i.main) for main
+    entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(i.main) for main
+    depilogue.o(.text) refers to depilogue.o(i.__ARM_clz) for __ARM_clz
+    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
+    init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing isr.o(.rev16_text), (4 bytes).
+    Removing isr.o(.revsh_text), (4 bytes).
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(.data), (3 bytes).
+    Removing spi_master.o(.rev16_text), (4 bytes).
+    Removing spi_master.o(.revsh_text), (4 bytes).
+    Removing spi_master.o(i.master_init), (156 bytes).
+    Removing spi_master.o(i.spi_send), (112 bytes).
+    Removing spi_master.o(i.wifi_set_info), (396 bytes).
+    Removing spi_master.o(.conststring), (13 bytes).
+    Removing spi_master.o(.data), (76 bytes).
+    Removing board.o(.rev16_text), (4 bytes).
+    Removing board.o(.revsh_text), (4 bytes).
+    Removing common.o(.rev16_text), (4 bytes).
+    Removing common.o(.revsh_text), (4 bytes).
+    Removing common.o(i.BusFault_Handler), (4 bytes).
+    Removing common.o(i.DebugMon_Handler), (4 bytes).
+    Removing common.o(i.MemManage_Handler), (4 bytes).
+    Removing common.o(i.UsageFault_Handler), (4 bytes).
+    Removing common.o(i.nvic_init), (22 bytes).
+    Removing common.o(i.nvic_interrput_disable), (4 bytes).
+    Removing common.o(i.nvic_interrput_enable), (4 bytes).
+    Removing seekfree_printf.o(.rev16_text), (4 bytes).
+    Removing seekfree_printf.o(.revsh_text), (4 bytes).
+    Removing seekfree_printf.o(i.number_conversion_ascii), (148 bytes).
+    Removing seekfree_printf.o(i.printf_reverse_order), (34 bytes).
+    Removing seekfree_printf.o(i.zf_sprintf), (708 bytes).
+    Removing system_mm32spin2xx_p.o(.rev16_text), (4 bytes).
+    Removing system_mm32spin2xx_p.o(.revsh_text), (4 bytes).
+    Removing startup_mm32spin2xx_p_keil.o(HEAP), (512 bytes).
+    Removing zf_adc.o(.rev16_text), (4 bytes).
+    Removing zf_adc.o(.revsh_text), (4 bytes).
+    Removing zf_adc.o(i.adc_convert), (108 bytes).
+    Removing zf_adc.o(i.adc_init), (168 bytes).
+    Removing zf_adc.o(i.adc_mean_filter), (42 bytes).
+    Removing zf_adc.o(i.adc_pin_init), (26 bytes).
+    Removing zf_adc.o(.data), (10 bytes).
+    Removing zf_camera.o(.rev16_text), (4 bytes).
+    Removing zf_camera.o(.revsh_text), (4 bytes).
+    Removing zf_camera.o(i.camera_dma_init), (106 bytes).
+    Removing zf_camera.o(i.camera_tim_etr_init), (256 bytes).
+    Removing zf_exti.o(.rev16_text), (4 bytes).
+    Removing zf_exti.o(.revsh_text), (4 bytes).
+    Removing zf_exti.o(i.exti_even_disable), (24 bytes).
+    Removing zf_exti.o(i.exti_even_enable), (24 bytes).
+    Removing zf_exti.o(i.exti_even_init), (62 bytes).
+    Removing zf_exti.o(i.exti_interrupt_disable), (24 bytes).
+    Removing zf_exti.o(i.exti_interrupt_enable), (24 bytes).
+    Removing zf_exti.o(i.exti_interrupt_init), (136 bytes).
+    Removing zf_flash.o(.rev16_text), (4 bytes).
+    Removing zf_flash.o(.revsh_text), (4 bytes).
+    Removing zf_flash.o(i.flash_check), (50 bytes).
+    Removing zf_flash.o(i.flash_erase_page), (68 bytes).
+    Removing zf_flash.o(i.flash_page_program), (104 bytes).
+    Removing zf_flash.o(i.flash_page_read), (36 bytes).
+    Removing zf_flash.o(.data), (2 bytes).
+    Removing zf_gpio.o(.rev16_text), (4 bytes).
+    Removing zf_gpio.o(.revsh_text), (4 bytes).
+    Removing zf_gpio.o(i.gpio_dir), (116 bytes).
+    Removing zf_gpio.o(i.gpio_get), (44 bytes).
+    Removing zf_gpio.o(i.gpio_set), (92 bytes).
+    Removing zf_gpio.o(i.gpio_toggle), (112 bytes).
+    Removing zf_pit.o(.rev16_text), (4 bytes).
+    Removing zf_pit.o(.revsh_text), (4 bytes).
+    Removing zf_pit.o(i.tim_interrupt_disable), (32 bytes).
+    Removing zf_pit.o(i.tim_interrupt_enable), (32 bytes).
+    Removing zf_pit.o(i.tim_interrupt_init), (228 bytes).
+    Removing zf_pit.o(i.tim_interrupt_init_ms), (224 bytes).
+    Removing zf_pit.o(i.tim_interrupt_init_us), (216 bytes).
+    Removing zf_pwm.o(.rev16_text), (4 bytes).
+    Removing zf_pwm.o(.revsh_text), (4 bytes).
+    Removing zf_pwm.o(i.pwm_disable), (64 bytes).
+    Removing zf_pwm.o(i.pwm_duty_updata), (168 bytes).
+    Removing zf_pwm.o(i.pwm_enable), (52 bytes).
+    Removing zf_spi.o(.rev16_text), (4 bytes).
+    Removing zf_spi.o(.revsh_text), (4 bytes).
+    Removing zf_systick.o(.rev16_text), (4 bytes).
+    Removing zf_systick.o(.revsh_text), (4 bytes).
+    Removing zf_systick.o(i.__NVIC_SetPriority), (120 bytes).
+    Removing zf_systick.o(i.systick_getval), (20 bytes).
+    Removing zf_systick.o(i.systick_start), (24 bytes).
+    Removing zf_systick.o(i.systick_timing), (40 bytes).
+    Removing zf_tim.o(.rev16_text), (4 bytes).
+    Removing zf_tim.o(.revsh_text), (4 bytes).
+    Removing zf_tim.o(i.tim_counter_get_count), (20 bytes).
+    Removing zf_tim.o(i.tim_counter_init), (328 bytes).
+    Removing zf_tim.o(i.tim_counter_pin_init), (24 bytes).
+    Removing zf_tim.o(i.tim_counter_rst), (20 bytes).
+    Removing zf_tim.o(i.tim_encoder_get_count), (20 bytes).
+    Removing zf_tim.o(i.tim_encoder_init), (236 bytes).
+    Removing zf_tim.o(i.tim_encoder_pin_init), (24 bytes).
+    Removing zf_tim.o(i.tim_encoder_rst), (20 bytes).
+    Removing zf_uart.o(.rev16_text), (4 bytes).
+    Removing zf_uart.o(.revsh_text), (4 bytes).
+    Removing zf_uart.o(i.fputc), (28 bytes).
+    Removing zf_uart.o(i.uart_putbuff), (48 bytes).
+    Removing zf_uart.o(i.uart_putstr), (26 bytes).
+    Removing zf_uart.o(i.uart_query), (40 bytes).
+    Removing zf_uart.o(i.uart_rx_irq), (76 bytes).
+    Removing zf_uart.o(i.uart_tx_irq), (76 bytes).
+    Removing seekfree_18tft.o(.rev16_text), (4 bytes).
+    Removing seekfree_18tft.o(.revsh_text), (4 bytes).
+    Removing seekfree_18tft.o(i.lcd_clear), (48 bytes).
+    Removing seekfree_18tft.o(i.lcd_display_chinese), (168 bytes).
+    Removing seekfree_18tft.o(i.lcd_displayimage032), (136 bytes).
+    Removing seekfree_18tft.o(i.lcd_displayimage032_zoom), (134 bytes).
+    Removing seekfree_18tft.o(i.lcd_displayimage7725), (100 bytes).
+    Removing seekfree_18tft.o(i.lcd_displayimage8660_zoom), (126 bytes).
+    Removing seekfree_18tft.o(i.lcd_drawpoint), (28 bytes).
+    Removing seekfree_18tft.o(i.lcd_init), (736 bytes).
+    Removing seekfree_18tft.o(i.lcd_set_region), (86 bytes).
+    Removing seekfree_18tft.o(i.lcd_showchar), (108 bytes).
+    Removing seekfree_18tft.o(i.lcd_showfloat), (188 bytes).
+    Removing seekfree_18tft.o(i.lcd_showint16), (172 bytes).
+    Removing seekfree_18tft.o(i.lcd_showint32), (104 bytes).
+    Removing seekfree_18tft.o(i.lcd_showint8), (126 bytes).
+    Removing seekfree_18tft.o(i.lcd_showstr), (40 bytes).
+    Removing seekfree_18tft.o(i.lcd_showuint16), (136 bytes).
+    Removing seekfree_18tft.o(i.lcd_showuint8), (90 bytes).
+    Removing seekfree_18tft.o(i.lcd_writeData), (76 bytes).
+    Removing seekfree_18tft.o(i.lcd_writeIndex), (76 bytes).
+    Removing seekfree_18tft.o(i.lcd_writedata_16bit), (84 bytes).
+    Removing seekfree_18tft.o(i.showimage), (112 bytes).
+    Removing seekfree_7725.o(.rev16_text), (4 bytes).
+    Removing seekfree_7725.o(.revsh_text), (4 bytes).
+    Removing seekfree_7725.o(i.ov7725_init), (80 bytes).
+    Removing seekfree_7725.o(i.ov7725_read_ch), (172 bytes).
+    Removing seekfree_7725.o(i.ov7725_reg_init), (564 bytes).
+    Removing seekfree_7725.o(i.ov7725_sccb_waitack), (132 bytes).
+    Removing seekfree_7725.o(i.ov7725_send_ch), (116 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_delay), (24 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_init), (28 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_read_reg), (64 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_sendack), (108 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_start), (80 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_stop), (84 bytes).
+    Removing seekfree_7725.o(i.ov7725_simiic_write_reg), (38 bytes).
+    Removing seekfree_7725.o(.bss), (2400 bytes).
+    Removing seekfree_absolute_encoder.o(.rev16_text), (4 bytes).
+    Removing seekfree_absolute_encoder.o(.revsh_text), (4 bytes).
+    Removing seekfree_absolute_encoder.o(i.encoder_angle_spi), (64 bytes).
+    Removing seekfree_absolute_encoder.o(i.encoder_init_spi), (80 bytes).
+    Removing seekfree_absolute_encoder.o(i.encoder_self5_check), (22 bytes).
+    Removing seekfree_absolute_encoder.o(i.encoder_speed_spi), (124 bytes).
+    Removing seekfree_absolute_encoder.o(i.encoder_spi_r_reg_byte), (140 bytes).
+    Removing seekfree_absolute_encoder.o(i.encoder_spi_w_reg_byte), (152 bytes).
+    Removing seekfree_absolute_encoder.o(i.set_zero_position_spi), (34 bytes).
+    Removing seekfree_absolute_encoder.o(i.spi_wr_byte), (20 bytes).
+    Removing seekfree_absolute_encoder.o(.data), (4 bytes).
+    Removing seekfree_font.o(.rev16_text), (4 bytes).
+    Removing seekfree_font.o(.revsh_text), (4 bytes).
+    Removing seekfree_icm20602.o(.rev16_text), (4 bytes).
+    Removing seekfree_icm20602.o(.revsh_text), (4 bytes).
+    Removing seekfree_icm20602.o(i.get_icm20602_accdata), (88 bytes).
+    Removing seekfree_icm20602.o(i.get_icm20602_accdata_spi), (84 bytes).
+    Removing seekfree_icm20602.o(i.get_icm20602_gyro), (88 bytes).
+    Removing seekfree_icm20602.o(i.get_icm20602_gyro_spi), (84 bytes).
+    Removing seekfree_icm20602.o(i.icm20602_init), (124 bytes).
+    Removing seekfree_icm20602.o(i.icm20602_init_spi), (160 bytes).
+    Removing seekfree_icm20602.o(i.icm20602_self1_check), (30 bytes).
+    Removing seekfree_icm20602.o(i.icm20602_self3_check), (32 bytes).
+    Removing seekfree_icm20602.o(i.icm_spi_r_reg_byte), (76 bytes).
+    Removing seekfree_icm20602.o(i.icm_spi_r_reg_bytes), (56 bytes).
+    Removing seekfree_icm20602.o(i.icm_spi_w_reg_byte), (64 bytes).
+    Removing seekfree_icm20602.o(.data), (12 bytes).
+    Removing seekfree_iic.o(.rev16_text), (4 bytes).
+    Removing seekfree_iic.o(.revsh_text), (4 bytes).
+    Removing seekfree_iic.o(i.read_ch), (176 bytes).
+    Removing seekfree_iic.o(i.sccb_waitack), (136 bytes).
+    Removing seekfree_iic.o(i.send_ch), (116 bytes).
+    Removing seekfree_iic.o(i.simiic_delay), (24 bytes).
+    Removing seekfree_iic.o(i.simiic_init), (28 bytes).
+    Removing seekfree_iic.o(i.simiic_read_reg), (64 bytes).
+    Removing seekfree_iic.o(i.simiic_read_regs), (84 bytes).
+    Removing seekfree_iic.o(i.simiic_sendack), (108 bytes).
+    Removing seekfree_iic.o(i.simiic_start), (80 bytes).
+    Removing seekfree_iic.o(i.simiic_stop), (84 bytes).
+    Removing seekfree_iic.o(i.simiic_write_reg), (38 bytes).
+    Removing seekfree_iic.o(.data), (12 bytes).
+    Removing seekfree_ips114_spi.o(.rev16_text), (4 bytes).
+    Removing seekfree_ips114_spi.o(.revsh_text), (4 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_display_chinese), (172 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_displayimage032), (140 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_displayimage032_zoom), (138 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_displayimage032_zoom1), (152 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_displayimage7725), (104 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom), (130 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom1), (126 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_drawpoint), (28 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_showfloat), (188 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_showint16), (172 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_showint32), (104 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_showint8), (126 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_showstr), (40 bytes).
+    Removing seekfree_ips114_spi.o(i.ips114_showuint16), (136 bytes).
+    Removing seekfree_l3g4200d.o(.rev16_text), (4 bytes).
+    Removing seekfree_l3g4200d.o(.revsh_text), (4 bytes).
+    Removing seekfree_l3g4200d.o(i.get_l3g4200d), (112 bytes).
+    Removing seekfree_l3g4200d.o(i.l3g4200d_init), (74 bytes).
+    Removing seekfree_l3g4200d.o(i.l3g4200d_self_check), (30 bytes).
+    Removing seekfree_l3g4200d.o(.data), (6 bytes).
+    Removing seekfree_mma8451.o(.rev16_text), (4 bytes).
+    Removing seekfree_mma8451.o(.revsh_text), (4 bytes).
+    Removing seekfree_mma8451.o(i.get_mma8451), (172 bytes).
+    Removing seekfree_mma8451.o(i.mma8451_self_check), (30 bytes).
+    Removing seekfree_mma8451.o(i.mma845x_init), (46 bytes).
+    Removing seekfree_mma8451.o(.data), (6 bytes).
+    Removing seekfree_mpu6050.o(.rev16_text), (4 bytes).
+    Removing seekfree_mpu6050.o(.revsh_text), (4 bytes).
+    Removing seekfree_mpu6050.o(i.get_accdata), (88 bytes).
+    Removing seekfree_mpu6050.o(i.get_gyro), (88 bytes).
+    Removing seekfree_mpu6050.o(i.mpu6050_init), (88 bytes).
+    Removing seekfree_mpu6050.o(i.mpu6050_self1_check), (40 bytes).
+    Removing seekfree_mpu6050.o(.data), (12 bytes).
+    Removing seekfree_mt9v03x.o(.rev16_text), (4 bytes).
+    Removing seekfree_mt9v03x.o(.revsh_text), (4 bytes).
+    Removing seekfree_mt9v03x.o(i.get_config), (100 bytes).
+    Removing seekfree_mt9v03x.o(i.get_version), (72 bytes).
+    Removing seekfree_mt9v03x.o(i.mt9v03x_dma_init), (80 bytes).
+    Removing seekfree_mt9v03x.o(i.mt9v03x_exti_init), (36 bytes).
+    Removing seekfree_mt9v03x.o(i.mt9v03x_init), (128 bytes).
+    Removing seekfree_mt9v03x.o(i.mt9v03x_tim1_etr_init), (16 bytes).
+    Removing seekfree_mt9v03x.o(i.seekfree_sendimg_03x), (58 bytes).
+    Removing seekfree_mt9v03x.o(i.set_config), (116 bytes).
+    Removing seekfree_mt9v03x.o(i.set_exposure_time), (76 bytes).
+    Removing seekfree_mt9v03x.o(i.set_mt9v03x_reg), (112 bytes).
+    Removing seekfree_mt9v03x.o(.bss), (9400 bytes).
+    Removing seekfree_oled.o(.rev16_text), (4 bytes).
+    Removing seekfree_oled.o(.revsh_text), (4 bytes).
+    Removing seekfree_oled.o(i.oled_clrpixel), (54 bytes).
+    Removing seekfree_oled.o(i.oled_dis_bmp), (536 bytes).
+    Removing seekfree_oled.o(i.oled_fill), (58 bytes).
+    Removing seekfree_oled.o(i.oled_hexascii), (52 bytes).
+    Removing seekfree_oled.o(i.oled_init), (312 bytes).
+    Removing seekfree_oled.o(i.oled_int16), (72 bytes).
+    Removing seekfree_oled.o(i.oled_p6x8str), (100 bytes).
+    Removing seekfree_oled.o(i.oled_p8x16str), (140 bytes).
+    Removing seekfree_oled.o(i.oled_print_chinese), (94 bytes).
+    Removing seekfree_oled.o(i.oled_printf_float), (192 bytes).
+    Removing seekfree_oled.o(i.oled_printf_int32), (104 bytes).
+    Removing seekfree_oled.o(i.oled_putpixel), (56 bytes).
+    Removing seekfree_oled.o(i.oled_set_pos), (40 bytes).
+    Removing seekfree_oled.o(i.oled_uint16), (30 bytes).
+    Removing seekfree_oled.o(i.oled_wrcmd), (172 bytes).
+    Removing seekfree_oled.o(i.oled_wrdat), (172 bytes).
+    Removing seekfree_tsl1401.o(.rev16_text), (4 bytes).
+    Removing seekfree_tsl1401.o(.revsh_text), (4 bytes).
+    Removing seekfree_tsl1401.o(i.ccd_collect), (136 bytes).
+    Removing seekfree_tsl1401.o(i.ccd_init), (72 bytes).
+    Removing seekfree_tsl1401.o(i.ccd_send_data), (76 bytes).
+    Removing seekfree_tsl1401.o(.bss), (512 bytes).
+    Removing seekfree_tsl1401.o(.data), (6 bytes).
+    Removing seekfree_uart_7725.o(.rev16_text), (4 bytes).
+    Removing seekfree_uart_7725.o(.revsh_text), (4 bytes).
+    Removing seekfree_uart_7725.o(i.Image_Decompression), (64 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_get_all_config), (108 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_get_version), (76 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_set_all_config), (124 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_uart_dma_init), (80 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_uart_exti_init), (36 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_uart_get_id), (76 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_uart_init), (136 bytes).
+    Removing seekfree_uart_7725.o(i.ov7725_uart_tim_etr_init), (16 bytes).
+    Removing seekfree_uart_7725.o(i.seekfree_sendimg_7725), (60 bytes).
+    Removing seekfree_uart_7725.o(.bss), (2400 bytes).
+    Removing seekfree_virsco.o(.rev16_text), (4 bytes).
+    Removing seekfree_virsco.o(.revsh_text), (4 bytes).
+    Removing seekfree_virsco.o(i.CRC_CHECK), (68 bytes).
+    Removing seekfree_virsco.o(i.data_conversion), (86 bytes).
+    Removing seekfree_virsco.o(.bss), (10 bytes).
+    Removing seekfree_wireless.o(.rev16_text), (4 bytes).
+    Removing seekfree_wireless.o(.revsh_text), (4 bytes).
+    Removing seekfree_wireless.o(i.seekfree_wireless_init), (40 bytes).
+    Removing seekfree_wireless.o(i.seekfree_wireless_send_buff), (68 bytes).
+    Removing seekfree_wireless.o(i.wireless_uart_callback), (52 bytes).
+    Removing seekfree_wireless.o(.bss), (16 bytes).
+    Removing seekfree_wireless.o(.data), (2 bytes).
+    Removing hal_adc.o(.rev16_text), (4 bytes).
+    Removing hal_adc.o(.revsh_text), (4 bytes).
+    Removing hal_adc.o(i.ADC_AnalogWatchdogCmd), (24 bytes).
+    Removing hal_adc.o(i.ADC_AnalogWatchdogSingleChannelConfig), (20 bytes).
+    Removing hal_adc.o(i.ADC_AnalogWatchdogThresholdsConfig), (12 bytes).
+    Removing hal_adc.o(i.ADC_ClearFlag), (24 bytes).
+    Removing hal_adc.o(i.ADC_ClearITPendingBit), (24 bytes).
+    Removing hal_adc.o(i.ADC_Cmd), (24 bytes).
+    Removing hal_adc.o(i.ADC_DMACmd), (24 bytes).
+    Removing hal_adc.o(i.ADC_DeInit), (32 bytes).
+    Removing hal_adc.o(i.ADC_ExternalTrigConvCmd), (24 bytes).
+    Removing hal_adc.o(i.ADC_ExternalTrigInjectedConvCmd), (24 bytes).
+    Removing hal_adc.o(i.ADC_ExternalTrigInjectedConvConfig), (20 bytes).
+    Removing hal_adc.o(i.ADC_GetConversionValue), (6 bytes).
+    Removing hal_adc.o(i.ADC_GetDualModeConversionValue), (12 bytes).
+    Removing hal_adc.o(i.ADC_GetFlagStatus), (22 bytes).
+    Removing hal_adc.o(i.ADC_GetITStatus), (22 bytes).
+    Removing hal_adc.o(i.ADC_GetSoftwareStartConvStatus), (14 bytes).
+    Removing hal_adc.o(i.ADC_ITConfig), (54 bytes).
+    Removing hal_adc.o(i.ADC_Init), (56 bytes).
+    Removing hal_adc.o(i.ADC_RegularChannelConfig), (86 bytes).
+    Removing hal_adc.o(i.ADC_SoftwareStartConvCmd), (28 bytes).
+    Removing hal_adc.o(i.ADC_StructInit), (16 bytes).
+    Removing hal_adc.o(i.ADC_TempSensorCmd), (12 bytes).
+    Removing hal_adc.o(i.ADC_TempSensorVrefintCmd), (36 bytes).
+    Removing hal_adc.o(i.ADC_VrefintCmd), (12 bytes).
+    Removing hal_adc.o(i.exADC_TempSensorVrefintCmd), (88 bytes).
+    Removing hal_bkp.o(.rev16_text), (4 bytes).
+    Removing hal_bkp.o(.revsh_text), (4 bytes).
+    Removing hal_bkp.o(i.BKP_ReadBackupRegister), (16 bytes).
+    Removing hal_bkp.o(i.BKP_WriteBackupRegister), (12 bytes).
+    Removing hal_bkp.o(i.exBKP_ImmRead), (44 bytes).
+    Removing hal_bkp.o(i.exBKP_ImmWrite), (44 bytes).
+    Removing hal_bkp.o(i.exBKP_Init), (32 bytes).
+    Removing hal_comp.o(.rev16_text), (4 bytes).
+    Removing hal_comp.o(.revsh_text), (4 bytes).
+    Removing hal_comp.o(i.COMP_Cmd), (44 bytes).
+    Removing hal_comp.o(i.COMP_DeInit), (16 bytes).
+    Removing hal_comp.o(i.COMP_GetOutputLevel), (32 bytes).
+    Removing hal_comp.o(i.COMP_Init), (44 bytes).
+    Removing hal_comp.o(i.COMP_LockConfig), (24 bytes).
+    Removing hal_comp.o(i.COMP_SetCrv), (36 bytes).
+    Removing hal_comp.o(i.COMP_StructInit), (28 bytes).
+    Removing hal_comp.o(i.COMP_SwitchCmd), (44 bytes).
+    Removing hal_comp.o(i.exCOMP_CrvCmd), (36 bytes).
+    Removing hal_comp.o(i.exCOMP_CrvSrc), (16 bytes).
+    Removing hal_comp.o(i.exCOMP_SwitchCrv), (16 bytes).
+    Removing hal_crc.o(.rev16_text), (4 bytes).
+    Removing hal_crc.o(.revsh_text), (4 bytes).
+    Removing hal_crc.o(i.CRC_CalcBlockCRC), (36 bytes).
+    Removing hal_crc.o(i.CRC_CalcCRC), (20 bytes).
+    Removing hal_crc.o(i.CRC_GetCRC), (12 bytes).
+    Removing hal_crc.o(i.CRC_GetIDRegister), (12 bytes).
+    Removing hal_crc.o(i.CRC_ResetDR), (12 bytes).
+    Removing hal_crc.o(i.CRC_SetIDRegister), (12 bytes).
+    Removing hal_dbg.o(.rev16_text), (4 bytes).
+    Removing hal_dbg.o(.revsh_text), (4 bytes).
+    Removing hal_dbg.o(i.DBGMCU_Configure), (32 bytes).
+    Removing hal_div.o(.rev16_text), (4 bytes).
+    Removing hal_div.o(.revsh_text), (4 bytes).
+    Removing hal_div.o(i.Divider_Calc), (16 bytes).
+    Removing hal_div.o(i.HWDivider_Calc), (36 bytes).
+    Removing hal_div.o(i.HWDivider_Init), (24 bytes).
+    Removing hal_dma.o(.rev16_text), (4 bytes).
+    Removing hal_dma.o(.revsh_text), (4 bytes).
+    Removing hal_dma.o(i.DMA_ClearITPendingBit), (12 bytes).
+    Removing hal_dma.o(i.DMA_Cmd), (12 bytes).
+    Removing hal_dma.o(i.DMA_DeInit), (56 bytes).
+    Removing hal_dma.o(i.DMA_GetCurrDataCounter), (8 bytes).
+    Removing hal_dma.o(i.DMA_GetITStatus), (24 bytes).
+    Removing hal_dma.o(i.DMA_ITConfig), (20 bytes).
+    Removing hal_dma.o(i.DMA_Init), (76 bytes).
+    Removing hal_dma.o(i.DMA_StructInit), (28 bytes).
+    Removing hal_dma.o(i.exDMA_ClearITPendingBit), (44 bytes).
+    Removing hal_dma.o(i.exDMA_SetMemoryAddress), (4 bytes).
+    Removing hal_dma.o(i.exDMA_SetPeripheralAddress), (4 bytes).
+    Removing hal_dma.o(i.exDMA_SetTransmitLen), (4 bytes).
+    Removing hal_exti.o(.rev16_text), (4 bytes).
+    Removing hal_exti.o(.revsh_text), (4 bytes).
+    Removing hal_exti.o(i.EXTI_ClearITPendingBit), (12 bytes).
+    Removing hal_exti.o(i.EXTI_DeInit), (64 bytes).
+    Removing hal_exti.o(i.EXTI_GenerateSWInterrupt), (16 bytes).
+    Removing hal_exti.o(i.EXTI_GetFlagStatus), (24 bytes).
+    Removing hal_exti.o(i.EXTI_Init), (192 bytes).
+    Removing hal_exti.o(i.EXTI_LineConfig), (60 bytes).
+    Removing hal_exti.o(i.EXTI_MemoryRemapConfig), (20 bytes).
+    Removing hal_exti.o(i.EXTI_StructInit), (16 bytes).
+    Removing hal_exti.o(i.exEXTI_GetAllFlagStatus), (12 bytes).
+    Removing hal_exti.o(i.exEXTI_LineDisable), (40 bytes).
+    Removing hal_flash.o(.rev16_text), (4 bytes).
+    Removing hal_flash.o(.revsh_text), (4 bytes).
+    Removing hal_flash.o(i.FLASH_ClearFlag), (12 bytes).
+    Removing hal_flash.o(i.FLASH_EnableWriteProtection), (56 bytes).
+    Removing hal_flash.o(i.FLASH_EraseAllPages), (40 bytes).
+    Removing hal_flash.o(i.FLASH_EraseOptionBytes), (44 bytes).
+    Removing hal_flash.o(i.FLASH_ErasePage), (48 bytes).
+    Removing hal_flash.o(i.FLASH_EraseProtect), (44 bytes).
+    Removing hal_flash.o(i.FLASH_GetFlagStatus), (36 bytes).
+    Removing hal_flash.o(i.FLASH_GetPrefetchBufferStatus), (16 bytes).
+    Removing hal_flash.o(i.FLASH_GetStatus), (56 bytes).
+    Removing hal_flash.o(i.FLASH_GetUserOptionByte), (12 bytes).
+    Removing hal_flash.o(i.FLASH_GetWriteProtectionOptionByte), (12 bytes).
+    Removing hal_flash.o(i.FLASH_HalfCycleAccessCmd), (28 bytes).
+    Removing hal_flash.o(i.FLASH_ITConfig), (32 bytes).
+    Removing hal_flash.o(i.FLASH_Lock), (20 bytes).
+    Removing hal_flash.o(i.FLASH_OPTB_Enable), (24 bytes).
+    Removing hal_flash.o(i.FLASH_PrefetchBufferCmd), (28 bytes).
+    Removing hal_flash.o(i.FLASH_ProgramHalfWord), (32 bytes).
+    Removing hal_flash.o(i.FLASH_ProgramOptionByteData), (72 bytes).
+    Removing hal_flash.o(i.FLASH_ProgramOptionHalfWord), (40 bytes).
+    Removing hal_flash.o(i.FLASH_ProgramProtect), (16 bytes).
+    Removing hal_flash.o(i.FLASH_ProgramWord), (34 bytes).
+    Removing hal_flash.o(i.FLASH_SetLatency), (20 bytes).
+    Removing hal_flash.o(i.FLASH_Unlock), (24 bytes).
+    Removing hal_flash.o(i.FLASH_UserOptionByteConfig), (72 bytes).
+    Removing hal_flash.o(i.FLASH_WaitForLastOperation), (60 bytes).
+    Removing hal_flash.o(i.exFLASH_EraseEE), (20 bytes).
+    Removing hal_flash.o(i.exFLASH_FindEmpty), (44 bytes).
+    Removing hal_flash.o(i.exFLASH_Locate), (70 bytes).
+    Removing hal_flash.o(i.exFLASH_ProgramEE), (48 bytes).
+    Removing hal_flash.o(i.exFLASH_ReadEE), (36 bytes).
+    Removing hal_flash.o(i.exFLASH_WriteEE), (132 bytes).
+    Removing hal_gpio.o(.rev16_text), (4 bytes).
+    Removing hal_gpio.o(.revsh_text), (4 bytes).
+    Removing hal_gpio.o(i.GPIO_AFIODeInit), (52 bytes).
+    Removing hal_gpio.o(i.GPIO_DeInit), (86 bytes).
+    Removing hal_gpio.o(i.GPIO_Init), (154 bytes).
+    Removing hal_gpio.o(i.GPIO_PinAFConfig), (40 bytes).
+    Removing hal_gpio.o(i.GPIO_PinLock), (20 bytes).
+    Removing hal_gpio.o(i.GPIO_PinLockConfig), (24 bytes).
+    Removing hal_gpio.o(i.GPIO_ReadInputData), (8 bytes).
+    Removing hal_gpio.o(i.GPIO_ReadInputDataBit), (18 bytes).
+    Removing hal_gpio.o(i.GPIO_ReadOutputData), (8 bytes).
+    Removing hal_gpio.o(i.GPIO_ReadOutputDataBit), (18 bytes).
+    Removing hal_gpio.o(i.GPIO_ResetBits), (4 bytes).
+    Removing hal_gpio.o(i.GPIO_SetBits), (4 bytes).
+    Removing hal_gpio.o(i.GPIO_StructInit), (16 bytes).
+    Removing hal_gpio.o(i.GPIO_Write), (4 bytes).
+    Removing hal_gpio.o(i.GPIO_WriteBit), (12 bytes).
+    Removing hal_gpio.o(i.exGPIO_PinAFConfig), (74 bytes).
+    Removing hal_i2c.o(.rev16_text), (4 bytes).
+    Removing hal_i2c.o(.revsh_text), (4 bytes).
+    Removing hal_i2c.o(i.I2C_CheckEvent), (44 bytes).
+    Removing hal_i2c.o(i.I2C_ClearFlag), (146 bytes).
+    Removing hal_i2c.o(i.I2C_ClearITPendingBit), (146 bytes).
+    Removing hal_i2c.o(i.I2C_Cmd), (32 bytes).
+    Removing hal_i2c.o(i.I2C_DMACmd), (60 bytes).
+    Removing hal_i2c.o(i.I2C_DMAConfigure), (10 bytes).
+    Removing hal_i2c.o(i.I2C_DeInit), (32 bytes).
+    Removing hal_i2c.o(i.I2C_DualAddressCmd), (32 bytes).
+    Removing hal_i2c.o(i.I2C_GeneralCallCmd), (28 bytes).
+    Removing hal_i2c.o(i.I2C_GenerateSTART), (24 bytes).
+    Removing hal_i2c.o(i.I2C_GenerateSTOP), (56 bytes).
+    Removing hal_i2c.o(i.I2C_GetFlagStatus), (72 bytes).
+    Removing hal_i2c.o(i.I2C_GetITStatus), (18 bytes).
+    Removing hal_i2c.o(i.I2C_GetLastEvent), (16 bytes).
+    Removing hal_i2c.o(i.I2C_ITConfig), (36 bytes).
+    Removing hal_i2c.o(i.I2C_Init), (208 bytes).
+    Removing hal_i2c.o(i.I2C_OwnAddress2Config), (14 bytes).
+    Removing hal_i2c.o(i.I2C_ReadCmd), (8 bytes).
+    Removing hal_i2c.o(i.I2C_ReadRegister), (6 bytes).
+    Removing hal_i2c.o(i.I2C_ReceiveData), (20 bytes).
+    Removing hal_i2c.o(i.I2C_Send7bitAddress), (6 bytes).
+    Removing hal_i2c.o(i.I2C_SendData), (4 bytes).
+    Removing hal_i2c.o(i.I2C_SendSlaveAddress), (6 bytes).
+    Removing hal_i2c.o(i.I2C_SlaveConfigure), (24 bytes).
+    Removing hal_i2c.o(i.I2C_StructInit), (24 bytes).
+    Removing hal_i2c.o(.data), (4 bytes).
+    Removing hal_iwdg.o(.rev16_text), (4 bytes).
+    Removing hal_iwdg.o(.revsh_text), (4 bytes).
+    Removing hal_iwdg.o(i.IWDG_ClearIT), (20 bytes).
+    Removing hal_iwdg.o(i.IWDG_ClearITPendingBit), (20 bytes).
+    Removing hal_iwdg.o(i.IWDG_Enable), (16 bytes).
+    Removing hal_iwdg.o(i.IWDG_EnableIT), (20 bytes).
+    Removing hal_iwdg.o(i.IWDG_GetFlagStatus), (24 bytes).
+    Removing hal_iwdg.o(i.IWDG_GetReload), (12 bytes).
+    Removing hal_iwdg.o(i.IWDG_OverflowConfig), (28 bytes).
+    Removing hal_iwdg.o(i.IWDG_ReloadCounter), (16 bytes).
+    Removing hal_iwdg.o(i.IWDG_Reset), (20 bytes).
+    Removing hal_iwdg.o(i.IWDG_SetPrescaler), (20 bytes).
+    Removing hal_iwdg.o(i.IWDG_SetReload), (20 bytes).
+    Removing hal_iwdg.o(i.IWDG_WriteAccessCmd), (12 bytes).
+    Removing hal_iwdg.o(i.PVU_CheckStatus), (16 bytes).
+    Removing hal_iwdg.o(i.RVU_CheckStatus), (16 bytes).
+    Removing hal_misc.o(.rev16_text), (4 bytes).
+    Removing hal_misc.o(.revsh_text), (4 bytes).
+    Removing hal_misc.o(i.NVIC_Init), (104 bytes).
+    Removing hal_misc.o(i.NVIC_SystemLPConfig), (32 bytes).
+    Removing hal_misc.o(i.SysTick_CLKSourceConfig), (36 bytes).
+    Removing hal_misc.o(i.exNVIC_Init), (104 bytes).
+    Removing hal_opamp.o(.rev16_text), (4 bytes).
+    Removing hal_opamp.o(.revsh_text), (4 bytes).
+    Removing hal_opamp.o(i.OPAMP_Configure), (32 bytes).
+    Removing hal_pwr.o(.rev16_text), (4 bytes).
+    Removing hal_pwr.o(.revsh_text), (4 bytes).
+    Removing hal_pwr.o(i.PWR_BackupAccessCmd), (40 bytes).
+    Removing hal_pwr.o(i.PWR_ClearFlag), (20 bytes).
+    Removing hal_pwr.o(i.PWR_DeInit), (12 bytes).
+    Removing hal_pwr.o(i.PWR_EnterSTANDBYMode), (40 bytes).
+    Removing hal_pwr.o(i.PWR_EnterSTOPMode), (44 bytes).
+    Removing hal_pwr.o(i.PWR_GetFlagStatus), (16 bytes).
+    Removing hal_pwr.o(i.PWR_PVDCmd), (36 bytes).
+    Removing hal_pwr.o(i.PWR_PVDLevelConfig), (24 bytes).
+    Removing hal_pwr.o(i.PWR_WakeUpPinCmd), (40 bytes).
+    Removing hal_pwr.o(i.exPWR_EnterLowPowerMode), (52 bytes).
+    Removing hal_rcc.o(.rev16_text), (4 bytes).
+    Removing hal_rcc.o(.revsh_text), (4 bytes).
+    Removing hal_rcc.o(i.RCC_ADCCLKConfig), (24 bytes).
+    Removing hal_rcc.o(i.RCC_AHBPeriphClockCmd), (32 bytes).
+    Removing hal_rcc.o(i.RCC_AHBPeriphResetCmd), (32 bytes).
+    Removing hal_rcc.o(i.RCC_APB1PeriphClockCmd), (32 bytes).
+    Removing hal_rcc.o(i.RCC_APB1PeriphResetCmd), (32 bytes).
+    Removing hal_rcc.o(i.RCC_APB2PeriphClockCmd), (32 bytes).
+    Removing hal_rcc.o(i.RCC_APB2PeriphResetCmd), (32 bytes).
+    Removing hal_rcc.o(i.RCC_ClearFlag), (20 bytes).
+    Removing hal_rcc.o(i.RCC_ClearITPendingBit), (20 bytes).
+    Removing hal_rcc.o(i.RCC_ClockSecuritySystemCmd), (24 bytes).
+    Removing hal_rcc.o(i.RCC_DeInit), (64 bytes).
+    Removing hal_rcc.o(i.RCC_GetClocksFreq), (72 bytes).
+    Removing hal_rcc.o(i.RCC_GetFlagStatus), (56 bytes).
+    Removing hal_rcc.o(i.RCC_GetHCLKFreq), (32 bytes).
+    Removing hal_rcc.o(i.RCC_GetITStatus), (16 bytes).
+    Removing hal_rcc.o(i.RCC_GetPCLK1Freq), (36 bytes).
+    Removing hal_rcc.o(i.RCC_GetPCLK2Freq), (36 bytes).
+    Removing hal_rcc.o(i.RCC_GetSYSCLKSource), (16 bytes).
+    Removing hal_rcc.o(i.RCC_GetSysClockFreq), (136 bytes).
+    Removing hal_rcc.o(i.RCC_HCLKConfig), (20 bytes).
+    Removing hal_rcc.o(i.RCC_HSEConfig), (88 bytes).
+    Removing hal_rcc.o(i.RCC_HSICmd), (20 bytes).
+    Removing hal_rcc.o(i.RCC_ITConfig), (36 bytes).
+    Removing hal_rcc.o(i.RCC_LSICmd), (20 bytes).
+    Removing hal_rcc.o(i.RCC_MCOConfig), (24 bytes).
+    Removing hal_rcc.o(i.RCC_PCLK1Config), (24 bytes).
+    Removing hal_rcc.o(i.RCC_PCLK2Config), (24 bytes).
+    Removing hal_rcc.o(i.RCC_PLLCmd), (24 bytes).
+    Removing hal_rcc.o(i.RCC_PLLConfig), (92 bytes).
+    Removing hal_rcc.o(i.RCC_PLLDMDNConfig), (32 bytes).
+    Removing hal_rcc.o(i.RCC_SYSCLKConfig), (20 bytes).
+    Removing hal_rcc.o(i.RCC_WaitForFlagStartUp), (38 bytes).
+    Removing hal_rcc.o(i.RCC_WaitForHSEStartUp), (46 bytes).
+    Removing hal_rcc.o(i.__NVIC_SetPriority), (120 bytes).
+    Removing hal_rcc.o(i.exRCC_APB1PeriphReset), (24 bytes).
+    Removing hal_rcc.o(i.exRCC_APB2PeriphReset), (24 bytes).
+    Removing hal_rcc.o(i.exRCC_BackupReset), (2 bytes).
+    Removing hal_rcc.o(i.exRCC_SystickDisable), (20 bytes).
+    Removing hal_rcc.o(i.exRCC_SystickEnable), (72 bytes).
+    Removing hal_rcc.o(.data), (16 bytes).
+    Removing hal_spi.o(.rev16_text), (4 bytes).
+    Removing hal_spi.o(.revsh_text), (4 bytes).
+    Removing hal_spi.o(i.SPI_BiDirectionalLineConfig), (64 bytes).
+    Removing hal_spi.o(i.SPI_CSInternalSelected), (24 bytes).
+    Removing hal_spi.o(i.SPI_ClearITPendingBit), (8 bytes).
+    Removing hal_spi.o(i.SPI_Cmd), (24 bytes).
+    Removing hal_spi.o(i.SPI_DMACmd), (28 bytes).
+    Removing hal_spi.o(i.SPI_DataSizeConfig), (20 bytes).
+    Removing hal_spi.o(i.SPI_DataSizeTypeConfig), (18 bytes).
+    Removing hal_spi.o(i.SPI_DeInit), (72 bytes).
+    Removing hal_spi.o(i.SPI_FifoTrigger), (20 bytes).
+    Removing hal_spi.o(i.SPI_GetFlagStatus), (18 bytes).
+    Removing hal_spi.o(i.SPI_GetITStatus), (18 bytes).
+    Removing hal_spi.o(i.SPI_ITConfig), (38 bytes).
+    Removing hal_spi.o(i.SPI_Init), (140 bytes).
+    Removing hal_spi.o(i.SPI_NSSInternalSoftwareConfig), (28 bytes).
+    Removing hal_spi.o(i.SPI_ReceiveData), (50 bytes).
+    Removing hal_spi.o(i.SPI_RxBytes), (4 bytes).
+    Removing hal_spi.o(i.SPI_SendData), (42 bytes).
+    Removing hal_spi.o(i.SPI_SlaveAdjust), (24 bytes).
+    Removing hal_spi.o(i.SPI_StructInit), (32 bytes).
+    Removing hal_spi.o(i.exSPI_CSInternalSelected), (24 bytes).
+    Removing hal_spi.o(i.exSPI_DMACmd), (28 bytes).
+    Removing hal_spi.o(i.exSPI_DataEdgeAdjust), (58 bytes).
+    Removing hal_spi.o(i.exSPI_ITCmd), (24 bytes).
+    Removing hal_spi.o(i.exSPI_ITConfig), (20 bytes).
+    Removing hal_sqrt.o(.rev16_text), (4 bytes).
+    Removing hal_sqrt.o(.revsh_text), (4 bytes).
+    Removing hal_sqrt.o(i.HWRoot_Get), (12 bytes).
+    Removing hal_sqrt.o(i.HWRoot_Set), (12 bytes).
+    Removing hal_tim.o(.rev16_text), (4 bytes).
+    Removing hal_tim.o(.revsh_text), (4 bytes).
+    Removing hal_tim.o(i.TI1_Configure), (32 bytes).
+    Removing hal_tim.o(i.TI2_Configure), (38 bytes).
+    Removing hal_tim.o(i.TI3_Configure), (38 bytes).
+    Removing hal_tim.o(i.TI4_Configure), (42 bytes).
+    Removing hal_tim.o(i.TIM_ARRPreloadConfig), (24 bytes).
+    Removing hal_tim.o(i.TIM_BDTRConfig), (30 bytes).
+    Removing hal_tim.o(i.TIM_BDTRStructInit), (18 bytes).
+    Removing hal_tim.o(i.TIM_CCPreloadControl), (24 bytes).
+    Removing hal_tim.o(i.TIM_CCxCmd), (20 bytes).
+    Removing hal_tim.o(i.TIM_CCxNCmd), (24 bytes).
+    Removing hal_tim.o(i.TIM_ClearFlag), (8 bytes).
+    Removing hal_tim.o(i.TIM_ClearITPendingBit), (8 bytes).
+    Removing hal_tim.o(i.TIM_ClearOC1Ref), (12 bytes).
+    Removing hal_tim.o(i.TIM_ClearOC2Ref), (16 bytes).
+    Removing hal_tim.o(i.TIM_ClearOC3Ref), (12 bytes).
+    Removing hal_tim.o(i.TIM_ClearOC4Ref), (16 bytes).
+    Removing hal_tim.o(i.TIM_Cmd), (24 bytes).
+    Removing hal_tim.o(i.TIM_CounterModeConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_CtrlPWMOutputs), (28 bytes).
+    Removing hal_tim.o(i.TIM_DMACmd), (20 bytes).
+    Removing hal_tim.o(i.TIM_DMAConfig), (8 bytes).
+    Removing hal_tim.o(i.TIM_DeInit), (144 bytes).
+    Removing hal_tim.o(i.TIM_ETRClockMode1Config), (34 bytes).
+    Removing hal_tim.o(i.TIM_ETRClockMode2Config), (34 bytes).
+    Removing hal_tim.o(i.TIM_ETRConfig), (50 bytes).
+    Removing hal_tim.o(i.TIM_EncoderInterfaceConfig), (44 bytes).
+    Removing hal_tim.o(i.TIM_ForcedOC1Config), (12 bytes).
+    Removing hal_tim.o(i.TIM_ForcedOC2Config), (16 bytes).
+    Removing hal_tim.o(i.TIM_ForcedOC3Config), (12 bytes).
+    Removing hal_tim.o(i.TIM_ForcedOC4Config), (16 bytes).
+    Removing hal_tim.o(i.TIM_GenerateEvent), (4 bytes).
+    Removing hal_tim.o(i.TIM_GetCapture1), (6 bytes).
+    Removing hal_tim.o(i.TIM_GetCapture2), (6 bytes).
+    Removing hal_tim.o(i.TIM_GetCapture3), (6 bytes).
+    Removing hal_tim.o(i.TIM_GetCapture4), (6 bytes).
+    Removing hal_tim.o(i.TIM_GetCounter), (6 bytes).
+    Removing hal_tim.o(i.TIM_GetFlagStatus), (18 bytes).
+    Removing hal_tim.o(i.TIM_GetITStatus), (26 bytes).
+    Removing hal_tim.o(i.TIM_GetPrescaler), (8 bytes).
+    Removing hal_tim.o(i.TIM_ICInit), (120 bytes).
+    Removing hal_tim.o(i.TIM_ICStructInit), (18 bytes).
+    Removing hal_tim.o(i.TIM_ITConfig), (20 bytes).
+    Removing hal_tim.o(i.TIM_ITRxExternalClockConfig), (24 bytes).
+    Removing hal_tim.o(i.TIM_InternalClockConfig), (10 bytes).
+    Removing hal_tim.o(i.TIM_OC1FastConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_OC1Init), (108 bytes).
+    Removing hal_tim.o(i.TIM_OC1NPolarityConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_OC1PolarityConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_OC1PreloadConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_OC2FastConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OC2Init), (104 bytes).
+    Removing hal_tim.o(i.TIM_OC2NPolarityConfig), (14 bytes).
+    Removing hal_tim.o(i.TIM_OC2PolarityConfig), (14 bytes).
+    Removing hal_tim.o(i.TIM_OC2PreloadConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OC3FastConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_OC3Init), (104 bytes).
+    Removing hal_tim.o(i.TIM_OC3NPolarityConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OC3PolarityConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OC3PreloadConfig), (12 bytes).
+    Removing hal_tim.o(i.TIM_OC4FastConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OC4Init), (84 bytes).
+    Removing hal_tim.o(i.TIM_OC4PolarityConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OC4PreloadConfig), (16 bytes).
+    Removing hal_tim.o(i.TIM_OCStructInit), (20 bytes).
+    Removing hal_tim.o(i.TIM_PWMIConfig), (128 bytes).
+    Removing hal_tim.o(i.TIM_PrescalerConfig), (6 bytes).
+    Removing hal_tim.o(i.TIM_SelectCCDMA), (24 bytes).
+    Removing hal_tim.o(i.TIM_SelectCOM), (24 bytes).
+    Removing hal_tim.o(i.TIM_SelectHallSensor), (24 bytes).
+    Removing hal_tim.o(i.TIM_SelectInputTrigger), (12 bytes).
+    Removing hal_tim.o(i.TIM_SelectMasterSlaveMode), (12 bytes).
+    Removing hal_tim.o(i.TIM_SelectOCxM), (92 bytes).
+    Removing hal_tim.o(i.TIM_SelectOnePulseMode), (12 bytes).
+    Removing hal_tim.o(i.TIM_SelectOutputTrigger), (12 bytes).
+    Removing hal_tim.o(i.TIM_SelectSlaveMode), (12 bytes).
+    Removing hal_tim.o(i.TIM_SetAutoreload), (4 bytes).
+    Removing hal_tim.o(i.TIM_SetClockDivision), (14 bytes).
+    Removing hal_tim.o(i.TIM_SetCompare1), (18 bytes).
+    Removing hal_tim.o(i.TIM_SetCompare2), (18 bytes).
+    Removing hal_tim.o(i.TIM_SetCompare3), (18 bytes).
+    Removing hal_tim.o(i.TIM_SetCompare4), (18 bytes).
+    Removing hal_tim.o(i.TIM_SetCounter), (18 bytes).
+    Removing hal_tim.o(i.TIM_SetIC1Prescaler), (12 bytes).
+    Removing hal_tim.o(i.TIM_SetIC2Prescaler), (16 bytes).
+    Removing hal_tim.o(i.TIM_SetIC3Prescaler), (12 bytes).
+    Removing hal_tim.o(i.TIM_SetIC4Prescaler), (16 bytes).
+    Removing hal_tim.o(i.TIM_TIxExternalClockConfig), (58 bytes).
+    Removing hal_tim.o(i.TIM_TimeBaseInit), (92 bytes).
+    Removing hal_tim.o(i.TIM_TimeBaseStructInit), (18 bytes).
+    Removing hal_tim.o(i.TIM_UpdateDisableConfig), (24 bytes).
+    Removing hal_tim.o(i.TIM_UpdateRequestConfig), (12 bytes).
+    Removing hal_tim.o(i.exTIM_ClearOC5Ref), (12 bytes).
+    Removing hal_tim.o(i.exTIM_DirectOutput), (28 bytes).
+    Removing hal_tim.o(i.exTIM_GetCapture5), (6 bytes).
+    Removing hal_tim.o(i.exTIM_OC5FastConfig), (12 bytes).
+    Removing hal_tim.o(i.exTIM_OC5Init), (80 bytes).
+    Removing hal_tim.o(i.exTIM_OC5PolarityConfig), (16 bytes).
+    Removing hal_tim.o(i.exTIM_OC5PreloadConfig), (12 bytes).
+    Removing hal_tim.o(i.exTIM_SetCompare5), (6 bytes).
+    Removing hal_tim.o(i.exTIM_SetIC1Plority), (24 bytes).
+    Removing hal_tim.o(i.exTIM_SetIC2Plority), (24 bytes).
+    Removing hal_tim.o(i.exTIM_SetIC3Plority), (28 bytes).
+    Removing hal_tim.o(i.exTIM_SetIC4Plority), (28 bytes).
+    Removing hal_uart.o(.rev16_text), (4 bytes).
+    Removing hal_uart.o(.revsh_text), (4 bytes).
+    Removing hal_uart.o(i.UART_ClearITPendingBit), (4 bytes).
+    Removing hal_uart.o(i.UART_Cmd), (12 bytes).
+    Removing hal_uart.o(i.UART_DMACmd), (18 bytes).
+    Removing hal_uart.o(i.UART_DeInit), (44 bytes).
+    Removing hal_uart.o(i.UART_Enable9bit), (16 bytes).
+    Removing hal_uart.o(i.UART_GetFlagStatus), (18 bytes).
+    Removing hal_uart.o(i.UART_GetITStatus), (18 bytes).
+    Removing hal_uart.o(i.UART_HalfDuplexCmd), (16 bytes).
+    Removing hal_uart.o(i.UART_ITConfig), (20 bytes).
+    Removing hal_uart.o(i.UART_Init), (120 bytes).
+    Removing hal_uart.o(i.UART_ReceiveData), (8 bytes).
+    Removing hal_uart.o(i.UART_ReceiverWakeUpCmd), (16 bytes).
+    Removing hal_uart.o(i.UART_SendBreak), (10 bytes).
+    Removing hal_uart.o(i.UART_SendData), (6 bytes).
+    Removing hal_uart.o(i.UART_Set9bitAutomaticToggle), (16 bytes).
+    Removing hal_uart.o(i.UART_Set9bitLevel), (16 bytes).
+    Removing hal_uart.o(i.UART_Set9bitPolarity), (14 bytes).
+    Removing hal_uart.o(i.UART_SetGuardTime), (16 bytes).
+    Removing hal_uart.o(i.UART_SetRXAddress), (12 bytes).
+    Removing hal_uart.o(i.UART_SetRXMASK), (12 bytes).
+    Removing hal_uart.o(i.UART_SmartCardCmd), (12 bytes).
+    Removing hal_uart.o(i.UART_SmartCardNACKCmd), (14 bytes).
+    Removing hal_uart.o(i.UART_StructInit), (26 bytes).
+    Removing hal_uart.o(i.UART_WakeUpConfig), (14 bytes).
+    Removing hal_uid.o(.rev16_text), (4 bytes).
+    Removing hal_uid.o(.revsh_text), (4 bytes).
+    Removing hal_uid.o(i.GetChipUID), (32 bytes).
+    Removing hal_uid.o(.bss), (12 bytes).
+    Removing hal_ver.o(.rev16_text), (4 bytes).
+    Removing hal_ver.o(.revsh_text), (4 bytes).
+    Removing hal_ver.o(i.Get_ChipsetDEVID), (12 bytes).
+    Removing hal_ver.o(i.Get_ChipsetREVID), (16 bytes).
+    Removing hal_ver.o(i.Get_ChipsetUIDw0), (12 bytes).
+    Removing hal_ver.o(i.Get_ChipsetUIDw1), (12 bytes).
+    Removing hal_ver.o(i.Get_ChipsetUIDw2), (12 bytes).
+    Removing hal_ver.o(i.Get_MM32LibReleaseDate), (8 bytes).
+    Removing hal_ver.o(i.Get_MM32LibVersion), (8 bytes).
+    Removing hal_wwdg.o(.rev16_text), (4 bytes).
+    Removing hal_wwdg.o(.revsh_text), (4 bytes).
+    Removing hal_wwdg.o(i.WWDG_ClearFlag), (20 bytes).
+    Removing hal_wwdg.o(i.WWDG_DeInit), (12 bytes).
+    Removing hal_wwdg.o(i.WWDG_Enable), (16 bytes).
+    Removing hal_wwdg.o(i.WWDG_EnableIT), (20 bytes).
+    Removing hal_wwdg.o(i.WWDG_GetCounter), (16 bytes).
+    Removing hal_wwdg.o(i.WWDG_GetFlagStatus), (20 bytes).
+    Removing hal_wwdg.o(i.WWDG_SetCounter), (16 bytes).
+    Removing hal_wwdg.o(i.WWDG_SetPrescaler), (24 bytes).
+    Removing hal_wwdg.o(i.WWDG_SetWindowValue), (24 bytes).
+    Removing dadd.o(.text), (356 bytes).
+    Removing dmul.o(.text), (208 bytes).
+    Removing dflti.o(.text), (40 bytes).
+    Removing dfixi.o(.text), (72 bytes).
+    Removing cdcmple.o(.text), (40 bytes).
+    Removing cdrcmple.o(.text), (40 bytes).
+    Removing depilogue.o(.text), (190 bytes).
+    Removing spi_master.o(i.__ARM_common_ll_muluu), (48 bytes).
+    Removing depilogue.o(i.__ARM_clz), (46 bytes).
+
+719 unused section(s) (total 47814 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
+    ../fplib/microlib/fpdiv.c                0x00000000   Number         0  fdiv.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_adc.c 0x00000000   Number         0  hal_adc.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_bkp.c 0x00000000   Number         0  hal_bkp.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_comp.c 0x00000000   Number         0  hal_comp.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_crc.c 0x00000000   Number         0  hal_crc.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_dbg.c 0x00000000   Number         0  hal_dbg.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_div.c 0x00000000   Number         0  hal_div.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_dma.c 0x00000000   Number         0  hal_dma.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_exti.c 0x00000000   Number         0  hal_exti.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_flash.c 0x00000000   Number         0  hal_flash.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_gpio.c 0x00000000   Number         0  hal_gpio.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_i2c.c 0x00000000   Number         0  hal_i2c.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_iwdg.c 0x00000000   Number         0  hal_iwdg.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_misc.c 0x00000000   Number         0  hal_misc.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_opamp.c 0x00000000   Number         0  hal_opamp.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_pwr.c 0x00000000   Number         0  hal_pwr.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_rcc.c 0x00000000   Number         0  hal_rcc.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_spi.c 0x00000000   Number         0  hal_spi.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_sqrt.c 0x00000000   Number         0  hal_sqrt.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_tim.c 0x00000000   Number         0  hal_tim.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_uart.c 0x00000000   Number         0  hal_uart.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_uid.c 0x00000000   Number         0  hal_uid.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_ver.c 0x00000000   Number         0  hal_ver.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Src\hal_wwdg.c 0x00000000   Number         0  hal_wwdg.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\Source\KEIL_StartAsm\startup_mm32spin2xx_p_keil.s 0x00000000   Number         0  startup_mm32spin2xx_p_keil.o ABSOLUTE
+    ..\..\Libraries\Device\MM32SPIN2xx_p\Source\system_mm32spin2xx_p.c 0x00000000   Number         0  system_mm32spin2xx_p.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\board\board.c 0x00000000   Number         0  board.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\common\SEEKFREE_PRINTF.c 0x00000000   Number         0  seekfree_printf.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\common\common.c 0x00000000   Number         0  common.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_adc.c 0x00000000   Number         0  zf_adc.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_camera.c 0x00000000   Number         0  zf_camera.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_exti.c 0x00000000   Number         0  zf_exti.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_flash.c 0x00000000   Number         0  zf_flash.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_gpio.c 0x00000000   Number         0  zf_gpio.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_pit.c 0x00000000   Number         0  zf_pit.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_pwm.c 0x00000000   Number         0  zf_pwm.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_spi.c 0x00000000   Number         0  zf_spi.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_systick.c 0x00000000   Number         0  zf_systick.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_tim.c 0x00000000   Number         0  zf_tim.o ABSOLUTE
+    ..\..\Libraries\seekfree_libraries\zf_uart.c 0x00000000   Number         0  zf_uart.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_18TFT.c 0x00000000   Number         0  seekfree_18tft.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_7725.c 0x00000000   Number         0  seekfree_7725.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_ABSOLUTE_ENCODER.c 0x00000000   Number         0  seekfree_absolute_encoder.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_FONT.c 0x00000000   Number         0  seekfree_font.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_ICM20602.c 0x00000000   Number         0  seekfree_icm20602.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_IIC.c 0x00000000   Number         0  seekfree_iic.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_IPS114_SPI.c 0x00000000   Number         0  seekfree_ips114_spi.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_L3G4200D.c 0x00000000   Number         0  seekfree_l3g4200d.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_MMA8451.c 0x00000000   Number         0  seekfree_mma8451.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_MPU6050.c 0x00000000   Number         0  seekfree_mpu6050.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.c 0x00000000   Number         0  seekfree_mt9v03x.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_OLED.c 0x00000000   Number         0  seekfree_oled.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_TSL1401.c 0x00000000   Number         0  seekfree_tsl1401.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_UART_7725.c 0x00000000   Number         0  seekfree_uart_7725.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_VIRSCO.c 0x00000000   Number         0  seekfree_virsco.o ABSOLUTE
+    ..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.c 0x00000000   Number         0  seekfree_wireless.o ABSOLUTE
+    ..\CODE\spi_master.c                     0x00000000   Number         0  spi_master.o ABSOLUTE
+    ..\USER\src\isr.c                        0x00000000   Number         0  isr.o ABSOLUTE
+    ..\USER\src\main.c                       0x00000000   Number         0  main.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_adc.c 0x00000000   Number         0  hal_adc.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_bkp.c 0x00000000   Number         0  hal_bkp.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_comp.c 0x00000000   Number         0  hal_comp.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_crc.c 0x00000000   Number         0  hal_crc.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_dbg.c 0x00000000   Number         0  hal_dbg.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_div.c 0x00000000   Number         0  hal_div.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_dma.c 0x00000000   Number         0  hal_dma.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_exti.c 0x00000000   Number         0  hal_exti.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_flash.c 0x00000000   Number         0  hal_flash.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_gpio.c 0x00000000   Number         0  hal_gpio.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_i2c.c 0x00000000   Number         0  hal_i2c.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_iwdg.c 0x00000000   Number         0  hal_iwdg.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_misc.c 0x00000000   Number         0  hal_misc.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_opamp.c 0x00000000   Number         0  hal_opamp.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_pwr.c 0x00000000   Number         0  hal_pwr.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_rcc.c 0x00000000   Number         0  hal_rcc.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_spi.c 0x00000000   Number         0  hal_spi.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_sqrt.c 0x00000000   Number         0  hal_sqrt.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_tim.c 0x00000000   Number         0  hal_tim.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_uart.c 0x00000000   Number         0  hal_uart.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_uid.c 0x00000000   Number         0  hal_uid.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_ver.c 0x00000000   Number         0  hal_ver.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\HAL_Lib\\Src\\hal_wwdg.c 0x00000000   Number         0  hal_wwdg.o ABSOLUTE
+    ..\\..\\Libraries\\Device\\MM32SPIN2xx_p\\Source\\system_mm32spin2xx_p.c 0x00000000   Number         0  system_mm32spin2xx_p.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\board\\board.c 0x00000000   Number         0  board.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\common\\SEEKFREE_PRINTF.c 0x00000000   Number         0  seekfree_printf.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\common\\common.c 0x00000000   Number         0  common.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_adc.c 0x00000000   Number         0  zf_adc.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_camera.c 0x00000000   Number         0  zf_camera.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_exti.c 0x00000000   Number         0  zf_exti.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_flash.c 0x00000000   Number         0  zf_flash.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_gpio.c 0x00000000   Number         0  zf_gpio.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_pit.c 0x00000000   Number         0  zf_pit.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_pwm.c 0x00000000   Number         0  zf_pwm.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_spi.c 0x00000000   Number         0  zf_spi.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_systick.c 0x00000000   Number         0  zf_systick.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_tim.c 0x00000000   Number         0  zf_tim.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_libraries\\zf_uart.c 0x00000000   Number         0  zf_uart.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_18TFT.c 0x00000000   Number         0  seekfree_18tft.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_7725.c 0x00000000   Number         0  seekfree_7725.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_ABSOLUTE_ENCODER.c 0x00000000   Number         0  seekfree_absolute_encoder.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_FONT.c 0x00000000   Number         0  seekfree_font.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_ICM20602.c 0x00000000   Number         0  seekfree_icm20602.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_IIC.c 0x00000000   Number         0  seekfree_iic.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_IPS114_SPI.c 0x00000000   Number         0  seekfree_ips114_spi.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_L3G4200D.c 0x00000000   Number         0  seekfree_l3g4200d.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_MMA8451.c 0x00000000   Number         0  seekfree_mma8451.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_MPU6050.c 0x00000000   Number         0  seekfree_mpu6050.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_MT9V03X.c 0x00000000   Number         0  seekfree_mt9v03x.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_OLED.c 0x00000000   Number         0  seekfree_oled.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_TSL1401.c 0x00000000   Number         0  seekfree_tsl1401.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_UART_7725.c 0x00000000   Number         0  seekfree_uart_7725.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_VIRSCO.c 0x00000000   Number         0  seekfree_virsco.o ABSOLUTE
+    ..\\..\\Libraries\\seekfree_peripheral\\SEEKFREE_WIRELESS.c 0x00000000   Number         0  seekfree_wireless.o ABSOLUTE
+    ..\\CODE\\spi_master.c                   0x00000000   Number         0  spi_master.o ABSOLUTE
+    ..\\USER\\src\\isr.c                     0x00000000   Number         0  isr.o ABSOLUTE
+    ..\\USER\\src\\main.c                    0x00000000   Number         0  main.o ABSOLUTE
+    cdcmple.s                                0x00000000   Number         0  cdcmple.o ABSOLUTE
+    cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
+    dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
+    handlers.s                               0x00000000   Number         0  handlers.o ABSOLUTE
+    init.s                                   0x00000000   Number         0  init.o ABSOLUTE
+    RESET                                    0x08000000   Section      192  startup_mm32spin2xx_p_keil.o(RESET)
+    .ARM.Collect$$$$00000000                 0x080000c0   Section        0  entry.o(.ARM.Collect$$$$00000000)
+    .ARM.Collect$$$$00000001                 0x080000c0   Section        4  entry2.o(.ARM.Collect$$$$00000001)
+    .ARM.Collect$$$$00000004                 0x080000c4   Section        4  entry5.o(.ARM.Collect$$$$00000004)
+    .ARM.Collect$$$$00000008                 0x080000c8   Section        0  entry7b.o(.ARM.Collect$$$$00000008)
+    .ARM.Collect$$$$0000000A                 0x080000c8   Section        0  entry8b.o(.ARM.Collect$$$$0000000A)
+    .ARM.Collect$$$$0000000B                 0x080000c8   Section        8  entry9a.o(.ARM.Collect$$$$0000000B)
+    .ARM.Collect$$$$0000000D                 0x080000d0   Section        0  entry10a.o(.ARM.Collect$$$$0000000D)
+    .ARM.Collect$$$$0000000F                 0x080000d0   Section        0  entry11a.o(.ARM.Collect$$$$0000000F)
+    .ARM.Collect$$$$00002712                 0x080000d0   Section        4  entry2.o(.ARM.Collect$$$$00002712)
+    __lit__00000000                          0x080000d0   Data           4  entry2.o(.ARM.Collect$$$$00002712)
+    .text                                    0x080000d4   Section      132  startup_mm32spin2xx_p_keil.o(.text)
+    .text                                    0x08000158   Section        0  uidiv.o(.text)
+    .text                                    0x08000184   Section        0  idiv.o(.text)
+    .text                                    0x080001ac   Section        0  fmul.o(.text)
+    .text                                    0x08000226   Section        0  fdiv.o(.text)
+    .text                                    0x080002a2   Section        0  ffltui.o(.text)
+    .text                                    0x080002b0   Section        0  ffixui.o(.text)
+    .text                                    0x080002d8   Section        0  fepilogue.o(.text)
+    .text                                    0x080002d8   Section        0  iusefp.o(.text)
+    .text                                    0x0800035c   Section       36  init.o(.text)
+    i.AutoCalPllFactor                       0x08000380   Section        0  system_mm32spin2xx_p.o(i.AutoCalPllFactor)
+    i.DMA1_Channel1_IRQHandler               0x080003ea   Section        0  isr.o(i.DMA1_Channel1_IRQHandler)
+    i.DMA1_Channel2_3_IRQHandler             0x080003fe   Section        0  isr.o(i.DMA1_Channel2_3_IRQHandler)
+    i.DMA1_Channel4_5_IRQHandler             0x08000424   Section        0  isr.o(i.DMA1_Channel4_5_IRQHandler)
+    i.DMA_ClearFlag                          0x08000478   Section        0  hal_dma.o(i.DMA_ClearFlag)
+    i.DMA_GetFlagStatus                      0x08000484   Section        0  hal_dma.o(i.DMA_GetFlagStatus)
+    i.EXTI0_1_IRQHandler                     0x0800049c   Section        0  isr.o(i.EXTI0_1_IRQHandler)
+    i.EXTI2_3_IRQHandler                     0x080004c0   Section        0  isr.o(i.EXTI2_3_IRQHandler)
+    i.EXTI4_15_IRQHandler                    0x080004e4   Section        0  isr.o(i.EXTI4_15_IRQHandler)
+    i.EXTI_ClearFlag                         0x080005f4   Section        0  hal_exti.o(i.EXTI_ClearFlag)
+    i.EXTI_GetITStatus                       0x08000600   Section        0  hal_exti.o(i.EXTI_GetITStatus)
+    i.HardFault_Handler                      0x08000624   Section        0  common.o(i.HardFault_Handler)
+    i.NMI_Handler                            0x08000628   Section        0  common.o(i.NMI_Handler)
+    i.PendSV_Handler                         0x0800062c   Section        0  common.o(i.PendSV_Handler)
+    i.SVC_Handler                            0x08000630   Section        0  common.o(i.SVC_Handler)
+    i.SetSysClock                            0x08000634   Section        0  system_mm32spin2xx_p.o(i.SetSysClock)
+    SetSysClock                              0x08000635   Thumb Code     8  system_mm32spin2xx_p.o(i.SetSysClock)
+    i.SetSysClockToXX                        0x0800063c   Section        0  system_mm32spin2xx_p.o(i.SetSysClockToXX)
+    SetSysClockToXX                          0x0800063d   Thumb Code   330  system_mm32spin2xx_p.o(i.SetSysClockToXX)
+    i.SystemInit                             0x080007a0   Section        0  system_mm32spin2xx_p.o(i.SystemInit)
+    i.TIM14_IRQHandler                       0x0800080c   Section        0  isr.o(i.TIM14_IRQHandler)
+    i.TIM16_IRQHandler                       0x08000820   Section        0  isr.o(i.TIM16_IRQHandler)
+    i.TIM17_IRQHandler                       0x08000834   Section        0  isr.o(i.TIM17_IRQHandler)
+    i.TIM1_BRK_UP_TRG_COM_IRQHandler         0x08000848   Section        0  isr.o(i.TIM1_BRK_UP_TRG_COM_IRQHandler)
+    i.TIM2_IRQHandler                        0x0800085c   Section        0  isr.o(i.TIM2_IRQHandler)
+    i.TIM3_IRQHandler                        0x08000870   Section        0  isr.o(i.TIM3_IRQHandler)
+    i.TIM8_BRK_UP_TRG_COM_IRQHandler         0x08000884   Section        0  isr.o(i.TIM8_BRK_UP_TRG_COM_IRQHandler)
+    i.UART1_IRQHandler                       0x08000898   Section        0  isr.o(i.UART1_IRQHandler)
+    i.UART2_IRQHandler                       0x08000904   Section        0  isr.o(i.UART2_IRQHandler)
+    i.__scatterload_copy                     0x08000960   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800096e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x08000970   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.afio_init                              0x08000980   Section        0  zf_gpio.o(i.afio_init)
+    i.board_init                             0x08000a58   Section        0  board.o(i.board_init)
+    i.gpio_init                              0x08000a74   Section        0  zf_gpio.o(i.gpio_init)
+    i.ips114_clear                           0x08000b3c   Section        0  seekfree_ips114_spi.o(i.ips114_clear)
+    i.ips114_init                            0x08000b6c   Section        0  seekfree_ips114_spi.o(i.ips114_init)
+    i.ips114_set_region                      0x08000d7c   Section        0  seekfree_ips114_spi.o(i.ips114_set_region)
+    ips114_set_region                        0x08000d7d   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_set_region)
+    i.ips114_showchar                        0x08000dc4   Section        0  seekfree_ips114_spi.o(i.ips114_showchar)
+    i.ips114_showuint8                       0x08000e38   Section        0  seekfree_ips114_spi.o(i.ips114_showuint8)
+    i.ips114_writeData                       0x08000e94   Section        0  seekfree_ips114_spi.o(i.ips114_writeData)
+    ips114_writeData                         0x08000e95   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeData)
+    i.ips114_writeIndex                      0x08000ee0   Section        0  seekfree_ips114_spi.o(i.ips114_writeIndex)
+    ips114_writeIndex                        0x08000ee1   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeIndex)
+    i.ips114_writedata_16bit                 0x08000f2c   Section        0  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
+    ips114_writedata_16bit                   0x08000f2d   Thumb Code    80  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
+    i.main                                   0x08000f80   Section        0  main.o(i.main)
+    i.mt9v03x_dma                            0x08000fac   Section        0  seekfree_mt9v03x.o(i.mt9v03x_dma)
+    i.mt9v03x_uart_callback                  0x08000fcc   Section        0  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
+    i.mt9v03x_vsync                          0x08001020   Section        0  seekfree_mt9v03x.o(i.mt9v03x_vsync)
+    i.ov7725_cof_uart_interrupt              0x0800103c   Section        0  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
+    i.ov7725_dma                             0x08001090   Section        0  seekfree_7725.o(i.ov7725_dma)
+    i.ov7725_uart_dma                        0x080010b0   Section        0  seekfree_uart_7725.o(i.ov7725_uart_dma)
+    i.ov7725_uart_vsync                      0x080010d0   Section        0  seekfree_uart_7725.o(i.ov7725_uart_vsync)
+    i.ov7725_vsync                           0x080010ec   Section        0  seekfree_7725.o(i.ov7725_vsync)
+    i.pwm_init                               0x08001108   Section        0  zf_pwm.o(i.pwm_init)
+    i.pwm_init_self                          0x08001380   Section        0  zf_pwm.o(i.pwm_init_self)
+    i.pwm_pin_init                           0x080013e8   Section        0  zf_pwm.o(i.pwm_pin_init)
+    pwm_pin_init                             0x080013e9   Thumb Code    24  zf_pwm.o(i.pwm_pin_init)
+    i.spi_init                               0x08001400   Section        0  zf_spi.o(i.spi_init)
+    i.spi_mosi                               0x08001594   Section        0  zf_spi.o(i.spi_mosi)
+    i.spi_pin_init                           0x080015f8   Section        0  zf_spi.o(i.spi_pin_init)
+    spi_pin_init                             0x080015f9   Thumb Code    96  zf_spi.o(i.spi_pin_init)
+    i.systick_delay                          0x0800165c   Section        0  zf_systick.o(i.systick_delay)
+    i.systick_delay_ms                       0x08001684   Section        0  zf_systick.o(i.systick_delay_ms)
+    i.uart_getchar                           0x080016ac   Section        0  zf_uart.o(i.uart_getchar)
+    i.uart_init                              0x080016d0   Section        0  zf_uart.o(i.uart_init)
+    i.uart_pin_init                          0x08001794   Section        0  zf_uart.o(i.uart_pin_init)
+    uart_pin_init                            0x08001795   Thumb Code    44  zf_uart.o(i.uart_pin_init)
+    i.uart_putchar                           0x080017c0   Section        0  zf_uart.o(i.uart_putchar)
+    .constdata                               0x080017e0   Section     7048  seekfree_font.o(.constdata)
+    .data                                    0x20000000   Section        2  isr.o(.data)
+    .data                                    0x20000004   Section        8  common.o(.data)
+    .data                                    0x2000000c   Section       20  system_mm32spin2xx_p.o(.data)
+    .data                                    0x20000020   Section       16  zf_gpio.o(.data)
+    .data                                    0x20000030   Section        8  zf_spi.o(.data)
+    .data                                    0x20000038   Section       28  zf_tim.o(.data)
+    .data                                    0x20000054   Section       10  zf_uart.o(.data)
+    .data                                    0x2000005e   Section        4  seekfree_7725.o(.data)
+    ov7725_simiic_delay_time                 0x20000060   Data           2  seekfree_7725.o(.data)
+    .data                                    0x20000062   Section       74  seekfree_mt9v03x.o(.data)
+    receive                                  0x20000063   Data           3  seekfree_mt9v03x.o(.data)
+    receive_num                              0x20000066   Data           1  seekfree_mt9v03x.o(.data)
+    uart_receive_flag                        0x20000067   Data           1  seekfree_mt9v03x.o(.data)
+    .data                                    0x200000ac   Section       51  seekfree_uart_7725.o(.data)
+    ov7725_uart_receive                      0x200000da   Data           3  seekfree_uart_7725.o(.data)
+    ov7725_uart_receive_num                  0x200000dd   Data           1  seekfree_uart_7725.o(.data)
+    ov7725_uart_receive_flag                 0x200000de   Data           1  seekfree_uart_7725.o(.data)
+    .bss                                     0x200000e0   Section       28  zf_pwm.o(.bss)
+    STACK                                    0x20000100   Section     1024  startup_mm32spin2xx_p_keil.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    __cpp_initialize__aeabi_                  - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __decompress                              - Undefined Weak Reference
+    _clock_init                               - Undefined Weak Reference
+    _microlib_exit                            - Undefined Weak Reference
+    __Vectors_Size                           0x000000c0   Number         0  startup_mm32spin2xx_p_keil.o ABSOLUTE
+    __Vectors                                0x08000000   Data           4  startup_mm32spin2xx_p_keil.o(RESET)
+    __Vectors_End                            0x080000c0   Data           0  startup_mm32spin2xx_p_keil.o(RESET)
+    __main                                   0x080000c1   Thumb Code     0  entry.o(.ARM.Collect$$$$00000000)
+    _main_stk                                0x080000c1   Thumb Code     0  entry2.o(.ARM.Collect$$$$00000001)
+    _main_scatterload                        0x080000c5   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    __main_after_scatterload                 0x080000c9   Thumb Code     0  entry5.o(.ARM.Collect$$$$00000004)
+    _main_clock                              0x080000c9   Thumb Code     0  entry7b.o(.ARM.Collect$$$$00000008)
+    _main_cpp_init                           0x080000c9   Thumb Code     0  entry8b.o(.ARM.Collect$$$$0000000A)
+    _main_init                               0x080000c9   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
+    __rt_final_cpp                           0x080000d1   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
+    __rt_final_exit                          0x080000d1   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
+    Reset_Handler                            0x080000d5   Thumb Code    62  startup_mm32spin2xx_p_keil.o(.text)
+    SysTick_Handler                          0x0800011b   Thumb Code     2  startup_mm32spin2xx_p_keil.o(.text)
+    ADC1_IRQHandler                          0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    ADC2_IRQHandler                          0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    COMP1_2_3_4_5_IRQHandler                 0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    FLASH_IRQHandler                         0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    HWDIV_IRQHandler                         0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    I2C1_IRQHandler                          0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    PVD_IRQHandler                           0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    PWM_IRQHandler                           0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    RCC_IRQHandler                           0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    SPI1_IRQHandler                          0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    SPI2_IRQHandler                          0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    TIM1_CC_IRQHandler                       0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    TIM8_CC_IRQHandler                       0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    WWDG_IRQHandler                          0x0800011d   Thumb Code     0  startup_mm32spin2xx_p_keil.o(.text)
+    __aeabi_uidiv                            0x08000159   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x08000159   Thumb Code    44  uidiv.o(.text)
+    __aeabi_idiv                             0x08000185   Thumb Code     0  idiv.o(.text)
+    __aeabi_idivmod                          0x08000185   Thumb Code    40  idiv.o(.text)
+    __aeabi_fmul                             0x080001ad   Thumb Code   122  fmul.o(.text)
+    __aeabi_fdiv                             0x08000227   Thumb Code   124  fdiv.o(.text)
+    __aeabi_ui2f                             0x080002a3   Thumb Code    14  ffltui.o(.text)
+    __aeabi_f2uiz                            0x080002b1   Thumb Code    40  ffixui.o(.text)
+    __I$use$fp                               0x080002d9   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x080002d9   Thumb Code    16  fepilogue.o(.text)
+    _float_epilogue                          0x080002e9   Thumb Code   114  fepilogue.o(.text)
+    __scatterload                            0x0800035d   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x0800035d   Thumb Code     0  init.o(.text)
+    AutoCalPllFactor                         0x08000381   Thumb Code   106  system_mm32spin2xx_p.o(i.AutoCalPllFactor)
+    DMA1_Channel1_IRQHandler                 0x080003eb   Thumb Code    20  isr.o(i.DMA1_Channel1_IRQHandler)
+    DMA1_Channel2_3_IRQHandler               0x080003ff   Thumb Code    38  isr.o(i.DMA1_Channel2_3_IRQHandler)
+    DMA1_Channel4_5_IRQHandler               0x08000425   Thumb Code    80  isr.o(i.DMA1_Channel4_5_IRQHandler)
+    DMA_ClearFlag                            0x08000479   Thumb Code     6  hal_dma.o(i.DMA_ClearFlag)
+    DMA_GetFlagStatus                        0x08000485   Thumb Code    20  hal_dma.o(i.DMA_GetFlagStatus)
+    EXTI0_1_IRQHandler                       0x0800049d   Thumb Code    36  isr.o(i.EXTI0_1_IRQHandler)
+    EXTI2_3_IRQHandler                       0x080004c1   Thumb Code    36  isr.o(i.EXTI2_3_IRQHandler)
+    EXTI4_15_IRQHandler                      0x080004e5   Thumb Code   268  isr.o(i.EXTI4_15_IRQHandler)
+    EXTI_ClearFlag                           0x080005f5   Thumb Code     6  hal_exti.o(i.EXTI_ClearFlag)
+    EXTI_GetITStatus                         0x08000601   Thumb Code    30  hal_exti.o(i.EXTI_GetITStatus)
+    HardFault_Handler                        0x08000625   Thumb Code     4  common.o(i.HardFault_Handler)
+    NMI_Handler                              0x08000629   Thumb Code     4  common.o(i.NMI_Handler)
+    PendSV_Handler                           0x0800062d   Thumb Code     4  common.o(i.PendSV_Handler)
+    SVC_Handler                              0x08000631   Thumb Code     4  common.o(i.SVC_Handler)
+    SystemInit                               0x080007a1   Thumb Code    90  system_mm32spin2xx_p.o(i.SystemInit)
+    TIM14_IRQHandler                         0x0800080d   Thumb Code    14  isr.o(i.TIM14_IRQHandler)
+    TIM16_IRQHandler                         0x08000821   Thumb Code    14  isr.o(i.TIM16_IRQHandler)
+    TIM17_IRQHandler                         0x08000835   Thumb Code    14  isr.o(i.TIM17_IRQHandler)
+    TIM1_BRK_UP_TRG_COM_IRQHandler           0x08000849   Thumb Code    14  isr.o(i.TIM1_BRK_UP_TRG_COM_IRQHandler)
+    TIM2_IRQHandler                          0x0800085d   Thumb Code    18  isr.o(i.TIM2_IRQHandler)
+    TIM3_IRQHandler                          0x08000871   Thumb Code    14  isr.o(i.TIM3_IRQHandler)
+    TIM8_BRK_UP_TRG_COM_IRQHandler           0x08000885   Thumb Code    14  isr.o(i.TIM8_BRK_UP_TRG_COM_IRQHandler)
+    UART1_IRQHandler                         0x08000899   Thumb Code    96  isr.o(i.UART1_IRQHandler)
+    UART2_IRQHandler                         0x08000905   Thumb Code    82  isr.o(i.UART2_IRQHandler)
+    __scatterload_copy                       0x08000961   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800096f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x08000971   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    afio_init                                0x08000981   Thumb Code   206  zf_gpio.o(i.afio_init)
+    board_init                               0x08000a59   Thumb Code    26  board.o(i.board_init)
+    gpio_init                                0x08000a75   Thumb Code   190  zf_gpio.o(i.gpio_init)
+    ips114_clear                             0x08000b3d   Thumb Code    48  seekfree_ips114_spi.o(i.ips114_clear)
+    ips114_init                              0x08000b6d   Thumb Code   506  seekfree_ips114_spi.o(i.ips114_init)
+    ips114_showchar                          0x08000dc5   Thumb Code   106  seekfree_ips114_spi.o(i.ips114_showchar)
+    ips114_showuint8                         0x08000e39   Thumb Code    90  seekfree_ips114_spi.o(i.ips114_showuint8)
+    main                                     0x08000f81   Thumb Code    42  main.o(i.main)
+    mt9v03x_dma                              0x08000fad   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_dma)
+    mt9v03x_uart_callback                    0x08000fcd   Thumb Code    66  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
+    mt9v03x_vsync                            0x08001021   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_vsync)
+    ov7725_cof_uart_interrupt                0x0800103d   Thumb Code    66  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
+    ov7725_dma                               0x08001091   Thumb Code    20  seekfree_7725.o(i.ov7725_dma)
+    ov7725_uart_dma                          0x080010b1   Thumb Code    20  seekfree_uart_7725.o(i.ov7725_uart_dma)
+    ov7725_uart_vsync                        0x080010d1   Thumb Code    22  seekfree_uart_7725.o(i.ov7725_uart_vsync)
+    ov7725_vsync                             0x080010ed   Thumb Code    22  seekfree_7725.o(i.ov7725_vsync)
+    pwm_init                                 0x08001109   Thumb Code   608  zf_pwm.o(i.pwm_init)
+    pwm_init_self                            0x08001381   Thumb Code    76  zf_pwm.o(i.pwm_init_self)
+    spi_init                                 0x08001401   Thumb Code   390  zf_spi.o(i.spi_init)
+    spi_mosi                                 0x08001595   Thumb Code    96  zf_spi.o(i.spi_mosi)
+    systick_delay                            0x0800165d   Thumb Code    36  zf_systick.o(i.systick_delay)
+    systick_delay_ms                         0x08001685   Thumb Code    34  zf_systick.o(i.systick_delay_ms)
+    uart_getchar                             0x080016ad   Thumb Code    30  zf_uart.o(i.uart_getchar)
+    uart_init                                0x080016d1   Thumb Code   180  zf_uart.o(i.uart_init)
+    uart_putchar                             0x080017c1   Thumb Code    28  zf_uart.o(i.uart_putchar)
+    tft_ascii                                0x080017e0   Data        1520  seekfree_font.o(.constdata)
+    gImage_qq                                0x08001dd0   Data        3200  seekfree_font.o(.constdata)
+    chinese_test                             0x08002a50   Data         128  seekfree_font.o(.constdata)
+    oled_6x8                                 0x08002ad0   Data         552  seekfree_font.o(.constdata)
+    oled_8x16                                0x08002cf8   Data        1520  seekfree_font.o(.constdata)
+    oled_16x16_chinese                       0x080032e8   Data         128  seekfree_font.o(.constdata)
+    Region$$Table$$Base                      0x08003368   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08003388   Number         0  anon$$obj.o(Region$$Table)
+    count                                    0x20000000   Data           1  isr.o(.data)
+    dat                                      0x20000001   Data           1  isr.o(.data)
+    camera_type                              0x20000004   Data           1  common.o(.data)
+    camera_buffer_addr                       0x20000008   Data           4  common.o(.data)
+    SystemCoreClock                          0x2000000c   Data           4  system_mm32spin2xx_p.o(.data)
+    AHBPrescTable                            0x20000010   Data          16  system_mm32spin2xx_p.o(.data)
+    gpio_group                               0x20000020   Data          16  zf_gpio.o(.data)
+    spi_index                                0x20000030   Data           8  zf_spi.o(.data)
+    tim_index                                0x20000038   Data          28  zf_tim.o(.data)
+    uart_index                               0x20000054   Data           8  zf_uart.o(.data)
+    uart_irq                                 0x2000005c   Data           2  zf_uart.o(.data)
+    ov7725_finish_flag                       0x2000005e   Data           1  seekfree_7725.o(.data)
+    mt9v03x_finish_flag                      0x20000062   Data           1  seekfree_mt9v03x.o(.data)
+    MT9V03X_CFG                              0x20000068   Data          36  seekfree_mt9v03x.o(.data)
+    GET_CFG                                  0x2000008c   Data          32  seekfree_mt9v03x.o(.data)
+    ov7725_uart_finish_flag                  0x200000ac   Data           1  seekfree_uart_7725.o(.data)
+    OV7725_CFG                               0x200000ae   Data          24  seekfree_uart_7725.o(.data)
+    OV7725_GET_CFG                           0x200000c6   Data          20  seekfree_uart_7725.o(.data)
+    pwm_enable_state                         0x200000e0   Data          28  zf_pwm.o(.bss)
+    __initial_sp                             0x20000500   Data           0  startup_mm32spin2xx_p_keil.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x080000c1
+
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003468, Max: 0x00020000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003388, Max: 0x00020000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x08000000   0x08000000   0x000000c0   Data   RO          903    RESET               startup_mm32spin2xx_p_keil.o
+    0x080000c0   0x080000c0   0x00000000   Code   RO         5358  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x080000c0   0x080000c0   0x00000004   Code   RO         5393    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x080000c4   0x080000c4   0x00000004   Code   RO         5396    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x080000c8   0x080000c8   0x00000000   Code   RO         5398    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x080000c8   0x080000c8   0x00000000   Code   RO         5400    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x080000c8   0x080000c8   0x00000008   Code   RO         5401    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x080000d0   0x080000d0   0x00000000   Code   RO         5403    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x080000d0   0x080000d0   0x00000000   Code   RO         5405    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x080000d0   0x080000d0   0x00000004   Code   RO         5394    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x080000d4   0x080000d4   0x00000084   Code   RO          904    .text               startup_mm32spin2xx_p_keil.o
+    0x08000158   0x08000158   0x0000002c   Code   RO         5361    .text               mc_p.l(uidiv.o)
+    0x08000184   0x08000184   0x00000028   Code   RO         5363    .text               mc_p.l(idiv.o)
+    0x080001ac   0x080001ac   0x0000007a   Code   RO         5373    .text               mf_p.l(fmul.o)
+    0x08000226   0x08000226   0x0000007c   Code   RO         5375    .text               mf_p.l(fdiv.o)
+    0x080002a2   0x080002a2   0x0000000e   Code   RO         5381    .text               mf_p.l(ffltui.o)
+    0x080002b0   0x080002b0   0x00000028   Code   RO         5385    .text               mf_p.l(ffixui.o)
+    0x080002d8   0x080002d8   0x00000000   Code   RO         5413    .text               mc_p.l(iusefp.o)
+    0x080002d8   0x080002d8   0x00000082   Code   RO         5414    .text               mf_p.l(fepilogue.o)
+    0x0800035a   0x0800035a   0x00000002   PAD
+    0x0800035c   0x0800035c   0x00000024   Code   RO         5420    .text               mc_p.l(init.o)
+    0x08000380   0x08000380   0x0000006a   Code   RO          864    i.AutoCalPllFactor  system_mm32spin2xx_p.o
+    0x080003ea   0x080003ea   0x00000014   Code   RO            3    i.DMA1_Channel1_IRQHandler  isr.o
+    0x080003fe   0x080003fe   0x00000026   Code   RO            4    i.DMA1_Channel2_3_IRQHandler  isr.o
+    0x08000424   0x08000424   0x00000054   Code   RO            5    i.DMA1_Channel4_5_IRQHandler  isr.o
+    0x08000478   0x08000478   0x0000000c   Code   RO         3054    i.DMA_ClearFlag     hal_dma.o
+    0x08000484   0x08000484   0x00000018   Code   RO         3059    i.DMA_GetFlagStatus  hal_dma.o
+    0x0800049c   0x0800049c   0x00000024   Code   RO            6    i.EXTI0_1_IRQHandler  isr.o
+    0x080004c0   0x080004c0   0x00000024   Code   RO            7    i.EXTI2_3_IRQHandler  isr.o
+    0x080004e4   0x080004e4   0x00000110   Code   RO            8    i.EXTI4_15_IRQHandler  isr.o
+    0x080005f4   0x080005f4   0x0000000c   Code   RO         3155    i.EXTI_ClearFlag    hal_exti.o
+    0x08000600   0x08000600   0x00000024   Code   RO         3160    i.EXTI_GetITStatus  hal_exti.o
+    0x08000624   0x08000624   0x00000004   Code   RO          696    i.HardFault_Handler  common.o
+    0x08000628   0x08000628   0x00000004   Code   RO          698    i.NMI_Handler       common.o
+    0x0800062c   0x0800062c   0x00000004   Code   RO          699    i.PendSV_Handler    common.o
+    0x08000630   0x08000630   0x00000004   Code   RO          700    i.SVC_Handler       common.o
+    0x08000634   0x08000634   0x00000008   Code   RO          865    i.SetSysClock       system_mm32spin2xx_p.o
+    0x0800063c   0x0800063c   0x00000164   Code   RO          866    i.SetSysClockToXX   system_mm32spin2xx_p.o
+    0x080007a0   0x080007a0   0x0000006c   Code   RO          867    i.SystemInit        system_mm32spin2xx_p.o
+    0x0800080c   0x0800080c   0x00000014   Code   RO            9    i.TIM14_IRQHandler  isr.o
+    0x08000820   0x08000820   0x00000014   Code   RO           10    i.TIM16_IRQHandler  isr.o
+    0x08000834   0x08000834   0x00000014   Code   RO           11    i.TIM17_IRQHandler  isr.o
+    0x08000848   0x08000848   0x00000014   Code   RO           12    i.TIM1_BRK_UP_TRG_COM_IRQHandler  isr.o
+    0x0800085c   0x0800085c   0x00000012   Code   RO           13    i.TIM2_IRQHandler   isr.o
+    0x0800086e   0x0800086e   0x00000002   PAD
+    0x08000870   0x08000870   0x00000014   Code   RO           14    i.TIM3_IRQHandler   isr.o
+    0x08000884   0x08000884   0x00000014   Code   RO           15    i.TIM8_BRK_UP_TRG_COM_IRQHandler  isr.o
+    0x08000898   0x08000898   0x0000006c   Code   RO           16    i.UART1_IRQHandler  isr.o
+    0x08000904   0x08000904   0x0000005c   Code   RO           17    i.UART2_IRQHandler  isr.o
+    0x08000960   0x08000960   0x0000000e   Code   RO         5424    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x0800096e   0x0800096e   0x00000002   Code   RO         5425    i.__scatterload_null  mc_p.l(handlers.o)
+    0x08000970   0x08000970   0x0000000e   Code   RO         5426    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x0800097e   0x0800097e   0x00000002   PAD
+    0x08000980   0x08000980   0x000000d8   Code   RO         1068    i.afio_init         zf_gpio.o
+    0x08000a58   0x08000a58   0x0000001a   Code   RO          663    i.board_init        board.o
+    0x08000a72   0x08000a72   0x00000002   PAD
+    0x08000a74   0x08000a74   0x000000c8   Code   RO         1071    i.gpio_init         zf_gpio.o
+    0x08000b3c   0x08000b3c   0x00000030   Code   RO         1942    i.ips114_clear      seekfree_ips114_spi.o
+    0x08000b6c   0x08000b6c   0x00000210   Code   RO         1951    i.ips114_init       seekfree_ips114_spi.o
+    0x08000d7c   0x08000d7c   0x00000046   Code   RO         1952    i.ips114_set_region  seekfree_ips114_spi.o
+    0x08000dc2   0x08000dc2   0x00000002   PAD
+    0x08000dc4   0x08000dc4   0x00000074   Code   RO         1953    i.ips114_showchar   seekfree_ips114_spi.o
+    0x08000e38   0x08000e38   0x0000005a   Code   RO         1960    i.ips114_showuint8  seekfree_ips114_spi.o
+    0x08000e92   0x08000e92   0x00000002   PAD
+    0x08000e94   0x08000e94   0x0000004c   Code   RO         1961    i.ips114_writeData  seekfree_ips114_spi.o
+    0x08000ee0   0x08000ee0   0x0000004c   Code   RO         1962    i.ips114_writeIndex  seekfree_ips114_spi.o
+    0x08000f2c   0x08000f2c   0x00000054   Code   RO         1963    i.ips114_writedata_16bit  seekfree_ips114_spi.o
+    0x08000f80   0x08000f80   0x0000002a   Code   RO          364    i.main              main.o
+    0x08000faa   0x08000faa   0x00000002   PAD
+    0x08000fac   0x08000fac   0x00000020   Code   RO         2206    i.mt9v03x_dma       seekfree_mt9v03x.o
+    0x08000fcc   0x08000fcc   0x00000054   Code   RO         2211    i.mt9v03x_uart_callback  seekfree_mt9v03x.o
+    0x08001020   0x08001020   0x0000001c   Code   RO         2212    i.mt9v03x_vsync     seekfree_mt9v03x.o
+    0x0800103c   0x0800103c   0x00000054   Code   RO         2458    i.ov7725_cof_uart_interrupt  seekfree_uart_7725.o
+    0x08001090   0x08001090   0x00000020   Code   RO         1604    i.ov7725_dma        seekfree_7725.o
+    0x080010b0   0x080010b0   0x00000020   Code   RO         2462    i.ov7725_uart_dma   seekfree_uart_7725.o
+    0x080010d0   0x080010d0   0x0000001c   Code   RO         2468    i.ov7725_uart_vsync  seekfree_uart_7725.o
+    0x080010ec   0x080010ec   0x0000001c   Code   RO         1617    i.ov7725_vsync      seekfree_7725.o
+    0x08001108   0x08001108   0x00000278   Code   RO         1171    i.pwm_init          zf_pwm.o
+    0x08001380   0x08001380   0x00000068   Code   RO         1172    i.pwm_init_self     zf_pwm.o
+    0x080013e8   0x080013e8   0x00000018   Code   RO         1173    i.pwm_pin_init      zf_pwm.o
+    0x08001400   0x08001400   0x00000194   Code   RO         1220    i.spi_init          zf_spi.o
+    0x08001594   0x08001594   0x00000064   Code   RO         1221    i.spi_mosi          zf_spi.o
+    0x080015f8   0x080015f8   0x00000064   Code   RO         1222    i.spi_pin_init      zf_spi.o
+    0x0800165c   0x0800165c   0x00000028   Code   RO         1258    i.systick_delay     zf_systick.o
+    0x08001684   0x08001684   0x00000028   Code   RO         1259    i.systick_delay_ms  zf_systick.o
+    0x080016ac   0x080016ac   0x00000024   Code   RO         1376    i.uart_getchar      zf_uart.o
+    0x080016d0   0x080016d0   0x000000c4   Code   RO         1377    i.uart_init         zf_uart.o
+    0x08001794   0x08001794   0x0000002c   Code   RO         1378    i.uart_pin_init     zf_uart.o
+    0x080017c0   0x080017c0   0x00000020   Code   RO         1380    i.uart_putchar      zf_uart.o
+    0x080017e0   0x080017e0   0x00001b88   Data   RO         1765    .constdata          seekfree_font.o
+    0x08003368   0x08003368   0x00000020   Data   RO         5422    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003388, Size: 0x00000500, Max: 0x00003000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x08003388   0x00000002   Data   RW           18    .data               isr.o
+    0x20000002   0x0800338a   0x00000002   PAD
+    0x20000004   0x0800338c   0x00000008   Data   RW          705    .data               common.o
+    0x2000000c   0x08003394   0x00000014   Data   RW          868    .data               system_mm32spin2xx_p.o
+    0x20000020   0x080033a8   0x00000010   Data   RW         1074    .data               zf_gpio.o
+    0x20000030   0x080033b8   0x00000008   Data   RW         1223    .data               zf_spi.o
+    0x20000038   0x080033c0   0x0000001c   Data   RW         1317    .data               zf_tim.o
+    0x20000054   0x080033dc   0x0000000a   Data   RW         1385    .data               zf_uart.o
+    0x2000005e   0x080033e6   0x00000004   Data   RW         1619    .data               seekfree_7725.o
+    0x20000062   0x080033ea   0x0000004a   Data   RW         2218    .data               seekfree_mt9v03x.o
+    0x200000ac   0x08003434   0x00000033   Data   RW         2471    .data               seekfree_uart_7725.o
+    0x200000df   0x08003467   0x00000001   PAD
+    0x200000e0        -       0x0000001c   Zero   RW         1174    .bss                zf_pwm.o
+    0x200000fc   0x08003467   0x00000004   PAD
+    0x20000100        -       0x00000400   Zero   RW          901    STACK               startup_mm32spin2xx_p_keil.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+        26          0          0          0          0        597   board.o
+        16          0          0          8          0       4900   common.o
+        36         10          0          0          0       1208   hal_dma.o
+        48         12          0          0          0       1216   hal_exti.o
+       824         66          0          2          0      71587   isr.o
+        42          0          0          0          0        435   main.o
+        60         18          0          4          0       2142   seekfree_7725.o
+         0          0       7048          0          0       1153   seekfree_font.o
+      1088         48          0          0          0       6254   seekfree_ips114_spi.o
+       144         38          0         74          0       2878   seekfree_mt9v03x.o
+         0          0          0          0          0       9185   seekfree_printf.o
+       144         36          0         51          0       2980   seekfree_uart_7725.o
+       132         58        192          0       1024        796   startup_mm32spin2xx_p_keil.o
+       578         44          0         20          0       4024   system_mm32spin2xx_p.o
+       416         20          0         16          0       3617   zf_gpio.o
+       760         52          0          0         28       2930   zf_pwm.o
+       604         22          0          8          0       4846   zf_spi.o
+        80         10          0          0          0       1159   zf_systick.o
+         0          0          0         28          0        824   zf_tim.o
+       308         26          0         10          0       4372   zf_uart.o
+
+    ----------------------------------------------------------------------
+      5316        460       7272        224       1056     127103   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+        10          0          0          3          4          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+         0          0          0          0          0          0   entry.o
+         0          0          0          0          0          0   entry10a.o
+         0          0          0          0          0          0   entry11a.o
+         8          4          0          0          0          0   entry2.o
+         4          0          0          0          0          0   entry5.o
+         0          0          0          0          0          0   entry7b.o
+         0          0          0          0          0          0   entry8b.o
+         8          4          0          0          0          0   entry9a.o
+        30          0          0          0          0          0   handlers.o
+        40          0          0          0          0         72   idiv.o
+        36          8          0          0          0         68   init.o
+         0          0          0          0          0          0   iusefp.o
+        44          0          0          0          0         72   uidiv.o
+       124          0          0          0          0         72   fdiv.o
+       130          0          0          0          0        144   fepilogue.o
+        40          0          0          0          0         60   ffixui.o
+        14          0          0          0          0         68   ffltui.o
+       122          0          0          0          0         72   fmul.o
+
+    ----------------------------------------------------------------------
+       604         16          0          0          0        628   Library Totals
+         4          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+       170         16          0          0          0        212   mc_p.l
+       430          0          0          0          0        416   mf_p.l
+
+    ----------------------------------------------------------------------
+       604         16          0          0          0        628   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      5920        476       7272        224       1056     125243   Grand Totals
+      5920        476       7272        224       1056     125243   ELF Image Totals
+      5920        476       7272        224          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                13192 (  12.88kB)
+    Total RW  Size (RW Data + ZI Data)              1280 (   1.25kB)
+    Total ROM Size (Code + RO Data + RW Data)      13416 (  13.10kB)
+
+==============================================================================
+

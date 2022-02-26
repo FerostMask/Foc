@@ -1,0 +1,24 @@
+Add Pin To Net: Pin=JP2-1 Old Net=NetJP2_1 New Net=SP2
+Add Pin To Net: Pin=JP2-2 Old Net=NetJP2_2 New Net=SN2
+Add Pin To Net: Pin=JP2-3 Old Net=NetJP2_3 New Net=SP1
+Add Pin To Net: Pin=JP2-4 Old Net=NetJP2_4 New Net=SN1
+Add Pin To Net: Pin=JP3-5 Old Net=NetJP3_5 New Net=SWDIO
+Add Pin To Net: Pin=JP3-6 Old Net=NetJP3_6 New Net=SWCLK
+Add Pin To Net: Pin=JP5-1 Old Net=NetJP5_1 New Net=SL_C
+Add Pin To Net: Pin=JP5-2 Old Net=NetJP5_2 New Net=GL_C
+Add Pin To Net: Pin=JP5-3 Old Net=NetJP5_3 New Net=SH_C
+Add Pin To Net: Pin=JP5-4 Old Net=NetJP5_4 New Net=GH_C
+Add Pin To Net: Pin=JP5-5 Old Net=NetJP5_5 New Net=SL_B
+Add Pin To Net: Pin=JP5-6 Old Net=NetJP5_6 New Net=GL_B
+Add Pin To Net: Pin=JP5-7 Old Net=NetJP5_7 New Net=SH_B
+Add Pin To Net: Pin=JP5-8 Old Net=NetJP5_8 New Net=GH_B
+Add Pin To Net: Pin=JP5-9 Old Net=NetJP5_9 New Net=SL_A
+Add Pin To Net: Pin=JP5-10 Old Net=NetJP5_10 New Net=GL_A
+Add Pin To Net: Pin=JP5-11 Old Net=NetJP5_11 New Net=SH_A
+Add Pin To Net: Pin=JP5-12 Old Net=NetJP5_12 New Net=GH_A
+Add Pin To Net: Pin=U1-45 Old Net=NetU1_45 New Net=EN_GATE
+Add Pin To Net: Pin=U1-48 Old Net=NetU1_48 New Net=DC_CAL
+Add Pin To Net: Pin=U1-58 Old Net=NetU1_58 New Net=FAULT
+Add Pin To Net: Pin=U1-59 Old Net=NetU1_59 New Net=OCTW
+Change Pin Designator/Name:  Old Designator=U1-27 Old Name=PB1 New Designator =PB2 New Name=28
+Change Pin Designator/Name:  Old Designator=U1-28 Old Name=PB2 New Designator =PB1 New Name=27
