@@ -16,7 +16,7 @@
 
 验证板减去了SWCLK和SWDIO线路上的过孔，单层6mil直连到端口。经测试下载功能正常！屏幕功能也正常！
 
-![IMG_20220228_135435](C:\Users\Szasd\Pictures\Saved Pictures\IMG_20220228_135435.jpg)
+![IMG_20220228_135435](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612097.jpg)
 
 ------
 
@@ -24,9 +24,9 @@
 
 第四版的Foc设计已经是寒假的事情了，这一版根据稚晖大佬的思路做了逻辑板，采用半孔工艺，让制作的板子可以焊接在含驱动电路的板子上。这一版的让我对PCB设计的认知更进了一步。
 
-![IMG_20220224_224018](C:\Users\Szasd\Pictures\Saved Pictures\IMG_20220224_224018.jpg)
+![IMG_20220224_224018](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612103.jpg)
 
-![IMG_20220224_223931](C:\Users\Szasd\Pictures\Saved Pictures\IMG_20220224_223931.jpg)
+![IMG_20220224_223931](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612104.jpg)
 
 但经焊接测试仍旧无法下载进代码，所以静下心来开始找原因出在哪里。这里我用上了信号发生器和示波器，检查线路的信号完整性，发现某些线路输入输出波形的不一样，于是想到可能是布线导致了这个问题。于是又花一个晚上的时间画了一块验证板。
 
@@ -38,7 +38,7 @@
 
 给实验室新成员培训软件占用了我大部分时间，随着开发时间越拖越长，意识到需要做出一些改变了。深思熟虑下决定把主控芯片换为MM32SPIN27，并使用逐飞开源库进行软件部分的开发。由于前两版的失败心态有些炸裂，所以在收到板子后没有焊接测试，而是收拾好心情开始第四版硬件开发。
 
-![1646636768320](C:\Users\Szasd\Pictures\Saved Pictures\1646636768320.png)
+![1646636768320](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612105.png)
 
 ------
 
@@ -46,9 +46,9 @@
 
 第二版硬件，收到板子的时间是2021年11月1号，第一次采用四层板。根据前一版的问题做出了调整，将驱动器部分独立了出去，只留下主控部分。经测试代码还是下不进去，尝试解决问题无果，开始下一版硬件的设计制作。
 
-![1646637266433](C:\Users\Szasd\Pictures\Saved Pictures\1646637266433.jpg)
+![1646637266433](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612106.jpg)
 
-![1646637266445](C:\Users\Szasd\Pictures\Saved Pictures\1646637266445.png)
+![1646637266445](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612107.png)
 
 ------
 
@@ -56,6 +56,6 @@
 
 Foc的第一版硬件，参考了稚晖大佬的开源FOC项目，驱动芯片使用的是DRV8312，主控是STM32F405。收到板子的时间是2021年9月18号（正好是生日），不过那段时间厦门疫情，没有及时焊起来调试。后经测试主控芯片下不进程序，所以着手开发第二版硬件。
 
-![1646636768310](C:\Users\Szasd\Pictures\Saved Pictures\1646636768310.jpg)
+![1646636768310](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612108.jpg)
 
-![psc](C:\Users\Szasd\Pictures\psc.jpg)
+![psc](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612109.jpg)
