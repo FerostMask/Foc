@@ -34,6 +34,7 @@ Section Cross References
     main.o(i.main) refers to zf_pwm.o(i.pwm_init_self) for pwm_init_self
     main.o(i.main) refers to seekfree_ips114_spi.o(i.ips114_init) for ips114_init
     main.o(i.main) refers to zf_uart.o(i.uart_init) for uart_init
+    main.o(i.main) refers to seekfree_ips114_spi.o(i.ips114_showint16) for ips114_showint16
     main.o(i.main) refers to zf_uart.o(i.uart_putchar) for uart_putchar
     spi_master.o(i.master_init) refers to spi_master.o(i.__ARM_common_ll_muluu) for __ARM_common_ll_muluu
     spi_master.o(i.master_init) refers to uldiv.o(.text) for __aeabi_uldivmod
@@ -932,7 +933,6 @@ Removing Unused input sections from the image.
     Removing seekfree_ips114_spi.o(i.ips114_displayimage8660_zoom1), (126 bytes).
     Removing seekfree_ips114_spi.o(i.ips114_drawpoint), (28 bytes).
     Removing seekfree_ips114_spi.o(i.ips114_showfloat), (188 bytes).
-    Removing seekfree_ips114_spi.o(i.ips114_showint16), (172 bytes).
     Removing seekfree_ips114_spi.o(i.ips114_showint32), (104 bytes).
     Removing seekfree_ips114_spi.o(i.ips114_showint8), (126 bytes).
     Removing seekfree_ips114_spi.o(i.ips114_showstr), (40 bytes).
@@ -1461,7 +1461,7 @@ Removing Unused input sections from the image.
     Removing spi_master.o(i.__ARM_common_ll_muluu), (48 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-719 unused section(s) (total 47814 bytes) removed from the image.
+718 unused section(s) (total 47642 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1474,32 +1474,32 @@ Image Symbol Table
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
-    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  fdiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
@@ -1642,8 +1642,8 @@ Image Symbol Table
     .text                                    0x08000226   Section        0  fdiv.o(.text)
     .text                                    0x080002a2   Section        0  ffltui.o(.text)
     .text                                    0x080002b0   Section        0  ffixui.o(.text)
-    .text                                    0x080002d8   Section        0  fepilogue.o(.text)
     .text                                    0x080002d8   Section        0  iusefp.o(.text)
+    .text                                    0x080002d8   Section        0  fepilogue.o(.text)
     .text                                    0x0800035c   Section       36  init.o(.text)
     i.AutoCalPllFactor                       0x08000380   Section        0  system_mm32spin2xx_p.o(i.AutoCalPllFactor)
     i.DMA1_Channel1_IRQHandler               0x080003ea   Section        0  isr.o(i.DMA1_Channel1_IRQHandler)
@@ -1685,38 +1685,39 @@ Image Symbol Table
     i.ips114_set_region                      0x08000d7c   Section        0  seekfree_ips114_spi.o(i.ips114_set_region)
     ips114_set_region                        0x08000d7d   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_set_region)
     i.ips114_showchar                        0x08000dc4   Section        0  seekfree_ips114_spi.o(i.ips114_showchar)
-    i.ips114_showuint8                       0x08000e38   Section        0  seekfree_ips114_spi.o(i.ips114_showuint8)
-    i.ips114_writeData                       0x08000e94   Section        0  seekfree_ips114_spi.o(i.ips114_writeData)
-    ips114_writeData                         0x08000e95   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeData)
-    i.ips114_writeIndex                      0x08000ee0   Section        0  seekfree_ips114_spi.o(i.ips114_writeIndex)
-    ips114_writeIndex                        0x08000ee1   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeIndex)
-    i.ips114_writedata_16bit                 0x08000f2c   Section        0  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
-    ips114_writedata_16bit                   0x08000f2d   Thumb Code    80  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
-    i.main                                   0x08000f80   Section        0  main.o(i.main)
-    i.mt9v03x_dma                            0x08000fac   Section        0  seekfree_mt9v03x.o(i.mt9v03x_dma)
-    i.mt9v03x_uart_callback                  0x08000fcc   Section        0  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
-    i.mt9v03x_vsync                          0x08001020   Section        0  seekfree_mt9v03x.o(i.mt9v03x_vsync)
-    i.ov7725_cof_uart_interrupt              0x0800103c   Section        0  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
-    i.ov7725_dma                             0x08001090   Section        0  seekfree_7725.o(i.ov7725_dma)
-    i.ov7725_uart_dma                        0x080010b0   Section        0  seekfree_uart_7725.o(i.ov7725_uart_dma)
-    i.ov7725_uart_vsync                      0x080010d0   Section        0  seekfree_uart_7725.o(i.ov7725_uart_vsync)
-    i.ov7725_vsync                           0x080010ec   Section        0  seekfree_7725.o(i.ov7725_vsync)
-    i.pwm_init                               0x08001108   Section        0  zf_pwm.o(i.pwm_init)
-    i.pwm_init_self                          0x08001380   Section        0  zf_pwm.o(i.pwm_init_self)
-    i.pwm_pin_init                           0x080013e8   Section        0  zf_pwm.o(i.pwm_pin_init)
-    pwm_pin_init                             0x080013e9   Thumb Code    24  zf_pwm.o(i.pwm_pin_init)
-    i.spi_init                               0x08001400   Section        0  zf_spi.o(i.spi_init)
-    i.spi_mosi                               0x08001594   Section        0  zf_spi.o(i.spi_mosi)
-    i.spi_pin_init                           0x080015f8   Section        0  zf_spi.o(i.spi_pin_init)
-    spi_pin_init                             0x080015f9   Thumb Code    96  zf_spi.o(i.spi_pin_init)
-    i.systick_delay                          0x0800165c   Section        0  zf_systick.o(i.systick_delay)
-    i.systick_delay_ms                       0x08001684   Section        0  zf_systick.o(i.systick_delay_ms)
-    i.uart_getchar                           0x080016ac   Section        0  zf_uart.o(i.uart_getchar)
-    i.uart_init                              0x080016d0   Section        0  zf_uart.o(i.uart_init)
-    i.uart_pin_init                          0x08001794   Section        0  zf_uart.o(i.uart_pin_init)
-    uart_pin_init                            0x08001795   Thumb Code    44  zf_uart.o(i.uart_pin_init)
-    i.uart_putchar                           0x080017c0   Section        0  zf_uart.o(i.uart_putchar)
-    .constdata                               0x080017e0   Section     7048  seekfree_font.o(.constdata)
+    i.ips114_showint16                       0x08000e38   Section        0  seekfree_ips114_spi.o(i.ips114_showint16)
+    i.ips114_showuint8                       0x08000ee4   Section        0  seekfree_ips114_spi.o(i.ips114_showuint8)
+    i.ips114_writeData                       0x08000f40   Section        0  seekfree_ips114_spi.o(i.ips114_writeData)
+    ips114_writeData                         0x08000f41   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeData)
+    i.ips114_writeIndex                      0x08000f8c   Section        0  seekfree_ips114_spi.o(i.ips114_writeIndex)
+    ips114_writeIndex                        0x08000f8d   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeIndex)
+    i.ips114_writedata_16bit                 0x08000fd8   Section        0  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
+    ips114_writedata_16bit                   0x08000fd9   Thumb Code    80  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
+    i.main                                   0x0800102c   Section        0  main.o(i.main)
+    i.mt9v03x_dma                            0x08001060   Section        0  seekfree_mt9v03x.o(i.mt9v03x_dma)
+    i.mt9v03x_uart_callback                  0x08001080   Section        0  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
+    i.mt9v03x_vsync                          0x080010d4   Section        0  seekfree_mt9v03x.o(i.mt9v03x_vsync)
+    i.ov7725_cof_uart_interrupt              0x080010f0   Section        0  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
+    i.ov7725_dma                             0x08001144   Section        0  seekfree_7725.o(i.ov7725_dma)
+    i.ov7725_uart_dma                        0x08001164   Section        0  seekfree_uart_7725.o(i.ov7725_uart_dma)
+    i.ov7725_uart_vsync                      0x08001184   Section        0  seekfree_uart_7725.o(i.ov7725_uart_vsync)
+    i.ov7725_vsync                           0x080011a0   Section        0  seekfree_7725.o(i.ov7725_vsync)
+    i.pwm_init                               0x080011bc   Section        0  zf_pwm.o(i.pwm_init)
+    i.pwm_init_self                          0x08001434   Section        0  zf_pwm.o(i.pwm_init_self)
+    i.pwm_pin_init                           0x0800149c   Section        0  zf_pwm.o(i.pwm_pin_init)
+    pwm_pin_init                             0x0800149d   Thumb Code    24  zf_pwm.o(i.pwm_pin_init)
+    i.spi_init                               0x080014b4   Section        0  zf_spi.o(i.spi_init)
+    i.spi_mosi                               0x08001648   Section        0  zf_spi.o(i.spi_mosi)
+    i.spi_pin_init                           0x080016ac   Section        0  zf_spi.o(i.spi_pin_init)
+    spi_pin_init                             0x080016ad   Thumb Code    96  zf_spi.o(i.spi_pin_init)
+    i.systick_delay                          0x08001710   Section        0  zf_systick.o(i.systick_delay)
+    i.systick_delay_ms                       0x08001738   Section        0  zf_systick.o(i.systick_delay_ms)
+    i.uart_getchar                           0x08001760   Section        0  zf_uart.o(i.uart_getchar)
+    i.uart_init                              0x08001784   Section        0  zf_uart.o(i.uart_init)
+    i.uart_pin_init                          0x08001848   Section        0  zf_uart.o(i.uart_pin_init)
+    uart_pin_init                            0x08001849   Thumb Code    44  zf_uart.o(i.uart_pin_init)
+    i.uart_putchar                           0x08001874   Section        0  zf_uart.o(i.uart_putchar)
+    .constdata                               0x08001894   Section     7048  seekfree_font.o(.constdata)
     .data                                    0x20000000   Section        2  isr.o(.data)
     .data                                    0x20000004   Section        8  common.o(.data)
     .data                                    0x2000000c   Section       20  system_mm32spin2xx_p.o(.data)
@@ -1823,33 +1824,34 @@ Image Symbol Table
     ips114_clear                             0x08000b3d   Thumb Code    48  seekfree_ips114_spi.o(i.ips114_clear)
     ips114_init                              0x08000b6d   Thumb Code   506  seekfree_ips114_spi.o(i.ips114_init)
     ips114_showchar                          0x08000dc5   Thumb Code   106  seekfree_ips114_spi.o(i.ips114_showchar)
-    ips114_showuint8                         0x08000e39   Thumb Code    90  seekfree_ips114_spi.o(i.ips114_showuint8)
-    main                                     0x08000f81   Thumb Code    42  main.o(i.main)
-    mt9v03x_dma                              0x08000fad   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_dma)
-    mt9v03x_uart_callback                    0x08000fcd   Thumb Code    66  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
-    mt9v03x_vsync                            0x08001021   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_vsync)
-    ov7725_cof_uart_interrupt                0x0800103d   Thumb Code    66  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
-    ov7725_dma                               0x08001091   Thumb Code    20  seekfree_7725.o(i.ov7725_dma)
-    ov7725_uart_dma                          0x080010b1   Thumb Code    20  seekfree_uart_7725.o(i.ov7725_uart_dma)
-    ov7725_uart_vsync                        0x080010d1   Thumb Code    22  seekfree_uart_7725.o(i.ov7725_uart_vsync)
-    ov7725_vsync                             0x080010ed   Thumb Code    22  seekfree_7725.o(i.ov7725_vsync)
-    pwm_init                                 0x08001109   Thumb Code   608  zf_pwm.o(i.pwm_init)
-    pwm_init_self                            0x08001381   Thumb Code    76  zf_pwm.o(i.pwm_init_self)
-    spi_init                                 0x08001401   Thumb Code   390  zf_spi.o(i.spi_init)
-    spi_mosi                                 0x08001595   Thumb Code    96  zf_spi.o(i.spi_mosi)
-    systick_delay                            0x0800165d   Thumb Code    36  zf_systick.o(i.systick_delay)
-    systick_delay_ms                         0x08001685   Thumb Code    34  zf_systick.o(i.systick_delay_ms)
-    uart_getchar                             0x080016ad   Thumb Code    30  zf_uart.o(i.uart_getchar)
-    uart_init                                0x080016d1   Thumb Code   180  zf_uart.o(i.uart_init)
-    uart_putchar                             0x080017c1   Thumb Code    28  zf_uart.o(i.uart_putchar)
-    tft_ascii                                0x080017e0   Data        1520  seekfree_font.o(.constdata)
-    gImage_qq                                0x08001dd0   Data        3200  seekfree_font.o(.constdata)
-    chinese_test                             0x08002a50   Data         128  seekfree_font.o(.constdata)
-    oled_6x8                                 0x08002ad0   Data         552  seekfree_font.o(.constdata)
-    oled_8x16                                0x08002cf8   Data        1520  seekfree_font.o(.constdata)
-    oled_16x16_chinese                       0x080032e8   Data         128  seekfree_font.o(.constdata)
-    Region$$Table$$Base                      0x08003368   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08003388   Number         0  anon$$obj.o(Region$$Table)
+    ips114_showint16                         0x08000e39   Thumb Code   168  seekfree_ips114_spi.o(i.ips114_showint16)
+    ips114_showuint8                         0x08000ee5   Thumb Code    90  seekfree_ips114_spi.o(i.ips114_showuint8)
+    main                                     0x0800102d   Thumb Code    52  main.o(i.main)
+    mt9v03x_dma                              0x08001061   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_dma)
+    mt9v03x_uart_callback                    0x08001081   Thumb Code    66  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
+    mt9v03x_vsync                            0x080010d5   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_vsync)
+    ov7725_cof_uart_interrupt                0x080010f1   Thumb Code    66  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
+    ov7725_dma                               0x08001145   Thumb Code    20  seekfree_7725.o(i.ov7725_dma)
+    ov7725_uart_dma                          0x08001165   Thumb Code    20  seekfree_uart_7725.o(i.ov7725_uart_dma)
+    ov7725_uart_vsync                        0x08001185   Thumb Code    22  seekfree_uart_7725.o(i.ov7725_uart_vsync)
+    ov7725_vsync                             0x080011a1   Thumb Code    22  seekfree_7725.o(i.ov7725_vsync)
+    pwm_init                                 0x080011bd   Thumb Code   608  zf_pwm.o(i.pwm_init)
+    pwm_init_self                            0x08001435   Thumb Code    76  zf_pwm.o(i.pwm_init_self)
+    spi_init                                 0x080014b5   Thumb Code   390  zf_spi.o(i.spi_init)
+    spi_mosi                                 0x08001649   Thumb Code    96  zf_spi.o(i.spi_mosi)
+    systick_delay                            0x08001711   Thumb Code    36  zf_systick.o(i.systick_delay)
+    systick_delay_ms                         0x08001739   Thumb Code    34  zf_systick.o(i.systick_delay_ms)
+    uart_getchar                             0x08001761   Thumb Code    30  zf_uart.o(i.uart_getchar)
+    uart_init                                0x08001785   Thumb Code   180  zf_uart.o(i.uart_init)
+    uart_putchar                             0x08001875   Thumb Code    28  zf_uart.o(i.uart_putchar)
+    tft_ascii                                0x08001894   Data        1520  seekfree_font.o(.constdata)
+    gImage_qq                                0x08001e84   Data        3200  seekfree_font.o(.constdata)
+    chinese_test                             0x08002b04   Data         128  seekfree_font.o(.constdata)
+    oled_6x8                                 0x08002b84   Data         552  seekfree_font.o(.constdata)
+    oled_8x16                                0x08002dac   Data        1520  seekfree_font.o(.constdata)
+    oled_16x16_chinese                       0x0800339c   Data         128  seekfree_font.o(.constdata)
+    Region$$Table$$Base                      0x0800341c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800343c   Number         0  anon$$obj.o(Region$$Table)
     count                                    0x20000000   Data           1  isr.o(.data)
     dat                                      0x20000001   Data           1  isr.o(.data)
     camera_type                              0x20000004   Data           1  common.o(.data)
@@ -1879,9 +1881,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00003468, Max: 0x00020000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000351c, Max: 0x00020000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00003388, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x0000343c, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1947,55 +1949,55 @@ Memory Map of the image
     0x08000d7c   0x08000d7c   0x00000046   Code   RO         1952    i.ips114_set_region  seekfree_ips114_spi.o
     0x08000dc2   0x08000dc2   0x00000002   PAD
     0x08000dc4   0x08000dc4   0x00000074   Code   RO         1953    i.ips114_showchar   seekfree_ips114_spi.o
-    0x08000e38   0x08000e38   0x0000005a   Code   RO         1960    i.ips114_showuint8  seekfree_ips114_spi.o
-    0x08000e92   0x08000e92   0x00000002   PAD
-    0x08000e94   0x08000e94   0x0000004c   Code   RO         1961    i.ips114_writeData  seekfree_ips114_spi.o
-    0x08000ee0   0x08000ee0   0x0000004c   Code   RO         1962    i.ips114_writeIndex  seekfree_ips114_spi.o
-    0x08000f2c   0x08000f2c   0x00000054   Code   RO         1963    i.ips114_writedata_16bit  seekfree_ips114_spi.o
-    0x08000f80   0x08000f80   0x0000002a   Code   RO          364    i.main              main.o
-    0x08000faa   0x08000faa   0x00000002   PAD
-    0x08000fac   0x08000fac   0x00000020   Code   RO         2206    i.mt9v03x_dma       seekfree_mt9v03x.o
-    0x08000fcc   0x08000fcc   0x00000054   Code   RO         2211    i.mt9v03x_uart_callback  seekfree_mt9v03x.o
-    0x08001020   0x08001020   0x0000001c   Code   RO         2212    i.mt9v03x_vsync     seekfree_mt9v03x.o
-    0x0800103c   0x0800103c   0x00000054   Code   RO         2458    i.ov7725_cof_uart_interrupt  seekfree_uart_7725.o
-    0x08001090   0x08001090   0x00000020   Code   RO         1604    i.ov7725_dma        seekfree_7725.o
-    0x080010b0   0x080010b0   0x00000020   Code   RO         2462    i.ov7725_uart_dma   seekfree_uart_7725.o
-    0x080010d0   0x080010d0   0x0000001c   Code   RO         2468    i.ov7725_uart_vsync  seekfree_uart_7725.o
-    0x080010ec   0x080010ec   0x0000001c   Code   RO         1617    i.ov7725_vsync      seekfree_7725.o
-    0x08001108   0x08001108   0x00000278   Code   RO         1171    i.pwm_init          zf_pwm.o
-    0x08001380   0x08001380   0x00000068   Code   RO         1172    i.pwm_init_self     zf_pwm.o
-    0x080013e8   0x080013e8   0x00000018   Code   RO         1173    i.pwm_pin_init      zf_pwm.o
-    0x08001400   0x08001400   0x00000194   Code   RO         1220    i.spi_init          zf_spi.o
-    0x08001594   0x08001594   0x00000064   Code   RO         1221    i.spi_mosi          zf_spi.o
-    0x080015f8   0x080015f8   0x00000064   Code   RO         1222    i.spi_pin_init      zf_spi.o
-    0x0800165c   0x0800165c   0x00000028   Code   RO         1258    i.systick_delay     zf_systick.o
-    0x08001684   0x08001684   0x00000028   Code   RO         1259    i.systick_delay_ms  zf_systick.o
-    0x080016ac   0x080016ac   0x00000024   Code   RO         1376    i.uart_getchar      zf_uart.o
-    0x080016d0   0x080016d0   0x000000c4   Code   RO         1377    i.uart_init         zf_uart.o
-    0x08001794   0x08001794   0x0000002c   Code   RO         1378    i.uart_pin_init     zf_uart.o
-    0x080017c0   0x080017c0   0x00000020   Code   RO         1380    i.uart_putchar      zf_uart.o
-    0x080017e0   0x080017e0   0x00001b88   Data   RO         1765    .constdata          seekfree_font.o
-    0x08003368   0x08003368   0x00000020   Data   RO         5422    Region$$Table       anon$$obj.o
+    0x08000e38   0x08000e38   0x000000ac   Code   RO         1955    i.ips114_showint16  seekfree_ips114_spi.o
+    0x08000ee4   0x08000ee4   0x0000005a   Code   RO         1960    i.ips114_showuint8  seekfree_ips114_spi.o
+    0x08000f3e   0x08000f3e   0x00000002   PAD
+    0x08000f40   0x08000f40   0x0000004c   Code   RO         1961    i.ips114_writeData  seekfree_ips114_spi.o
+    0x08000f8c   0x08000f8c   0x0000004c   Code   RO         1962    i.ips114_writeIndex  seekfree_ips114_spi.o
+    0x08000fd8   0x08000fd8   0x00000054   Code   RO         1963    i.ips114_writedata_16bit  seekfree_ips114_spi.o
+    0x0800102c   0x0800102c   0x00000034   Code   RO          364    i.main              main.o
+    0x08001060   0x08001060   0x00000020   Code   RO         2206    i.mt9v03x_dma       seekfree_mt9v03x.o
+    0x08001080   0x08001080   0x00000054   Code   RO         2211    i.mt9v03x_uart_callback  seekfree_mt9v03x.o
+    0x080010d4   0x080010d4   0x0000001c   Code   RO         2212    i.mt9v03x_vsync     seekfree_mt9v03x.o
+    0x080010f0   0x080010f0   0x00000054   Code   RO         2458    i.ov7725_cof_uart_interrupt  seekfree_uart_7725.o
+    0x08001144   0x08001144   0x00000020   Code   RO         1604    i.ov7725_dma        seekfree_7725.o
+    0x08001164   0x08001164   0x00000020   Code   RO         2462    i.ov7725_uart_dma   seekfree_uart_7725.o
+    0x08001184   0x08001184   0x0000001c   Code   RO         2468    i.ov7725_uart_vsync  seekfree_uart_7725.o
+    0x080011a0   0x080011a0   0x0000001c   Code   RO         1617    i.ov7725_vsync      seekfree_7725.o
+    0x080011bc   0x080011bc   0x00000278   Code   RO         1171    i.pwm_init          zf_pwm.o
+    0x08001434   0x08001434   0x00000068   Code   RO         1172    i.pwm_init_self     zf_pwm.o
+    0x0800149c   0x0800149c   0x00000018   Code   RO         1173    i.pwm_pin_init      zf_pwm.o
+    0x080014b4   0x080014b4   0x00000194   Code   RO         1220    i.spi_init          zf_spi.o
+    0x08001648   0x08001648   0x00000064   Code   RO         1221    i.spi_mosi          zf_spi.o
+    0x080016ac   0x080016ac   0x00000064   Code   RO         1222    i.spi_pin_init      zf_spi.o
+    0x08001710   0x08001710   0x00000028   Code   RO         1258    i.systick_delay     zf_systick.o
+    0x08001738   0x08001738   0x00000028   Code   RO         1259    i.systick_delay_ms  zf_systick.o
+    0x08001760   0x08001760   0x00000024   Code   RO         1376    i.uart_getchar      zf_uart.o
+    0x08001784   0x08001784   0x000000c4   Code   RO         1377    i.uart_init         zf_uart.o
+    0x08001848   0x08001848   0x0000002c   Code   RO         1378    i.uart_pin_init     zf_uart.o
+    0x08001874   0x08001874   0x00000020   Code   RO         1380    i.uart_putchar      zf_uart.o
+    0x08001894   0x08001894   0x00001b88   Data   RO         1765    .constdata          seekfree_font.o
+    0x0800341c   0x0800341c   0x00000020   Data   RO         5422    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08003388, Size: 0x00000500, Max: 0x00003000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800343c, Size: 0x00000500, Max: 0x00003000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08003388   0x00000002   Data   RW           18    .data               isr.o
-    0x20000002   0x0800338a   0x00000002   PAD
-    0x20000004   0x0800338c   0x00000008   Data   RW          705    .data               common.o
-    0x2000000c   0x08003394   0x00000014   Data   RW          868    .data               system_mm32spin2xx_p.o
-    0x20000020   0x080033a8   0x00000010   Data   RW         1074    .data               zf_gpio.o
-    0x20000030   0x080033b8   0x00000008   Data   RW         1223    .data               zf_spi.o
-    0x20000038   0x080033c0   0x0000001c   Data   RW         1317    .data               zf_tim.o
-    0x20000054   0x080033dc   0x0000000a   Data   RW         1385    .data               zf_uart.o
-    0x2000005e   0x080033e6   0x00000004   Data   RW         1619    .data               seekfree_7725.o
-    0x20000062   0x080033ea   0x0000004a   Data   RW         2218    .data               seekfree_mt9v03x.o
-    0x200000ac   0x08003434   0x00000033   Data   RW         2471    .data               seekfree_uart_7725.o
-    0x200000df   0x08003467   0x00000001   PAD
+    0x20000000   0x0800343c   0x00000002   Data   RW           18    .data               isr.o
+    0x20000002   0x0800343e   0x00000002   PAD
+    0x20000004   0x08003440   0x00000008   Data   RW          705    .data               common.o
+    0x2000000c   0x08003448   0x00000014   Data   RW          868    .data               system_mm32spin2xx_p.o
+    0x20000020   0x0800345c   0x00000010   Data   RW         1074    .data               zf_gpio.o
+    0x20000030   0x0800346c   0x00000008   Data   RW         1223    .data               zf_spi.o
+    0x20000038   0x08003474   0x0000001c   Data   RW         1317    .data               zf_tim.o
+    0x20000054   0x08003490   0x0000000a   Data   RW         1385    .data               zf_uart.o
+    0x2000005e   0x0800349a   0x00000004   Data   RW         1619    .data               seekfree_7725.o
+    0x20000062   0x0800349e   0x0000004a   Data   RW         2218    .data               seekfree_mt9v03x.o
+    0x200000ac   0x080034e8   0x00000033   Data   RW         2471    .data               seekfree_uart_7725.o
+    0x200000df   0x0800351b   0x00000001   PAD
     0x200000e0        -       0x0000001c   Zero   RW         1174    .bss                zf_pwm.o
-    0x200000fc   0x08003467   0x00000004   PAD
+    0x200000fc   0x0800351b   0x00000004   PAD
     0x20000100        -       0x00000400   Zero   RW          901    STACK               startup_mm32spin2xx_p_keil.o
 
 
@@ -2011,10 +2013,10 @@ Image component sizes
         36         10          0          0          0       1208   hal_dma.o
         48         12          0          0          0       1216   hal_exti.o
        824         66          0          2          0      71587   isr.o
-        42          0          0          0          0        435   main.o
+        52          0          0          0          0        439   main.o
         60         18          0          4          0       2142   seekfree_7725.o
          0          0       7048          0          0       1153   seekfree_font.o
-      1088         48          0          0          0       6254   seekfree_ips114_spi.o
+      1260         52          0          0          0       7041   seekfree_ips114_spi.o
        144         38          0         74          0       2878   seekfree_mt9v03x.o
          0          0          0          0          0       9185   seekfree_printf.o
        144         36          0         51          0       2980   seekfree_uart_7725.o
@@ -2028,9 +2030,9 @@ Image component sizes
        308         26          0         10          0       4372   zf_uart.o
 
     ----------------------------------------------------------------------
-      5316        460       7272        224       1056     127103   Object Totals
+      5496        464       7272        224       1056     127894   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        10          0          0          3          4          0   (incl. Padding)
+         8          0          0          3          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2076,15 +2078,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5920        476       7272        224       1056     125243   Grand Totals
-      5920        476       7272        224       1056     125243   ELF Image Totals
-      5920        476       7272        224          0          0   ROM Totals
+      6100        480       7272        224       1056     125990   Grand Totals
+      6100        480       7272        224       1056     125990   ELF Image Totals
+      6100        480       7272        224          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                13192 (  12.88kB)
+    Total RO  Size (Code + RO Data)                13372 (  13.06kB)
     Total RW  Size (RW Data + ZI Data)              1280 (   1.25kB)
-    Total ROM Size (Code + RO Data + RW Data)      13416 (  13.10kB)
+    Total ROM Size (Code + RO Data + RW Data)      13596 (  13.28kB)
 
 ==============================================================================
 

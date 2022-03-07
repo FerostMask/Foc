@@ -57,6 +57,7 @@ int main(void)
 
 	while(1)
 	{
+		ips114_showint16(0, 0, 10);
 //		loop_count++;
 //		uart_getchar(UART_1, &io_input_state);
 ////		uart_query(UART_1, &io_input_state);
