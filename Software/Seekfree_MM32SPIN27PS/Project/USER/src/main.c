@@ -18,6 +18,7 @@
 ********************************************************************************************************************/
 
 #include "headfile.h"
+#include "magenc.h"
 
 // *************************** 例程说明 ***************************
 // 
@@ -37,8 +38,8 @@
 // **************************** 宏定义 ****************************
 
 // **************************** 变量定义 ****************************
-uint16 loop_count = 0;
-uint8 io_input_state = 0;
+char val[2] = {0x3F, 0xFF};
+char *valWrite = {0xFF, 0xFF};
 
 // **************************** 变量定义 ****************************
 
@@ -46,27 +47,17 @@ uint8 io_input_state = 0;
 int main(void)
 {
 	board_init(true);																// 初始化 debug 输出串口
-	systick_timing_ms(1000); // 延时1秒开机，防止奇奇怪怪的问题
-	//此处编写用户代码(例如：外设初始化代码等)
-	pwm_init_self();
+	systick_delay_ms(100); // 延时1秒开机，防止奇奇怪怪的问题
+	encoderInit();
 	ips114_init();
-////	mt9v03x_init();	
-	uart_init(UART_1,9600,UART1_TX_A09,UART1_RX_A10);
-//	uart_tx_irq(WIRELESS_UART,1);
+	//此处编写用户代码(例如：外设初始化代码等)
+
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)
 	{
-//		ips114_showint16(0, 0, 10);
-		ips114_showstr(0, 0, "Hello! World!");
-//		loop_count++;
-//		uart_getchar(UART_1, &io_input_state);
-////		uart_query(UART_1, &io_input_state);
-		uart_putchar(UART_1, 100);
-//		ips114_showuint8(0, 0, io_input_state);
-//		ips114_showuint8(0, 1, loop_count);
 		//此处编写需要循环执行的代码
-//		ips200_displayimage032(mt9v03x_image[0], MT9V03X_W, MT9V03X_H);
+		readEncoder();
 		//此处编写需要循环执行的代码
 	}
 }

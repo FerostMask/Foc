@@ -417,6 +417,11 @@
               <FileType>1</FileType>
               <FilePath>..\CODE\spi_master.c</FilePath>
             </File>
+            <File>
+              <FileName>magenc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\magenc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
