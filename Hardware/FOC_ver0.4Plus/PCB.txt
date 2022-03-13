@@ -1,9 +1,0 @@
-Board Information Report
-Filename     : D:\Software\AD_Documents\AD20\Projects\FOC_Project\ver 0.4\FOC_ver0.4\PCB.PcbDoc
-Date         : 2022/3/1
-Time         : 13:38:15
-Time Elapsed : 00:00:00
-
-Net Track Width, Count
-    6mils, 82
-count : 1
