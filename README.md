@@ -12,7 +12,7 @@
 
 从AD导出了电路板的三维模型，并根据模型制作了电机支架。接下来会尝试用3D打印机把支架做出来。
 
-![屏幕截图 2022-03-13 220724](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203132234220.jpg)
+![屏幕截图 2022-03-13 220724](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203132238350.jpg)
 
 #### 3/10/2022 收到板子并焊接好了
 
