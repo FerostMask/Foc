@@ -12,7 +12,7 @@
 
 从AD导出了电路板的三维模型，并根据模型制作了电机支架。接下来会尝试用3D打印机把支架做出来。
 
-![屏幕截图 2022-03-13 220724](C:\Users\Szasd\Pictures\Saved Pictures\屏幕截图 2022-03-13 220724.jpg)
+![屏幕截图 2022-03-13 220724](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203132234220.jpg)
 
 #### 3/10/2022 收到板子并焊接好了
 
@@ -72,4 +72,4 @@ Foc的第一版硬件，参考了稚晖大佬的开源FOC项目，驱动芯片�
 
 ![1646636768310](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612108.jpg)
 
-![psc](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203071612109.jpg)
+![psc](https://ferost-myphotos.oss-cn-shenzhen.aliyuncs.com/202203132234212.jpeg)
