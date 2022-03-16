@@ -1,6 +1,6 @@
 .\objects\magenc.o: ..\CODE\magenc.c
 .\objects\magenc.o: ..\CODE\magenc.h
-.\objects\magenc.o: ..\..\Libraries\seekfree_libraries\zf_spi.h
+.\objects\magenc.o: ..\..\Libraries\seekfree_libraries\zf_gpio.h
 .\objects\magenc.o: ..\..\Libraries\seekfree_libraries\common\common.h
 .\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\Include\reg_common.h
 .\objects\magenc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -21,11 +21,7 @@
 .\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\Include\reg_uart.h
 .\objects\magenc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\magenc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\string.h
-.\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_rcc.h
-.\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\Include\reg_pwr.h
-.\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_spi.h
+.\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_gpio.h
 .\objects\magenc.o: ..\..\Libraries\seekfree_libraries\zf_systick.h
 .\objects\magenc.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_IPS114_SPI.h
 .\objects\magenc.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_FONT.h
-.\objects\magenc.o: ..\..\Libraries\seekfree_libraries\zf_gpio.h
-.\objects\magenc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_gpio.h
