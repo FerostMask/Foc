@@ -422,6 +422,11 @@
               <FileType>1</FileType>
               <FilePath>..\CODE\magenc.c</FilePath>
             </File>
+            <File>
+              <FileName>foc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\foc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

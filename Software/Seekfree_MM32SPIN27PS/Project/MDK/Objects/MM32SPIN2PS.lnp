@@ -3,6 +3,7 @@
 ".\objects\main.o"
 ".\objects\spi_master.o"
 ".\objects\magenc.o"
+".\objects\foc.o"
 ".\objects\board.o"
 ".\objects\common.o"
 ".\objects\seekfree_printf.o"

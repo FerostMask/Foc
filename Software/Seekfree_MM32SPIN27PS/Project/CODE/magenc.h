@@ -12,6 +12,9 @@ typedef enum
     SPI_MOSI = B5, // 主发从收
     SPI_MISO = B4, // 主收从发
     SPI_CS = A15,  // 片选引脚
+	
+	HIGH_LEVEL = 1,
+	LOW_LEVEL = 0,
 
     UMax14 = 16384 - 1,
 	CIRCLE = 360,
