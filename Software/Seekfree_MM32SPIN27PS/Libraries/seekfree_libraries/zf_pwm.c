@@ -40,7 +40,7 @@ void pwm_init_self(){
 	pwm_init(TIM_1, TIM_1_CH3_A03, 10000, 30000);//B | H
 	afio_init(A7, GPO, GPIO_AF2, GPO_AF_PUSH_PUL);//CN | L
 	afio_init(A2, GPO, GPIO_AF3, GPO_AF_PUSH_PUL);//AN | L
-	afio_init(A4, GPO, GPIO_AF3, GPO_AF_PUSH_PUL);//BM | L
+	afio_init(A4, GPO, GPIO_AF3, GPO_AF_PUSH_PUL);//BN | L
 }
 
 //-------------------------------------------------------------------------------------------------------------------
@@ -67,7 +67,7 @@ void pwm_init (TIM_enum tim, TIM_PWMPIN_enum pin, uint32 freq, uint32 duty)
 
 	tim_index[(tim&0x0f)]->ARR = period_temp;													// 装载自动重装载值
 	tim_index[(tim&0x0f)]->PSC = freq_div;														// 装载预分频
-	tim_index[(tim&0x0f)]->CR1 = TIM_CR1_ARPEN | TIM_CR1_CMS_CENTERALIGNED3;													// 允许自动重装载值的预装载
+	tim_index[(tim&0x0f)]->CR1 = TIM_CR1_ARPEN | TIM_CR1_CMS_CENTERALIGNED3;													// 允许自动重装载值的预装载 | 配置中心对齐模式
 	tim_index[(tim&0x0f)]->BDTR = TIM_BDTR_MOEN;												// PWM 输出使能
 
 	switch(pin&0xf000)
@@ -76,21 +76,21 @@ void pwm_init (TIM_enum tim, TIM_PWMPIN_enum pin, uint32 freq, uint32 duty)
 			tim_index[(tim&0x0f)]->CCMR1 |=														// OC1M [6:4] 110
 					TIM_CCMR1_IC1F_1 | TIM_CCMR1_IC1F_2;										// PWM 模式 1
 			tim_index[(tim&0x0f)]->CCMR1 |= TIM_CCMR1_OC1PEN;									// 允许输出比较值的预装载
-			tim_index[(tim&0x0f)]->CCER |= TIM_CCER_CC1EN | TIM_CCER_CC1NEN;										// 使能通道 1
+			tim_index[(tim&0x0f)]->CCER |= TIM_CCER_CC1EN | TIM_CCER_CC1NEN;										// 使能通道 1 | 配置中心对齐模式
 			tim_index[(tim&0x0f)]->CCR1 = match_temp;											// 装载比较值
 			break;
 		case 0x2000:
 			tim_index[(tim&0x0f)]->CCMR1 |=														// OC1M [6:4] 110
 					TIM_CCMR1_IC2F_1 | TIM_CCMR1_IC2F_2;										// PWM 模式 1
 			tim_index[(tim&0x0f)]->CCMR1 |= TIM_CCMR1_OC2PEN;									// 允许输出比较值的预装载
-			tim_index[(tim&0x0f)]->CCER |= TIM_CCER_CC2EN | TIM_CCER_CC2NEN;										// 使能通道 2
+			tim_index[(tim&0x0f)]->CCER |= TIM_CCER_CC2EN | TIM_CCER_CC2NEN;										// 使能通道 2 | 配置中心对齐模式
 			tim_index[(tim&0x0f)]->CCR2 = match_temp;											// 装载比较值
 			break;
 		case 0x3000:
 			tim_index[(tim&0x0f)]->CCMR2 |=														// OC1M [6:4] 110
 					TIM_CCMR2_IC3F_1 | TIM_CCMR2_IC3F_2;										// PWM 模式 1
 			tim_index[(tim&0x0f)]->CCMR2 |= TIM_CCMR2_OC3PEN;									// 允许输出比较值的预装载
-			tim_index[(tim&0x0f)]->CCER |= TIM_CCER_CC3EN | TIM_CCER_CC3NEN;										// 使能通道 2
+			tim_index[(tim&0x0f)]->CCER |= TIM_CCER_CC3EN | TIM_CCER_CC3NEN;										// 使能通道 2 | 配置中心对齐模式
 			tim_index[(tim&0x0f)]->CCR3 = match_temp;											// 装载比较值
 			break;
 		case 0x4000:

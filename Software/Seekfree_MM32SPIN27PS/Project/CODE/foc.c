@@ -17,10 +17,6 @@
 /*==============================================================*/
 void vacSensorInit(void)
 {
-    outputPinInit(DC_CAL);
-    outputPinInit(EN_GATE);
-    gpioSetHigh(DC_CAL);
-    gpioSetHigh(EN_GATE);
     adcInit(SO1_CH);
     adcInit(SO2_CH);
     adcInit(VOL_CH);
@@ -34,4 +30,14 @@ void vacSensorRead(void)
     ips114_showuint16(0, 0, current1);
     ips114_showuint16(0, 1, current2);
     ips114_showuint16(0, 2, voltage);
+}
+
+void driverInit(void)
+{
+    pwmInit(INH_A, 10000, 0);   // A | H
+    pwmInit(INH_B, 10000, 0);   // B | H
+    pwmInit(INH_C, 10000, 0);   // C | H
+    afioInit(INL_A, AFMODE_AL); // AN | L
+    afioInit(INL_B, AFMODE_BL); // BN | L
+    afioInit(INL_C, AFMODE_CL); // CN | L
 }

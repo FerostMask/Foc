@@ -1,8 +1,8 @@
 --cpu Cortex-M0
 ".\objects\isr.o"
 ".\objects\main.o"
-".\objects\magenc.o"
 ".\objects\foc.o"
+".\objects\slave.o"
 ".\objects\board.o"
 ".\objects\common.o"
 ".\objects\seekfree_printf.o"

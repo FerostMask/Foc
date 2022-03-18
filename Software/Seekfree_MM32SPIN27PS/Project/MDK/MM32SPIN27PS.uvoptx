@@ -298,8 +298,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\CODE\magenc.c</PathWithFileName>
-      <FilenameWithoutPath>magenc.c</FilenameWithoutPath>
+      <PathWithFileName>..\CODE\foc.c</PathWithFileName>
+      <FilenameWithoutPath>foc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -310,8 +310,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\CODE\foc.c</PathWithFileName>
-      <FilenameWithoutPath>foc.c</FilenameWithoutPath>
+      <PathWithFileName>..\CODE\slave.c</PathWithFileName>
+      <FilenameWithoutPath>slave.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

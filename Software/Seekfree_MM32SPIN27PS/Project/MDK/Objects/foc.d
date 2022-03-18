@@ -23,6 +23,11 @@
 .\objects\foc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\foc.o: ..\..\Libraries\seekfree_libraries\zf_gpio.h
 .\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_gpio.h
+.\objects\foc.o: ..\..\Libraries\seekfree_libraries\zf_pwm.h
+.\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_tim.h
+.\objects\foc.o: ..\..\Libraries\seekfree_libraries\zf_tim.h
+.\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_misc.h
+.\objects\foc.o: ..\CODE\slave.h
 .\objects\foc.o: ..\CODE\funcinter.h
 .\objects\foc.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_IPS114_SPI.h
 .\objects\foc.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_FONT.h

@@ -16,11 +16,13 @@ typedef enum
 /*------------------------------*/
 /*		        ADC     		*/
 /*==============================*/
+// "zf_adc.h"
 #define adcInit(pin) adc_init(ADC_N, pin, ADC_RES) // ADC初始化
 #define adcRead(pin) adc_convert(ADC_N, pin)       // ADC读取值
 /*------------------------------*/
 /*		        GPIO     		*/
 /*==============================*/
+// "zf_gpio.h"
 // 初始化
 #define outputPinInit(pin) gpio_init(pin, GPO, DEFAULT_LEVEL, GPO_PUSH_PULL)  // 输出引脚初始化 | 推挽输出
 #define inputPinInit(pin) gpio_init(pin, GPI, DEFAULT_LEVEL, GPI_FLOATING_IN) // 输入引脚初始化 | 浮空输入
@@ -32,5 +34,13 @@ typedef enum
 /*------------------------------*/
 /*		       DELAY     		*/
 /*==============================*/
+// "zf_systick.h"
 #define delay_ns(time) systick_delay_ns(time) // ns级延时
+/*------------------------------*/
+/*		        PWM     		*/
+/*==============================*/
+// "zf_pwm.h"
+// "zf_gpio.h"
+#define pwmInit(pin, freq, duty) pwm_init(TIM_N, pin, freq, duty)     // PWM引脚初始化 | 中心对齐模式
+#define afioInit(pin, afMode) afio_init(pin, GPO, afMode, IO_AF_MODE) // PWM互补输出引脚初始化
 #endif

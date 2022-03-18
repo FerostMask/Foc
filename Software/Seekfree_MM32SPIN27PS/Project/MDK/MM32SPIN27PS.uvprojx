@@ -413,14 +413,14 @@
               <FilePath>..\CODE\本文件夹作用.txt</FilePath>
             </File>
             <File>
-              <FileName>magenc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\magenc.c</FilePath>
-            </File>
-            <File>
               <FileName>foc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\CODE\foc.c</FilePath>
+            </File>
+            <File>
+              <FileName>slave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\slave.c</FilePath>
             </File>
           </Files>
         </Group>

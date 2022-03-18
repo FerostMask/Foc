@@ -18,7 +18,7 @@
 ********************************************************************************************************************/
 
 #include "headfile.h"
-#include "magenc.h"
+#include "slave.h"
 
 // *************************** 例程说明 ***************************
 // 
@@ -48,8 +48,9 @@ int main(void)
 {
 	board_init(true);																// 初始化 debug 输出串口
 	systick_delay_ms(100); // 延时0.1秒开机，防止奇奇怪怪的问题
-	encoder.init();
+	spiDevice.init();
 	vacSensorInit();
+	driverInit();
 	ips114_init();
 	//此处编写用户代码(例如：外设初始化代码等)
 
@@ -58,7 +59,8 @@ int main(void)
 	while(1)
 	{
 		//此处编写需要循环执行的代码
-		encoder.read();
+//		spiDevice.enc->read();
+//		spiDevice.drv->info();
 		vacSensorRead();
 		//此处编写需要循环执行的代码
 	}
