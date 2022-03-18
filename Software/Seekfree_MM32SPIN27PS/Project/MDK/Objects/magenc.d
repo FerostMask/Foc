@@ -1,4 +1,5 @@
 .\objects\magenc.o: ..\CODE\magenc.c
+.\objects\magenc.o: ..\CODE\funcinter.h
 .\objects\magenc.o: ..\CODE\magenc.h
 .\objects\magenc.o: ..\..\Libraries\seekfree_libraries\zf_gpio.h
 .\objects\magenc.o: ..\..\Libraries\seekfree_libraries\common\common.h

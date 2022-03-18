@@ -1,8 +1,8 @@
 #ifndef _FOC_H
 #define _FOC_H
-#include "zf_adc.h"
+
 #include "stdint.h"
-#include "magenc.h"
+#include "zf_adc.h"
 #include "zf_gpio.h"
 /*------------------------------------------------------*/
 /* 					  枚举类型定义 						*/

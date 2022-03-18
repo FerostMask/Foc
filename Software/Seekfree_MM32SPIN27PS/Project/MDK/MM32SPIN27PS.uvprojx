@@ -413,11 +413,6 @@
               <FilePath>..\CODE\本文件夹作用.txt</FilePath>
             </File>
             <File>
-              <FileName>spi_master.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\spi_master.c</FilePath>
-            </File>
-            <File>
               <FileName>magenc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\CODE\magenc.c</FilePath>

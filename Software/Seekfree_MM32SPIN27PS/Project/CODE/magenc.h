@@ -11,17 +11,14 @@ typedef enum
     SPI_SCK = B3,  // 时钟脚
     SPI_MOSI = B5, // 主发从收
     SPI_MISO = B4, // 主收从发
-    SPI_CS = A15,  // 片选引脚
-	
-	HIGH_LEVEL = 1,
-	LOW_LEVEL = 0,
+    ENC_CS = A15,  // 编码器片选引脚
+    DRV_CS = C6,   // DRV8301SPI片选引脚
 
     UMax14 = 16384 - 1,
-	CIRCLE = 360,
+    CIRCLE = 360,
 
-    DEFAULT_LEVEL = 1, // 初始电平
-    COMN_CYCLE = 32,   // 通信周期
-    DATA_MSB = 15,     // 数据最高位
+    COMN_CYCLE = 32, // 通信周期
+    DATA_MSB = 15,   // 数据最高位
 } Magenc_enum;
 
 typedef struct Magenc

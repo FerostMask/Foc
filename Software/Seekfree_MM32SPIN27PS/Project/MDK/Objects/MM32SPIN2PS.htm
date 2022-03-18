@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\MM32SPIN2PS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\MM32SPIN2PS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Mar 17 21:05:22 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Mar 18 18:51:04 2022
 <BR><P>
 <H3>Maximum Stack Usage =        136 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -147,11 +147,11 @@ Global Symbols
 <P><STRONG><a name="[2b]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalPllFactor
+<BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
+<LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalPllFactor
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockToXX
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
@@ -376,7 +376,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mm32spin2xx_p_keil.o(RESET)
 </UL>
-<P><STRONG><a name="[58]"></a>__ARM_common_ll_muluu</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, spi_master.o(i.__ARM_common_ll_muluu))
+<P><STRONG><a name="[58]"></a>__ARM_common_ll_muluu</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, magenc.o(i.__ARM_common_ll_muluu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __ARM_common_ll_muluu
 </UL>
 <BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
@@ -449,8 +449,8 @@ Global Symbols
 <P><STRONG><a name="[4d]"></a>ips114_init</STRONG> (Thumb, 506 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = ips114_init &rArr; spi_init &rArr; spi_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
+<BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
+<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
@@ -597,7 +597,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[26]"></a>encoderInit</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, magenc.o(i.encoderInit))
+<P><STRONG><a name="[26]"></a>encoderInit</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, magenc.o(i.encoderInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = encoderInit &rArr; gpio_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
