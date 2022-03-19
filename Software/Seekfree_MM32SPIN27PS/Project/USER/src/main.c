@@ -54,19 +54,20 @@ int main(void)
 	driverInit();
 	ips114_init();
 	//此处编写用户代码(例如：外设初始化代码等)
-
+	spiDevice.drv->gainSet(GAIN_40VPERV);
+	spiDevice.drv->info();
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)
 	{
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
-//		spiDevice.drv->info();
-//		vacSensorRead();
-		cycleRotate(&driver, 7, 500, CLOCKWISE);
-		systick_delay_ms(100);
-		cycleRotate(&driver, 7, 500, ANTICLOCKWISE);
-		systick_delay_ms(100);
+		
+		vacSensorRead();
+//		cycleRotate(&driver, 7, 1500, CLOCKWISE);
+//		systick_delay_ms(100);
+//		cycleRotate(&driver, 7, 500, ANTICLOCKWISE);
+//		systick_delay_ms(100);
 		//此处编写需要循环执行的代码
 	}
 }

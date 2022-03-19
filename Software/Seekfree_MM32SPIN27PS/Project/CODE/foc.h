@@ -43,7 +43,7 @@ typedef enum
 
     PWM_DEFAULT_FREQUENCY = 10000, // 默认频率
     PWM_MAX_DUTY = PWM_DUTY_MAX,   // 最大占空比
-    DELAY_FOR_SPEED = 2,        // 延时控速 | ms
+    DELAY_FOR_SPEED = 1,        // 延时控速 | ms
 } BLDC_PWM_Enum;
 
 typedef enum

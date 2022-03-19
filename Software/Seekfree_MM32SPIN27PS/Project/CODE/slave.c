@@ -12,7 +12,9 @@
 static void SPIInit(void);
 static void readEncoder(void);
 static void infoGet(void);
+static void gainSlect(CSA_GAIN_Enum gain);
 static int16_t readDrvRegister(DRV_REGISTER_Enum address);
+static bool writeDrvRegister(DRV_REGISTER_Enum address, int16_t sdiData);
 /*--------------------------------------------------------------*/
 /* 							 变量定义 							*/
 /*==============================================================*/
@@ -25,6 +27,7 @@ Magenc encoder = {
 
 Drv drv = {
 	.info = infoGet,
+	.gainSet = gainSlect,
 };
 
 SPISlave spiDevice = {
@@ -123,6 +126,22 @@ static void infoGet(void)
 	ips114_showstr(0, 4, rsShow);
 }
 
+static void gainSlect(CSA_GAIN_Enum gain)
+{
+	int16_t originRegister = readDrvRegister(CONTROL_REGISTERS_SECOND);
+	originRegister &= GAIN_BITS;
+	originRegister |= gain;
+	bool success = writeDrvRegister(CONTROL_REGISTERS_SECOND, originRegister);
+//	if (success)
+//	{
+//		ips114_showstr(0, 5, "success!");
+//	}
+//	else
+//	{
+//		ips114_showstr(0, 5, "fail!!!!");
+//	}
+}
+
 static int16_t readDrvRegister(DRV_REGISTER_Enum address)
 {
 	uint8_t j = 0;		  // 获取数据计数
@@ -131,7 +150,7 @@ static int16_t readDrvRegister(DRV_REGISTER_Enum address)
 	int16_t rawData = 0;  // 获得的原始数据
 	int16_t sdiData = 0;
 	// 写数据
-	sdiData |= (0x01 << DATA_MSB) | (address << ADDRESS_BIT);
+	sdiData |= (0x01 << DATA_MSB) | (address << ADDRESS_BIT); // Read
 	gpioSetLow(SPI_SCK);
 	gpioSetLow(DRV_CS); // 开始通信
 	clock = 0;			// 时钟信号从低电平开始
@@ -174,4 +193,60 @@ static int16_t readDrvRegister(DRV_REGISTER_Enum address)
 	gpioSetHigh(DRV_CS); // 结束通信
 	// ips114_showint16(0, 5, rawData);
 	return rawData;
+}
+
+static bool writeDrvRegister(DRV_REGISTER_Enum address, int16_t sdiData)
+{
+	uint8_t j = 0;		  // 获取数据计数
+	uint8_t clock = 0;	  // 时钟信号
+	uint8_t getLevel = 0; // 获得电平状态
+	int16_t rawData = 0;  // 获得的原始数据
+	sdiData &= 0x03FF;
+	// 写数据
+	sdiData |= (0x00 << DATA_MSB) | (address << ADDRESS_BIT); // Write	
+	gpioSetLow(SPI_SCK);
+	gpioSetLow(DRV_CS); // 开始通信
+	clock = 0;			// 时钟信号从低电平开始
+	delay_ns(100);		// tSU_SCS = 50ns
+	for (int i = 0; i < COMN_CYCLE; i++)
+	{
+		clock = !clock;				  // 时钟跳变
+		gpioSetLevel(SPI_SCK, clock); // tCLKH = 40ns
+		if (clock)					  // MODE : CPOL = 0, CPHA = 1 | 低电平休息，第二个跳变沿（下降沿）采样
+		{
+			uint8_t setLevel = (sdiData >> (DATA_MSB - j)) & 0x01; // 上升沿改变输出数据
+			gpioSetLevel(SPI_MOSI, setLevel);
+			j++;
+		}
+	}
+	gpioSetLow(SPI_SCK);
+	delay_ns(100);		 // tHD_SCS = 50ns
+	gpioSetHigh(DRV_CS); // 结束通信
+
+	// 读数据
+	gpioSetHigh(SPI_MOSI); // Master output: 0xFFFF | fault data
+	gpioSetLow(SPI_SCK);
+	gpioSetLow(DRV_CS); // 开始通信
+	clock = 0;			// 时钟信号从低电平开始
+	delay_ns(100);		// tSU_SCS = 50ns
+	j = 0;
+	for (int i = 0; i < COMN_CYCLE; i++)
+	{
+		clock = !clock;				  // 时钟跳变
+		gpioSetLevel(SPI_SCK, clock); // tCLKH = 40ns
+		if (!clock)					  // MODE : CPOL = 0, CPHA = 1 | 低电平休息，第二个跳变沿（下降沿）采样
+		{
+			getLevel = gpio_get(SPI_MISO);		   // 获取电平
+			rawData |= getLevel << (DATA_MSB - j); // 记录电平
+			j++;
+		}
+	}
+	gpioSetLow(SPI_SCK);
+	delay_ns(100);		 // tHD_SCS = 50ns
+	gpioSetHigh(DRV_CS); // 结束通信
+	if (!((rawData >> DATA_MSB) & 0x01))
+	{
+		return true;
+	}
+	return false;
 }

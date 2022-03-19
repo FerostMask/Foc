@@ -33,6 +33,19 @@ typedef enum
     CONTROL_REGISTERS_SECOND = 0x03,
 } DRV_REGISTER_Enum;
 
+typedef enum
+{
+    GAIN_10VPERV = 0x00, // 00
+    GAIN_20VPERV = 0x04, // 01
+    GAIN_40VPERV = 0x08, // 10
+    GAIN_80VPERV = 0x0C, // 11
+} CSA_GAIN_Enum;
+
+typedef enum
+{
+    GAIN_BITS = ~0x0C, // Address: CONTROL_REGISTERS_SECOND | BITS: D3 D2
+} CSAMC_FUNCTION_Enum;
+
 typedef struct Magenc
 {
     void (*read)(void); // 读取编码器数据
@@ -43,7 +56,8 @@ typedef struct Magenc
 
 typedef struct Drv
 {
-    void (*info)(void); // 读取寄存器信息
+    void (*info)(void);             // 读取寄存器信息
+    void (*gainSet)(CSA_GAIN_Enum); // 设置电流检测增益
 } Drv;
 
 typedef struct SPISlave
