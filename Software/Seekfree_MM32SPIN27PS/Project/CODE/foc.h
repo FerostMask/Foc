@@ -19,6 +19,8 @@ typedef enum
     SO1_CH = ADC1_CH10_B02, // SO1的ADC引脚
     SO2_CH = ADC1_CH09_B01, // SO2的ADC引脚
     VOL_CH = ADC1_CH08_B00, // 电压ADC引脚
+
+    DCCAL_SAMPLING_TIMES = 10,
 } BLDC_ADC_Enum;
 
 typedef enum
@@ -43,7 +45,7 @@ typedef enum
 
     PWM_DEFAULT_FREQUENCY = 10000, // 默认频率
     PWM_MAX_DUTY = PWM_DUTY_MAX,   // 最大占空比
-    DELAY_FOR_SPEED = 1,        // 延时控速 | ms
+    DELAY_FOR_SPEED = 1,           // 延时控速 | ms
 } BLDC_PWM_Enum;
 
 typedef enum
@@ -54,21 +56,24 @@ typedef enum
 
 typedef struct Sensor
 {
-
+    float current1;  // 采样电流1 | 计算值
+    float current2;  // 采样电流2 | 计算值
+    int16_t offset1; // 电流偏置1 | Vref/2
+    int16_t offset2; // 电流偏置2 | Vref/2
 } Sensor;
 
 typedef struct Driver
 {
+    void (*init)(void);
     int32_t dutyThreshold;
+    struct Sensor *sensor;
 } Driver;
 /*------------------------------------------------------*/
 /* 					    外部声明 						*/
 /*======================================================*/
 extern Driver driver;
 
-void vacSensorInit(void);
 void vacSensorRead(void);
-void driverInit(void);
 void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir);
 
 #endif

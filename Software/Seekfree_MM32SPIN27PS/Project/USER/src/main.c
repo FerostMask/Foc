@@ -49,21 +49,19 @@ int main(void)
 {
 	board_init(true);																// 初始化 debug 输出串口
 	systick_delay_ms(100); // 延时0.1秒开机，防止奇奇怪怪的问题
-	spiDevice.init();
-	vacSensorInit();
-	driverInit();
 	ips114_init();
+	spiDevice.init();
 	//此处编写用户代码(例如：外设初始化代码等)
 	spiDevice.drv->gainSet(GAIN_40VPERV);
 	spiDevice.drv->info();
+	driver.init();
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)
 	{
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
-		
-		vacSensorRead();
+//		vacSensorRead();
 //		cycleRotate(&driver, 7, 1500, CLOCKWISE);
 //		systick_delay_ms(100);
 //		cycleRotate(&driver, 7, 500, ANTICLOCKWISE);
