@@ -19,6 +19,7 @@
 
 #include "headfile.h"
 #include "slave.h"
+#include "foc.h"
 
 // *************************** 例程说明 ***************************
 // 
@@ -61,7 +62,11 @@ int main(void)
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
 //		spiDevice.drv->info();
-		vacSensorRead();
+//		vacSensorRead();
+		cycleRotate(&driver, 7, 500, CLOCKWISE);
+		systick_delay_ms(100);
+		cycleRotate(&driver, 7, 500, ANTICLOCKWISE);
+		systick_delay_ms(100);
 		//此处编写需要循环执行的代码
 	}
 }

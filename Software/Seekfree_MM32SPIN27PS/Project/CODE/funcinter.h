@@ -36,6 +36,8 @@ typedef enum
 /*==============================*/
 // "zf_systick.h"
 #define delay_ns(time) systick_delay_ns(time) // ns级延时
+#define delay_us(time) systick_delay_us(time) // us级延时
+#define delay_ms(time) systick_delay_ms(time) // ms级延时
 /*------------------------------*/
 /*		        PWM     		*/
 /*==============================*/
@@ -43,4 +45,5 @@ typedef enum
 // "zf_gpio.h"
 #define pwmInit(pin, freq, duty) pwm_init(TIM_N, pin, freq, duty)     // PWM引脚初始化 | 中心对齐模式
 #define afioInit(pin, afMode) afio_init(pin, GPO, afMode, IO_AF_MODE) // PWM互补输出引脚初始化
+#define dutyUpdate(pin, duty) pwm_duty_updata(TIM_N, pin, duty)       // PWM更新占空比
 #endif

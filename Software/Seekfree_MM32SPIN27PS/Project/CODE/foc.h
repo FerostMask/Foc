@@ -2,9 +2,11 @@
 #define _FOC_H
 
 #include "stdint.h"
+#include "stdbool.h"
 #include "zf_adc.h"
 #include "zf_gpio.h"
 #include "zf_pwm.h"
+#include "zf_systick.h"
 #include "slave.h"
 /*------------------------------------------------------*/
 /* 					  枚举类型定义 						*/
@@ -21,6 +23,10 @@ typedef enum
 
 typedef enum
 {
+    BITS_A = 2, // A相占位
+    BITS_B = 1, // B相占位
+    BITS_C = 0, // C相占位
+
     TIM_N = TIM_1,         // 定时器模块
     INH_A = TIM_1_CH2_A01, // A相 | 高侧输入
     INL_A = A2,            // A相 | 低侧输入
@@ -35,13 +41,34 @@ typedef enum
 
     IO_AF_MODE = GPO_AF_PUSH_PUL, // 复用IO模式
 
-    PWM_MAX_DUTY = PWM_DUTY_MAX, // 最大占空比
+    PWM_DEFAULT_FREQUENCY = 10000, // 默认频率
+    PWM_MAX_DUTY = PWM_DUTY_MAX,   // 最大占空比
+    DELAY_FOR_SPEED = 2,        // 延时控速 | ms
 } BLDC_PWM_Enum;
+
+typedef enum
+{
+    CLOCKWISE = 0,     // 顺时针旋转
+    ANTICLOCKWISE = 1, // 逆时针旋转
+} DIRECTION_Enum;
+
+typedef struct Sensor
+{
+
+} Sensor;
+
+typedef struct Driver
+{
+    int32_t dutyThreshold;
+} Driver;
 /*------------------------------------------------------*/
 /* 					    外部声明 						*/
 /*======================================================*/
+extern Driver driver;
+
 void vacSensorInit(void);
 void vacSensorRead(void);
 void driverInit(void);
+void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir);
 
 #endif

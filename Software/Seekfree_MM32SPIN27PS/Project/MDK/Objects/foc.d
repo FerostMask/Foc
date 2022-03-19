@@ -1,10 +1,10 @@
 .\objects\foc.o: ..\CODE\foc.c
 .\objects\foc.o: ..\CODE\foc.h
 .\objects\foc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\foc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\foc.o: ..\..\Libraries\seekfree_libraries\zf_adc.h
 .\objects\foc.o: ..\..\Libraries\seekfree_libraries\common\common.h
 .\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\Include\reg_common.h
-.\objects\foc.o: D:\Software\Keil_MDK5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\Include\types.h
 .\objects\foc.o: ..\..\Libraries\Device\CMSIS\KEIL_Core\core_cm0.h
 .\objects\foc.o: ..\..\Libraries\Device\CMSIS\KEIL_Core\cmsis_compiler.h
@@ -27,6 +27,7 @@
 .\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_tim.h
 .\objects\foc.o: ..\..\Libraries\seekfree_libraries\zf_tim.h
 .\objects\foc.o: ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_misc.h
+.\objects\foc.o: ..\..\Libraries\seekfree_libraries\zf_systick.h
 .\objects\foc.o: ..\CODE\slave.h
 .\objects\foc.o: ..\CODE\funcinter.h
 .\objects\foc.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_IPS114_SPI.h

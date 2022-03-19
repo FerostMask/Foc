@@ -77,3 +77,4 @@
 .\objects\main.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h
 .\objects\main.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.h
 .\objects\main.o: ..\CODE\slave.h
+.\objects\main.o: ..\CODE\foc.h
