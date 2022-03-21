@@ -16,6 +16,8 @@ typedef enum BLDC_ADC_Enum
     ADC_N = ADC_1,       // ADC模块
     ADC_RES = ADC_12BIT, // ADC分辨率
 
+    ADC_UMAXW = 4096 - 1, // ADC精度无符号数对应的最大值
+
     SO1_CH = ADC1_CH10_B02, // SO1的ADC引脚
     SO2_CH = ADC1_CH09_B01, // SO2的ADC引脚
     VOL_CH = ADC1_CH08_B00, // 电压ADC引脚
@@ -43,7 +45,7 @@ typedef enum BLDC_PWM_Enum
 
     IO_AF_MODE = GPO_AF_PUSH_PUL, // 复用IO模式
 
-    PWM_DEFAULT_FREQUENCY = 10000, // 默认频率
+    PWM_DEFAULT_FREQUENCY = 20000, // 默认频率
     PWM_DEFAULT_DUTY = 0,          // 默认占空比
     PWM_MAX_DUTY = PWM_DUTY_MAX,   // 最大占空比
     DELAY_FOR_SPEED = 1,           // 延时控速 | ms
@@ -57,17 +59,28 @@ typedef enum DIRECTION_Enum
 
 typedef struct Sensor
 {
-    float current1;  // 采样电流1 | 计算值
-    float current2;  // 采样电流2 | 计算值
+    void (*sampling)(struct Sensor *);
+
+    float current1; // 采样电流1 | 计算值
+    float current2; // 采样电流2 | 计算值
+
+    float shuntResistor;
+
     int16_t offset1; // 电流偏置1 | Vref/2
     int16_t offset2; // 电流偏置2 | Vref/2
 } Sensor;
 
+typedef struct Motor
+{
+    void (*cycleRotate)(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir);
+} Motor;
+
 typedef struct Driver
 {
+    struct Sensor *sensor;
+    struct Motor *motor;
     void (*init)(void);
     int32_t dutyThreshold;
-    struct Sensor *sensor;
 } Driver;
 /*------------------------------------------------------*/
 /* 					    外部声明 						*/
@@ -75,6 +88,5 @@ typedef struct Driver
 extern Driver driver;
 
 void vacSensorRead(void);
-void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir);
 
 #endif

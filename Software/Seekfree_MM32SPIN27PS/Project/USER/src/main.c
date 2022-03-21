@@ -57,12 +57,13 @@ int main(void)
 
 	while(1)
 	{
+		driver.sensor->sampling(driver.sensor);
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
 //		vacSensorRead();
-//		cycleRotate(&driver, 7, 1500, CLOCKWISE);
+//		driver.motor->cycleRotate(&driver, 7, 1500, CLOCKWISE);
 //		systick_delay_ms(100);
-//		cycleRotate(&driver, 7, 500, ANTICLOCKWISE);
+//		driver.motor->cycleRotate(&driver, 7, 1500, ANTICLOCKWISE);
 //		systick_delay_ms(100);
 		//此处编写需要循环执行的代码
 	}

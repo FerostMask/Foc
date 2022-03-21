@@ -9,16 +9,32 @@
 /*==============================================================*/
 static void driverInit(void);
 static void dcOffsetCalibration(struct Sensor *sensor);
+static void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir);
+static void currentSampling(struct Sensor *sensor);
 /*--------------------------------------------------------------*/
 /* 							 变量定义 							*/
 /*==============================================================*/
 uint8_t clockwiseRotate[] = {0x04, 0x06, 0x02, 0x03, 0x01, 0x05};     // 100 110 010 011 001 101
 uint8_t anticlockwiseRotate[] = {0x05, 0x01, 0x03, 0x02, 0x06, 0x04}; // 101 001 011 010 110 100
-Sensor sensor;
+Sensor sensor = {
+    .sampling = currentSampling,
+
+    .current1 = 0,
+    .current2 = 0,
+
+    .shuntResistor = 0.01f,
+
+    .offset1 = ADC_UMAXW >> 1,
+    .offset2 = ADC_UMAXW >> 1,
+};
+Motor motor = {
+    .cycleRotate = cycleRotate,
+};
 Driver driver = {
+    .sensor = &sensor,
+    .motor = &motor,
     .init = driverInit,
     .dutyThreshold = PWM_MAX_DUTY * 0.7f,
-    .sensor = &sensor,
 };
 /*--------------------------------------------------------------*/
 /* 							 函数定义 							*/
@@ -44,44 +60,35 @@ static void driverInit(void)
     dcOffsetCalibration(driver.sensor); // 直流偏移校准
 }
 
-static inline int16_t medianFilter(BLDC_ADC_Enum channel) // 中值滤波 | 直流偏移校准辅助函数
-{
-    int16_t maxIndex = 0, minIndex = 0;
-    int16_t val[3] = {0};
-    for (int j = 0; j < 3; j++) // 电流采样
-    {
-        val[j] = adcRead(channel);
-    }
-    if (val[0] == val[1] == val[2])
-    {
-        return val[0];
-    }
-    for (int j = 1; j < 3; j++) // 找中值
-    {
-        if (val[maxIndex] < val[j])
-            maxIndex = j;
-        if (val[minIndex] > val[j])
-            minIndex = j;
-    }
-    return val[3 - maxIndex - minIndex]; // 返回中值
-}
 /*------------------------------*/
 /*		   直流偏移校准 	     */
 /*==============================*/
 static void dcOffsetCalibration(struct Sensor *sensor)
 {
     int32_t sum1 = 0, sum2 = 0;
-    gpioSetHigh(DC_CAL);                           // 拉高DC_CAL，短路负载方便直流偏移校准
-    delay_ms(50);                                  // 等待电压稳定
-    for (int i = 0; i < DCCAL_SAMPLING_TIMES; i++) // 中值平均滤波 | 3次采样取中值
+
+    for (int i = 0; i < DCCAL_SAMPLING_TIMES; i++) // 平均滤波
     {
-        sum1 += medianFilter(SO1_CH);
-        sum2 += medianFilter(SO2_CH);
+        sum1 += adcRead(SO1_CH);
+        sum2 += adcRead(SO2_CH);
     }
     sensor->offset1 = sum1 / DCCAL_SAMPLING_TIMES;
     sensor->offset2 = sum2 / DCCAL_SAMPLING_TIMES;
-    gpioSetLow(DC_CAL); // 重连负载
-    delay_ms(50);       // 等待电压稳定
+
+    //    ips114_showint16(100, 0, sensor->offset1);
+    //    ips114_showint16(100, 1, sensor->offset2);
+}
+
+static void currentSampling(struct Sensor *sensor)
+{
+    int32_t sample1 = adcRead(SO1_CH);
+    int32_t sample2 = adcRead(SO2_CH);
+
+    sensor->current1 = sample1 - sensor->offset1;
+    sensor->current2 = sample2 - sensor->offset2;
+
+    ips114_showint16(0, 0, sensor->current1);
+    ips114_showint16(0, 1, sensor->current2);
 }
 
 void vacSensorRead(void)
@@ -97,7 +104,7 @@ void vacSensorRead(void)
 /*------------------------------*/
 /*		    无刷开环控制   	     */
 /*==============================*/
-void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir) // 限制可转圈数在0~127
+static void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir) // 限制可转圈数在0~127
 {
     // 限制duty范围
     if (duty > driver->dutyThreshold)
