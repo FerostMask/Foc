@@ -23,25 +23,28 @@ Driver driver = {
 /*--------------------------------------------------------------*/
 /* 							 函数定义 							*/
 /*==============================================================*/
+/*------------------------------*/
+/*		   驱动器初始化 	     */
+/*==============================*/
 static void driverInit(void)
 {
     adcInit(SO1_CH); // current sensor1
     adcInit(SO2_CH); // current sensor2
     adcInit(VOL_CH); // voltage sensor
 
-    pwmInit(INH_A, PWM_DEFAULT_FREQUENCY, 0); // A | H
-    pwmInit(INH_B, PWM_DEFAULT_FREQUENCY, 0); // B | H
-    pwmInit(INH_C, PWM_DEFAULT_FREQUENCY, 0); // C | H
-    afioInit(INL_A, AFMODE_AL);               // AN | L
-    afioInit(INL_B, AFMODE_BL);               // BN | L
-    afioInit(INL_C, AFMODE_CL);               // CN | L
+    pwmInit(INH_A, PWM_DEFAULT_FREQUENCY, PWM_DEFAULT_DUTY); // A | H
+    pwmInit(INH_B, PWM_DEFAULT_FREQUENCY, PWM_DEFAULT_DUTY); // B | H
+    pwmInit(INH_C, PWM_DEFAULT_FREQUENCY, PWM_DEFAULT_DUTY); // C | H
+    afioInit(INL_A, AFMODE_AL);                              // AN | L
+    afioInit(INL_B, AFMODE_BL);                              // BN | L
+    afioInit(INL_C, AFMODE_CL);                              // CN | L
 
-    dcOffsetCalibration(driver.sensor);
-    ips114_showint16(0, 0, driver.sensor->offset1);
-    ips114_showint16(0, 1, driver.sensor->offset2);
+    spiDevice.drv->gainSet(GAIN_SET); // 设置电流检测增益
+
+    dcOffsetCalibration(driver.sensor); // 直流偏移校准
 }
 
-static inline int16_t medianFilter(BLDC_ADC_Enum channel) // 中值滤波
+static inline int16_t medianFilter(BLDC_ADC_Enum channel) // 中值滤波 | 直流偏移校准辅助函数
 {
     int16_t maxIndex = 0, minIndex = 0;
     int16_t val[3] = {0};
@@ -62,7 +65,9 @@ static inline int16_t medianFilter(BLDC_ADC_Enum channel) // 中值滤波
     }
     return val[3 - maxIndex - minIndex]; // 返回中值
 }
-
+/*------------------------------*/
+/*		   直流偏移校准 	     */
+/*==============================*/
 static void dcOffsetCalibration(struct Sensor *sensor)
 {
     int32_t sum1 = 0, sum2 = 0;
@@ -89,7 +94,9 @@ void vacSensorRead(void)
     // ips114_showuint16(0, 1, current2);
     // ips114_showuint16(0, 2, voltage);
 }
-
+/*------------------------------*/
+/*		    无刷开环控制   	     */
+/*==============================*/
 void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir) // 限制可转圈数在0~127
 {
     // 限制duty范围

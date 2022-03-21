@@ -50,11 +50,9 @@ int main(void)
 	board_init(true);																// 初始化 debug 输出串口
 	systick_delay_ms(100); // 延时0.1秒开机，防止奇奇怪怪的问题
 	ips114_init();
-	spiDevice.init();
 	//此处编写用户代码(例如：外设初始化代码等)
-	spiDevice.drv->gainSet(GAIN_40VPERV);
-	spiDevice.drv->info();
-	driver.init();
+	spiDevice.init(); // SPI设备初始化
+	driver.init(); // 驱动器初始化
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)

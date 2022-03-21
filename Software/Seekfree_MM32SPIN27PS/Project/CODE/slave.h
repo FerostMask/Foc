@@ -6,7 +6,7 @@
 /*------------------------------------------------------*/
 /* 					  枚举类型定义 						*/
 /*======================================================*/
-typedef enum
+typedef enum DEVICE_enum
 {
     SPI_SCK = B3,  // 时钟脚
     SPI_MOSI = B5, // 主发从收
@@ -25,15 +25,7 @@ typedef enum
     EN_GATE = A12,
 } DEVICE_enum;
 
-typedef enum
-{
-    STATUS_REGISTERS_FIRST = 0x00,
-    STATUS_REGISTERS_SECOND = 0x01,
-    CONTROL_REGISTERS_FIRST = 0x02,
-    CONTROL_REGISTERS_SECOND = 0x03,
-} DRV_REGISTER_Enum;
-
-typedef enum
+typedef enum CSA_GAIN_Enum
 {
     GAIN_10VPERV = 0x00, // 00
     GAIN_20VPERV = 0x04, // 01
@@ -41,7 +33,19 @@ typedef enum
     GAIN_80VPERV = 0x0C, // 11
 } CSA_GAIN_Enum;
 
-typedef enum
+typedef enum DRIVER_INFO_Enum{
+	GAIN_SET = GAIN_40VPERV,
+}DRIVER_INFO_Enum;
+
+typedef enum DRV_REGISTER_Enum
+{
+    STATUS_REGISTERS_FIRST = 0x00,
+    STATUS_REGISTERS_SECOND = 0x01,
+    CONTROL_REGISTERS_FIRST = 0x02,
+    CONTROL_REGISTERS_SECOND = 0x03,
+} DRV_REGISTER_Enum;
+
+typedef enum CSAMC_FUNCTION_Enum
 {
     GAIN_BITS = ~0x0C, // Address: CONTROL_REGISTERS_SECOND | BITS: D3 D2
 } CSAMC_FUNCTION_Enum;
