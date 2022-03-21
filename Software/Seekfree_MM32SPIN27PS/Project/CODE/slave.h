@@ -28,14 +28,15 @@ typedef enum DEVICE_enum
 typedef enum CSA_GAIN_Enum
 {
     GAIN_10VPERV = 0x00, // 00
-    GAIN_20VPERV = 0x04, // 01
-    GAIN_40VPERV = 0x08, // 10
-    GAIN_80VPERV = 0x0C, // 11
+    GAIN_20VPERV = 0x01, // 01
+    GAIN_40VPERV = 0x02, // 10
+    GAIN_80VPERV = 0x03, // 11
 } CSA_GAIN_Enum;
 
-typedef enum DRIVER_INFO_Enum{
-	GAIN_SET = GAIN_40VPERV,
-}DRIVER_INFO_Enum;
+typedef enum DRIVER_INFO_Enum
+{
+    GAIN_SET = GAIN_40VPERV,
+} DRIVER_INFO_Enum;
 
 typedef enum DRV_REGISTER_Enum
 {
@@ -48,6 +49,7 @@ typedef enum DRV_REGISTER_Enum
 typedef enum CSAMC_FUNCTION_Enum
 {
     GAIN_BITS = ~0x0C, // Address: CONTROL_REGISTERS_SECOND | BITS: D3 D2
+    BIAS_OF_GAIN = 2,
 } CSAMC_FUNCTION_Enum;
 
 typedef struct Magenc

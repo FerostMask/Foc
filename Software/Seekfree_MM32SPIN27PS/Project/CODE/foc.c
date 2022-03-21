@@ -16,6 +16,7 @@ static void currentSampling(struct Sensor *sensor);
 /*==============================================================*/
 uint8_t clockwiseRotate[] = {0x04, 0x06, 0x02, 0x03, 0x01, 0x05};     // 100 110 010 011 001 101
 uint8_t anticlockwiseRotate[] = {0x05, 0x01, 0x03, 0x02, 0x06, 0x04}; // 101 001 011 010 110 100
+int8_t gainValue[] = {GAIN_VALUE_10VPERV, GAIN_VALUE_20VPERV, GAIN_VALUE_40VPERV, GAIN_VALUE_80VPERV};
 Sensor sensor = {
     .sampling = currentSampling,
 
@@ -23,6 +24,9 @@ Sensor sensor = {
     .current2 = 0,
 
     .shuntResistor = 0.01f,
+    .vRef = 3.3,
+    .gain = 0,
+    .ratio = 0,
 
     .offset1 = ADC_UMAXW >> 1,
     .offset2 = ADC_UMAXW >> 1,
@@ -58,6 +62,10 @@ static void driverInit(void)
     spiDevice.drv->gainSet(GAIN_SET); // 设置电流检测增益
 
     dcOffsetCalibration(driver.sensor); // 直流偏移校准
+
+    sensor.ratio = sensor.vRef / ADC_UMAXW;
+    sensor.shuntResistor = 1 / sensor.shuntResistor;
+    sensor.gain = gainValue[GAIN_SET];
 }
 
 /*------------------------------*/
@@ -81,14 +89,14 @@ static void dcOffsetCalibration(struct Sensor *sensor)
 
 static void currentSampling(struct Sensor *sensor)
 {
-    int32_t sample1 = adcRead(SO1_CH);
-    int32_t sample2 = adcRead(SO2_CH);
+    int16_t sample1 = adcRead(SO1_CH);
+    int16_t sample2 = adcRead(SO2_CH);
 
-    sensor->current1 = sample1 - sensor->offset1;
-    sensor->current2 = sample2 - sensor->offset2;
+    sensor->current1 = ((sensor->offset1 - (float)sample1) / sensor->gain) * sensor->ratio * sensor->shuntResistor; // init: sensor.shuntResistor = 1/sensor.shuntResistor
+    sensor->current2 = ((sensor->offset2 - (float)sample2) / sensor->gain) * sensor->ratio * sensor->shuntResistor;
 
-    ips114_showint16(0, 0, sensor->current1);
-    ips114_showint16(0, 1, sensor->current2);
+    ips114_showfloat(0, 0, sensor->current1, 3, 3);
+    ips114_showfloat(0, 1, sensor->current2, 3, 3);
 }
 
 void vacSensorRead(void)

@@ -53,6 +53,7 @@ int main(void)
 	//此处编写用户代码(例如：外设初始化代码等)
 	spiDevice.init(); // SPI设备初始化
 	driver.init(); // 驱动器初始化
+	spiDevice.drv->info();
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)

@@ -57,6 +57,14 @@ typedef enum DIRECTION_Enum
     ANTICLOCKWISE = 1, // 逆时针旋转
 } DIRECTION_Enum;
 
+typedef enum GAIN_VALUE_Enum
+{
+    GAIN_VALUE_10VPERV = 10,
+    GAIN_VALUE_20VPERV = 20,
+    GAIN_VALUE_40VPERV = 40,
+    GAIN_VALUE_80VPERV = 80,
+} GAIN_VALUE_Enum;
+
 typedef struct Sensor
 {
     void (*sampling)(struct Sensor *);
@@ -65,6 +73,9 @@ typedef struct Sensor
     float current2; // 采样电流2 | 计算值
 
     float shuntResistor;
+    const float vRef; // 参考电压
+    float gain;       // 电流检测增益
+    float ratio;      // 每伏特电压对应ADC值
 
     int16_t offset1; // 电流偏置1 | Vref/2
     int16_t offset2; // 电流偏置2 | Vref/2

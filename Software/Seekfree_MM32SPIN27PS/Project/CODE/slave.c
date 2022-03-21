@@ -12,7 +12,7 @@
 static void SPIInit(void);
 static void readEncoder(void);
 static void infoGet(void);
-static void gainSlect(CSA_GAIN_Enum gain);
+static void gainSet(CSA_GAIN_Enum gain);
 static int16_t readDrvRegister(DRV_REGISTER_Enum address);
 static bool writeDrvRegister(DRV_REGISTER_Enum address, int16_t sdiData);
 /*--------------------------------------------------------------*/
@@ -27,7 +27,7 @@ Magenc encoder = {
 
 Drv drv = {
 	.info = infoGet,
-	.gainSet = gainSlect,
+	.gainSet = gainSet,
 };
 
 SPISlave spiDevice = {
@@ -126,20 +126,20 @@ static void infoGet(void)
 	ips114_showstr(0, 4, rsShow);
 }
 
-static void gainSlect(CSA_GAIN_Enum gain)
+static void gainSet(CSA_GAIN_Enum gain)
 {
 	int16_t originRegister = readDrvRegister(CONTROL_REGISTERS_SECOND);
 	originRegister &= GAIN_BITS;
-	originRegister |= gain;
+	originRegister |= gain << BIAS_OF_GAIN;
 	bool success = writeDrvRegister(CONTROL_REGISTERS_SECOND, originRegister);
-//	if (success)
-//	{
-//		ips114_showstr(0, 5, "success!");
-//	}
-//	else
-//	{
-//		ips114_showstr(0, 5, "fail!!!!");
-//	}
+	//	if (success)
+	//	{
+	//		ips114_showstr(0, 5, "success!");
+	//	}
+	//	else
+	//	{
+	//		ips114_showstr(0, 5, "fail!!!!");
+	//	}
 }
 
 static int16_t readDrvRegister(DRV_REGISTER_Enum address)
@@ -203,7 +203,7 @@ static bool writeDrvRegister(DRV_REGISTER_Enum address, int16_t sdiData)
 	int16_t rawData = 0;  // 获得的原始数据
 	sdiData &= 0x03FF;
 	// 写数据
-	sdiData |= (0x00 << DATA_MSB) | (address << ADDRESS_BIT); // Write	
+	sdiData |= (0x00 << DATA_MSB) | (address << ADDRESS_BIT); // Write
 	gpioSetLow(SPI_SCK);
 	gpioSetLow(DRV_CS); // 开始通信
 	clock = 0;			// 时钟信号从低电平开始
