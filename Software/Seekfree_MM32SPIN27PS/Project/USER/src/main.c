@@ -20,6 +20,7 @@
 #include "headfile.h"
 #include "slave.h"
 #include "foc.h"
+#include "driver.h"
 
 // *************************** 例程说明 ***************************
 // 
@@ -53,17 +54,18 @@ int main(void)
 	//此处编写用户代码(例如：外设初始化代码等)
 	spiDevice.init(); // SPI设备初始化
 	driver.init(); // 驱动器初始化
+	foc.init(&foc, &driver, &encoder);
 	spiDevice.drv->info();
 	uart_init(UART_2,115200,UART2_TX_C04,UART2_RX_C05);
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)
 	{
-		driver.sensor->sampling(driver.sensor);
-		uart_putstr(UART_2, "hello");
+		foc.transform(&foc);
+		uart_putstr(UART_2, "Hello!");
+//		driver.sensor->sampling(driver.sensor);
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
-//		vacSensorRead();
 //		driver.motor->cycleRotate(&driver, 7, 1500, CLOCKWISE);
 //		systick_delay_ms(100);
 //		driver.motor->cycleRotate(&driver, 7, 1500, ANTICLOCKWISE);

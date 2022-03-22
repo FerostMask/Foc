@@ -1,5 +1,5 @@
-#ifndef _MAGENC_H
-#define _MAGENC_H
+#ifndef _SLAVE_H
+#define _SLAVE_H
 #include "zf_gpio.h"
 #include "stdint.h"
 #include "stdbool.h"
@@ -48,7 +48,7 @@ typedef enum DRV_REGISTER_Enum
 
 typedef enum CSAMC_FUNCTION_Enum
 {
-    GAIN_BITS = ~0x0C, // Address: CONTROL_REGISTERS_SECOND | BITS: D3 D2
+    GAIN_BITS = ~0x0C, // Address: CONTROL_REGISTERS_SECOND | BITS: D3 D2 (D1) (D0)
     BIAS_OF_GAIN = 2,
 } CSAMC_FUNCTION_Enum;
 

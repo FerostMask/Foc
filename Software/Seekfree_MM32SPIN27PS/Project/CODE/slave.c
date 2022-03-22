@@ -108,8 +108,8 @@ static void readEncoder(void)
 	encoder.rawData = rawData & 0x3FFF;											 // 获取原始数据
 	encoder.absAngle = ((float)encoder.rawData / (float)UMax14) * (float)CIRCLE; // 转换绝对角度（角度制）
 
-	ips114_showfloat(0, 2, encoder.absAngle, 3, 2);
-	ips114_showuint16(0, 1, encoder.rawData);
+	// ips114_showfloat(0, 2, encoder.absAngle, 3, 2);
+	// ips114_showuint16(0, 1, encoder.rawData);
 }
 
 static void infoGet(void)

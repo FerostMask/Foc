@@ -422,6 +422,11 @@
               <FileType>1</FileType>
               <FilePath>..\CODE\slave.c</FilePath>
             </File>
+            <File>
+              <FileName>driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\driver.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

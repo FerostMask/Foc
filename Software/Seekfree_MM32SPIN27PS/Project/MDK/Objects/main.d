@@ -78,3 +78,4 @@
 .\objects\main.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.h
 .\objects\main.o: ..\CODE\slave.h
 .\objects\main.o: ..\CODE\foc.h
+.\objects\main.o: ..\CODE\driver.h

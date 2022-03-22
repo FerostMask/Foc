@@ -3,6 +3,7 @@
 ".\objects\main.o"
 ".\objects\foc.o"
 ".\objects\slave.o"
+".\objects\driver.o"
 ".\objects\board.o"
 ".\objects\common.o"
 ".\objects\seekfree_printf.o"
