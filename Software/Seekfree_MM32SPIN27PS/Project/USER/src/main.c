@@ -54,11 +54,13 @@ int main(void)
 	spiDevice.init(); // SPI设备初始化
 	driver.init(); // 驱动器初始化
 	spiDevice.drv->info();
+	uart_init(UART_2,115200,UART2_TX_C04,UART2_RX_C05);
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)
 	{
 		driver.sensor->sampling(driver.sensor);
+		uart_putstr(UART_2, "hello");
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
 //		vacSensorRead();

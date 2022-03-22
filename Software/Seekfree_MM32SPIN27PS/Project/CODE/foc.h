@@ -71,6 +71,9 @@ typedef struct Sensor
 
     float current1; // 采样电流1 | 计算值
     float current2; // 采样电流2 | 计算值
+	
+	float voltage; // 采样电压
+	float volRatio; // 采样电压计算系数
 
     float shuntResistor;
     const float vRef; // 参考电压
@@ -93,11 +96,26 @@ typedef struct Driver
     void (*init)(void);
     int32_t dutyThreshold;
 } Driver;
+
+typedef struct Foc{	
+	float currentA;
+	float *currentB;
+	float *currentC;
+	
+	float *voltage;
+	
+	float alpha;
+	float beta;
+	
+	float Id;
+	float Iq;
+	
+	float revAlpha;
+	float revBeta;
+}Foc;
 /*------------------------------------------------------*/
 /* 					    外部声明 						*/
 /*======================================================*/
 extern Driver driver;
-
-void vacSensorRead(void);
 
 #endif

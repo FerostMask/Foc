@@ -10,7 +10,7 @@
 static void driverInit(void);
 static void dcOffsetCalibration(struct Sensor *sensor);
 static void cycleRotate(struct Driver *driver, int8_t cycles, int32_t duty, DIRECTION_Enum dir);
-static void currentSampling(struct Sensor *sensor);
+static void sampling(struct Sensor *sensor);
 /*--------------------------------------------------------------*/
 /* 							 变量定义 							*/
 /*==============================================================*/
@@ -18,10 +18,13 @@ uint8_t clockwiseRotate[] = {0x04, 0x06, 0x02, 0x03, 0x01, 0x05};     // 100 110
 uint8_t anticlockwiseRotate[] = {0x05, 0x01, 0x03, 0x02, 0x06, 0x04}; // 101 001 011 010 110 100
 int8_t gainValue[] = {GAIN_VALUE_10VPERV, GAIN_VALUE_20VPERV, GAIN_VALUE_40VPERV, GAIN_VALUE_80VPERV};
 Sensor sensor = {
-    .sampling = currentSampling,
+    .sampling = sampling,
 
     .current1 = 0,
     .current2 = 0,
+	
+	.voltage = 0,
+	.volRatio = 4,
 
     .shuntResistor = 0.01f,
     .vRef = 3.3,
@@ -40,6 +43,7 @@ Driver driver = {
     .init = driverInit,
     .dutyThreshold = PWM_MAX_DUTY * 0.7f,
 };
+Foc foc;
 /*--------------------------------------------------------------*/
 /* 							 函数定义 							*/
 /*==============================================================*/
@@ -86,29 +90,26 @@ static void dcOffsetCalibration(struct Sensor *sensor)
     //    ips114_showint16(100, 0, sensor->offset1);
     //    ips114_showint16(100, 1, sensor->offset2);
 }
-
-static void currentSampling(struct Sensor *sensor)
+/*------------------------------*/
+/*		   电压电流采样 	     */
+/*==============================*/
+static void sampling(struct Sensor *sensor)
 {
-    int16_t sample1 = adcRead(SO1_CH);
-    int16_t sample2 = adcRead(SO2_CH);
+    int16_t currentSample1 = adcRead(SO1_CH);
+    int16_t currentSample2 = adcRead(SO2_CH);
+	
+	int16_t voltageSample = adcRead(VOL_CH);
 
-    sensor->current1 = ((sensor->offset1 - (float)sample1) / sensor->gain) * sensor->ratio * sensor->shuntResistor; // init: sensor.shuntResistor = 1/sensor.shuntResistor
-    sensor->current2 = ((sensor->offset2 - (float)sample2) / sensor->gain) * sensor->ratio * sensor->shuntResistor;
+    sensor->current1 = ((sensor->offset1 - (float)currentSample1) / sensor->gain) * sensor->ratio * sensor->shuntResistor; // init: sensor.shuntResistor = 1/sensor.shuntResistor
+    sensor->current2 = ((sensor->offset2 - (float)currentSample2) / sensor->gain) * sensor->ratio * sensor->shuntResistor;
+	
+	sensor->voltage = voltageSample * sensor->ratio * sensor->volRatio; // 串联分压
 
-    ips114_showfloat(0, 0, sensor->current1, 3, 3);
-    ips114_showfloat(0, 1, sensor->current2, 3, 3);
+//    ips114_showfloat(0, 0, sensor->current1, 3, 3);
+//    ips114_showfloat(0, 1, sensor->current2, 3, 3);
+//	ips114_showfloat(0, 2, sensor->voltage, 3, 3);
 }
 
-void vacSensorRead(void)
-{
-    int16_t current1 = adcRead(SO1_CH);
-    int16_t current2 = adcRead(SO2_CH);
-    int16_t voltage = adcRead(VOL_CH);
-
-    // ips114_showuint16(0, 0, current1);
-    // ips114_showuint16(0, 1, current2);
-    // ips114_showuint16(0, 2, voltage);
-}
 /*------------------------------*/
 /*		    无刷开环控制   	     */
 /*==============================*/
