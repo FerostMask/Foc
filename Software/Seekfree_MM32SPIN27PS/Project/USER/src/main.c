@@ -62,7 +62,7 @@ int main(void)
 	while(1)
 	{
 		foc.transform(&foc);
-		uart_putstr(UART_2, "Hello!");
+//		uart_putstr(UART_2, "Hello!");
 //		driver.sensor->sampling(driver.sensor);
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
