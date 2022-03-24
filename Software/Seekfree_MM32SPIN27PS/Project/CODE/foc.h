@@ -17,29 +17,49 @@ typedef struct Foc
     struct Driver *driver;
     struct Sensor *sensor;
     struct Magenc *encoder;
-	
+
     void (*init)(struct Foc *, struct Driver *, struct Magenc *);
-	void (*transform)(struct Foc *);
+    void (*transform)(struct Foc *);
 
-    float currentA;
-    float *currentB;
-    float *currentC;
+    float targetCurrent; // 目标电流大小
 
-    float *voltage;
+    float currentA;  // A相电流
+    float *currentB; // B相电流 | 由传感器采集
+    float *currentC; // C相电流 | 由传感器采集
 
-    float alpha;
-    float beta;
+    float *voltage; // 电池电压
 
-    float *angle;
+    float alpha; // Clark变换获得的alpha值
+    float beta;  // Clark变换获得的beta值
 
-    float cycleGain;
+    float *angle; // 转子角度 | 由磁编码器采集
 
-    float Id;
-    float Iq;
+    float cycleGain; // 周期增益 | 根据电机极数不同设置不同的值
 
-    float revAlpha;
-    float revBeta;
+    float Id; // Park变换获得的Id | 目标值为0
+    float Iq; // Park变换获得的Iq
+
+    float *afterId;
+    float *afterIq;
+
+    float revAlpha; // 反Park变换获得的alpha值
+    float revBeta;  // 反Park变换获得的beta值
 } Foc;
+
+typedef struct pidpara
+{
+    float *act; // 实际值
+
+    float alpha; // 一阶低通滤波系数
+    float Kp;
+    float Ki;
+    float Kd;
+    //	计算相关
+    float I;          // 积分项暂存
+    float e1, e2, e3; // 误差
+    float rs;         // 计算结果
+    float thrsod;     // 阈值
+} pidpara;
 /*------------------------------------------------------*/
 /* 					    外部声明 						*/
 /*======================================================*/
