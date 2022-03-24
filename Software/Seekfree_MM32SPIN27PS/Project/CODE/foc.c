@@ -26,6 +26,9 @@ Foc foc = {
 /*--------------------------------------------------------------*/
 /* 							 函数定义 							*/
 /*==============================================================*/
+/*------------------------------*/
+/*		    Foc初始化    	     */
+/*==============================*/
 static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encoder)
 {
     foc->transform = transform;
@@ -48,13 +51,11 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
     angle2Radian = pi / 180;
     valueOfSin = sin(pi / 3); // sin(2*pi/3) = sin(pi/3)
 }
-
-static void clarkeTransform(struct Foc *foc)
+/*------------------------------*/
+/*		    电流变换     	     */
+/*==============================*/
+static inline void clarkeTransform(struct Foc *foc)
 {
-    foc->sensor->sampling(foc->sensor);               // 电流电压采样
-    foc->encoder->read();                             // 读取编码器位置信息
-    foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
-
     foc->alpha = foc->currentA - (*foc->currentB / 2) - (*foc->currentC / 2); // cos(2*pi/3) = -0.5 | no need to consider direction
     foc->beta = valueOfSin * (*foc->currentB - *foc->currentC);
 
@@ -65,9 +66,8 @@ static void clarkeTransform(struct Foc *foc)
     //	ips114_showfloat(0, 1, foc->beta, 3, 3);
 }
 
-static void parkTransform(struct Foc *foc)
+static inline void parkTransform(struct Foc *foc, float radian)
 {
-    float radian = foc->encoder->absAngle * angle2Radian;
     foc->Id = foc->alpha * cos(foc->cycleGain * radian) + foc->beta * sin(foc->cycleGain * radian);
     foc->Iq = -foc->alpha * sin(foc->cycleGain * radian) + foc->beta * cos(foc->cycleGain * radian);
 
@@ -79,10 +79,18 @@ static void parkTransform(struct Foc *foc)
 
 static void transform(struct Foc *foc)
 {
-    clarkeTransform(foc);
-    parkTransform(foc);
-}
+    foc->sensor->sampling(foc->sensor);               // 电流电压采样
+    foc->encoder->read();                             // 读取编码器位置信息
+    foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
 
+    float radian = foc->encoder->absAngle * angle2Radian; // 转子角度转弧度
+
+    clarkeTransform(foc);
+    parkTransform(foc, radian);
+}
+/*------------------------------*/
+/*		    临时示波器   	     */
+/*==============================*/
 static void tempScope(float data1, float data2, float data3, const float max)
 {
     const static int16_t length = 240;

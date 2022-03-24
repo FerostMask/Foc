@@ -37,8 +37,8 @@ Section Cross References
     main.o(i.main) refers to slave.o(.data) for spiDevice
     main.o(i.main) refers to driver.o(.data) for driver
     main.o(i.main) refers to foc.o(.data) for foc
-    foc.o(i.clarkeTransform) refers to fadd.o(.text) for __aeabi_fsub
     foc.o(i.clarkeTransform) refers to fdiv.o(.text) for __aeabi_fdiv
+    foc.o(i.clarkeTransform) refers to fadd.o(.text) for __aeabi_frsub
     foc.o(i.clarkeTransform) refers to fmul.o(.text) for __aeabi_fmul
     foc.o(i.clarkeTransform) refers to foc.o(.data) for valueOfSin
     foc.o(i.focInit) refers to acos.o(i.acos) for acos
@@ -56,15 +56,17 @@ Section Cross References
     foc.o(i.parkTransform) refers to dadd.o(.text) for __aeabi_dadd
     foc.o(i.parkTransform) refers to d2f.o(.text) for __aeabi_d2f
     foc.o(i.parkTransform) refers to foc.o(i.tempScope) for tempScope
-    foc.o(i.parkTransform) refers to foc.o(.data) for angle2Radian
     foc.o(i.tempScope) refers to seekfree_ips114_spi.o(i.ips114_clear) for ips114_clear
     foc.o(i.tempScope) refers to fdiv.o(.text) for __aeabi_fdiv
     foc.o(i.tempScope) refers to fmul.o(.text) for __aeabi_fmul
     foc.o(i.tempScope) refers to ffixi.o(.text) for __aeabi_f2iz
     foc.o(i.tempScope) refers to seekfree_ips114_spi.o(i.ips114_drawpoint) for ips114_drawpoint
     foc.o(i.tempScope) refers to foc.o(.data) for pos
+    foc.o(i.transform) refers to fadd.o(.text) for __aeabi_fsub
+    foc.o(i.transform) refers to fmul.o(.text) for __aeabi_fmul
     foc.o(i.transform) refers to foc.o(i.clarkeTransform) for clarkeTransform
     foc.o(i.transform) refers to foc.o(i.parkTransform) for parkTransform
+    foc.o(i.transform) refers to foc.o(.data) for angle2Radian
     foc.o(.data) refers to foc.o(i.focInit) for focInit
     slave.o(i.SPIInit) refers to zf_gpio.o(i.gpio_init) for gpio_init
     slave.o(i.SPIInit) refers to zf_gpio.o(i.gpio_set) for gpio_set
@@ -1940,87 +1942,87 @@ Image Symbol Table
     i.afio_init                              0x08001c4c   Section        0  zf_gpio.o(i.afio_init)
     i.board_init                             0x08001d24   Section        0  board.o(i.board_init)
     i.clarkeTransform                        0x08001d40   Section        0  foc.o(i.clarkeTransform)
-    clarkeTransform                          0x08001d41   Thumb Code   112  foc.o(i.clarkeTransform)
-    i.cos                                    0x08001db4   Section        0  cos.o(i.cos)
-    i.cycleRotate                            0x08001e4c   Section        0  driver.o(i.cycleRotate)
-    cycleRotate                              0x08001e4d   Thumb Code   348  driver.o(i.cycleRotate)
-    i.dcOffsetCalibration                    0x08001fc0   Section        0  driver.o(i.dcOffsetCalibration)
-    dcOffsetCalibration                      0x08001fc1   Thumb Code    64  driver.o(i.dcOffsetCalibration)
-    i.driverInit                             0x08002008   Section        0  driver.o(i.driverInit)
-    driverInit                               0x08002009   Thumb Code   170  driver.o(i.driverInit)
-    i.focInit                                0x080020e4   Section        0  foc.o(i.focInit)
-    focInit                                  0x080020e5   Thumb Code   126  foc.o(i.focInit)
-    i.gainSet                                0x08002184   Section        0  slave.o(i.gainSet)
-    gainSet                                  0x08002185   Thumb Code    36  slave.o(i.gainSet)
-    i.gpio_get                               0x080021a8   Section        0  zf_gpio.o(i.gpio_get)
-    i.gpio_init                              0x080021d4   Section        0  zf_gpio.o(i.gpio_init)
-    i.gpio_set                               0x0800229c   Section        0  zf_gpio.o(i.gpio_set)
-    i.infoGet                                0x080022f8   Section        0  slave.o(i.infoGet)
-    infoGet                                  0x080022f9   Thumb Code    76  slave.o(i.infoGet)
-    i.ips114_clear                           0x08002344   Section        0  seekfree_ips114_spi.o(i.ips114_clear)
-    i.ips114_drawpoint                       0x08002374   Section        0  seekfree_ips114_spi.o(i.ips114_drawpoint)
-    i.ips114_init                            0x08002390   Section        0  seekfree_ips114_spi.o(i.ips114_init)
-    i.ips114_set_region                      0x080025a0   Section        0  seekfree_ips114_spi.o(i.ips114_set_region)
-    ips114_set_region                        0x080025a1   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_set_region)
-    i.ips114_showchar                        0x080025e8   Section        0  seekfree_ips114_spi.o(i.ips114_showchar)
-    i.ips114_showstr                         0x0800265c   Section        0  seekfree_ips114_spi.o(i.ips114_showstr)
-    i.ips114_showuint8                       0x08002684   Section        0  seekfree_ips114_spi.o(i.ips114_showuint8)
-    i.ips114_writeData                       0x080026e0   Section        0  seekfree_ips114_spi.o(i.ips114_writeData)
-    ips114_writeData                         0x080026e1   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeData)
-    i.ips114_writeIndex                      0x0800272c   Section        0  seekfree_ips114_spi.o(i.ips114_writeIndex)
-    ips114_writeIndex                        0x0800272d   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeIndex)
-    i.ips114_writedata_16bit                 0x08002778   Section        0  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
-    ips114_writedata_16bit                   0x08002779   Thumb Code    80  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
-    i.main                                   0x080027cc   Section        0  main.o(i.main)
-    i.mt9v03x_dma                            0x08002828   Section        0  seekfree_mt9v03x.o(i.mt9v03x_dma)
-    i.mt9v03x_uart_callback                  0x08002848   Section        0  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
-    i.mt9v03x_vsync                          0x0800289c   Section        0  seekfree_mt9v03x.o(i.mt9v03x_vsync)
-    i.ov7725_cof_uart_interrupt              0x080028b8   Section        0  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
-    i.ov7725_dma                             0x0800290c   Section        0  seekfree_7725.o(i.ov7725_dma)
-    i.ov7725_uart_dma                        0x0800292c   Section        0  seekfree_uart_7725.o(i.ov7725_uart_dma)
-    i.ov7725_uart_vsync                      0x0800294c   Section        0  seekfree_uart_7725.o(i.ov7725_uart_vsync)
-    i.ov7725_vsync                           0x08002968   Section        0  seekfree_7725.o(i.ov7725_vsync)
-    i.parkTransform                          0x08002984   Section        0  foc.o(i.parkTransform)
-    parkTransform                            0x08002985   Thumb Code   268  foc.o(i.parkTransform)
-    i.pwm_duty_updata                        0x08002a94   Section        0  zf_pwm.o(i.pwm_duty_updata)
-    i.pwm_init                               0x08002b3c   Section        0  zf_pwm.o(i.pwm_init)
-    i.pwm_pin_init                           0x08002db4   Section        0  zf_pwm.o(i.pwm_pin_init)
-    pwm_pin_init                             0x08002db5   Thumb Code    24  zf_pwm.o(i.pwm_pin_init)
-    i.readDrvRegister                        0x08002dcc   Section        0  slave.o(i.readDrvRegister)
-    readDrvRegister                          0x08002dcd   Thumb Code   400  slave.o(i.readDrvRegister)
-    i.readEncoder                            0x08002f64   Section        0  slave.o(i.readEncoder)
-    readEncoder                              0x08002f65   Thumb Code   306  slave.o(i.readEncoder)
-    i.sampling                               0x080030ac   Section        0  driver.o(i.sampling)
-    sampling                                 0x080030ad   Thumb Code   172  driver.o(i.sampling)
-    i.sin                                    0x08003160   Section        0  sin.o(i.sin)
-    i.spi_init                               0x080031fc   Section        0  zf_spi.o(i.spi_init)
-    i.spi_mosi                               0x08003390   Section        0  zf_spi.o(i.spi_mosi)
-    i.spi_pin_init                           0x080033f4   Section        0  zf_spi.o(i.spi_pin_init)
-    spi_pin_init                             0x080033f5   Thumb Code    96  zf_spi.o(i.spi_pin_init)
-    i.sqrt                                   0x08003458   Section        0  sqrt.o(i.sqrt)
-    i.systick_delay                          0x080034a0   Section        0  zf_systick.o(i.systick_delay)
-    i.systick_delay_ms                       0x080034c8   Section        0  zf_systick.o(i.systick_delay_ms)
-    i.tempScope                              0x080034f0   Section        0  foc.o(i.tempScope)
-    tempScope                                0x080034f1   Thumb Code   178  foc.o(i.tempScope)
-    i.transform                              0x080035b0   Section        0  foc.o(i.transform)
-    transform                                0x080035b1   Thumb Code    18  foc.o(i.transform)
-    i.uart_getchar                           0x080035c4   Section        0  zf_uart.o(i.uart_getchar)
-    i.uart_init                              0x080035e8   Section        0  zf_uart.o(i.uart_init)
-    i.uart_pin_init                          0x080036ac   Section        0  zf_uart.o(i.uart_pin_init)
-    uart_pin_init                            0x080036ad   Thumb Code    44  zf_uart.o(i.uart_pin_init)
-    i.writeDrvRegister                       0x080036d8   Section        0  slave.o(i.writeDrvRegister)
-    writeDrvRegister                         0x080036d9   Thumb Code   408  slave.o(i.writeDrvRegister)
-    .constdata                               0x08003878   Section     7048  seekfree_font.o(.constdata)
-    .constdata                               0x08005400   Section       80  acos.o(.constdata)
-    pS                                       0x08005400   Data          48  acos.o(.constdata)
-    qS                                       0x08005430   Data          32  acos.o(.constdata)
-    .constdata                               0x08005450   Section       48  cos_i.o(.constdata)
-    C                                        0x08005450   Data          48  cos_i.o(.constdata)
-    .constdata                               0x08005480   Section      200  rred.o(.constdata)
-    pio2s                                    0x08005480   Data          48  rred.o(.constdata)
-    twooverpi                                0x080054b0   Data         152  rred.o(.constdata)
-    .constdata                               0x08005548   Section       40  sin_i.o(.constdata)
-    S                                        0x08005548   Data          40  sin_i.o(.constdata)
+    clarkeTransform                          0x08001d41   Thumb Code    76  foc.o(i.clarkeTransform)
+    i.cos                                    0x08001d90   Section        0  cos.o(i.cos)
+    i.cycleRotate                            0x08001e28   Section        0  driver.o(i.cycleRotate)
+    cycleRotate                              0x08001e29   Thumb Code   348  driver.o(i.cycleRotate)
+    i.dcOffsetCalibration                    0x08001f9c   Section        0  driver.o(i.dcOffsetCalibration)
+    dcOffsetCalibration                      0x08001f9d   Thumb Code    64  driver.o(i.dcOffsetCalibration)
+    i.driverInit                             0x08001fe4   Section        0  driver.o(i.driverInit)
+    driverInit                               0x08001fe5   Thumb Code   170  driver.o(i.driverInit)
+    i.focInit                                0x080020c0   Section        0  foc.o(i.focInit)
+    focInit                                  0x080020c1   Thumb Code   126  foc.o(i.focInit)
+    i.gainSet                                0x08002160   Section        0  slave.o(i.gainSet)
+    gainSet                                  0x08002161   Thumb Code    36  slave.o(i.gainSet)
+    i.gpio_get                               0x08002184   Section        0  zf_gpio.o(i.gpio_get)
+    i.gpio_init                              0x080021b0   Section        0  zf_gpio.o(i.gpio_init)
+    i.gpio_set                               0x08002278   Section        0  zf_gpio.o(i.gpio_set)
+    i.infoGet                                0x080022d4   Section        0  slave.o(i.infoGet)
+    infoGet                                  0x080022d5   Thumb Code    76  slave.o(i.infoGet)
+    i.ips114_clear                           0x08002320   Section        0  seekfree_ips114_spi.o(i.ips114_clear)
+    i.ips114_drawpoint                       0x08002350   Section        0  seekfree_ips114_spi.o(i.ips114_drawpoint)
+    i.ips114_init                            0x0800236c   Section        0  seekfree_ips114_spi.o(i.ips114_init)
+    i.ips114_set_region                      0x0800257c   Section        0  seekfree_ips114_spi.o(i.ips114_set_region)
+    ips114_set_region                        0x0800257d   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_set_region)
+    i.ips114_showchar                        0x080025c4   Section        0  seekfree_ips114_spi.o(i.ips114_showchar)
+    i.ips114_showstr                         0x08002638   Section        0  seekfree_ips114_spi.o(i.ips114_showstr)
+    i.ips114_showuint8                       0x08002660   Section        0  seekfree_ips114_spi.o(i.ips114_showuint8)
+    i.ips114_writeData                       0x080026bc   Section        0  seekfree_ips114_spi.o(i.ips114_writeData)
+    ips114_writeData                         0x080026bd   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeData)
+    i.ips114_writeIndex                      0x08002708   Section        0  seekfree_ips114_spi.o(i.ips114_writeIndex)
+    ips114_writeIndex                        0x08002709   Thumb Code    70  seekfree_ips114_spi.o(i.ips114_writeIndex)
+    i.ips114_writedata_16bit                 0x08002754   Section        0  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
+    ips114_writedata_16bit                   0x08002755   Thumb Code    80  seekfree_ips114_spi.o(i.ips114_writedata_16bit)
+    i.main                                   0x080027a8   Section        0  main.o(i.main)
+    i.mt9v03x_dma                            0x08002804   Section        0  seekfree_mt9v03x.o(i.mt9v03x_dma)
+    i.mt9v03x_uart_callback                  0x08002824   Section        0  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
+    i.mt9v03x_vsync                          0x08002878   Section        0  seekfree_mt9v03x.o(i.mt9v03x_vsync)
+    i.ov7725_cof_uart_interrupt              0x08002894   Section        0  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
+    i.ov7725_dma                             0x080028e8   Section        0  seekfree_7725.o(i.ov7725_dma)
+    i.ov7725_uart_dma                        0x08002908   Section        0  seekfree_uart_7725.o(i.ov7725_uart_dma)
+    i.ov7725_uart_vsync                      0x08002928   Section        0  seekfree_uart_7725.o(i.ov7725_uart_vsync)
+    i.ov7725_vsync                           0x08002944   Section        0  seekfree_7725.o(i.ov7725_vsync)
+    i.parkTransform                          0x08002960   Section        0  foc.o(i.parkTransform)
+    parkTransform                            0x08002961   Thumb Code   256  foc.o(i.parkTransform)
+    i.pwm_duty_updata                        0x08002a60   Section        0  zf_pwm.o(i.pwm_duty_updata)
+    i.pwm_init                               0x08002b08   Section        0  zf_pwm.o(i.pwm_init)
+    i.pwm_pin_init                           0x08002d80   Section        0  zf_pwm.o(i.pwm_pin_init)
+    pwm_pin_init                             0x08002d81   Thumb Code    24  zf_pwm.o(i.pwm_pin_init)
+    i.readDrvRegister                        0x08002d98   Section        0  slave.o(i.readDrvRegister)
+    readDrvRegister                          0x08002d99   Thumb Code   400  slave.o(i.readDrvRegister)
+    i.readEncoder                            0x08002f30   Section        0  slave.o(i.readEncoder)
+    readEncoder                              0x08002f31   Thumb Code   306  slave.o(i.readEncoder)
+    i.sampling                               0x08003078   Section        0  driver.o(i.sampling)
+    sampling                                 0x08003079   Thumb Code   172  driver.o(i.sampling)
+    i.sin                                    0x0800312c   Section        0  sin.o(i.sin)
+    i.spi_init                               0x080031c8   Section        0  zf_spi.o(i.spi_init)
+    i.spi_mosi                               0x0800335c   Section        0  zf_spi.o(i.spi_mosi)
+    i.spi_pin_init                           0x080033c0   Section        0  zf_spi.o(i.spi_pin_init)
+    spi_pin_init                             0x080033c1   Thumb Code    96  zf_spi.o(i.spi_pin_init)
+    i.sqrt                                   0x08003424   Section        0  sqrt.o(i.sqrt)
+    i.systick_delay                          0x0800346c   Section        0  zf_systick.o(i.systick_delay)
+    i.systick_delay_ms                       0x08003494   Section        0  zf_systick.o(i.systick_delay_ms)
+    i.tempScope                              0x080034bc   Section        0  foc.o(i.tempScope)
+    tempScope                                0x080034bd   Thumb Code   178  foc.o(i.tempScope)
+    i.transform                              0x0800357c   Section        0  foc.o(i.transform)
+    transform                                0x0800357d   Thumb Code    70  foc.o(i.transform)
+    i.uart_getchar                           0x080035c8   Section        0  zf_uart.o(i.uart_getchar)
+    i.uart_init                              0x080035ec   Section        0  zf_uart.o(i.uart_init)
+    i.uart_pin_init                          0x080036b0   Section        0  zf_uart.o(i.uart_pin_init)
+    uart_pin_init                            0x080036b1   Thumb Code    44  zf_uart.o(i.uart_pin_init)
+    i.writeDrvRegister                       0x080036dc   Section        0  slave.o(i.writeDrvRegister)
+    writeDrvRegister                         0x080036dd   Thumb Code   408  slave.o(i.writeDrvRegister)
+    .constdata                               0x0800387c   Section     7048  seekfree_font.o(.constdata)
+    .constdata                               0x08005408   Section       80  acos.o(.constdata)
+    pS                                       0x08005408   Data          48  acos.o(.constdata)
+    qS                                       0x08005438   Data          32  acos.o(.constdata)
+    .constdata                               0x08005458   Section       48  cos_i.o(.constdata)
+    C                                        0x08005458   Data          48  cos_i.o(.constdata)
+    .constdata                               0x08005488   Section      200  rred.o(.constdata)
+    pio2s                                    0x08005488   Data          48  rred.o(.constdata)
+    twooverpi                                0x080054b8   Data         152  rred.o(.constdata)
+    .constdata                               0x08005550   Section       40  sin_i.o(.constdata)
+    S                                        0x08005550   Data          40  sin_i.o(.constdata)
     .data                                    0x20000000   Section        2  isr.o(.data)
     .data                                    0x20000004   Section       82  foc.o(.data)
     pos                                      0x20000054   Data           2  foc.o(.data)
@@ -2179,43 +2181,43 @@ Image Symbol Table
     adc_init                                 0x08001b89   Thumb Code   156  zf_adc.o(i.adc_init)
     afio_init                                0x08001c4d   Thumb Code   206  zf_gpio.o(i.afio_init)
     board_init                               0x08001d25   Thumb Code    26  board.o(i.board_init)
-    cos                                      0x08001db5   Thumb Code   142  cos.o(i.cos)
-    gpio_get                                 0x080021a9   Thumb Code    38  zf_gpio.o(i.gpio_get)
-    gpio_init                                0x080021d5   Thumb Code   190  zf_gpio.o(i.gpio_init)
-    gpio_set                                 0x0800229d   Thumb Code    86  zf_gpio.o(i.gpio_set)
-    ips114_clear                             0x08002345   Thumb Code    48  seekfree_ips114_spi.o(i.ips114_clear)
-    ips114_drawpoint                         0x08002375   Thumb Code    28  seekfree_ips114_spi.o(i.ips114_drawpoint)
-    ips114_init                              0x08002391   Thumb Code   506  seekfree_ips114_spi.o(i.ips114_init)
-    ips114_showchar                          0x080025e9   Thumb Code   106  seekfree_ips114_spi.o(i.ips114_showchar)
-    ips114_showstr                           0x0800265d   Thumb Code    40  seekfree_ips114_spi.o(i.ips114_showstr)
-    ips114_showuint8                         0x08002685   Thumb Code    90  seekfree_ips114_spi.o(i.ips114_showuint8)
-    main                                     0x080027cd   Thumb Code    70  main.o(i.main)
-    mt9v03x_dma                              0x08002829   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_dma)
-    mt9v03x_uart_callback                    0x08002849   Thumb Code    66  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
-    mt9v03x_vsync                            0x0800289d   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_vsync)
-    ov7725_cof_uart_interrupt                0x080028b9   Thumb Code    66  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
-    ov7725_dma                               0x0800290d   Thumb Code    20  seekfree_7725.o(i.ov7725_dma)
-    ov7725_uart_dma                          0x0800292d   Thumb Code    20  seekfree_uart_7725.o(i.ov7725_uart_dma)
-    ov7725_uart_vsync                        0x0800294d   Thumb Code    22  seekfree_uart_7725.o(i.ov7725_uart_vsync)
-    ov7725_vsync                             0x08002969   Thumb Code    22  seekfree_7725.o(i.ov7725_vsync)
-    pwm_duty_updata                          0x08002a95   Thumb Code   154  zf_pwm.o(i.pwm_duty_updata)
-    pwm_init                                 0x08002b3d   Thumb Code   608  zf_pwm.o(i.pwm_init)
-    sin                                      0x08003161   Thumb Code   146  sin.o(i.sin)
-    spi_init                                 0x080031fd   Thumb Code   390  zf_spi.o(i.spi_init)
-    spi_mosi                                 0x08003391   Thumb Code    96  zf_spi.o(i.spi_mosi)
-    sqrt                                     0x08003459   Thumb Code    66  sqrt.o(i.sqrt)
-    systick_delay                            0x080034a1   Thumb Code    36  zf_systick.o(i.systick_delay)
-    systick_delay_ms                         0x080034c9   Thumb Code    34  zf_systick.o(i.systick_delay_ms)
-    uart_getchar                             0x080035c5   Thumb Code    30  zf_uart.o(i.uart_getchar)
-    uart_init                                0x080035e9   Thumb Code   180  zf_uart.o(i.uart_init)
-    tft_ascii                                0x08003878   Data        1520  seekfree_font.o(.constdata)
-    gImage_qq                                0x08003e68   Data        3200  seekfree_font.o(.constdata)
-    chinese_test                             0x08004ae8   Data         128  seekfree_font.o(.constdata)
-    oled_6x8                                 0x08004b68   Data         552  seekfree_font.o(.constdata)
-    oled_8x16                                0x08004d90   Data        1520  seekfree_font.o(.constdata)
-    oled_16x16_chinese                       0x08005380   Data         128  seekfree_font.o(.constdata)
-    Region$$Table$$Base                      0x08005570   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08005590   Number         0  anon$$obj.o(Region$$Table)
+    cos                                      0x08001d91   Thumb Code   142  cos.o(i.cos)
+    gpio_get                                 0x08002185   Thumb Code    38  zf_gpio.o(i.gpio_get)
+    gpio_init                                0x080021b1   Thumb Code   190  zf_gpio.o(i.gpio_init)
+    gpio_set                                 0x08002279   Thumb Code    86  zf_gpio.o(i.gpio_set)
+    ips114_clear                             0x08002321   Thumb Code    48  seekfree_ips114_spi.o(i.ips114_clear)
+    ips114_drawpoint                         0x08002351   Thumb Code    28  seekfree_ips114_spi.o(i.ips114_drawpoint)
+    ips114_init                              0x0800236d   Thumb Code   506  seekfree_ips114_spi.o(i.ips114_init)
+    ips114_showchar                          0x080025c5   Thumb Code   106  seekfree_ips114_spi.o(i.ips114_showchar)
+    ips114_showstr                           0x08002639   Thumb Code    40  seekfree_ips114_spi.o(i.ips114_showstr)
+    ips114_showuint8                         0x08002661   Thumb Code    90  seekfree_ips114_spi.o(i.ips114_showuint8)
+    main                                     0x080027a9   Thumb Code    70  main.o(i.main)
+    mt9v03x_dma                              0x08002805   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_dma)
+    mt9v03x_uart_callback                    0x08002825   Thumb Code    66  seekfree_mt9v03x.o(i.mt9v03x_uart_callback)
+    mt9v03x_vsync                            0x08002879   Thumb Code    20  seekfree_mt9v03x.o(i.mt9v03x_vsync)
+    ov7725_cof_uart_interrupt                0x08002895   Thumb Code    66  seekfree_uart_7725.o(i.ov7725_cof_uart_interrupt)
+    ov7725_dma                               0x080028e9   Thumb Code    20  seekfree_7725.o(i.ov7725_dma)
+    ov7725_uart_dma                          0x08002909   Thumb Code    20  seekfree_uart_7725.o(i.ov7725_uart_dma)
+    ov7725_uart_vsync                        0x08002929   Thumb Code    22  seekfree_uart_7725.o(i.ov7725_uart_vsync)
+    ov7725_vsync                             0x08002945   Thumb Code    22  seekfree_7725.o(i.ov7725_vsync)
+    pwm_duty_updata                          0x08002a61   Thumb Code   154  zf_pwm.o(i.pwm_duty_updata)
+    pwm_init                                 0x08002b09   Thumb Code   608  zf_pwm.o(i.pwm_init)
+    sin                                      0x0800312d   Thumb Code   146  sin.o(i.sin)
+    spi_init                                 0x080031c9   Thumb Code   390  zf_spi.o(i.spi_init)
+    spi_mosi                                 0x0800335d   Thumb Code    96  zf_spi.o(i.spi_mosi)
+    sqrt                                     0x08003425   Thumb Code    66  sqrt.o(i.sqrt)
+    systick_delay                            0x0800346d   Thumb Code    36  zf_systick.o(i.systick_delay)
+    systick_delay_ms                         0x08003495   Thumb Code    34  zf_systick.o(i.systick_delay_ms)
+    uart_getchar                             0x080035c9   Thumb Code    30  zf_uart.o(i.uart_getchar)
+    uart_init                                0x080035ed   Thumb Code   180  zf_uart.o(i.uart_init)
+    tft_ascii                                0x0800387c   Data        1520  seekfree_font.o(.constdata)
+    gImage_qq                                0x08003e6c   Data        3200  seekfree_font.o(.constdata)
+    chinese_test                             0x08004aec   Data         128  seekfree_font.o(.constdata)
+    oled_6x8                                 0x08004b6c   Data         552  seekfree_font.o(.constdata)
+    oled_8x16                                0x08004d94   Data        1520  seekfree_font.o(.constdata)
+    oled_16x16_chinese                       0x08005384   Data         128  seekfree_font.o(.constdata)
+    Region$$Table$$Base                      0x08005578   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08005598   Number         0  anon$$obj.o(Region$$Table)
     count                                    0x20000000   Data           1  isr.o(.data)
     dat                                      0x20000001   Data           1  isr.o(.data)
     pi                                       0x20000004   Data           4  foc.o(.data)
@@ -2260,9 +2262,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000c1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005740, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x0000565c])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005748, Max: 0x00020000, ABSOLUTE, COMPRESSED[0x00005664])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005590, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005598, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2363,68 +2365,68 @@ Memory Map of the image
     0x08001c4c   0x08001c4c   0x000000d8   Code   RO         1183    i.afio_init         zf_gpio.o
     0x08001d24   0x08001d24   0x0000001a   Code   RO          778    i.board_init        board.o
     0x08001d3e   0x08001d3e   0x00000002   PAD
-    0x08001d40   0x08001d40   0x00000074   Code   RO          634    i.clarkeTransform   foc.o
-    0x08001db4   0x08001db4   0x00000098   Code   RO         5484    i.cos               m_ps.l(cos.o)
-    0x08001e4c   0x08001e4c   0x00000174   Code   RO          738    i.cycleRotate       driver.o
-    0x08001fc0   0x08001fc0   0x00000048   Code   RO          739    i.dcOffsetCalibration  driver.o
-    0x08002008   0x08002008   0x000000dc   Code   RO          740    i.driverInit        driver.o
-    0x080020e4   0x080020e4   0x000000a0   Code   RO          635    i.focInit           foc.o
-    0x08002184   0x08002184   0x00000024   Code   RO          687    i.gainSet           slave.o
-    0x080021a8   0x080021a8   0x0000002c   Code   RO         1185    i.gpio_get          zf_gpio.o
-    0x080021d4   0x080021d4   0x000000c8   Code   RO         1186    i.gpio_init         zf_gpio.o
-    0x0800229c   0x0800229c   0x0000005c   Code   RO         1187    i.gpio_set          zf_gpio.o
-    0x080022f8   0x080022f8   0x0000004c   Code   RO          688    i.infoGet           slave.o
-    0x08002344   0x08002344   0x00000030   Code   RO         2057    i.ips114_clear      seekfree_ips114_spi.o
-    0x08002374   0x08002374   0x0000001c   Code   RO         2065    i.ips114_drawpoint  seekfree_ips114_spi.o
-    0x08002390   0x08002390   0x00000210   Code   RO         2066    i.ips114_init       seekfree_ips114_spi.o
-    0x080025a0   0x080025a0   0x00000046   Code   RO         2067    i.ips114_set_region  seekfree_ips114_spi.o
-    0x080025e6   0x080025e6   0x00000002   PAD
-    0x080025e8   0x080025e8   0x00000074   Code   RO         2068    i.ips114_showchar   seekfree_ips114_spi.o
-    0x0800265c   0x0800265c   0x00000028   Code   RO         2073    i.ips114_showstr    seekfree_ips114_spi.o
-    0x08002684   0x08002684   0x0000005a   Code   RO         2075    i.ips114_showuint8  seekfree_ips114_spi.o
-    0x080026de   0x080026de   0x00000002   PAD
-    0x080026e0   0x080026e0   0x0000004c   Code   RO         2076    i.ips114_writeData  seekfree_ips114_spi.o
-    0x0800272c   0x0800272c   0x0000004c   Code   RO         2077    i.ips114_writeIndex  seekfree_ips114_spi.o
-    0x08002778   0x08002778   0x00000054   Code   RO         2078    i.ips114_writedata_16bit  seekfree_ips114_spi.o
-    0x080027cc   0x080027cc   0x0000005c   Code   RO          364    i.main              main.o
-    0x08002828   0x08002828   0x00000020   Code   RO         2321    i.mt9v03x_dma       seekfree_mt9v03x.o
-    0x08002848   0x08002848   0x00000054   Code   RO         2326    i.mt9v03x_uart_callback  seekfree_mt9v03x.o
-    0x0800289c   0x0800289c   0x0000001c   Code   RO         2327    i.mt9v03x_vsync     seekfree_mt9v03x.o
-    0x080028b8   0x080028b8   0x00000054   Code   RO         2573    i.ov7725_cof_uart_interrupt  seekfree_uart_7725.o
-    0x0800290c   0x0800290c   0x00000020   Code   RO         1719    i.ov7725_dma        seekfree_7725.o
-    0x0800292c   0x0800292c   0x00000020   Code   RO         2577    i.ov7725_uart_dma   seekfree_uart_7725.o
-    0x0800294c   0x0800294c   0x0000001c   Code   RO         2583    i.ov7725_uart_vsync  seekfree_uart_7725.o
-    0x08002968   0x08002968   0x0000001c   Code   RO         1732    i.ov7725_vsync      seekfree_7725.o
-    0x08002984   0x08002984   0x00000110   Code   RO          636    i.parkTransform     foc.o
-    0x08002a94   0x08002a94   0x000000a8   Code   RO         1284    i.pwm_duty_updata   zf_pwm.o
-    0x08002b3c   0x08002b3c   0x00000278   Code   RO         1286    i.pwm_init          zf_pwm.o
-    0x08002db4   0x08002db4   0x00000018   Code   RO         1288    i.pwm_pin_init      zf_pwm.o
-    0x08002dcc   0x08002dcc   0x00000198   Code   RO          689    i.readDrvRegister   slave.o
-    0x08002f64   0x08002f64   0x00000148   Code   RO          690    i.readEncoder       slave.o
-    0x080030ac   0x080030ac   0x000000b4   Code   RO          741    i.sampling          driver.o
-    0x08003160   0x08003160   0x0000009c   Code   RO         5492    i.sin               m_ps.l(sin.o)
-    0x080031fc   0x080031fc   0x00000194   Code   RO         1335    i.spi_init          zf_spi.o
-    0x08003390   0x08003390   0x00000064   Code   RO         1336    i.spi_mosi          zf_spi.o
-    0x080033f4   0x080033f4   0x00000064   Code   RO         1337    i.spi_pin_init      zf_spi.o
-    0x08003458   0x08003458   0x00000048   Code   RO         5575    i.sqrt              m_ps.l(sqrt.o)
-    0x080034a0   0x080034a0   0x00000028   Code   RO         1373    i.systick_delay     zf_systick.o
-    0x080034c8   0x080034c8   0x00000028   Code   RO         1374    i.systick_delay_ms  zf_systick.o
-    0x080034f0   0x080034f0   0x000000c0   Code   RO          637    i.tempScope         foc.o
-    0x080035b0   0x080035b0   0x00000012   Code   RO          638    i.transform         foc.o
-    0x080035c2   0x080035c2   0x00000002   PAD
-    0x080035c4   0x080035c4   0x00000024   Code   RO         1491    i.uart_getchar      zf_uart.o
-    0x080035e8   0x080035e8   0x000000c4   Code   RO         1492    i.uart_init         zf_uart.o
-    0x080036ac   0x080036ac   0x0000002c   Code   RO         1493    i.uart_pin_init     zf_uart.o
-    0x080036d8   0x080036d8   0x000001a0   Code   RO          691    i.writeDrvRegister  slave.o
-    0x08003878   0x08003878   0x00001b88   Data   RO         1880    .constdata          seekfree_font.o
-    0x08005400   0x08005400   0x00000050   Data   RO         5475    .constdata          m_ps.l(acos.o)
-    0x08005450   0x08005450   0x00000030   Data   RO         5545    .constdata          m_ps.l(cos_i.o)
-    0x08005480   0x08005480   0x000000c8   Data   RO         5565    .constdata          m_ps.l(rred.o)
-    0x08005548   0x08005548   0x00000028   Data   RO         5569    .constdata          m_ps.l(sin_i.o)
-    0x08005570   0x08005570   0x00000020   Data   RO         5628    Region$$Table       anon$$obj.o
+    0x08001d40   0x08001d40   0x00000050   Code   RO          634    i.clarkeTransform   foc.o
+    0x08001d90   0x08001d90   0x00000098   Code   RO         5484    i.cos               m_ps.l(cos.o)
+    0x08001e28   0x08001e28   0x00000174   Code   RO          738    i.cycleRotate       driver.o
+    0x08001f9c   0x08001f9c   0x00000048   Code   RO          739    i.dcOffsetCalibration  driver.o
+    0x08001fe4   0x08001fe4   0x000000dc   Code   RO          740    i.driverInit        driver.o
+    0x080020c0   0x080020c0   0x000000a0   Code   RO          635    i.focInit           foc.o
+    0x08002160   0x08002160   0x00000024   Code   RO          687    i.gainSet           slave.o
+    0x08002184   0x08002184   0x0000002c   Code   RO         1185    i.gpio_get          zf_gpio.o
+    0x080021b0   0x080021b0   0x000000c8   Code   RO         1186    i.gpio_init         zf_gpio.o
+    0x08002278   0x08002278   0x0000005c   Code   RO         1187    i.gpio_set          zf_gpio.o
+    0x080022d4   0x080022d4   0x0000004c   Code   RO          688    i.infoGet           slave.o
+    0x08002320   0x08002320   0x00000030   Code   RO         2057    i.ips114_clear      seekfree_ips114_spi.o
+    0x08002350   0x08002350   0x0000001c   Code   RO         2065    i.ips114_drawpoint  seekfree_ips114_spi.o
+    0x0800236c   0x0800236c   0x00000210   Code   RO         2066    i.ips114_init       seekfree_ips114_spi.o
+    0x0800257c   0x0800257c   0x00000046   Code   RO         2067    i.ips114_set_region  seekfree_ips114_spi.o
+    0x080025c2   0x080025c2   0x00000002   PAD
+    0x080025c4   0x080025c4   0x00000074   Code   RO         2068    i.ips114_showchar   seekfree_ips114_spi.o
+    0x08002638   0x08002638   0x00000028   Code   RO         2073    i.ips114_showstr    seekfree_ips114_spi.o
+    0x08002660   0x08002660   0x0000005a   Code   RO         2075    i.ips114_showuint8  seekfree_ips114_spi.o
+    0x080026ba   0x080026ba   0x00000002   PAD
+    0x080026bc   0x080026bc   0x0000004c   Code   RO         2076    i.ips114_writeData  seekfree_ips114_spi.o
+    0x08002708   0x08002708   0x0000004c   Code   RO         2077    i.ips114_writeIndex  seekfree_ips114_spi.o
+    0x08002754   0x08002754   0x00000054   Code   RO         2078    i.ips114_writedata_16bit  seekfree_ips114_spi.o
+    0x080027a8   0x080027a8   0x0000005c   Code   RO          364    i.main              main.o
+    0x08002804   0x08002804   0x00000020   Code   RO         2321    i.mt9v03x_dma       seekfree_mt9v03x.o
+    0x08002824   0x08002824   0x00000054   Code   RO         2326    i.mt9v03x_uart_callback  seekfree_mt9v03x.o
+    0x08002878   0x08002878   0x0000001c   Code   RO         2327    i.mt9v03x_vsync     seekfree_mt9v03x.o
+    0x08002894   0x08002894   0x00000054   Code   RO         2573    i.ov7725_cof_uart_interrupt  seekfree_uart_7725.o
+    0x080028e8   0x080028e8   0x00000020   Code   RO         1719    i.ov7725_dma        seekfree_7725.o
+    0x08002908   0x08002908   0x00000020   Code   RO         2577    i.ov7725_uart_dma   seekfree_uart_7725.o
+    0x08002928   0x08002928   0x0000001c   Code   RO         2583    i.ov7725_uart_vsync  seekfree_uart_7725.o
+    0x08002944   0x08002944   0x0000001c   Code   RO         1732    i.ov7725_vsync      seekfree_7725.o
+    0x08002960   0x08002960   0x00000100   Code   RO          636    i.parkTransform     foc.o
+    0x08002a60   0x08002a60   0x000000a8   Code   RO         1284    i.pwm_duty_updata   zf_pwm.o
+    0x08002b08   0x08002b08   0x00000278   Code   RO         1286    i.pwm_init          zf_pwm.o
+    0x08002d80   0x08002d80   0x00000018   Code   RO         1288    i.pwm_pin_init      zf_pwm.o
+    0x08002d98   0x08002d98   0x00000198   Code   RO          689    i.readDrvRegister   slave.o
+    0x08002f30   0x08002f30   0x00000148   Code   RO          690    i.readEncoder       slave.o
+    0x08003078   0x08003078   0x000000b4   Code   RO          741    i.sampling          driver.o
+    0x0800312c   0x0800312c   0x0000009c   Code   RO         5492    i.sin               m_ps.l(sin.o)
+    0x080031c8   0x080031c8   0x00000194   Code   RO         1335    i.spi_init          zf_spi.o
+    0x0800335c   0x0800335c   0x00000064   Code   RO         1336    i.spi_mosi          zf_spi.o
+    0x080033c0   0x080033c0   0x00000064   Code   RO         1337    i.spi_pin_init      zf_spi.o
+    0x08003424   0x08003424   0x00000048   Code   RO         5575    i.sqrt              m_ps.l(sqrt.o)
+    0x0800346c   0x0800346c   0x00000028   Code   RO         1373    i.systick_delay     zf_systick.o
+    0x08003494   0x08003494   0x00000028   Code   RO         1374    i.systick_delay_ms  zf_systick.o
+    0x080034bc   0x080034bc   0x000000c0   Code   RO          637    i.tempScope         foc.o
+    0x0800357c   0x0800357c   0x0000004c   Code   RO          638    i.transform         foc.o
+    0x080035c8   0x080035c8   0x00000024   Code   RO         1491    i.uart_getchar      zf_uart.o
+    0x080035ec   0x080035ec   0x000000c4   Code   RO         1492    i.uart_init         zf_uart.o
+    0x080036b0   0x080036b0   0x0000002c   Code   RO         1493    i.uart_pin_init     zf_uart.o
+    0x080036dc   0x080036dc   0x000001a0   Code   RO          691    i.writeDrvRegister  slave.o
+    0x0800387c   0x0800387c   0x00001b88   Data   RO         1880    .constdata          seekfree_font.o
+    0x08005404   0x08005404   0x00000004   PAD
+    0x08005408   0x08005408   0x00000050   Data   RO         5475    .constdata          m_ps.l(acos.o)
+    0x08005458   0x08005458   0x00000030   Data   RO         5545    .constdata          m_ps.l(cos_i.o)
+    0x08005488   0x08005488   0x000000c8   Data   RO         5565    .constdata          m_ps.l(rred.o)
+    0x08005550   0x08005550   0x00000028   Data   RO         5569    .constdata          m_ps.l(sin_i.o)
+    0x08005578   0x08005578   0x00000020   Data   RO         5628    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005590, Size: 0x000005d0, Max: 0x00003000, ABSOLUTE, COMPRESSED[0x000000cc])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005598, Size: 0x000005d0, Max: 0x00003000, ABSOLUTE, COMPRESSED[0x000000cc])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2462,7 +2464,7 @@ Image component sizes
         26          0          0          0          0        597   board.o
         16          0          0          8          0       4900   common.o
        844         90          0         76          0       4996   driver.o
-       758         56          0         82          0       4397   foc.o
+       764         58          0         82          0       4481   foc.o
         36         10          0          0          0       1208   hal_dma.o
         48         12          0          0          0       1216   hal_exti.o
        824         66          0          2          0      79355   isr.o
@@ -2485,9 +2487,9 @@ Image component sizes
        276         22          0         10          0       3793   zf_uart.o
 
     ----------------------------------------------------------------------
-      8928        680       7272        428       1056     183011   Object Totals
+      8932        682       7276        428       1056     183095   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        16          0          0          7          4          0   (incl. Padding)
+        14          0          4          7          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -2565,15 +2567,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     14264        954       7640        432       1056     181515   Grand Totals
-     14264        954       7640        204       1056     181515   ELF Image Totals (compressed)
-     14264        954       7640        204          0          0   ROM Totals
+     14268        956       7644        432       1056     181599   Grand Totals
+     14268        956       7644        204       1056     181599   ELF Image Totals (compressed)
+     14268        956       7644        204          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                21904 (  21.39kB)
+    Total RO  Size (Code + RO Data)                21912 (  21.40kB)
     Total RW  Size (RW Data + ZI Data)              1488 (   1.45kB)
-    Total ROM Size (Code + RO Data + RW Data)      22108 (  21.59kB)
+    Total ROM Size (Code + RO Data + RW Data)      22116 (  21.60kB)
 
 ==============================================================================
 

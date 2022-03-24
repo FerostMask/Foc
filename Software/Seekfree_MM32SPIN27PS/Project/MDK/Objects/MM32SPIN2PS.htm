@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\MM32SPIN2PS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\MM32SPIN2PS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Mar 23 21:37:31 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Mar 24 15:46:03 2022
 <BR><P>
-<H3>Maximum Stack Usage =        352 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        368 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 transform &rArr; parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 <P>
@@ -227,6 +227,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkeTransform
 </UL>
 
@@ -245,6 +246,7 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tempScope
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkeTransform
@@ -1039,7 +1041,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[74]"></a>clarkeTransform</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, foc.o(i.clarkeTransform))
+<P><STRONG><a name="[74]"></a>clarkeTransform</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, foc.o(i.clarkeTransform))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = clarkeTransform &rArr; __aeabi_fsub &rArr; __aeabi_fadd &rArr; _float_epilogue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
@@ -1061,8 +1063,8 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> foc.o(.data)
 </UL>
-<P><STRONG><a name="[8d]"></a>parkTransform</STRONG> (Thumb, 268 bytes, Stack size 64 bytes, foc.o(i.parkTransform))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[8d]"></a>parkTransform</STRONG> (Thumb, 256 bytes, Stack size 72 bytes, foc.o(i.parkTransform))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -1088,10 +1090,12 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 </UL>
 
-<P><STRONG><a name="[2e]"></a>transform</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, foc.o(i.transform))
-<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = transform &rArr; parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[2e]"></a>transform</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, foc.o(i.transform))
+<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = transform &rArr; parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkeTransform
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> foc.o(i.focInit)
