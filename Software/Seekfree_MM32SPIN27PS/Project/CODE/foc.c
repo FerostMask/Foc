@@ -7,6 +7,8 @@
 #include "SEEKFREE_IPS114_SPI.h"
 #include "zf_uart.h"
 #include "stdio.h"
+
+#define PERIODTIME PWM_MAX_DUTY
 /*--------------------------------------------------------------*/
 /* 							 函数声明 							*/
 /*==============================================================*/
@@ -22,6 +24,7 @@ float pi;
 float angle2Radian;
 float radian2Angle;
 float valueOfSin;
+float sqrtof3;
 /*--------------------------------------------------------------*/
 /* 							 变量定义 							*/
 /*==============================================================*/
@@ -31,10 +34,10 @@ Foc foc = {
 
 pidpara currentLoopQ = {
     .alpha = 0.3,
-    .Kp = 0.8,
-    .Ki = 0.8,
+    .Kp = 0.1,
+    .Ki = 0.1,
     .Kd = 0,
-    .thrsod = 2,
+    .thrsod = 0.1,
 };
 
 pidpara currentLoopD;
@@ -64,10 +67,12 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
 
     foc->targetCurrent = 0;
 
+    // 常量初始化
     pi = acos(-1.f);
     angle2Radian = pi / 180;
     radian2Angle = 180 / pi;
     valueOfSin = sin(pi / 3); // sin(2*pi/3) = sin(pi/3)
+    sqrtof3 = sqrt(3);
 
     // PID初始化
     currentLoopD.alpha = currentLoopQ.alpha;
@@ -109,11 +114,11 @@ static inline void parkTransform(struct Foc *foc, const float radian)
 
 static inline void reverseParkTransform(struct Foc *foc, const float radian)
 {
-    // foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
-    // foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
+    foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
+    foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
 
-    foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
-    foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
+    // foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
+    // foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
 
     // tempScope(foc->revAlpha, foc->revBeta, 0, 2);
 }
@@ -156,7 +161,7 @@ static inline void angleCalculate(struct Foc *foc)
                 foc->UrefAngle = 180;
             }
         }
-        // ips114_showfloat(0, 3, foc->UrefAngle, 3, 3);
+        // ips114_showfloat(0, 2, foc->UrefAngle, 3, 3);
     }
     else
     {                         // Y轴
@@ -169,10 +174,104 @@ static inline void angleCalculate(struct Foc *foc)
             foc->UrefAngle = 270;
         }
     }
-
     // tempScope(foc->Uref, foc->UrefAngle, 0, 8);
     // ips114_showfloat(0, 0, foc->Uref, 3, 3);
     // ips114_showfloat(0, 1, foc->UrefAngle, 3, 3);
+}
+
+static inline void calculateSVPWM(struct Foc *foc)
+{
+    int16_t dutyA = 0, dutyB = 0, dutyC = 0;        // MSB: A
+    if (foc->UrefAngle >= 0 && foc->UrefAngle < 60) // I
+    {
+        float thetaBehind = foc->UrefAngle * angle2Radian;
+        float thetaFront = (pi / 3) - thetaBehind;
+        int16_t T4 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaFront) * PERIODTIME;  // 100 | A
+        int16_t T6 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaBehind) * PERIODTIME; // 110 | A B
+        int16_t T7 = (PERIODTIME - T4 - T6) / 2;                                            // 111 | A B C
+
+        dutyA = T4 + T6 + T7;
+        dutyB = T6 + T7;
+        dutyC = T7;
+        // ips114_showuint16(0, 0, T4);
+        // ips114_showuint16(0, 1, T6);
+    }
+    else if (foc->UrefAngle < 120) // II
+    {
+        float thetaBehind = (foc->UrefAngle - 60) * angle2Radian;
+        float thetaFront = (pi / 3) - thetaBehind;
+        int16_t T6 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaFront) * PERIODTIME;  // 110 | A B
+        int16_t T2 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaBehind) * PERIODTIME; // 010 |   B
+        int16_t T7 = (PERIODTIME - T6 - T2) / 2;                                            // 111 | A B C
+
+        dutyA = T6 + T7;
+        dutyB = T6 + T2 + T7;
+        dutyC = T7;
+        // ips114_showuint16(0, 0, T6);
+        // ips114_showuint16(0, 1, T2);
+    }
+    else if (foc->UrefAngle < 180) // III
+    {
+        float thetaBehind = (foc->UrefAngle - 120) * angle2Radian;
+        float thetaFront = (pi / 3) - thetaBehind;
+        int16_t T2 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaFront) * PERIODTIME;  // 010 |   B
+        int16_t T3 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaBehind) * PERIODTIME; // 011 |   B C
+        int16_t T7 = (PERIODTIME - T2 - T3) / 2;                                            // 111 | A B C
+
+        dutyA = T7;
+        dutyB = T2 + T3 + T7;
+        dutyC = T3 + T7;
+        // ips114_showuint16(0, 0, T2);
+        // ips114_showuint16(0, 1, T3);
+    }
+    else if (foc->UrefAngle < 240) // IV
+    {
+        float thetaBehind = (foc->UrefAngle - 180) * angle2Radian;
+        float thetaFront = (pi / 3) - thetaBehind;
+        int16_t T3 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaFront) * PERIODTIME;  // 011 |   B C
+        int16_t T1 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaBehind) * PERIODTIME; // 001 |     C
+        int16_t T7 = (PERIODTIME - T3 - T1) / 2;                                            // 111 | A B C
+
+        dutyA = T7;
+        dutyB = T3 + T7;
+        dutyC = T3 + T1 + T7;
+        // ips114_showuint16(0, 0, T3);
+        // ips114_showuint16(0, 1, T1);
+    }
+    else if (foc->UrefAngle < 300) // V
+    {
+        float thetaBehind = (foc->UrefAngle - 240) * angle2Radian;
+        float thetaFront = (pi / 3) - thetaBehind;
+        int16_t T1 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaFront) * PERIODTIME;  // 001 |     C
+        int16_t T5 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaBehind) * PERIODTIME; // 101 | A   C
+        int16_t T7 = (PERIODTIME - T1 - T5) / 2;                                            // 111 | A B C
+
+        dutyA = T5 + T7;
+        dutyB = T7;
+        dutyC = T1 + T5 + T7;
+        // ips114_showuint16(0, 0, T1);
+        // ips114_showuint16(0, 1, T5);
+    }
+    else if (foc->UrefAngle < 360) // VI
+    {
+        float thetaBehind = (foc->UrefAngle - 300) * angle2Radian;
+        float thetaFront = (pi / 3) - thetaBehind;
+        int16_t T5 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaFront) * PERIODTIME;  // 101 | A   C
+        int16_t T4 = (foc->Uref / *foc->voltage) * sqrtof3 * sin(thetaBehind) * PERIODTIME; // 100 | A
+        int16_t T7 = (PERIODTIME - T5 - T4) / 2;                                            // 111 | A B C
+
+        dutyA = T5 + T4 + T7;
+        dutyB = T7;
+        dutyC = T5 + T7;
+        // ips114_showuint16(0, 0, T5);
+        // ips114_showuint16(0, 1, T4);
+    }
+    dutyUpdate(INH_A, dutyA);
+    dutyUpdate(INH_B, dutyB);
+    dutyUpdate(INH_C, dutyC);
+    // ips114_showuint16(0, 0, dutyA);
+    // ips114_showuint16(0, 1, dutyB);
+    // ips114_showuint16(0, 2, dutyC);
 }
 
 static void transform(struct Foc *foc)
@@ -186,12 +285,13 @@ static void transform(struct Foc *foc)
     clarkTransform(foc);        // Clark变换
     parkTransform(foc, radian); // Park变换
 
-    positionPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
-    positionPID(&currentLoopD, 0);
+    augmentedPID(&currentLoopQ, -0.5); // 电流环PID计算
+    augmentedPID(&currentLoopD, 0);
 
     reverseParkTransform(foc, radian); // 反Park变换
 
     angleCalculate(foc); // 计算Uref的值和角度
+    calculateSVPWM(foc);
 }
 /*------------------------------*/
 /*		    临时示波器   	     */

@@ -14,13 +14,13 @@
 /*======================================================*/
 typedef enum SECTION_Enum // SVPWM对应扇区
 {
-    I,
-    II,
-    III,
-    IV,
-    V,
-    VI,
-} SETCTION_Enum;
+    I = 0,
+    II = 60,
+    III = 120,
+    IV = 180,
+    V = 240,
+    VI = 300,
+} SECTION_Enum;
 
 typedef struct Foc
 {

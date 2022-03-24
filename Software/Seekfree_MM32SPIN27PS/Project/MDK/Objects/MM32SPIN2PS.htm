@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\MM32SPIN2PS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\MM32SPIN2PS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Mar 24 21:32:37 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Mar 25 00:45:20 2022
 <BR><P>
-<H3>Maximum Stack Usage =        368 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        384 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-transform &rArr; parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+transform &rArr; calculateSVPWM &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 <P>
 <H3>
 Mutually Recursive functions
@@ -79,7 +79,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[4d]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<P><STRONG><a name="[4e]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
@@ -154,15 +154,15 @@ Global Symbols
 <P><STRONG><a name="[32]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
-<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AutoCalPllFactor
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSysClockToXX
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
@@ -174,7 +174,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showuint8
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dcOffsetCalibration
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dcOffsetCalibration
 </UL>
 
 <P><STRONG><a name="[33]"></a>__aeabi_uldivmod</STRONG> (Thumb, 96 bytes, Stack size 48 bytes, uldiv.o(.text))
@@ -183,9 +183,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
 </UL>
 
 <P><STRONG><a name="[37]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
@@ -201,7 +201,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[8a]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<P><STRONG><a name="[8d]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infoGet
 </UL>
 
@@ -219,7 +219,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
@@ -228,9 +228,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
 </UL>
 
@@ -239,20 +240,23 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
 </UL>
 
 <P><STRONG><a name="[76]"></a>__aeabi_fmul</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, fmul.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
 </UL>
 
@@ -262,11 +266,12 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focInit
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driverInit
 </UL>
@@ -280,8 +285,8 @@ Global Symbols
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
@@ -299,7 +304,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin
@@ -328,8 +333,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
@@ -347,7 +353,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
 <LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driverInit
 </UL>
@@ -357,8 +363,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_epilogue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
 </UL>
 
 <P><STRONG><a name="[48]"></a>__aeabi_i2d</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, dflti.o(.text))
@@ -370,13 +376,9 @@ Global Symbols
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
-<P><STRONG><a name="[9e]"></a>__aeabi_f2iz</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, ffixi.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
-</UL>
-
-<P><STRONG><a name="[98]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<P><STRONG><a name="[99]"></a>__aeabi_f2uiz</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, ffixui.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
 </UL>
 
 <P><STRONG><a name="[49]"></a>__aeabi_d2iz</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, dfixi.o(.text))
@@ -384,20 +386,22 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
 
 <P><STRONG><a name="[77]"></a>__aeabi_f2d</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, f2d.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focInit
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
-<P><STRONG><a name="[97]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
+<P><STRONG><a name="[7e]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, cdrcmple.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
@@ -406,8 +410,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_float_round
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focInit
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
@@ -415,11 +419,13 @@ Global Symbols
 <P><STRONG><a name="[ab]"></a>__aeabi_cfcmpeq</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, cfcmple.o(.text), UNUSED)
 
 <P><STRONG><a name="[7b]"></a>__aeabi_cfcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
+<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
+<LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
 <P><STRONG><a name="[79]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, cfrcmple.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
+<BR><BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
@@ -437,7 +443,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_llsr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
@@ -472,8 +478,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _double_round
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 
@@ -521,15 +527,7 @@ Global Symbols
 
 <P><STRONG><a name="[b0]"></a>scalbn</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, dscalb.o(.text), UNUSED)
 
-<P><STRONG><a name="[30]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
-</UL>
-<BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
-</UL>
-
-<P><STRONG><a name="[b1]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
-
-<P><STRONG><a name="[4e]"></a>_dsqrt</STRONG> (Thumb, 162 bytes, Stack size 32 bytes, dsqrt.o(.text))
+<P><STRONG><a name="[4d]"></a>_dsqrt</STRONG> (Thumb, 162 bytes, Stack size 32 bytes, dsqrt.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _dsqrt &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
@@ -537,6 +535,14 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 </UL>
+
+<P><STRONG><a name="[30]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
+</UL>
+
+<P><STRONG><a name="[b1]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[4f]"></a>__aeabi_ui2d</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, dfltui.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = __aeabi_ui2d &rArr; _double_epilogue &rArr; __aeabi_llsr
@@ -699,9 +705,9 @@ Global Symbols
 <P><STRONG><a name="[64]"></a>__ARM_common_ll_muluu</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, slave.o(i.__ARM_common_ll_muluu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __ARM_common_ll_muluu
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ieee754_rem_pio2
 </UL>
 
@@ -718,15 +724,15 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
-<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_ll_muluu
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 </UL>
 
 <P><STRONG><a name="[66]"></a>__kernel_cos</STRONG> (Thumb, 224 bytes, Stack size 56 bytes, cos_i.o(i.__kernel_cos))
@@ -734,13 +740,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 </UL>
 
 <P><STRONG><a name="[67]"></a>__kernel_poly</STRONG> (Thumb, 172 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
@@ -769,8 +775,8 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 </UL>
 
 <P><STRONG><a name="[6b]"></a>__mathlib_dbl_divzero</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, dunder.o(i.__mathlib_dbl_divzero))
@@ -786,8 +792,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;acos
@@ -806,9 +812,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR>[Called By]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;acos
 </UL>
@@ -839,12 +845,12 @@ Global Symbols
 <P><STRONG><a name="[b6]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[71]"></a>__set_errno</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, errno.o(i.__set_errno))
-<BR><BR>[Called By]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<BR><BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;acos
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 </UL>
 
 <P><STRONG><a name="[70]"></a>acos</STRONG> (Thumb, 556 bytes, Stack size 40 bytes, acos.o(i.acos))
@@ -854,10 +860,10 @@ Global Symbols
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
@@ -866,11 +872,11 @@ Global Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
-<P><STRONG><a name="[84]"></a>adc_convert</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, zf_adc.o(i.adc_convert))
+<P><STRONG><a name="[88]"></a>adc_convert</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, zf_adc.o(i.adc_convert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = adc_convert
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sampling
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dcOffsetCalibration
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dcOffsetCalibration
 </UL>
 
 <P><STRONG><a name="[73]"></a>adc_init</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, zf_adc.o(i.adc_init))
@@ -881,11 +887,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driverInit
 </UL>
 
-<P><STRONG><a name="[86]"></a>afio_init</STRONG> (Thumb, 206 bytes, Stack size 36 bytes, zf_gpio.o(i.afio_init))
+<P><STRONG><a name="[8a]"></a>afio_init</STRONG> (Thumb, 206 bytes, Stack size 36 bytes, zf_gpio.o(i.afio_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = afio_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_pin_init
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_pin_init
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_pin_init
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_pin_init
 <LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driverInit
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_pin_init
 </UL>
@@ -897,10 +903,10 @@ Global Symbols
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
@@ -927,15 +933,30 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
-<P><STRONG><a name="[7d]"></a>board_init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, board.o(i.board_init))
+<P><STRONG><a name="[7d]"></a>augmentedPID</STRONG> (Thumb, 228 bytes, Stack size 40 bytes, foc.o(i.augmentedPID))
+<BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = augmentedPID &rArr; __aeabi_fsub &rArr; __aeabi_fadd &rArr; _float_epilogue
+</UL>
+<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_frsub
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
+</UL>
+
+<P><STRONG><a name="[7f]"></a>board_init</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, board.o(i.board_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = board_init &rArr; uart_init &rArr; uart_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[80]"></a>cos</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, cos.o(i.cos))
+<P><STRONG><a name="[85]"></a>cos</STRONG> (Thumb, 142 bytes, Stack size 32 bytes, cos.o(i.cos))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = cos &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
@@ -945,69 +966,69 @@ Global Symbols
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 </UL>
 
-<P><STRONG><a name="[9b]"></a>gpio_get</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, zf_gpio.o(i.gpio_get))
-<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<P><STRONG><a name="[9c]"></a>gpio_get</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, zf_gpio.o(i.gpio_get))
+<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
 </UL>
 
 <P><STRONG><a name="[5b]"></a>gpio_init</STRONG> (Thumb, 190 bytes, Stack size 36 bytes, zf_gpio.o(i.gpio_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = gpio_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIInit
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_pin_init
 </UL>
 
 <P><STRONG><a name="[5c]"></a>gpio_set</STRONG> (Thumb, 86 bytes, Stack size 8 bytes, zf_gpio.o(i.gpio_set))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = gpio_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
 <LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPIInit
 </UL>
 
-<P><STRONG><a name="[8c]"></a>ips114_clear</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_clear))
+<P><STRONG><a name="[8f]"></a>ips114_clear</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = ips114_clear &rArr; ips114_set_region &rArr; ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
 </UL>
 
-<P><STRONG><a name="[8f]"></a>ips114_init</STRONG> (Thumb, 506 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_init))
+<P><STRONG><a name="[92]"></a>ips114_init</STRONG> (Thumb, 506 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = ips114_init &rArr; spi_init &rArr; spi_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
+<BR>[Calls]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_init
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeData
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[93]"></a>ips114_showchar</STRONG> (Thumb, 106 bytes, Stack size 32 bytes, seekfree_ips114_spi.o(i.ips114_showchar))
+<P><STRONG><a name="[96]"></a>ips114_showchar</STRONG> (Thumb, 106 bytes, Stack size 32 bytes, seekfree_ips114_spi.o(i.ips114_showchar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = ips114_showchar &rArr; ips114_set_region &rArr; ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
 </UL>
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showuint8
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showstr
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showstr
 </UL>
 
-<P><STRONG><a name="[8b]"></a>ips114_showstr</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, seekfree_ips114_spi.o(i.ips114_showstr))
+<P><STRONG><a name="[8e]"></a>ips114_showstr</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, seekfree_ips114_spi.o(i.ips114_showstr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ips114_showstr &rArr; ips114_showchar &rArr; ips114_set_region &rArr; ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infoGet
 </UL>
@@ -1015,7 +1036,7 @@ Global Symbols
 <P><STRONG><a name="[60]"></a>ips114_showuint8</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, seekfree_ips114_spi.o(i.ips114_showuint8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = ips114_showuint8 &rArr; ips114_showchar &rArr; ips114_set_region &rArr; ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
+<BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_IRQHandler
@@ -1024,10 +1045,10 @@ Global Symbols
 <P><STRONG><a name="[2b]"></a>main</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = main &rArr; ips114_init &rArr; spi_init &rArr; spi_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
-<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_init
+<BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
@@ -1063,33 +1084,19 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_15_IRQHandler
 </UL>
 
-<P><STRONG><a name="[96]"></a>positionPID</STRONG> (Thumb, 126 bytes, Stack size 32 bytes, foc.o(i.positionPID))
-<BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = positionPID &rArr; __aeabi_fsub &rArr; __aeabi_fadd &rArr; _float_epilogue
-</UL>
-<BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-</UL>
-<BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
-</UL>
-
 <P><STRONG><a name="[78]"></a>pow</STRONG> (Thumb, 2548 bytes, Stack size 128 bytes, pow.o(i.pow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = pow &rArr; __kernel_poly &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
+<LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassify
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
@@ -1101,31 +1108,32 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 
-<P><STRONG><a name="[81]"></a>pwm_duty_updata</STRONG> (Thumb, 154 bytes, Stack size 40 bytes, zf_pwm.o(i.pwm_duty_updata))
+<P><STRONG><a name="[83]"></a>pwm_duty_updata</STRONG> (Thumb, 154 bytes, Stack size 40 bytes, zf_pwm.o(i.pwm_duty_updata))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = pwm_duty_updata &rArr; __aeabi_ui2f &rArr; _float_epilogue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cycleRotate
+<BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
+<LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cycleRotate
 </UL>
 
-<P><STRONG><a name="[85]"></a>pwm_init</STRONG> (Thumb, 608 bytes, Stack size 56 bytes, zf_pwm.o(i.pwm_init))
+<P><STRONG><a name="[89]"></a>pwm_init</STRONG> (Thumb, 608 bytes, Stack size 56 bytes, zf_pwm.o(i.pwm_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = pwm_init &rArr; pwm_pin_init &rArr; afio_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_pin_init
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_pin_init
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driverInit
 </UL>
 
-<P><STRONG><a name="[87]"></a>sin</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, sin.o(i.sin))
+<P><STRONG><a name="[82]"></a>sin</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, sin.o(i.sin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
@@ -1135,53 +1143,55 @@ Global Symbols
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_cos
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focInit
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 </UL>
 
-<P><STRONG><a name="[90]"></a>spi_init</STRONG> (Thumb, 390 bytes, Stack size 24 bytes, zf_spi.o(i.spi_init))
+<P><STRONG><a name="[93]"></a>spi_init</STRONG> (Thumb, 390 bytes, Stack size 24 bytes, zf_spi.o(i.spi_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = spi_init &rArr; spi_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_pin_init
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_pin_init
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
 </UL>
 
-<P><STRONG><a name="[94]"></a>spi_mosi</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, zf_spi.o(i.spi_mosi))
+<P><STRONG><a name="[97]"></a>spi_mosi</STRONG> (Thumb, 96 bytes, Stack size 16 bytes, zf_spi.o(i.spi_mosi))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = spi_mosi
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeData
+<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeData
 </UL>
 
 <P><STRONG><a name="[72]"></a>sqrt</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, sqrt.o(i.sqrt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = sqrt &rArr; _dsqrt &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
+<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;focInit
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asin
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;acos
 </UL>
 
-<P><STRONG><a name="[9a]"></a>systick_delay</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, zf_systick.o(i.systick_delay))
-<BR><BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<P><STRONG><a name="[9b]"></a>systick_delay</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, zf_systick.o(i.systick_delay))
+<BR><BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
 <LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readEncoder
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
 </UL>
 
-<P><STRONG><a name="[82]"></a>systick_delay_ms</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, zf_systick.o(i.systick_delay_ms))
+<P><STRONG><a name="[86]"></a>systick_delay_ms</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, zf_systick.o(i.systick_delay_ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = systick_delay_ms &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cycleRotate
 </UL>
@@ -1190,13 +1200,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[29]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[7e]"></a>uart_init</STRONG> (Thumb, 180 bytes, Stack size 24 bytes, zf_uart.o(i.uart_init))
+<P><STRONG><a name="[80]"></a>uart_init</STRONG> (Thumb, 180 bytes, Stack size 24 bytes, zf_uart.o(i.uart_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = uart_init &rArr; uart_pin_init &rArr; afio_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_pin_init
 <LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_init
+<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;board_init
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 <P>
@@ -1223,7 +1233,24 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
 </UL>
 
-<P><STRONG><a name="[7f]"></a>clarkTransform</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, foc.o(i.clarkTransform))
+<P><STRONG><a name="[81]"></a>calculateSVPWM</STRONG> (Thumb, 1946 bytes, Stack size 88 bytes, foc.o(i.calculateSVPWM))
+<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = calculateSVPWM &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+</UL>
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2iz
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
+</UL>
+
+<P><STRONG><a name="[84]"></a>clarkTransform</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, foc.o(i.clarkTransform))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = clarkTransform &rArr; __aeabi_fsub &rArr; __aeabi_fadd &rArr; _float_epilogue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
@@ -1234,18 +1261,19 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
 </UL>
 
-<P><STRONG><a name="[0]"></a>focInit</STRONG> (Thumb, 200 bytes, Stack size 40 bytes, foc.o(i.focInit))
+<P><STRONG><a name="[0]"></a>focInit</STRONG> (Thumb, 220 bytes, Stack size 40 bytes, foc.o(i.focInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = focInit &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;acos
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> foc.o(.data)
 </UL>
-<P><STRONG><a name="[95]"></a>parkTransform</STRONG> (Thumb, 242 bytes, Stack size 72 bytes, foc.o(i.parkTransform))
+<P><STRONG><a name="[98]"></a>parkTransform</STRONG> (Thumb, 242 bytes, Stack size 72 bytes, foc.o(i.parkTransform))
 <BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
@@ -1253,36 +1281,37 @@ Local Symbols
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
 </UL>
 
-<P><STRONG><a name="[9c]"></a>reverseParkTransform</STRONG> (Thumb, 208 bytes, Stack size 64 bytes, foc.o(i.reverseParkTransform))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = reverseParkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+<P><STRONG><a name="[9d]"></a>reverseParkTransform</STRONG> (Thumb, 246 bytes, Stack size 72 bytes, foc.o(i.reverseParkTransform))
+<BR><BR>[Stack]<UL><LI>Max Depth = 352<LI>Call Chain = reverseParkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
-<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sin
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cos
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;transform
 </UL>
 
-<P><STRONG><a name="[2e]"></a>transform</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, foc.o(i.transform))
-<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = transform &rArr; parkTransform &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
+<P><STRONG><a name="[2e]"></a>transform</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, foc.o(i.transform))
+<BR><BR>[Stack]<UL><LI>Max Depth = 384<LI>Call Chain = transform &rArr; calculateSVPWM &rArr; sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul &rArr; _double_epilogue &rArr; __aeabi_llsr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;positionPID
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
-<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;augmentedPID
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;reverseParkTransform
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;parkTransform
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clarkTransform
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculateSVPWM
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;angleCalculate
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> foc.o(i.focInit)
@@ -1298,29 +1327,29 @@ Local Symbols
 <P><STRONG><a name="[3]"></a>gainSet</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, slave.o(i.gainSet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = gainSet &rArr; writeDrvRegister &rArr; __aeabi_uldivmod &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeDrvRegister
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> slave.o(.data)
 </UL>
 <P><STRONG><a name="[2]"></a>infoGet</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, slave.o(i.infoGet))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = infoGet &rArr; ips114_showstr &rArr; ips114_showchar &rArr; ips114_set_region &rArr; ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showstr
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readDrvRegister
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showstr
+<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> slave.o(.data)
 </UL>
-<P><STRONG><a name="[88]"></a>readDrvRegister</STRONG> (Thumb, 400 bytes, Stack size 48 bytes, slave.o(i.readDrvRegister))
+<P><STRONG><a name="[8b]"></a>readDrvRegister</STRONG> (Thumb, 400 bytes, Stack size 48 bytes, slave.o(i.readDrvRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = readDrvRegister &rArr; __aeabi_uldivmod &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_ll_muluu
-<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;infoGet
 <LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gainSet
@@ -1332,24 +1361,24 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_ll_muluu
-<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> slave.o(.data)
 </UL>
-<P><STRONG><a name="[89]"></a>writeDrvRegister</STRONG> (Thumb, 408 bytes, Stack size 48 bytes, slave.o(i.writeDrvRegister))
+<P><STRONG><a name="[8c]"></a>writeDrvRegister</STRONG> (Thumb, 408 bytes, Stack size 48 bytes, slave.o(i.writeDrvRegister))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = writeDrvRegister &rArr; __aeabi_uldivmod &rArr; __aeabi_llsr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
+<BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_set
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gpio_get
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_ll_muluu
-<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gainSet
 </UL>
@@ -1357,15 +1386,15 @@ Local Symbols
 <P><STRONG><a name="[6]"></a>cycleRotate</STRONG> (Thumb, 348 bytes, Stack size 40 bytes, driver.o(i.cycleRotate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 100<LI>Call Chain = cycleRotate &rArr; pwm_duty_updata &rArr; __aeabi_ui2f &rArr; _float_epilogue
 </UL>
-<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_duty_updata
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_delay_ms
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> driver.o(.data)
 </UL>
-<P><STRONG><a name="[83]"></a>dcOffsetCalibration</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, driver.o(i.dcOffsetCalibration))
+<P><STRONG><a name="[87]"></a>dcOffsetCalibration</STRONG> (Thumb, 64 bytes, Stack size 24 bytes, driver.o(i.dcOffsetCalibration))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = dcOffsetCalibration &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_convert
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_convert
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;driverInit
@@ -1376,10 +1405,10 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_init
-<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dcOffsetCalibration
+<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dcOffsetCalibration
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> driver.o(.data)
 </UL>
@@ -1390,7 +1419,7 @@ Local Symbols
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
-<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_convert
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_convert
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> driver.o(.data)
 </UL>
@@ -1419,65 +1448,65 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adc_init
 </UL>
 
-<P><STRONG><a name="[99]"></a>pwm_pin_init</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, zf_pwm.o(i.pwm_pin_init))
+<P><STRONG><a name="[9a]"></a>pwm_pin_init</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, zf_pwm.o(i.pwm_pin_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = pwm_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
+<BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pwm_init
 </UL>
 
-<P><STRONG><a name="[9d]"></a>spi_pin_init</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, zf_spi.o(i.spi_pin_init))
+<P><STRONG><a name="[9e]"></a>spi_pin_init</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, zf_spi.o(i.spi_pin_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = spi_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_init
 </UL>
 
 <P><STRONG><a name="[9f]"></a>uart_pin_init</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, zf_uart.o(i.uart_pin_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = uart_pin_init &rArr; afio_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;afio_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
-<P><STRONG><a name="[8d]"></a>ips114_set_region</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, seekfree_ips114_spi.o(i.ips114_set_region))
+<P><STRONG><a name="[90]"></a>ips114_set_region</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, seekfree_ips114_spi.o(i.ips114_set_region))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ips114_set_region &rArr; ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writedata_16bit
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_writeIndex
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
 </UL>
 
-<P><STRONG><a name="[92]"></a>ips114_writeData</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, seekfree_ips114_spi.o(i.ips114_writeData))
+<P><STRONG><a name="[95]"></a>ips114_writeData</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, seekfree_ips114_spi.o(i.ips114_writeData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ips114_writeData &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_mosi
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_mosi
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
 </UL>
 
-<P><STRONG><a name="[91]"></a>ips114_writeIndex</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, seekfree_ips114_spi.o(i.ips114_writeIndex))
+<P><STRONG><a name="[94]"></a>ips114_writeIndex</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, seekfree_ips114_spi.o(i.ips114_writeIndex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ips114_writeIndex &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_mosi
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_mosi
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
+<BR>[Called By]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_init
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
 </UL>
 
-<P><STRONG><a name="[8e]"></a>ips114_writedata_16bit</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_writedata_16bit))
+<P><STRONG><a name="[91]"></a>ips114_writedata_16bit</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, seekfree_ips114_spi.o(i.ips114_writedata_16bit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ips114_writedata_16bit &rArr; spi_mosi
 </UL>
-<BR>[Calls]<UL><LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_mosi
+<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;spi_mosi
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
+<BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_clear
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_showchar
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ips114_set_region
 </UL>
 <P>
 <H3>

@@ -45,7 +45,7 @@ typedef enum BLDC_PWM_Enum
 
     IO_AF_MODE = GPO_AF_PUSH_PUL, // 复用IO模式
 
-    PWM_DEFAULT_FREQUENCY = 20000, // 默认频率
+    PWM_DEFAULT_FREQUENCY = 10000, // 默认频率
     PWM_DEFAULT_DUTY = 0,          // 默认占空比
     PWM_MAX_DUTY = PWM_DUTY_MAX,   // 最大占空比
     DELAY_FOR_SPEED = 1,           // 延时控速 | ms
