@@ -20,6 +20,7 @@ void positionPID(struct pidpara *para, const short tar);
 
 float pi;
 float angle2Radian;
+float radian2Angle;
 float valueOfSin;
 /*--------------------------------------------------------------*/
 /* 							 变量定义 							*/
@@ -33,7 +34,7 @@ pidpara currentLoopQ = {
     .Kp = 0.8,
     .Ki = 0.8,
     .Kd = 0,
-    .thrsod = 1,
+    .thrsod = 2,
 };
 
 pidpara currentLoopD;
@@ -65,6 +66,7 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
 
     pi = acos(-1.f);
     angle2Radian = pi / 180;
+    radian2Angle = 180 / pi;
     valueOfSin = sin(pi / 3); // sin(2*pi/3) = sin(pi/3)
 
     // PID初始化
@@ -107,12 +109,70 @@ static inline void parkTransform(struct Foc *foc, const float radian)
 
 static inline void reverseParkTransform(struct Foc *foc, const float radian)
 {
-    foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
-    foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
+    // foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
+    // foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
+
+    foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
+    foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
 
     // tempScope(foc->revAlpha, foc->revBeta, 0, 2);
-    // ips114_showfloat(0, 0, foc->revAlpha, 3, 3);
-    // ips114_showfloat(0, 1, foc->revBeta, 3, 3);
+}
+
+static inline void angleCalculate(struct Foc *foc)
+{
+    foc->Uref = pow((foc->revAlpha * foc->revAlpha) + (foc->revBeta * foc->revBeta), 1.f / 2.f); // 计算Uref
+    // if (foc->Uref < 0.001)
+    //     return;
+    // 计算Uref的角度
+    if (foc->revAlpha > 0) // 1、4象限
+    {
+        foc->UrefAngle = atan(foc->revBeta / foc->revAlpha) * radian2Angle;
+        if (foc->UrefAngle < 0)
+        {
+            foc->UrefAngle += 360;
+        }
+        // ips114_showfloat(0, 2, foc->UrefAngle, 3, 3);
+    }
+    else if (foc->revAlpha < 0)
+    {
+        if (foc->revBeta > 0) // 2象限
+        {
+            float tempAngle = acos(foc->revBeta / foc->Uref) * radian2Angle;
+            if (tempAngle > 0 && tempAngle < 90) // 测试的时候算出了270°，加个if跳过这种情况
+                foc->UrefAngle = tempAngle + 90;
+        }
+        else if (foc->revBeta < 0) // 3象限
+        {
+            foc->UrefAngle = asin(foc->revAlpha / foc->Uref) * radian2Angle + 270;
+        }
+        else
+        {                          // X轴
+            if (foc->revAlpha > 0) // 正半轴
+            {
+                foc->UrefAngle = 0;
+            }
+            else if (foc->revAlpha < 0) // 负半轴
+            {
+                foc->UrefAngle = 180;
+            }
+        }
+        // ips114_showfloat(0, 3, foc->UrefAngle, 3, 3);
+    }
+    else
+    {                         // Y轴
+        if (foc->revBeta > 0) // 正半轴
+        {
+            foc->UrefAngle = 90;
+        }
+        else if (foc->revBeta < 0) // 负半轴
+        {
+            foc->UrefAngle = 270;
+        }
+    }
+
+    // tempScope(foc->Uref, foc->UrefAngle, 0, 8);
+    // ips114_showfloat(0, 0, foc->Uref, 3, 3);
+    // ips114_showfloat(0, 1, foc->UrefAngle, 3, 3);
 }
 
 static void transform(struct Foc *foc)
@@ -130,6 +190,8 @@ static void transform(struct Foc *foc)
     positionPID(&currentLoopD, 0);
 
     reverseParkTransform(foc, radian); // 反Park变换
+
+    angleCalculate(foc); // 计算Uref的值和角度
 }
 /*------------------------------*/
 /*		    临时示波器   	     */

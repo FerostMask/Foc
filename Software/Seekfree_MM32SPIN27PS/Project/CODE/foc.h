@@ -12,6 +12,16 @@
 /*------------------------------------------------------*/
 /* 					  枚举类型定义 						*/
 /*======================================================*/
+typedef enum SECTION_Enum // SVPWM对应扇区
+{
+    I,
+    II,
+    III,
+    IV,
+    V,
+    VI,
+} SETCTION_Enum;
+
 typedef struct Foc
 {
     struct Driver *driver;
@@ -44,6 +54,11 @@ typedef struct Foc
 
     float revAlpha; // 反Park变换获得的alpha值
     float revBeta;  // 反Park变换获得的beta值
+
+    float Uref;
+    float UrefAngle;
+
+    SECTION_Enum section;
 } Foc;
 
 typedef struct pidpara
