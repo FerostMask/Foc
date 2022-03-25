@@ -20,6 +20,7 @@ typedef enum DEVICE_enum
 
     COMN_CYCLE = 32, // 通信周期
     DATA_MSB = 15,   // 数据最高位
+	ERRORFRAME = 14, // 指令校验位
 
     DC_CAL = D3,
     EN_GATE = A12,

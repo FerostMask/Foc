@@ -83,7 +83,7 @@ static void readEncoder(void)
 	gpioSetLow(SPI_SCK);
 	delay_ns(100);		 // th = tclk/2 = 50ns
 	gpioSetHigh(ENC_CS); // 结束通信
-	if (rawData & 0x40)
+	if (rawData & (0x01<<ERRORFRAME))
 	{ // 数据校验
 		return;
 	}

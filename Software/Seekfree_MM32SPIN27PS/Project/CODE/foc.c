@@ -34,10 +34,10 @@ Foc foc = {
 
 pidpara currentLoopQ = {
     .alpha = 0.3,
-    .Kp = 0.1,
-    .Ki = 0.1,
+    .Kp = 0.8,
+    .Ki = 0.8,
     .Kd = 0,
-    .thrsod = 0.1,
+    .thrsod = 0.5,
 };
 
 pidpara currentLoopD;
@@ -114,11 +114,11 @@ static inline void parkTransform(struct Foc *foc, const float radian)
 
 static inline void reverseParkTransform(struct Foc *foc, const float radian)
 {
-    foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
-    foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
+    // foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
+    // foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
 
-    // foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
-    // foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
+    foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
+    foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
 
     // tempScope(foc->revAlpha, foc->revBeta, 0, 2);
 }
@@ -174,8 +174,9 @@ static inline void angleCalculate(struct Foc *foc)
             foc->UrefAngle = 270;
         }
     }
-    // tempScope(foc->Uref, foc->UrefAngle, 0, 8);
+    tempScope(foc->Uref, foc->UrefAngle, *foc->angle, 360);
     // ips114_showfloat(0, 0, foc->Uref, 3, 3);
+    // ips114_showfloat(0, 0, *foc->angle, 3, 3);
     // ips114_showfloat(0, 1, foc->UrefAngle, 3, 3);
 }
 
@@ -285,13 +286,13 @@ static void transform(struct Foc *foc)
     clarkTransform(foc);        // Clark变换
     parkTransform(foc, radian); // Park变换
 
-    augmentedPID(&currentLoopQ, -0.5); // 电流环PID计算
+    augmentedPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
     augmentedPID(&currentLoopD, 0);
 
     reverseParkTransform(foc, radian); // 反Park变换
 
     angleCalculate(foc); // 计算Uref的值和角度
-    calculateSVPWM(foc);
+    // calculateSVPWM(foc);
 }
 /*------------------------------*/
 /*		    临时示波器   	     */

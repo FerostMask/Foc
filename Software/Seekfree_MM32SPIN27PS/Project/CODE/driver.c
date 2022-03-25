@@ -14,7 +14,7 @@ static void sampling(struct Sensor *sensor);
 /*--------------------------------------------------------------*/
 /* 							 变量定义 							*/
 /*==============================================================*/
-uint8_t clockwiseRotate[] = {0x04, 0x06, 0x02, 0x03, 0x01, 0x05};     // 100 110 010 011 001 101
+uint8_t clockwiseRotate[] = {0x04, 0x06, 0x02, 0x03, 0x01, 0x05, 0x04};     // 100 110 010 011 001 101
 uint8_t anticlockwiseRotate[] = {0x05, 0x01, 0x03, 0x02, 0x06, 0x04}; // 101 001 011 010 110 100
 int8_t gainValue[] = {GAIN_VALUE_10VPERV, GAIN_VALUE_20VPERV, GAIN_VALUE_40VPERV, GAIN_VALUE_80VPERV};
 Sensor sensor = {

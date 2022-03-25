@@ -61,13 +61,19 @@ int main(void)
 
 	while(1)
 	{
-		foc.transform(&foc);
+//		foc.transform(&foc);
 //		uart_putstr(UART_2, "Hello!");
 //		driver.sensor->sampling(driver.sensor);
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
-//		driver.motor->cycleRotate(&driver, 7, 1500, CLOCKWISE);
-//		systick_delay_ms(100);
+		driver.motor->cycleRotate(&driver, 1, 1500, CLOCKWISE);
+		float temp = encoder.absAngle;
+		while(temp == encoder.absAngle){
+			encoder.read();
+		}
+		
+		ips114_showfloat(0, 0, encoder.absAngle, 3, 3);
+		systick_delay_ms(100);
 //		driver.motor->cycleRotate(&driver, 7, 1500, ANTICLOCKWISE);
 //		systick_delay_ms(100);
 		//此处编写需要循环执行的代码
