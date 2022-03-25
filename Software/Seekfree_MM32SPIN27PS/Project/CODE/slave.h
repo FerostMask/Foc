@@ -57,6 +57,7 @@ typedef struct Magenc
 {
     void (*read)(void); // 读取编码器数据
     float absAngle;     // 绝对角度
+	float biasAngle;    // 偏移角度
     int16_t rawData;    // 未处理生数据
     bool checkMode;     // 是否开启校验
 } Magenc;

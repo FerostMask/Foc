@@ -16,6 +16,8 @@
 static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encoder);
 static void transform(struct Foc *foc);
 static void tempScope(float data1, float data2, float data3, const float max);
+static void calculateSVPWM(struct Foc *foc);
+
 // PID
 void augmentedPID(struct pidpara *para, const short tar);
 void positionPID(struct pidpara *para, const short tar);
@@ -32,12 +34,20 @@ Foc foc = {
     .init = focInit,
 };
 
+pidpara magnetPosition = {
+    .alpha = 0.1,
+    .Kp = 0.1,
+    .Ki = 0,
+    .Kd = 0.1,
+    .thrsod = 5, // 限制电流
+};
+
 pidpara currentLoopQ = {
-    .alpha = 0.3,
-    .Kp = 0.8,
-    .Ki = 0.8,
+    .alpha = 0.5,
+    .Kp = 0.01,
+    .Ki = 0.0001,
     .Kd = 0,
-    .thrsod = 0.5,
+    .thrsod = 1,
 };
 
 pidpara currentLoopD;
@@ -50,6 +60,7 @@ pidpara currentLoopD;
 static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encoder)
 {
     foc->transform = transform;
+    foc->svpwmAction = calculateSVPWM;
 
     foc->driver = driver;
     foc->sensor = driver->sensor;
@@ -65,7 +76,7 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
 
     foc->cycleGain = 7;
 
-    foc->targetCurrent = 0;
+    foc->targetCurrent = 2;
 
     // 常量初始化
     pi = acos(-1.f);
@@ -81,6 +92,7 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
     currentLoopD.Kd = currentLoopQ.Kd;
     currentLoopD.thrsod = currentLoopQ.thrsod;
 
+    magnetPosition.act = foc->angle;
     currentLoopQ.act = &foc->Iq;
     currentLoopD.act = &foc->Id;
     foc->afterIq = &currentLoopQ.rs;
@@ -106,6 +118,9 @@ static inline void parkTransform(struct Foc *foc, const float radian)
     foc->Id = foc->alpha * cos(foc->cycleGain * radian) + foc->beta * sin(foc->cycleGain * radian);
     foc->Iq = -foc->alpha * sin(foc->cycleGain * radian) + foc->beta * cos(foc->cycleGain * radian);
 
+    // foc->Id = -foc->Id;
+    // foc->Iq = -foc->Iq;
+
     // tempScope(foc->Id, foc->Iq, 0, 2);
 
     //    ips114_showfloat(0, 0, foc->Id, 3, 3);
@@ -114,11 +129,11 @@ static inline void parkTransform(struct Foc *foc, const float radian)
 
 static inline void reverseParkTransform(struct Foc *foc, const float radian)
 {
-    // foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
-    // foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
+    foc->revAlpha = *foc->afterId * cos(foc->cycleGain * radian) - *foc->afterIq * sin(foc->cycleGain * radian);
+    foc->revBeta = *foc->afterId * sin(foc->cycleGain * radian) + *foc->afterIq * cos(foc->cycleGain * radian);
 
-    foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
-    foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
+    // foc->revAlpha = *foc->afterId * cos(radian) - *foc->afterIq * sin(radian);
+    // foc->revBeta = *foc->afterId * sin(radian) + *foc->afterIq * cos(radian);
 
     // tempScope(foc->revAlpha, foc->revBeta, 0, 2);
 }
@@ -126,8 +141,8 @@ static inline void reverseParkTransform(struct Foc *foc, const float radian)
 static inline void angleCalculate(struct Foc *foc)
 {
     foc->Uref = pow((foc->revAlpha * foc->revAlpha) + (foc->revBeta * foc->revBeta), 1.f / 2.f); // 计算Uref
-    // if (foc->Uref < 0.001)
-    //     return;
+    if (foc->Uref < 0.001)
+        foc->Uref = 0;
     // 计算Uref的角度
     if (foc->revAlpha > 0) // 1、4象限
     {
@@ -174,13 +189,13 @@ static inline void angleCalculate(struct Foc *foc)
             foc->UrefAngle = 270;
         }
     }
-    tempScope(foc->Uref, foc->UrefAngle, *foc->angle, 360);
+    // tempScope(foc->Uref, foc->UrefAngle, *foc->angle, 360);
     // ips114_showfloat(0, 0, foc->Uref, 3, 3);
     // ips114_showfloat(0, 0, *foc->angle, 3, 3);
     // ips114_showfloat(0, 1, foc->UrefAngle, 3, 3);
 }
 
-static inline void calculateSVPWM(struct Foc *foc)
+static void calculateSVPWM(struct Foc *foc)
 {
     int16_t dutyA = 0, dutyB = 0, dutyC = 0;        // MSB: A
     if (foc->UrefAngle >= 0 && foc->UrefAngle < 60) // I
@@ -196,6 +211,7 @@ static inline void calculateSVPWM(struct Foc *foc)
         dutyC = T7;
         // ips114_showuint16(0, 0, T4);
         // ips114_showuint16(0, 1, T6);
+        // ips114_showstr(0, 2, "I   ");
     }
     else if (foc->UrefAngle < 120) // II
     {
@@ -210,6 +226,7 @@ static inline void calculateSVPWM(struct Foc *foc)
         dutyC = T7;
         // ips114_showuint16(0, 0, T6);
         // ips114_showuint16(0, 1, T2);
+        // ips114_showstr(0, 2, "II  ");
     }
     else if (foc->UrefAngle < 180) // III
     {
@@ -224,6 +241,7 @@ static inline void calculateSVPWM(struct Foc *foc)
         dutyC = T3 + T7;
         // ips114_showuint16(0, 0, T2);
         // ips114_showuint16(0, 1, T3);
+        // ips114_showstr(0, 2, "III ");
     }
     else if (foc->UrefAngle < 240) // IV
     {
@@ -238,6 +256,7 @@ static inline void calculateSVPWM(struct Foc *foc)
         dutyC = T3 + T1 + T7;
         // ips114_showuint16(0, 0, T3);
         // ips114_showuint16(0, 1, T1);
+        // ips114_showstr(0, 2, "IV  ");
     }
     else if (foc->UrefAngle < 300) // V
     {
@@ -252,6 +271,7 @@ static inline void calculateSVPWM(struct Foc *foc)
         dutyC = T1 + T5 + T7;
         // ips114_showuint16(0, 0, T1);
         // ips114_showuint16(0, 1, T5);
+        // ips114_showstr(0, 2, "V   ");
     }
     else if (foc->UrefAngle < 360) // VI
     {
@@ -266,6 +286,7 @@ static inline void calculateSVPWM(struct Foc *foc)
         dutyC = T5 + T7;
         // ips114_showuint16(0, 0, T5);
         // ips114_showuint16(0, 1, T4);
+        // ips114_showstr(0, 2, "VI  ");
     }
     dutyUpdate(INH_A, dutyA);
     dutyUpdate(INH_B, dutyB);
@@ -286,6 +307,8 @@ static void transform(struct Foc *foc)
     clarkTransform(foc);        // Clark变换
     parkTransform(foc, radian); // Park变换
 
+    positionPID(&magnetPosition, 10);
+    foc->targetCurrent = magnetPosition.rs;
     augmentedPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
     augmentedPID(&currentLoopD, 0);
 
@@ -308,8 +331,8 @@ static void tempScope(float data1, float data2, float data3, const float max)
     {
         ips114_clear(WHITE);
         pos = 0;
-        //		foc.cycleGain = ((int)foc.cycleGain +1) % 12;
-        //		ips114_showuint16(0, 7, foc.cycleGain);
+        // foc.cycleGain = ((int)foc.cycleGain + 1) % 12;
+        // ips114_showuint16(0, 7, foc.cycleGain);
     }
 
     data1 = (data1 / max) * height;

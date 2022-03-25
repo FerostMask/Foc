@@ -19,6 +19,9 @@
 
 #include "headfile.h"
 #include "isr.h"
+#include "slave.h"
+#include "foc.h"
+#include "driver.h"
 char count = 0;
 char dat;
 
@@ -32,12 +35,15 @@ void TIM2_IRQHandler (void)
 {
 	uint32 state = TIM2->SR;														// ¶ÁÈ¡ÖÐ¶Ï×´Ì¬
 	TIM2->SR &= ~state;																// Çå¿ÕÖÐ¶Ï×´Ì¬
+	foc.transform(&foc);	
+	foc.svpwmAction(&foc);
 }
 
 void TIM3_IRQHandler (void)
 {
 	uint32 state = TIM3->SR;														// ¶ÁÈ¡ÖÐ¶Ï×´Ì¬
 	TIM3->SR &= ~state;																// Çå¿ÕÖÐ¶Ï×´Ì¬
+
 }
 
 void TIM8_BRK_UP_TRG_COM_IRQHandler (void)

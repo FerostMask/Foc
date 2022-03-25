@@ -77,3 +77,6 @@
 .\objects\isr.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h
 .\objects\isr.o: ..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.h
 .\objects\isr.o: ..\USER\inc\isr.h
+.\objects\isr.o: ..\CODE\slave.h
+.\objects\isr.o: ..\CODE\foc.h
+.\objects\isr.o: ..\CODE\driver.h

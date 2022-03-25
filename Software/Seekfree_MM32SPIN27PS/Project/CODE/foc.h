@@ -30,6 +30,7 @@ typedef struct Foc
 
     void (*init)(struct Foc *, struct Driver *, struct Magenc *);
     void (*transform)(struct Foc *);
+    void (*svpwmAction)(struct Foc *);
 
     float targetCurrent; // 目标电流大小
 

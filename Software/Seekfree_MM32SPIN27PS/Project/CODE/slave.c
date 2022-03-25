@@ -21,6 +21,7 @@ static bool writeDrvRegister(DRV_REGISTER_Enum address, int16_t sdiData);
 Magenc encoder = {
 	.read = readEncoder,
 	.absAngle = 0,
+	.biasAngle = 2.864,
 	.rawData = 0,
 	.checkMode = false, // 是否进行奇偶校验
 };
@@ -107,6 +108,8 @@ static void readEncoder(void)
 	}
 	encoder.rawData = rawData & 0x3FFF;											 // 获取原始数据
 	encoder.absAngle = ((float)encoder.rawData / (float)UMax14) * (float)CIRCLE; // 转换绝对角度（角度制）
+	encoder.absAngle = encoder.absAngle+encoder.biasAngle;                       // 加上偏移角度
+	encoder.absAngle = fmod(encoder.absAngle, 360);
 
 	// ips114_showfloat(0, 2, encoder.absAngle, 3, 2);
 	// ips114_showuint16(0, 1, encoder.rawData);

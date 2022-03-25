@@ -56,7 +56,8 @@ int main(void)
 	driver.init(); // 驱动器初始化
 	foc.init(&foc, &driver, &encoder);
 	spiDevice.drv->info();
-	uart_init(UART_2,115200,UART2_TX_C04,UART2_RX_C05);
+	tim_interrupt_init_ms(TIM_2, 1, 0);
+//	tim_interrupt_init_ms(TIM_3, 5, 1);
 	//此处编写用户代码(例如：外设初始化代码等)
 
 	while(1)
@@ -66,14 +67,14 @@ int main(void)
 //		driver.sensor->sampling(driver.sensor);
 		//此处编写需要循环执行的代码
 //		spiDevice.enc->read();
-		driver.motor->cycleRotate(&driver, 1, 1500, CLOCKWISE);
-		float temp = encoder.absAngle;
-		while(temp == encoder.absAngle){
-			encoder.read();
-		}
-		
-		ips114_showfloat(0, 0, encoder.absAngle, 3, 3);
-		systick_delay_ms(100);
+//		driver.motor->cycleRotate(&driver, 1, 1500, CLOCKWISE);
+//		float temp = encoder.absAngle;
+//		while(temp == encoder.absAngle){
+//			encoder.read();
+//		}
+//		
+//		ips114_showfloat(0, 0, encoder.absAngle, 3, 3);
+//		systick_delay_ms(100);
 //		driver.motor->cycleRotate(&driver, 7, 1500, ANTICLOCKWISE);
 //		systick_delay_ms(100);
 		//此处编写需要循环执行的代码
