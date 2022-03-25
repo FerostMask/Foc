@@ -32,7 +32,8 @@ typedef struct Foc
     void (*transform)(struct Foc *);
     void (*svpwmAction)(struct Foc *);
 
-    float targetCurrent; // 目标电流大小
+    float targetCurrent;  // 目标电流大小
+    float targetAngle;    // 目标转子角度
 
     float currentA;  // A相电流
     float *currentB; // B相电流 | 由传感器采集

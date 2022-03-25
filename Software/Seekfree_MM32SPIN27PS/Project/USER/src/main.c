@@ -56,7 +56,7 @@ int main(void)
 	driver.init(); // 驱动器初始化
 	foc.init(&foc, &driver, &encoder);
 	spiDevice.drv->info();
-	tim_interrupt_init_ms(TIM_2, 1, 0);
+	tim_interrupt_init_us(TIM_2, 500, 0);
 //	tim_interrupt_init_ms(TIM_3, 5, 1);
 	//此处编写用户代码(例如：外设初始化代码等)
 

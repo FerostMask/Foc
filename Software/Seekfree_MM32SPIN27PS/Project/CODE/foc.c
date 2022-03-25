@@ -37,17 +37,17 @@ Foc foc = {
 pidpara magnetPosition = {
     .alpha = 0.1,
     .Kp = 0.1,
-    .Ki = 0,
+    .Ki = 0.01,
     .Kd = 0.1,
-    .thrsod = 5, // 限制电流
+    .thrsod = 10, // 限制电流
 };
 
 pidpara currentLoopQ = {
     .alpha = 0.5,
-    .Kp = 0.01,
-    .Ki = 0.0001,
+    .Kp = 0.02,
+    .Ki = 0.00001,
     .Kd = 0,
-    .thrsod = 1,
+    .thrsod = 5,
 };
 
 pidpara currentLoopD;
@@ -77,6 +77,7 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
     foc->cycleGain = 7;
 
     foc->targetCurrent = 2;
+    foc->targetAngle = 10;
 
     // 常量初始化
     pi = acos(-1.f);
@@ -307,7 +308,20 @@ static void transform(struct Foc *foc)
     clarkTransform(foc);        // Clark变换
     parkTransform(foc, radian); // Park变换
 
-    positionPID(&magnetPosition, 10);
+    float error = foc->targetAngle - *magnetPosition.act;
+    if (error < -190)
+    {
+        positionPID(&magnetPosition, foc->targetAngle + 360);
+    }
+    else if (error > 190)
+    {
+        *magnetPosition.act += 360;
+        positionPID(&magnetPosition, foc->targetAngle);
+    }
+    else
+    {
+        positionPID(&magnetPosition, foc->targetAngle);
+    }
     foc->targetCurrent = magnetPosition.rs;
     augmentedPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
     augmentedPID(&currentLoopD, 0);
