@@ -1,287 +1,285 @@
 /*********************************************************************************************************************
-* COPYRIGHT NOTICE
-* Copyright (c) 2019,Öğ·É¿Æ¼¼
-* All rights reserved.
-* ¼¼ÊõÌÖÂÛQQÈº£ºÒ»Èº£º179029047(ÒÑÂú)  ¶şÈº£º244861897
-*
-* ÒÔÏÂËùÓĞÄÚÈİ°æÈ¨¾ùÊôÖğ·É¿Æ¼¼ËùÓĞ£¬Î´¾­ÔÊĞí²»µÃÓÃÓÚÉÌÒµÓÃÍ¾£¬
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò£¬ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷¡£
-*
-* @file				isr
-* @company			³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* @author			Öğ·É¿Æ¼¼(QQ3184284598)
-* @version			²é¿´docÄÚversionÎÄ¼ş °æ±¾ËµÃ÷
-* @Software			IAR 8.3 or MDK 5.28
-* @Target core		MM32SPIN2XPs
-* @Taobao			https://seekfree.taobao.com/
-* @date				2020-11-23
-********************************************************************************************************************/
+ * COPYRIGHT NOTICE
+ * Copyright (c) 2019,é€é£ç§‘æŠ€
+ * All rights reserved.
+ * æŠ€æœ¯è®¨è®ºQQç¾¤ï¼šä¸€ç¾¤ï¼š179029047(å·²æ»¡)  äºŒç¾¤ï¼š244861897
+ *
+ * ä»¥ä¸‹æ‰€æœ‰å†…å®¹ç‰ˆæƒå‡å±é€é£ç§‘æŠ€æ‰€æœ‰ï¼Œæœªç»å…è®¸ä¸å¾—ç”¨äºå•†ä¸šç”¨é€”ï¼Œ
+ * æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åºï¼Œä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ã€‚
+ *
+ * @file				isr
+ * @company			æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+ * @author			é€é£ç§‘æŠ€(QQ3184284598)
+ * @version			æŸ¥çœ‹docå†…versionæ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+ * @Software			IAR 8.3 or MDK 5.28
+ * @Target core		MM32SPIN2XPs
+ * @Taobao			https://seekfree.taobao.com/
+ * @date				2020-11-23
+ ********************************************************************************************************************/
 
 #include "headfile.h"
 #include "isr.h"
 
-void TIM1_BRK_UP_TRG_COM_IRQHandler (void)
+void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM1->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM1->SR &= ~state;																// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM1->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM1->SR &= ~state;		 // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
 
-void TIM2_IRQHandler (void)
+void TIM2_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM2->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM2->SR &= ~state;																// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM2->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM2->SR &= ~state;		 // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
 
-void TIM3_IRQHandler (void)
+void TIM3_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM3->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM3->SR &= ~state;																// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM3->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM3->SR &= ~state;		 // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
 
-void TIM8_BRK_UP_TRG_COM_IRQHandler (void)
+void TIM8_BRK_UP_TRG_COM_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM8->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM8->SR &= ~state;																// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM8->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM8->SR &= ~state;		 // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
 
-void TIM14_IRQHandler (void)
+void TIM14_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM14->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM14->SR &= ~state;															// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM14->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM14->SR &= ~state;	  // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
 
-void TIM16_IRQHandler (void)
+void TIM16_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM16->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM16->SR &= ~state;															// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM16->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM16->SR &= ~state;	  // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
 
-void TIM17_IRQHandler (void)
+void TIM17_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	uint32 state = TIM17->SR;														// ¶ÁÈ¡ÖĞ¶Ï×´Ì¬
-	TIM17->SR &= ~state;															// Çå¿ÕÖĞ¶Ï×´Ì¬
-    rt_interrupt_leave();
+	rt_interrupt_enter();
+	uint32 state = TIM17->SR; // è¯»å–ä¸­æ–­çŠ¶æ€
+	TIM17->SR &= ~state;	  // æ¸…ç©ºä¸­æ–­çŠ¶æ€
+	rt_interrupt_leave();
 }
-
-
 
 void UART2_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	if(UART2->ISR & UART_ISR_TX_INTF)												// ´®¿Ú·¢ËÍ»º³å¿ÕÖĞ¶Ï
+	rt_interrupt_enter();
+	if (UART2->ISR & UART_ISR_TX_INTF) // ä¸²å£å‘é€ç¼“å†²ç©ºä¸­æ–­
 	{
-		UART2->ICR |= UART_ICR_TXICLR;												// Çå³ıÖĞ¶Ï±êÖ¾Î»
+		UART2->ICR |= UART_ICR_TXICLR; // æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
 	}
-	if(UART2->ISR & UART_ISR_RX_INTF)												// ´®¿Ú½ÓÊÕ»º³åÖĞ¶Ï
+	if (UART2->ISR & UART_ISR_RX_INTF) // ä¸²å£æ¥æ”¶ç¼“å†²ä¸­æ–­
 	{
-		switch(camera_type)															// ²éÑ¯ÉãÏñÍ·ÀàĞÍ Î´³õÊ¼»¯ÉãÏñÍ·Ôò´Ë´¦»á½øÈëdefault
+		switch (camera_type) // æŸ¥è¯¢æ‘„åƒå¤´ç±»å‹ æœªåˆå§‹åŒ–æ‘„åƒå¤´åˆ™æ­¤å¤„ä¼šè¿›å…¥default
 		{
-			case CAMERA_BIN_UART: 													// ´®¿ÚĞ¡×ê·ç
-				ov7725_cof_uart_interrupt();										// µ÷ÓÃ´®¿ÚĞ¡×ê·çµÄ´®¿Ú½ÓÊÕ´¦Àí
-				break;
-			case CAMERA_GRAYSCALE: 													// ×Ü×ê·ç
-				mt9v03x_uart_callback();											// µ÷ÓÃ×Ü×ê·çµÄ´®¿Ú½ÓÊÕ´¦Àí
-				break;
-			default:
-				break;
+		case CAMERA_BIN_UART:			 // ä¸²å£å°é’»é£
+			ov7725_cof_uart_interrupt(); // è°ƒç”¨ä¸²å£å°é’»é£çš„ä¸²å£æ¥æ”¶å¤„ç†
+			break;
+		case CAMERA_GRAYSCALE:		 // æ€»é’»é£
+			mt9v03x_uart_callback(); // è°ƒç”¨æ€»é’»é£çš„ä¸²å£æ¥æ”¶å¤„ç†
+			break;
+		default:
+			break;
 		}
-		UART2->ICR |= UART_ICR_RXICLR;												// Çå³ıÖĞ¶Ï±êÖ¾Î»
+		UART2->ICR |= UART_ICR_RXICLR; // æ¸…é™¤ä¸­æ–­æ ‡å¿—ä½
 	}
-    rt_interrupt_leave();
+	rt_interrupt_leave();
 }
 
 void EXTI0_1_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	// ¼ì²âÓëÇå³ıÖĞ¶Ï±êÖ¾¿ÉÒÔ¸ù¾İÊµ¼ÊÓ¦ÓÃ½øĞĞÉ¾¸Ä
-	if(EXTI_GetITStatus(EXTI_Line0))												// ¼ì²â line0 ÊÇ·ñ´¥·¢
+	rt_interrupt_enter();
+	// æ£€æµ‹ä¸æ¸…é™¤ä¸­æ–­æ ‡å¿—å¯ä»¥æ ¹æ®å®é™…åº”ç”¨è¿›è¡Œåˆ æ”¹
+	if (EXTI_GetITStatus(EXTI_Line0)) // æ£€æµ‹ line0 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line0);													// Çå³ı line0 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line0); // æ¸…é™¤ line0 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line1))												// ¼ì²â line1 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line1)) // æ£€æµ‹ line1 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line1);													// Çå³ı line1 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line1); // æ¸…é™¤ line1 è§¦å‘æ ‡å¿—
 	}
-//	EXTI_ClearFlag(0x0003);															// EXTI_Line0 | EXTI_Line1
-    
-    rt_interrupt_leave();
+	//	EXTI_ClearFlag(0x0003);															// EXTI_Line0 | EXTI_Line1
+
+	rt_interrupt_leave();
 }
 
 void EXTI2_3_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	// ¼ì²âÓëÇå³ıÖĞ¶Ï±êÖ¾¿ÉÒÔ¸ù¾İÊµ¼ÊÓ¦ÓÃ½øĞĞÉ¾¸Ä
-	if(EXTI_GetITStatus(EXTI_Line2))												// ¼ì²â line2 ÊÇ·ñ´¥·¢
+	rt_interrupt_enter();
+	// æ£€æµ‹ä¸æ¸…é™¤ä¸­æ–­æ ‡å¿—å¯ä»¥æ ¹æ®å®é™…åº”ç”¨è¿›è¡Œåˆ æ”¹
+	if (EXTI_GetITStatus(EXTI_Line2)) // æ£€æµ‹ line2 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line2);													// Çå³ı line2 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line2); // æ¸…é™¤ line2 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line3))												// ¼ì²â line3 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line3)) // æ£€æµ‹ line3 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line3);													// Çå³ı line3 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line3); // æ¸…é™¤ line3 è§¦å‘æ ‡å¿—
 	}
-//	EXTI_ClearFlag(0x000C);															// EXTI_Line2 | EXTI_Line3
+	//	EXTI_ClearFlag(0x000C);															// EXTI_Line2 | EXTI_Line3
 
-    rt_interrupt_leave();
+	rt_interrupt_leave();
 }
 
 void EXTI4_15_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	// ¼ì²âÓëÇå³ıÖĞ¶Ï±êÖ¾¿ÉÒÔ¸ù¾İÊµ¼ÊÓ¦ÓÃ½øĞĞÉ¾¸Ä
-	if(EXTI_GetITStatus(EXTI_Line4))												// ¼ì²â line4 ÊÇ·ñ´¥·¢
+	rt_interrupt_enter();
+	// æ£€æµ‹ä¸æ¸…é™¤ä¸­æ–­æ ‡å¿—å¯ä»¥æ ¹æ®å®é™…åº”ç”¨è¿›è¡Œåˆ æ”¹
+	if (EXTI_GetITStatus(EXTI_Line4)) // æ£€æµ‹ line4 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line4);													// Çå³ı line4 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line4); // æ¸…é™¤ line4 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line5))												// ¼ì²â line5 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line5)) // æ£€æµ‹ line5 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line5);													// Çå³ı line5 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line5); // æ¸…é™¤ line5 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line6))												// ¼ì²â line6 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line6)) // æ£€æµ‹ line6 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line6);													// Çå³ı line6 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line6); // æ¸…é™¤ line6 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line7))												// ¼ì²â line7 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line7)) // æ£€æµ‹ line7 æ˜¯å¦è§¦å‘
 	{
-		switch(camera_type)															// ²éÑ¯ÉãÏñÍ·ÀàĞÍ Î´³õÊ¼»¯ÉãÏñÍ·Ôò´Ë´¦»á½øÈëdefault
+		switch (camera_type) // æŸ¥è¯¢æ‘„åƒå¤´ç±»å‹ æœªåˆå§‹åŒ–æ‘„åƒå¤´åˆ™æ­¤å¤„ä¼šè¿›å…¥default
 		{
-			case CAMERA_BIN_UART:  													// ´®¿ÚĞ¡×ê·ç
-				ov7725_uart_vsync();
-				break;
-			case CAMERA_GRAYSCALE: 													// ×Ü×ê·ç
-				mt9v03x_vsync();
-				break;
-			default:
-				break;
+		case CAMERA_BIN_UART: // ä¸²å£å°é’»é£
+			ov7725_uart_vsync();
+			break;
+		case CAMERA_GRAYSCALE: // æ€»é’»é£
+			mt9v03x_vsync();
+			break;
+		default:
+			break;
 		}
-		EXTI_ClearFlag(EXTI_Line7);													// Çå³ı line8 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line7); // æ¸…é™¤ line8 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line8))												// ¼ì²â line8 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line8)) // æ£€æµ‹ line8 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line8);													// Çå³ı line8 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line8); // æ¸…é™¤ line8 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line9))												// ¼ì²â line9 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line9)) // æ£€æµ‹ line9 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line9);													// Çå³ı line9 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line9); // æ¸…é™¤ line9 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line10))												// ¼ì²â line10 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line10)) // æ£€æµ‹ line10 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line10);												// Çå³ı line10 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line10); // æ¸…é™¤ line10 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line11))												// ¼ì²â line11 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line11)) // æ£€æµ‹ line11 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line11);												// Çå³ı line11 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line11); // æ¸…é™¤ line11 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line12))												// ¼ì²â line12 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line12)) // æ£€æµ‹ line12 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line12);												// Çå³ı line12 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line12); // æ¸…é™¤ line12 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line13))												// ¼ì²â line13 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line13)) // æ£€æµ‹ line13 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line13);												// Çå³ı line13 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line13); // æ¸…é™¤ line13 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line14))												// ¼ì²â line14 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line14)) // æ£€æµ‹ line14 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line14);												// Çå³ı line14 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line14); // æ¸…é™¤ line14 è§¦å‘æ ‡å¿—
 	}
-	if(EXTI_GetITStatus(EXTI_Line15))												// ¼ì²â line15 ÊÇ·ñ´¥·¢
+	if (EXTI_GetITStatus(EXTI_Line15)) // æ£€æµ‹ line15 æ˜¯å¦è§¦å‘
 	{
-		EXTI_ClearFlag(EXTI_Line15);												// Çå³ı line15 ´¥·¢±êÖ¾
+		EXTI_ClearFlag(EXTI_Line15); // æ¸…é™¤ line15 è§¦å‘æ ‡å¿—
 	}
-//	EXTI_ClearFlag(0xFFF0);															// EXTI_Line4 | ... | EXTI_Line15
-    
-    rt_interrupt_leave();
+	//	EXTI_ClearFlag(0xFFF0);															// EXTI_Line4 | ... | EXTI_Line15
+
+	rt_interrupt_leave();
 }
 
 void DMA1_Channel1_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	if(SET == DMA_GetFlagStatus(DMA1_FLAG_TC1))										// ÅĞ¶Ï´¥·¢Í¨µÀ
+	rt_interrupt_enter();
+	if (SET == DMA_GetFlagStatus(DMA1_FLAG_TC1)) // åˆ¤æ–­è§¦å‘é€šé“
 	{
-		DMA_ClearFlag(DMA1_FLAG_TC1);												// Çå¿Õ¸ÃÍ¨µÀÖĞ¶Ï±êÖ¾
+		DMA_ClearFlag(DMA1_FLAG_TC1); // æ¸…ç©ºè¯¥é€šé“ä¸­æ–­æ ‡å¿—
 	}
-    rt_interrupt_leave();
+	rt_interrupt_leave();
 }
 
 void DMA1_Channel2_3_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	if(SET == DMA_GetFlagStatus(DMA1_FLAG_TC2))										// ÅĞ¶Ï´¥·¢Í¨µÀ
+	rt_interrupt_enter();
+	if (SET == DMA_GetFlagStatus(DMA1_FLAG_TC2)) // åˆ¤æ–­è§¦å‘é€šé“
 	{
-		DMA_ClearFlag(DMA1_FLAG_TC2);												// Çå¿Õ¸ÃÍ¨µÀÖĞ¶Ï±êÖ¾
+		DMA_ClearFlag(DMA1_FLAG_TC2); // æ¸…ç©ºè¯¥é€šé“ä¸­æ–­æ ‡å¿—
 	}
-	if(SET == DMA_GetFlagStatus(DMA1_FLAG_TC3))										// ÅĞ¶Ï´¥·¢Í¨µÀ
+	if (SET == DMA_GetFlagStatus(DMA1_FLAG_TC3)) // åˆ¤æ–­è§¦å‘é€šé“
 	{
-		DMA_ClearFlag(DMA1_FLAG_TC3);												// Çå¿Õ¸ÃÍ¨µÀÖĞ¶Ï±êÖ¾
+		DMA_ClearFlag(DMA1_FLAG_TC3); // æ¸…ç©ºè¯¥é€šé“ä¸­æ–­æ ‡å¿—
 	}
-    rt_interrupt_leave();
+	rt_interrupt_leave();
 }
 
 void DMA1_Channel4_5_IRQHandler(void)
 {
-    rt_interrupt_enter();
-	if(SET == DMA_GetFlagStatus(DMA1_FLAG_TC4))										// ÅĞ¶Ï´¥·¢Í¨µÀ
+	rt_interrupt_enter();
+	if (SET == DMA_GetFlagStatus(DMA1_FLAG_TC4)) // åˆ¤æ–­è§¦å‘é€šé“
 	{
-		DMA_ClearFlag(DMA1_FLAG_TC4);												// Çå¿Õ¸ÃÍ¨µÀÖĞ¶Ï±êÖ¾
-		switch(camera_type)															// ²éÑ¯ÉãÏñÍ·ÀàĞÍ Î´³õÊ¼»¯ÉãÏñÍ·Ôò´Ë´¦»á½øÈëdefault
+		DMA_ClearFlag(DMA1_FLAG_TC4); // æ¸…ç©ºè¯¥é€šé“ä¸­æ–­æ ‡å¿—
+		switch (camera_type)		  // æŸ¥è¯¢æ‘„åƒå¤´ç±»å‹ æœªåˆå§‹åŒ–æ‘„åƒå¤´åˆ™æ­¤å¤„ä¼šè¿›å…¥default
 		{
-			case CAMERA_BIN_UART:  													// ´®¿ÚĞ¡×ê·ç
-				ov7725_uart_dma();
-				break;
-			case CAMERA_GRAYSCALE: 													// ×Ü×ê·ç
-				mt9v03x_dma();
-				break;
-			default:
-				break;
+		case CAMERA_BIN_UART: // ä¸²å£å°é’»é£
+			ov7725_uart_dma();
+			break;
+		case CAMERA_GRAYSCALE: // æ€»é’»é£
+			mt9v03x_dma();
+			break;
+		default:
+			break;
 		}
 	}
-	if(SET == DMA_GetFlagStatus(DMA1_FLAG_TC5))										// ÅĞ¶Ï´¥·¢Í¨µÀ
+	if (SET == DMA_GetFlagStatus(DMA1_FLAG_TC5)) // åˆ¤æ–­è§¦å‘é€šé“
 	{
-		DMA_ClearFlag(DMA1_FLAG_TC5);												// Çå¿Õ¸ÃÍ¨µÀÖĞ¶Ï±êÖ¾
+		DMA_ClearFlag(DMA1_FLAG_TC5); // æ¸…ç©ºè¯¥é€šé“ä¸­æ–­æ ‡å¿—
 	}
-    rt_interrupt_leave();
+	rt_interrupt_leave();
 }
 
 #ifdef Will_never_be_defined
 WWDG_IRQHandler
-PVD_IRQHandler
-PWM_IRQHandler
-FLASH_IRQHandler
-RCC_IRQHandler
-EXTI0_1_IRQHandler
-EXTI2_3_IRQHandler
-EXTI4_15_IRQHandler
-HWDIV_IRQHandler
-DMA1_Channel1_IRQHandler
-DMA1_Channel2_3_IRQHandler
-DMA1_Channel4_5_IRQHandler
-ADC1_IRQHandler
-TIM1_BRK_UP_TRG_COM_IRQHandler
-TIM1_CC_IRQHandler
-TIM2_IRQHandler
-TIM3_IRQHandler
-TIM8_BRK_UP_TRG_COM_IRQHandler
-TIM8_CC_IRQHandler
-TIM14_IRQHandler
-ADC2_IRQHandler
-TIM16_IRQHandler
-TIM17_IRQHandler
-I2C1_IRQHandler
-COMP1_2_3_4_5_IRQHandler
-SPI1_IRQHandler
-SPI2_IRQHandler
-UART1_IRQHandler
-UART2_IRQHandler
+	PVD_IRQHandler
+		PWM_IRQHandler
+			FLASH_IRQHandler
+				RCC_IRQHandler
+					EXTI0_1_IRQHandler
+						EXTI2_3_IRQHandler
+							EXTI4_15_IRQHandler
+								HWDIV_IRQHandler
+									DMA1_Channel1_IRQHandler
+										DMA1_Channel2_3_IRQHandler
+											DMA1_Channel4_5_IRQHandler
+												ADC1_IRQHandler
+													TIM1_BRK_UP_TRG_COM_IRQHandler
+														TIM1_CC_IRQHandler
+															TIM2_IRQHandler
+																TIM3_IRQHandler
+																	TIM8_BRK_UP_TRG_COM_IRQHandler
+																		TIM8_CC_IRQHandler
+																			TIM14_IRQHandler
+																				ADC2_IRQHandler
+																					TIM16_IRQHandler
+																						TIM17_IRQHandler
+																							I2C1_IRQHandler
+																								COMP1_2_3_4_5_IRQHandler
+																									SPI1_IRQHandler
+																										SPI2_IRQHandler
+																											UART1_IRQHandler
+																												UART2_IRQHandler
 #endif

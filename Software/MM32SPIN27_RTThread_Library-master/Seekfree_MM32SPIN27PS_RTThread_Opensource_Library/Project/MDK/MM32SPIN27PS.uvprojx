@@ -10,7 +10,7 @@
       <TargetName>MM32SPIN27PS_Demo</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -416,6 +416,11 @@
               <FileName>本文件夹作用.txt</FileName>
               <FileType>5</FileType>
               <FilePath>..\CODE\本文件夹作用.txt</FilePath>
+            </File>
+            <File>
+              <FileName>display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\display.c</FilePath>
             </File>
           </Files>
         </Group>

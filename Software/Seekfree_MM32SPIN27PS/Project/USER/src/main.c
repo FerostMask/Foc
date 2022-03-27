@@ -48,15 +48,15 @@ char *valWrite = {0xFF, 0xFF};
 // **************************** 代码区域 ****************************
 int main(void)
 {
-	board_init(true);																// 初始化 debug 输出串口
+//	board_init(true);																// 初始化 debug 输出串口
 	systick_delay_ms(10); // 延时0.1秒开机，防止奇奇怪怪的问题
 	ips114_init();
 	//此处编写用户代码(例如：外设初始化代码等)
-	spiDevice.init(); // SPI设备初始化
-	driver.init(); // 驱动器初始化
-	foc.init(&foc, &driver, &encoder);
-	spiDevice.drv->info();
-	tim_interrupt_init_ms(TIM_2, 1, 0);
+//	spiDevice.init(); // SPI设备初始化
+//	driver.init(); // 驱动器初始化
+//	foc.init(&foc, &driver, &encoder);
+//	spiDevice.drv->info();
+//	tim_interrupt_init_ms(TIM_2, 1, 0);
 //	tim_interrupt_init_ms(TIM_3, 5, 1);
 	//此处编写用户代码(例如：外设初始化代码等)
 

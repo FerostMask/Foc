@@ -118,9 +118,9 @@ static inline void parkTransform(struct Foc *foc, const float radian)
 {
     foc->Id = foc->alpha * cos(foc->cycleGain * radian) + foc->beta * sin(foc->cycleGain * radian);
     foc->Iq = -foc->alpha * sin(foc->cycleGain * radian) + foc->beta * cos(foc->cycleGain * radian);
-	
-//	foc->Iq = -foc->Iq;
-	foc->Id = -foc->Id;
+
+    //	foc->Iq = -foc->Iq;
+    foc->Id = -foc->Id;
 
     // foc->Id = -foc->Id;
     // foc->Iq = -foc->Iq;
@@ -203,7 +203,7 @@ static inline void angleCalculate(struct Foc *foc)
 /*==============================*/
 static void transform(struct Foc *foc)
 {
-	static uint8_t count = 0;
+    static uint8_t count = 0;
     foc->sensor->sampling(foc->sensor);               // 电流电压采样
     foc->encoder->read();                             // 读取编码器位置信息
     foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
@@ -227,8 +227,8 @@ static void transform(struct Foc *foc)
     {
         positionPID(&magnetPosition, foc->targetAngle);
     }
-//    foc->targetCurrent = magnetPosition.rs;
-	ips114_showint16(0, 0, *currentLoopQ.act);
+    //    foc->targetCurrent = magnetPosition.rs;
+    ips114_showint16(0, 0, *currentLoopQ.act);
     augmentedPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
     augmentedPID(&currentLoopD, 0);
 

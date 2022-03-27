@@ -1,35 +1,35 @@
 /*********************************************************************************************************************
-* COPYRIGHT NOTICE
-* Copyright (c) 2018,Öğ·É¿Æ¼¼
-* All rights reserved.
-* ¼¼ÊõÌÖÂÛQQÈº£ºÒ»Èº£º179029047(ÒÑÂú)  ¶şÈº£º244861897
-*
-* ÒÔÏÂËùÓĞÄÚÈİ°æÈ¨¾ùÊôÖğ·É¿Æ¼¼ËùÓĞ£¬Î´¾­ÔÊĞí²»µÃÓÃÓÚÉÌÒµÓÃÍ¾£¬
-* »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò£¬ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷¡£
-*
-* @file				SEEKFREE_IPS114_SPI
-* @company			³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
-* @author			Öğ·É¿Æ¼¼(QQ3184284598)
-* @version			²é¿´docÄÚversionÎÄ¼ş °æ±¾ËµÃ÷
-* @Software			IAR 8.3 or MDK 5.24
-* @Taobao			https://seekfree.taobao.com/
-* @date				2020-11-23
-* @note
-* 					½ÓÏß¶¨Òå£º
-* 					------------------------------------
-* 					Ä£¿é¹Ü½Å				µ¥Æ¬»ú¹Ü½Å
-* 					SCL					²é¿´IPS114_SCL_PINºê¶¨ÒåµÄÒı½Å	Ó²¼şSPIÒı½Å²»¿ÉËæÒâÇĞ»»
-* 					SDA					²é¿´IPS114_SDA_PINºê¶¨ÒåµÄÒı½Å	Ó²¼şSPIÒı½Å²»¿ÉËæÒâÇĞ»»
-* 					RES					²é¿´IPS114_REST_PINºê¶¨ÒåµÄÒı½Å
-* 					DC					²é¿´IPS114_DC_PINºê¶¨ÒåµÄÒı½Å
-* 					CS					²é¿´IPS114_CS_PINºê¶¨ÒåµÄÒı½Å		Ó²¼şSPIÒı½Å²»¿ÉËæÒâÇĞ»»
-* 					µçÔ´Òı½Å
-* 					BL  3.3VµçÔ´£¨±³¹â¿ØÖÆÒı½Å£¬Ò²¿ÉÒÔ½ÓPWMÀ´¿ØÖÆÁÁ¶È£©
-* 					VCC 3.3VµçÔ´
-* 					GND µçÔ´µØ
-* 					×î´ó·Ö±æÂÊ135*240
-* 					------------------------------------
-********************************************************************************************************************/
+ * COPYRIGHT NOTICE
+ * Copyright (c) 2018,é€é£ç§‘æŠ€
+ * All rights reserved.
+ * æŠ€æœ¯è®¨è®ºQQç¾¤ï¼šä¸€ç¾¤ï¼š179029047(å·²æ»¡)  äºŒç¾¤ï¼š244861897
+ *
+ * ä»¥ä¸‹æ‰€æœ‰å†…å®¹ç‰ˆæƒå‡å±é€é£ç§‘æŠ€æ‰€æœ‰ï¼Œæœªç»å…è®¸ä¸å¾—ç”¨äºå•†ä¸šç”¨é€”ï¼Œ
+ * æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åºï¼Œä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ã€‚
+ *
+ * @file				SEEKFREE_IPS114_SPI
+ * @company			æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
+ * @author			é€é£ç§‘æŠ€(QQ3184284598)
+ * @version			æŸ¥çœ‹docå†…versionæ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+ * @Software			IAR 8.3 or MDK 5.24
+ * @Taobao			https://seekfree.taobao.com/
+ * @date				2020-11-23
+ * @note
+ * 					æ¥çº¿å®šä¹‰ï¼š
+ * 					------------------------------------
+ * 					æ¨¡å—ç®¡è„š				å•ç‰‡æœºç®¡è„š
+ * 					SCL					æŸ¥çœ‹IPS114_SCL_PINå®å®šä¹‰çš„å¼•è„š	ç¡¬ä»¶SPIå¼•è„šä¸å¯éšæ„åˆ‡æ¢
+ * 					SDA					æŸ¥çœ‹IPS114_SDA_PINå®å®šä¹‰çš„å¼•è„š	ç¡¬ä»¶SPIå¼•è„šä¸å¯éšæ„åˆ‡æ¢
+ * 					RES					æŸ¥çœ‹IPS114_REST_PINå®å®šä¹‰çš„å¼•è„š
+ * 					DC					æŸ¥çœ‹IPS114_DC_PINå®å®šä¹‰çš„å¼•è„š
+ * 					CS					æŸ¥çœ‹IPS114_CS_PINå®å®šä¹‰çš„å¼•è„š		ç¡¬ä»¶SPIå¼•è„šä¸å¯éšæ„åˆ‡æ¢
+ * 					ç”µæºå¼•è„š
+ * 					BL  3.3Vç”µæºï¼ˆèƒŒå…‰æ§åˆ¶å¼•è„šï¼Œä¹Ÿå¯ä»¥æ¥PWMæ¥æ§åˆ¶äº®åº¦ï¼‰
+ * 					VCC 3.3Vç”µæº
+ * 					GND ç”µæºåœ°
+ * 					æœ€å¤§åˆ†è¾¨ç‡135*240
+ * 					------------------------------------
+ ********************************************************************************************************************/
 
 #include "zf_spi.h"
 #include "zf_gpio.h"
@@ -38,14 +38,14 @@
 #include "SEEKFREE_IPS114_SPI.h"
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Ğ´ÃüÁî
-// @param		dat				Êı¾İ
+// @brief		å†™å‘½ä»¤
+// @param		dat				æ•°æ®
 // @return		void
 // @since		v1.0
 // Sample usage:
-// @note		ÄÚ²¿µ÷ÓÃ ÓÃ»§ÎŞĞè¹ØĞÄ
+// @note		å†…éƒ¨è°ƒç”¨ ç”¨æˆ·æ— éœ€å…³å¿ƒ
 //-------------------------------------------------------------------------------------------------------------------
-static void ips114_writeIndex (uint8 dat)
+static void ips114_writeIndex(uint8 dat)
 {
 	IPS114_CS(0);
 	IPS114_DC(0);
@@ -54,14 +54,14 @@ static void ips114_writeIndex (uint8 dat)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Ğ´Êı¾İ
-// @param		dat				Êı¾İ
+// @brief		å†™æ•°æ®
+// @param		dat				æ•°æ®
 // @return		void
 // @since		v1.0
 // Sample usage:
-// @note		ÄÚ²¿µ÷ÓÃ ÓÃ»§ÎŞĞè¹ØĞÄ
+// @note		å†…éƒ¨è°ƒç”¨ ç”¨æˆ·æ— éœ€å…³å¿ƒ
 //-------------------------------------------------------------------------------------------------------------------
-static void ips114_writeData (uint8 dat)
+static void ips114_writeData(uint8 dat)
 {
 	IPS114_CS(0);
 	IPS114_DC(1);
@@ -70,14 +70,14 @@ static void ips114_writeData (uint8 dat)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		ÏòÒº¾§ÆÁĞ´Ò»¸ö16Î»Êı¾İ
-// @param		dat				Êı¾İ
+// @brief		å‘æ¶²æ™¶å±å†™ä¸€ä¸ª16ä½æ•°æ®
+// @param		dat				æ•°æ®
 // @return		void
 // @since		v1.0
 // Sample usage:
-// @note		ÄÚ²¿µ÷ÓÃ ÓÃ»§ÎŞĞè¹ØĞÄ
+// @note		å†…éƒ¨è°ƒç”¨ ç”¨æˆ·æ— éœ€å…³å¿ƒ
 //-------------------------------------------------------------------------------------------------------------------
-static void ips114_writedata_16bit (uint16 dat)
+static void ips114_writedata_16bit(uint16 dat)
 {
 	uint8 dat1[2];
 	IPS114_CS(0);
@@ -85,74 +85,74 @@ static void ips114_writedata_16bit (uint16 dat)
 	dat1[1] = (uint8)dat;
 
 	IPS114_DC(1);
-	spi_mosi(IPS114_SPIN, dat1, NULL, 2);									// Ğ´ÈëÊı¾İ  ¸ßÎ»ÔÚÇ°  µÍÎ»ÔÚºó
+	spi_mosi(IPS114_SPIN, dat1, NULL, 2); // å†™å…¥æ•°æ®  é«˜ä½åœ¨å‰  ä½ä½åœ¨å
 	IPS114_CS(1);
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		ÉèÖÃÏÔÊ¾ÇøÓò
-// @param		x1				ÆğÊ¼xÖá×ø±ê
-// @param		y1				ÆğÊ¼yÖá×ø±ê
-// @param		x2				½áÊøxÖá×ø±ê
-// @param		y2				½áÊøyÖá×ø±ê
+// @brief		è®¾ç½®æ˜¾ç¤ºåŒºåŸŸ
+// @param		x1				èµ·å§‹xè½´åæ ‡
+// @param		y1				èµ·å§‹yè½´åæ ‡
+// @param		x2				ç»“æŸxè½´åæ ‡
+// @param		y2				ç»“æŸyè½´åæ ‡
 // @return		void
 // @since		v1.0
 // Sample usage:
-// @note		ÄÚ²¿µ÷ÓÃ ÓÃ»§ÎŞĞè¹ØĞÄ
+// @note		å†…éƒ¨è°ƒç”¨ ç”¨æˆ·æ— éœ€å…³å¿ƒ
 //-------------------------------------------------------------------------------------------------------------------
-static void ips114_set_region (uint16 x1, uint16 y1, uint16 x2, uint16 y2)
+static void ips114_set_region(uint16 x1, uint16 y1, uint16 x2, uint16 y2)
 {
-	if(IPS114_DISPLAY_DIR==0)
+	if (IPS114_DISPLAY_DIR == 0)
 	{
-		ips114_writeIndex(0x2a);											// ÁĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(x1+52);
-		ips114_writedata_16bit(x2+52);
-		ips114_writeIndex(0x2b);											// ĞĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(y1+40);
-		ips114_writedata_16bit(y2+40);
-		ips114_writeIndex(0x2c);											// ´¢´æÆ÷Ğ´
+		ips114_writeIndex(0x2a); // åˆ—åœ°å€è®¾ç½®
+		ips114_writedata_16bit(x1 + 52);
+		ips114_writedata_16bit(x2 + 52);
+		ips114_writeIndex(0x2b); // è¡Œåœ°å€è®¾ç½®
+		ips114_writedata_16bit(y1 + 40);
+		ips114_writedata_16bit(y2 + 40);
+		ips114_writeIndex(0x2c); // å‚¨å­˜å™¨å†™
 	}
-	else if(IPS114_DISPLAY_DIR==1)
+	else if (IPS114_DISPLAY_DIR == 1)
 	{
-		ips114_writeIndex(0x2a);											// ÁĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(x1+53);
-		ips114_writedata_16bit(x2+53);
-		ips114_writeIndex(0x2b);											// ĞĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(y1+40);
-		ips114_writedata_16bit(y2+40);
-		ips114_writeIndex(0x2c);											// ´¢´æÆ÷Ğ´
+		ips114_writeIndex(0x2a); // åˆ—åœ°å€è®¾ç½®
+		ips114_writedata_16bit(x1 + 53);
+		ips114_writedata_16bit(x2 + 53);
+		ips114_writeIndex(0x2b); // è¡Œåœ°å€è®¾ç½®
+		ips114_writedata_16bit(y1 + 40);
+		ips114_writedata_16bit(y2 + 40);
+		ips114_writeIndex(0x2c); // å‚¨å­˜å™¨å†™
 	}
-	else if(IPS114_DISPLAY_DIR==2)
+	else if (IPS114_DISPLAY_DIR == 2)
 	{
-		ips114_writeIndex(0x2a);											// ÁĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(x1+40);
-		ips114_writedata_16bit(x2+40);
-		ips114_writeIndex(0x2b);											// ĞĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(y1+53);
-		ips114_writedata_16bit(y2+53);
-		ips114_writeIndex(0x2c);											// ´¢´æÆ÷Ğ´
+		ips114_writeIndex(0x2a); // åˆ—åœ°å€è®¾ç½®
+		ips114_writedata_16bit(x1 + 40);
+		ips114_writedata_16bit(x2 + 40);
+		ips114_writeIndex(0x2b); // è¡Œåœ°å€è®¾ç½®
+		ips114_writedata_16bit(y1 + 53);
+		ips114_writedata_16bit(y2 + 53);
+		ips114_writeIndex(0x2c); // å‚¨å­˜å™¨å†™
 	}
 	else
 	{
-		ips114_writeIndex(0x2a);											// ÁĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(x1+40);
-		ips114_writedata_16bit(x2+40);
-		ips114_writeIndex(0x2b);											// ĞĞµØÖ·ÉèÖÃ
-		ips114_writedata_16bit(y1+52);
-		ips114_writedata_16bit(y2+52);
-		ips114_writeIndex(0x2c);											// ´¢´æÆ÷Ğ´
+		ips114_writeIndex(0x2a); // åˆ—åœ°å€è®¾ç½®
+		ips114_writedata_16bit(x1 + 40);
+		ips114_writedata_16bit(x2 + 40);
+		ips114_writeIndex(0x2b); // è¡Œåœ°å€è®¾ç½®
+		ips114_writedata_16bit(y1 + 52);
+		ips114_writedata_16bit(y2 + 52);
+		ips114_writeIndex(0x2c); // å‚¨å­˜å™¨å†™
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		1.14´ç IPSÒº¾§³õÊ¼»¯
+// @brief		1.14å¯¸ IPSæ¶²æ™¶åˆå§‹åŒ–
 // @return		void
 // @since		v1.0
 // Sample usage:
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_init(void)
 {
-	spi_init(IPS114_SPIN, IPS114_SCL_PIN, IPS114_SDA_PIN, SPI_MISO_NULL, SPI_NSS_NULL, 0, SystemCoreClock/2);	//Ó²¼şSPI³õÊ¼»¯
+	spi_init(IPS114_SPIN, IPS114_SCL_PIN, IPS114_SDA_PIN, SPI_MISO_NULL, SPI_NSS_NULL, 0, SystemCoreClock / 2); //ç¡¬ä»¶SPIåˆå§‹åŒ–
 
 	gpio_init(IPS114_CS_PIN, GPO, GPIO_HIGH, GPO_PUSH_PULL);
 	gpio_init(IPS114_DC_PIN, GPO, GPIO_LOW, GPO_PUSH_PULL);
@@ -167,10 +167,14 @@ void ips114_init(void)
 
 	ips114_writeIndex(0x36);
 	systick_delay_ms(100);
-	if		(IPS114_DISPLAY_DIR==0)	ips114_writeData(0x00);
-	else if (IPS114_DISPLAY_DIR==1)	ips114_writeData(0xC0);
-	else if (IPS114_DISPLAY_DIR==2)	ips114_writeData(0x70);
-	else							ips114_writeData(0xA0);
+	if (IPS114_DISPLAY_DIR == 0)
+		ips114_writeData(0x00);
+	else if (IPS114_DISPLAY_DIR == 1)
+		ips114_writeData(0xC0);
+	else if (IPS114_DISPLAY_DIR == 2)
+		ips114_writeData(0x70);
+	else
+		ips114_writeData(0xA0);
 
 	ips114_writeIndex(0x3A);
 	ips114_writeData(0x05);
@@ -249,19 +253,19 @@ void ips114_init(void)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÇåÆÁº¯Êı
-// @param		color			ÑÕÉ«ÉèÖÃ
+// @brief		æ¶²æ™¶æ¸…å±å‡½æ•°
+// @param		color			é¢œè‰²è®¾ç½®
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_clear(YELLOW);// È«ÆÁÉèÖÃÎª»ÆÉ«
+// Sample usage:				ips114_clear(YELLOW);// å…¨å±è®¾ç½®ä¸ºé»„è‰²
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_clear(uint16 color)
 {
-	uint16 i,j;
-	ips114_set_region(0,0,IPS114_X_MAX-1,IPS114_Y_MAX-1);
-	for(i=0;i<IPS114_X_MAX;i++)
+	uint16 i, j;
+	ips114_set_region(0, 0, IPS114_X_MAX - 1, IPS114_Y_MAX - 1);
+	for (i = 0; i < IPS114_X_MAX; i++)
 	{
-		for (j=0;j<IPS114_Y_MAX;j++)
+		for (j = 0; j < IPS114_Y_MAX; j++)
 		{
 			ips114_writedata_16bit(color);
 		}
@@ -269,292 +273,294 @@ void ips114_clear(uint16 color)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§»­µã
-// @param		x				×ø±êx·½ÏòµÄÆğµã
-// @param		y				×ø±êy·½ÏòµÄÆğµã
-// @param		dat				ĞèÒªÏÔÊ¾µÄÑÕÉ«
+// @brief		æ¶²æ™¶ç”»ç‚¹
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„é¢œè‰²
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_drawpoint(0,0,RED);  //×ø±ê0,0»­Ò»¸öºìÉ«µÄµã
+// Sample usage:				ips114_drawpoint(0,0,RED);  //åæ ‡0,0ç”»ä¸€ä¸ªçº¢è‰²çš„ç‚¹
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_drawpoint(uint16 x,uint16 y,uint16 color)
+void ips114_drawpoint(uint16 x, uint16 y, uint16 color)
 {
-	ips114_set_region(x,y,x,y);
+	ips114_set_region(x, y, x, y);
 	ips114_writedata_16bit(color);
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾×Ö·û
-// @param		x				×ø±êx·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ×Ö·û
+// @brief		æ¶²æ™¶æ˜¾ç¤ºå­—ç¬¦
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å­—ç¬¦
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_showchar(0,0,'x');//×ø±ê0,0Ğ´Ò»¸ö×Ö·ûx
+// Sample usage:				ips114_showchar(0,0,'x');//åæ ‡0,0å†™ä¸€ä¸ªå­—ç¬¦x
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showchar(uint16 x,uint16 y,const int8 dat)
+void ips114_showchar(uint16 x, uint16 y, const int8 dat)
 {
-	uint8 i,j;
+	uint8 i, j;
 	uint8 temp;
 
-	for(i=0; i<16; i++)
+	for (i = 0; i < 16; i++)
 	{
-		ips114_set_region(x,y+i,x+7,y+i);
-		temp = tft_ascii[dat-32][i];										// ¼õ32ÒòÎªÊÇÈ¡Ä£ÊÇ´Ó¿Õ¸ñ¿ªÊ¼È¡µÃ ¿Õ¸ñÔÚasciiÖĞĞòºÅÊÇ32
-		for(j=0; j<8; j++)
+		ips114_set_region(x, y + i, x + 7, y + i);
+		temp = tft_ascii[dat - 32][i]; // å‡32å› ä¸ºæ˜¯å–æ¨¡æ˜¯ä»ç©ºæ ¼å¼€å§‹å–å¾— ç©ºæ ¼åœ¨asciiä¸­åºå·æ˜¯32
+		for (j = 0; j < 8; j++)
 		{
-			if(temp&0x01)
+			if (temp & 0x01)
 				ips114_writedata_16bit(IPS114_PENCOLOR);
 			else
 				ips114_writedata_16bit(IPS114_BGCOLOR);
-			temp>>=1;
+			temp >>= 1;
 		}
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾×Ö·û´®
-// @param		x				×ø±êx·½ÏòµÄÆğµã  ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã  ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ×Ö·û´®
+// @brief		æ¶²æ™¶æ˜¾ç¤ºå­—ç¬¦ä¸²
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹  å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹  å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å­—ç¬¦ä¸²
 // @return		void
 // @since		v1.0
 // Sample usage:				ips114_showstr(0,0,"seekfree");
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showstr(uint16 x,uint16 y,const int8 dat[])
+void ips114_showstr(uint16 x, uint16 y, const int8 dat[])
 {
 	uint16 j;
-	
+
 	j = 0;
-	while(dat[j] != '\0')
+	while (dat[j] != '\0')
 	{
-		ips114_showchar(x+8*j,y*16,dat[j]);
+		ips114_showchar(x + 8 * j, y * 16, dat[j]);
 		j++;
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾8Î»ÓĞ·ûºÅ
-// @param		x				×ø±êx·½ÏòµÄÆğµã  ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã  ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ±äÁ¿£¬Êı¾İÀàĞÍint8
+// @brief		æ¶²æ™¶æ˜¾ç¤º8ä½æœ‰ç¬¦å·
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹  å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹  å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å˜é‡ï¼Œæ•°æ®ç±»å‹int8
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_showint8(0,0,x);//xÎªint8ÀàĞÍ
+// Sample usage:				ips114_showint8(0,0,x);//xä¸ºint8ç±»å‹
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showint8(uint16 x,uint16 y,int8 dat)
+void ips114_showint8(uint16 x, uint16 y, int8 dat)
 {
 	uint8 a[3];
 	uint8 i;
-	if(dat<0)
+	if (dat < 0)
 	{
-		ips114_showchar(x,y*16,'-');
+		ips114_showchar(x, y * 16, '-');
 		dat = -dat;
 	}
-	else	ips114_showchar(x,y*16,' ');
-	
-	a[0] = dat/100;
-	a[1] = dat/10%10;
-	a[2] = dat%10;
+	else
+		ips114_showchar(x, y * 16, ' ');
+
+	a[0] = dat / 100;
+	a[1] = dat / 10 % 10;
+	a[2] = dat % 10;
 	i = 0;
-	while(i<3)
+	while (i < 3)
 	{
-		ips114_showchar(x+(8*(i+1)),y*16,'0' + a[i]);
+		ips114_showchar(x + (8 * (i + 1)), y * 16, '0' + a[i]);
 		i++;
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾8Î»ÎŞ·ûºÅ
-// @param		x				×ø±êx·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ±äÁ¿£¬Êı¾İÀàĞÍuint8
+// @brief		æ¶²æ™¶æ˜¾ç¤º8ä½æ— ç¬¦å·
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å˜é‡ï¼Œæ•°æ®ç±»å‹uint8
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_showuint8(0,0,x);//xÎªuint8ÀàĞÍ
+// Sample usage:				ips114_showuint8(0,0,x);//xä¸ºuint8ç±»å‹
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showuint8(uint16 x,uint16 y,uint8 dat)
+void ips114_showuint8(uint16 x, uint16 y, uint8 dat)
 {
 	uint8 a[3];
 	uint8 i;
-	
-	a[0] = dat/100;
-	a[1] = dat/10%10;
-	a[2] = dat%10;
+
+	a[0] = dat / 100;
+	a[1] = dat / 10 % 10;
+	a[2] = dat % 10;
 	i = 0;
-	while(i<3)
+	while (i < 3)
 	{
-		ips114_showchar(x+(8*i),y*16,'0' + a[i]);
+		ips114_showchar(x + (8 * i), y * 16, '0' + a[i]);
 		i++;
 	}
-	
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾16Î»ÓĞ·ûºÅ
-// @param		x		×ø±êx·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y		×ø±êy·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat		ĞèÒªÏÔÊ¾µÄ±äÁ¿£¬Êı¾İÀàĞÍint16
+// @brief		æ¶²æ™¶æ˜¾ç¤º16ä½æœ‰ç¬¦å·
+// @param		x		åæ ‡xæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y		åæ ‡yæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat		éœ€è¦æ˜¾ç¤ºçš„å˜é‡ï¼Œæ•°æ®ç±»å‹int16
 // @return		void
 // @since		v1.0
-// Sample usage:		ips114_showint16(0,0,x);//xÎªint16ÀàĞÍ
+// Sample usage:		ips114_showint16(0,0,x);//xä¸ºint16ç±»å‹
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showint16(uint16 x,uint16 y,int16 dat)
+void ips114_showint16(uint16 x, uint16 y, int16 dat)
 {
 	uint8 a[5];
 	uint8 i;
-	if(dat<0)
+	if (dat < 0)
 	{
-		ips114_showchar(x,y*16,'-');
+		ips114_showchar(x, y * 16, '-');
 		dat = -dat;
 	}
-	else	ips114_showchar(x,y*16,' ');
+	else
+		ips114_showchar(x, y * 16, ' ');
 
-	a[0] = dat/10000;
-	a[1] = dat/1000%10;
-	a[2] = dat/100%10;
-	a[3] = dat/10%10;
-	a[4] = dat%10;
-	
+	a[0] = dat / 10000;
+	a[1] = dat / 1000 % 10;
+	a[2] = dat / 100 % 10;
+	a[3] = dat / 10 % 10;
+	a[4] = dat % 10;
+
 	i = 0;
-	while(i<5)
+	while (i < 5)
 	{
-		ips114_showchar(x+(8*(i+1)),y*16,'0' + a[i]);
+		ips114_showchar(x + (8 * (i + 1)), y * 16, '0' + a[i]);
 		i++;
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾16Î»ÎŞ·ûºÅ
-// @param		x				×ø±êx·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ±äÁ¿£¬Êı¾İÀàĞÍuint16
+// @brief		æ¶²æ™¶æ˜¾ç¤º16ä½æ— ç¬¦å·
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å˜é‡ï¼Œæ•°æ®ç±»å‹uint16
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_showuint16(0,0,x);//xÎªuint16ÀàĞÍ
+// Sample usage:				ips114_showuint16(0,0,x);//xä¸ºuint16ç±»å‹
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showuint16(uint16 x,uint16 y,uint16 dat)
+void ips114_showuint16(uint16 x, uint16 y, uint16 dat)
 {
 	uint8 a[5];
 	uint8 i;
 
-	a[0] = dat/10000;
-	a[1] = dat/1000%10;
-	a[2] = dat/100%10;
-	a[3] = dat/10%10;
-	a[4] = dat%10;
-	
+	a[0] = dat / 10000;
+	a[1] = dat / 1000 % 10;
+	a[2] = dat / 100 % 10;
+	a[3] = dat / 10 % 10;
+	a[4] = dat % 10;
+
 	i = 0;
-	while(i<5)
+	while (i < 5)
 	{
-		ips114_showchar(x+(8*i),y*16,'0' + a[i]);
+		ips114_showchar(x + (8 * i), y * 16, '0' + a[i]);
 		i++;
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾32Î»ÓĞ·ûºÅ(È¥³ıÕûÊı²¿·ÖÎŞĞ§µÄ0)
-// @param		x				×ø±êx·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ±äÁ¿£¬Êı¾İÀàĞÍuint32
-// @param		num				ĞèÒªÏÔÊ¾µÄÎ»Êı ×î¸ß10Î»  ²»°üº¬Õı¸ººÅ
+// @brief		æ¶²æ™¶æ˜¾ç¤º32ä½æœ‰ç¬¦å·(å»é™¤æ•´æ•°éƒ¨åˆ†æ— æ•ˆçš„0)
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å˜é‡ï¼Œæ•°æ®ç±»å‹uint32
+// @param		num				éœ€è¦æ˜¾ç¤ºçš„ä½æ•° æœ€é«˜10ä½  ä¸åŒ…å«æ­£è´Ÿå·
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_showuint32(0,0,x,3);//x¿ÉÒÔÎªint32 uint16 int16 uint8 int8ÀàĞÍ
-// Sample usage:				¸ºÊı»áÏÔÊ¾Ò»¸ö ¡®-¡¯ºÅ   ÕıÊıÏÔÊ¾Ò»¸ö¿Õ¸ñ
+// Sample usage:				ips114_showuint32(0,0,x,3);//xå¯ä»¥ä¸ºint32 uint16 int16 uint8 int8ç±»å‹
+// Sample usage:				è´Ÿæ•°ä¼šæ˜¾ç¤ºä¸€ä¸ª â€˜-â€™å·   æ­£æ•°æ˜¾ç¤ºä¸€ä¸ªç©ºæ ¼
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showint32(uint16 x,uint16 y,int32 dat,uint8 num)
+void ips114_showint32(uint16 x, uint16 y, int32 dat, uint8 num)
 {
-	int8    buff[34];
-	uint8   length;
+	int8 buff[34];
+	uint8 length;
 
-	if(10<num)      num = 10;
+	if (10 < num)
+		num = 10;
 
 	num++;
-	if(0>dat)   length = zf_sprintf( &buff[0],"%d",dat);					// ¸ºÊı
+	if (0 > dat)
+		length = zf_sprintf(&buff[0], "%d", dat); // è´Ÿæ•°
 	else
 	{
 		buff[0] = ' ';
-		length = zf_sprintf( &buff[1],"%d",dat);
+		length = zf_sprintf(&buff[1], "%d", dat);
 		length++;
 	}
-	while(length < num)
+	while (length < num)
 	{
 		buff[length] = ' ';
 		length++;
 	}
 	buff[num] = '\0';
 
-	ips114_showstr(x, y, buff);												// ÏÔÊ¾Êı×Ö
+	ips114_showstr(x, y, buff); // æ˜¾ç¤ºæ•°å­—
 }
 
-
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Òº¾§ÏÔÊ¾¸¡µãÊı(È¥³ıÕûÊı²¿·ÖÎŞĞ§µÄ0)
-// @param		x				×ø±êx·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_X_MAX-1£©
-// @param		y				×ø±êy·½ÏòµÄÆğµã ²ÎÊı·¶Î§ 0 -£¨IPS114_Y_MAX/16-1£©
-// @param		dat				ĞèÒªÏÔÊ¾µÄ±äÁ¿£¬Êı¾İÀàĞÍfloat»òdouble
-// @param		num				ÕûÊıÎ»ÏÔÊ¾³¤¶È   ×î¸ß10Î»  
-// @param		pointnum		Ğ¡ÊıÎ»ÏÔÊ¾³¤¶È   ×î¸ß6Î»
+// @brief		æ¶²æ™¶æ˜¾ç¤ºæµ®ç‚¹æ•°(å»é™¤æ•´æ•°éƒ¨åˆ†æ— æ•ˆçš„0)
+// @param		x				åæ ‡xæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				åæ ‡yæ–¹å‘çš„èµ·ç‚¹ å‚æ•°èŒƒå›´ 0 -ï¼ˆIPS114_Y_MAX/16-1ï¼‰
+// @param		dat				éœ€è¦æ˜¾ç¤ºçš„å˜é‡ï¼Œæ•°æ®ç±»å‹floatæˆ–double
+// @param		num				æ•´æ•°ä½æ˜¾ç¤ºé•¿åº¦   æœ€é«˜10ä½
+// @param		pointnum		å°æ•°ä½æ˜¾ç¤ºé•¿åº¦   æœ€é«˜6ä½
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_showfloat(0,0,x,2,3);//ÏÔÊ¾¸¡µãÊı   ÕûÊıÏÔÊ¾2Î»   Ğ¡ÊıÏÔÊ¾ÈıÎ»
-// @note						ÌØ±ğ×¢Òâµ±·¢ÏÖĞ¡Êı²¿·ÖÏÔÊ¾µÄÖµÓëÄãĞ´ÈëµÄÖµ²»Ò»ÑùµÄÊ±ºò£¬
-// 								¿ÉÄÜÊÇÓÉÓÚ¸¡µãÊı¾«¶È¶ªÊ§ÎÊÌâµ¼ÖÂµÄ£¬Õâ²¢²»ÊÇÏÔÊ¾º¯ÊıµÄÎÊÌâ£¬
-// 								ÓĞ¹ØÎÊÌâµÄÏêÇé£¬Çë×ÔĞĞ°Ù¶ÈÑ§Ï°   ¸¡µãÊı¾«¶È¶ªÊ§ÎÊÌâ¡£
-// 								¸ºÊı»áÏÔÊ¾Ò»¸ö ¡®-¡¯ºÅ   ÕıÊıÏÔÊ¾Ò»¸ö¿Õ¸ñ
+// Sample usage:				ips114_showfloat(0,0,x,2,3);//æ˜¾ç¤ºæµ®ç‚¹æ•°   æ•´æ•°æ˜¾ç¤º2ä½   å°æ•°æ˜¾ç¤ºä¸‰ä½
+// @note						ç‰¹åˆ«æ³¨æ„å½“å‘ç°å°æ•°éƒ¨åˆ†æ˜¾ç¤ºçš„å€¼ä¸ä½ å†™å…¥çš„å€¼ä¸ä¸€æ ·çš„æ—¶å€™ï¼Œ
+// 								å¯èƒ½æ˜¯ç”±äºæµ®ç‚¹æ•°ç²¾åº¦ä¸¢å¤±é—®é¢˜å¯¼è‡´çš„ï¼Œè¿™å¹¶ä¸æ˜¯æ˜¾ç¤ºå‡½æ•°çš„é—®é¢˜ï¼Œ
+// 								æœ‰å…³é—®é¢˜çš„è¯¦æƒ…ï¼Œè¯·è‡ªè¡Œç™¾åº¦å­¦ä¹    æµ®ç‚¹æ•°ç²¾åº¦ä¸¢å¤±é—®é¢˜ã€‚
+// 								è´Ÿæ•°ä¼šæ˜¾ç¤ºä¸€ä¸ª â€˜-â€™å·   æ­£æ•°æ˜¾ç¤ºä¸€ä¸ªç©ºæ ¼
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_showfloat(uint16 x,uint16 y,double dat,uint8 num,uint8 pointnum)
+void ips114_showfloat(uint16 x, uint16 y, double dat, uint8 num, uint8 pointnum)
 {
-	uint8	length;
-	int8	buff[34];
-	int8	start,end,point;
+	uint8 length;
+	int8 buff[34];
+	int8 start, end, point;
 
-	if(6<pointnum)
+	if (6 < pointnum)
 		pointnum = 6;
-	if(10<num)
+	if (10 < num)
 		num = 10;
 
-	if(0>dat)   length = zf_sprintf( &buff[0],"%f",dat);					// ¸ºÊı
+	if (0 > dat)
+		length = zf_sprintf(&buff[0], "%f", dat); // è´Ÿæ•°
 	else
 	{
-		length = zf_sprintf( &buff[1],"%f",dat);
+		length = zf_sprintf(&buff[1], "%f", dat);
 		length++;
 	}
-	point = length - 7;														// ¼ÆËãĞ¡ÊıµãÎ»ÖÃ
-	start = point - num - 1;												// ¼ÆËãÆğÊ¼Î»
-	end = point + pointnum + 1;												// ¼ÆËã½áÊøÎ»
-	while(0>start)															// ÕûÊıÎ»²»¹»  Ä©Î²Ó¦¸ÃÌî³ä¿Õ¸ñ
+	point = length - 7;			// è®¡ç®—å°æ•°ç‚¹ä½ç½®
+	start = point - num - 1;	// è®¡ç®—èµ·å§‹ä½
+	end = point + pointnum + 1; // è®¡ç®—ç»“æŸä½
+	while (0 > start)			// æ•´æ•°ä½ä¸å¤Ÿ  æœ«å°¾åº”è¯¥å¡«å……ç©ºæ ¼
 	{
 		buff[end] = ' ';
 		end++;
 		start++;
 	}
 
-	if(0>dat)
+	if (0 > dat)
 		buff[start] = '-';
 	else
 		buff[start] = ' ';
 
 	buff[end] = '\0';
 
-	ips114_showstr(x, y, buff);	//ÏÔÊ¾Êı×Ö
+	ips114_showstr(x, y, buff); //æ˜¾ç¤ºæ•°å­—
 }
 
-
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		×Ü×ê·ç(»Ò¶ÈÉãÏñÍ·)Òº¾§ÏÔÊ¾º¯Êı
-// @param		*p				Í¼ÏñÊı×éµØÖ·
-// @param		width			Í¼Ïñ¿í¶È
-// @param		height			Í¼Ïñ¸ß¶È
+// @brief		æ€»é’»é£(ç°åº¦æ‘„åƒå¤´)æ¶²æ™¶æ˜¾ç¤ºå‡½æ•°
+// @param		*p				å›¾åƒæ•°ç»„åœ°å€
+// @param		width			å›¾åƒå®½åº¦
+// @param		height			å›¾åƒé«˜åº¦
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_displayimage032(mt9v03x_csi_image[0], MT9V03X_CSI_W, MT9V03X_CSI_H)//ÏÔÊ¾»Ò¶ÈÉãÏñÍ· Í¼Ïñ
-// @note		Í¼ÏñµÄ¿í¶ÈÈç¹û³¬¹ıÒº¾§µÄ¿í¶È£¬Ôò×Ô¶¯½øĞĞËõ·ÅÏÔÊ¾¡£ÕâÑù¿ÉÒÔÏÔÊ¾È«ÊÓÒ°
+// Sample usage:				ips114_displayimage032(mt9v03x_csi_image[0], MT9V03X_CSI_W, MT9V03X_CSI_H)//æ˜¾ç¤ºç°åº¦æ‘„åƒå¤´ å›¾åƒ
+// @note		å›¾åƒçš„å®½åº¦å¦‚æœè¶…è¿‡æ¶²æ™¶çš„å®½åº¦ï¼Œåˆ™è‡ªåŠ¨è¿›è¡Œç¼©æ”¾æ˜¾ç¤ºã€‚è¿™æ ·å¯ä»¥æ˜¾ç¤ºå…¨è§†é‡
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_displayimage032(uint8 *p, uint16 width, uint16 height) 
+void ips114_displayimage032(uint8 *p, uint16 width, uint16 height)
 {
-	uint32 i,j;
+	uint32 i, j;
 
 	uint16 color = 0;
 	uint16 temp = 0;
@@ -562,182 +568,182 @@ void ips114_displayimage032(uint8 *p, uint16 width, uint16 height)
 	uint16 coord_x = 0;
 	uint16 coord_y = 0;
 
-	coord_x = width>IPS114_X_MAX?IPS114_X_MAX:width;
-	coord_y = height>IPS114_Y_MAX?IPS114_Y_MAX:height;
-	ips114_set_region(0,0,coord_x-1,coord_y-1);
+	coord_x = width > IPS114_X_MAX ? IPS114_X_MAX : width;
+	coord_y = height > IPS114_Y_MAX ? IPS114_Y_MAX : height;
+	ips114_set_region(0, 0, coord_x - 1, coord_y - 1);
 
-	for(j=0;j<coord_y;j++)
+	for (j = 0; j < coord_y; j++)
 	{
-		for(i=0;i<coord_x;i++)
+		for (i = 0; i < coord_x; i++)
 		{
-			temp = *(p+j*width+i*width/coord_x);							// ¶ÁÈ¡ÏñËØµã
-			color=(0x001f&((temp)>>3))<<11;
-			color=color|(((0x003f)&((temp)>>2))<<5);
-			color=color|(0x001f&((temp)>>3));
-			ips114_writedata_16bit(color); 
+			temp = *(p + j * width + i * width / coord_x); // è¯»å–åƒç´ ç‚¹
+			color = (0x001f & ((temp) >> 3)) << 11;
+			color = color | (((0x003f) & ((temp) >> 2)) << 5);
+			color = color | (0x001f & ((temp) >> 3));
+			ips114_writedata_16bit(color);
 		}
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		×Ü×ê·ç(»Ò¶ÈÉãÏñÍ·)Òº¾§Ëõ·ÅÏÔÊ¾º¯Êı
-// @param		*p				Í¼ÏñÊı×éµØÖ·
-// @param		width			Í¼Ïñ¿í¶È
-// @param		height			Í¼Ïñ¸ß¶È
-// @param		dis_width		Í¼ÏñÏÔÊ¾¿í¶È  1 -£¨IPS114_X_MAX£©
-// @param		dis_height		Í¼ÏñÏÔÊ¾¸ß¶È  1 -£¨IPS114_Y_MAX£©
+// @brief		æ€»é’»é£(ç°åº¦æ‘„åƒå¤´)æ¶²æ™¶ç¼©æ”¾æ˜¾ç¤ºå‡½æ•°
+// @param		*p				å›¾åƒæ•°ç»„åœ°å€
+// @param		width			å›¾åƒå®½åº¦
+// @param		height			å›¾åƒé«˜åº¦
+// @param		dis_width		å›¾åƒæ˜¾ç¤ºå®½åº¦  1 -ï¼ˆIPS114_X_MAXï¼‰
+// @param		dis_height		å›¾åƒæ˜¾ç¤ºé«˜åº¦  1 -ï¼ˆIPS114_Y_MAXï¼‰
 // @return		void
 // @since		v1.0
-// Sample usage:		ips114_displayimage032_zoom(mt9v03x_csi_image[0], MT9V03X_CSI_W, MT9V03X_CSI_H, MT9V03X_CSI_W, MT9V03X_CSI_H)//ÏÔÊ¾»Ò¶ÈÉãÏñÍ· Í¼Ïñ
-// @note				Í¼ÏñµÄ¿í¶ÈÈç¹û³¬¹ıÒº¾§µÄ¿í¶È£¬Ôò×Ô¶¯½øĞĞËõ·ÅÏÔÊ¾¡£ÕâÑù¿ÉÒÔÏÔÊ¾È«ÊÓÒ°
+// Sample usage:		ips114_displayimage032_zoom(mt9v03x_csi_image[0], MT9V03X_CSI_W, MT9V03X_CSI_H, MT9V03X_CSI_W, MT9V03X_CSI_H)//æ˜¾ç¤ºç°åº¦æ‘„åƒå¤´ å›¾åƒ
+// @note				å›¾åƒçš„å®½åº¦å¦‚æœè¶…è¿‡æ¶²æ™¶çš„å®½åº¦ï¼Œåˆ™è‡ªåŠ¨è¿›è¡Œç¼©æ”¾æ˜¾ç¤ºã€‚è¿™æ ·å¯ä»¥æ˜¾ç¤ºå…¨è§†é‡
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_displayimage032_zoom(uint8 *p, uint16 width, uint16 height, uint16 dis_width, uint16 dis_height)
 {
-	uint32 i,j;
+	uint32 i, j;
 
 	uint16 color = 0;
 	uint16 temp = 0;
 
-	ips114_set_region(0,0,dis_width-1,dis_height-1);//ÉèÖÃÏÔÊ¾ÇøÓò 
+	ips114_set_region(0, 0, dis_width - 1, dis_height - 1); //è®¾ç½®æ˜¾ç¤ºåŒºåŸŸ
 
-	for(j=0;j<dis_height;j++)
+	for (j = 0; j < dis_height; j++)
 	{
-		for(i=0;i<dis_width;i++)
+		for (i = 0; i < dis_width; i++)
 		{
-			temp = *(p+(j*height/dis_height)*width+i*width/dis_width);		// ¶ÁÈ¡ÏñËØµã
-			color=(0x001f&((temp)>>3))<<11;
-			color=color|(((0x003f)&((temp)>>2))<<5);
-			color=color|(0x001f&((temp)>>3));
-			ips114_writedata_16bit(color); 
+			temp = *(p + (j * height / dis_height) * width + i * width / dis_width); // è¯»å–åƒç´ ç‚¹
+			color = (0x001f & ((temp) >> 3)) << 11;
+			color = color | (((0x003f) & ((temp) >> 2)) << 5);
+			color = color | (0x001f & ((temp) >> 3));
+			ips114_writedata_16bit(color);
 		}
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		×Ü×ê·ç(»Ò¶ÈÉãÏñÍ·)Òº¾§Ëõ·ÅÏÔÊ¾º¯Êı
-// @param		*p				Í¼ÏñÊı×éµØÖ·
-// @param		width			Í¼Ïñ¿í¶È
-// @param		height			Í¼Ïñ¸ß¶È
-// @param		start_x			ÉèÖÃÏÔÊ¾ÆğµãµÄxÖá×ø±ê
-// @param		start_y			ÉèÖÃÏÔÊ¾ÆğµãµÄyÖá×ø±ê
-// @param		dis_width		Í¼ÏñÏÔÊ¾¿í¶È  1 -£¨IPS114_X_MAX£©
-// @param		dis_height		Í¼ÏñÏÔÊ¾¸ß¶È  1 -£¨IPS114_Y_MAX£©
+// @brief		æ€»é’»é£(ç°åº¦æ‘„åƒå¤´)æ¶²æ™¶ç¼©æ”¾æ˜¾ç¤ºå‡½æ•°
+// @param		*p				å›¾åƒæ•°ç»„åœ°å€
+// @param		width			å›¾åƒå®½åº¦
+// @param		height			å›¾åƒé«˜åº¦
+// @param		start_x			è®¾ç½®æ˜¾ç¤ºèµ·ç‚¹çš„xè½´åæ ‡
+// @param		start_y			è®¾ç½®æ˜¾ç¤ºèµ·ç‚¹çš„yè½´åæ ‡
+// @param		dis_width		å›¾åƒæ˜¾ç¤ºå®½åº¦  1 -ï¼ˆIPS114_X_MAXï¼‰
+// @param		dis_height		å›¾åƒæ˜¾ç¤ºé«˜åº¦  1 -ï¼ˆIPS114_Y_MAXï¼‰
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_displayimage032_zoom1(mt9v03x_csi_image[0], MT9V03X_CSI_W, MT9V03X_CSI_H, 0, 0, MT9V03X_CSI_W, MT9V03X_CSI_H)//ÏÔÊ¾»Ò¶ÈÉãÏñÍ· Í¼Ïñ
+// Sample usage:				ips114_displayimage032_zoom1(mt9v03x_csi_image[0], MT9V03X_CSI_W, MT9V03X_CSI_H, 0, 0, MT9V03X_CSI_W, MT9V03X_CSI_H)//æ˜¾ç¤ºç°åº¦æ‘„åƒå¤´ å›¾åƒ
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_displayimage032_zoom1(uint8 *p, uint16 width, uint16 height, uint16 start_x, uint16 start_y, uint16 dis_width, uint16 dis_height)
 {
-	uint32 i,j;
+	uint32 i, j;
 
 	uint16 color = 0;
 	uint16 temp = 0;
 
-//¼ì²éÉèÖÃµÄ²ÎÊıÊÇ·ñ³¬¹ıÆÁÄ»µÄ·Ö±æÂÊ
-//	if((start_x+dis_width)>IPS114_X_MAX)	assert_param(0);
-//	if((start_y+dis_height)>IPS114_Y_MAX)	assert_param(0);
-	ips114_set_region(start_x,start_y,start_x+dis_width-1,start_y+dis_height-1);	// ÉèÖÃÏÔÊ¾ÇøÓò 
+	//æ£€æŸ¥è®¾ç½®çš„å‚æ•°æ˜¯å¦è¶…è¿‡å±å¹•çš„åˆ†è¾¨ç‡
+	//	if((start_x+dis_width)>IPS114_X_MAX)	assert_param(0);
+	//	if((start_y+dis_height)>IPS114_Y_MAX)	assert_param(0);
+	ips114_set_region(start_x, start_y, start_x + dis_width - 1, start_y + dis_height - 1); // è®¾ç½®æ˜¾ç¤ºåŒºåŸŸ
 
-	for(j=0;j<dis_height;j++)
+	for (j = 0; j < dis_height; j++)
 	{
-		for(i=0;i<dis_width;i++)
+		for (i = 0; i < dis_width; i++)
 		{
-			temp = *(p+(j*height/dis_height)*width+i*width/dis_width);				// ¶ÁÈ¡ÏñËØµã
-			color=(0x001f&((temp)>>3))<<11;
-			color=color|(((0x003f)&((temp)>>2))<<5);
-			color=color|(0x001f&((temp)>>3));
-			ips114_writedata_16bit(color); 
+			temp = *(p + (j * height / dis_height) * width + i * width / dis_width); // è¯»å–åƒç´ ç‚¹
+			color = (0x001f & ((temp) >> 3)) << 11;
+			color = color | (((0x003f) & ((temp) >> 2)) << 5);
+			color = color | (0x001f & ((temp) >> 3));
+			ips114_writedata_16bit(color);
 		}
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		ÁèÍ«(²ÊÉ«ÉãÏñÍ·)Òº¾§Ëõ·ÅÏÔÊ¾º¯Êı
-// @param		*p				Í¼ÏñÊı×éµØÖ·
-// @param		width			Í¼Ïñ¿í¶È
-// @param		height			Í¼Ïñ¸ß¶È
-// @param		dis_width		Í¼ÏñÏÔÊ¾¿í¶È  0 -£¨TFT_X_MAX-1£©
-// @param		dis_height		Í¼ÏñÏÔÊ¾¸ß¶È  0 -£¨TFT_Y_MAX-1£©
+// @brief		å‡Œç³(å½©è‰²æ‘„åƒå¤´)æ¶²æ™¶ç¼©æ”¾æ˜¾ç¤ºå‡½æ•°
+// @param		*p				å›¾åƒæ•°ç»„åœ°å€
+// @param		width			å›¾åƒå®½åº¦
+// @param		height			å›¾åƒé«˜åº¦
+// @param		dis_width		å›¾åƒæ˜¾ç¤ºå®½åº¦  0 -ï¼ˆTFT_X_MAX-1ï¼‰
+// @param		dis_height		å›¾åƒæ˜¾ç¤ºé«˜åº¦  0 -ï¼ˆTFT_Y_MAX-1ï¼‰
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_displayimage8660_zoom(scc8660_csi_image[0], SCC8660_CSI_PIC_W, SCC8660_CSI_PIC_H, 320, 240)//ÏÔÊ¾²ÊÉ«ÉãÏñÍ· Í¼Ïñ
-// @note		Í¼ÏñµÄ¿í¶ÈÈç¹û³¬¹ıÒº¾§µÄ¿í¶È£¬Ôò×Ô¶¯½øĞĞËõ·ÅÏÔÊ¾¡£ÕâÑù¿ÉÒÔÏÔÊ¾È«ÊÓÒ°
+// Sample usage:				ips114_displayimage8660_zoom(scc8660_csi_image[0], SCC8660_CSI_PIC_W, SCC8660_CSI_PIC_H, 320, 240)//æ˜¾ç¤ºå½©è‰²æ‘„åƒå¤´ å›¾åƒ
+// @note		å›¾åƒçš„å®½åº¦å¦‚æœè¶…è¿‡æ¶²æ™¶çš„å®½åº¦ï¼Œåˆ™è‡ªåŠ¨è¿›è¡Œç¼©æ”¾æ˜¾ç¤ºã€‚è¿™æ ·å¯ä»¥æ˜¾ç¤ºå…¨è§†é‡
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_displayimage8660_zoom(uint16 *p, uint16 width, uint16 height, uint16 dis_width, uint16 dis_height)
 {
-	uint32 i,j;
+	uint32 i, j;
 	uint16 color = 0;
 
-	ips114_set_region(0,0,dis_width-1,dis_height-1);						// ÉèÖÃÏÔÊ¾ÇøÓò 
+	ips114_set_region(0, 0, dis_width - 1, dis_height - 1); // è®¾ç½®æ˜¾ç¤ºåŒºåŸŸ
 
-	for(j=0;j<dis_height;j++)
+	for (j = 0; j < dis_height; j++)
 	{
-		for(i=0;i<dis_width;i++)
+		for (i = 0; i < dis_width; i++)
 		{
-			color = *(p+(j*height/dis_height)*width+i*width/dis_width);		// ¶ÁÈ¡ÏñËØµã
-			color = ((color&0xff)<<8) | (color>>8);
-			ips114_writedata_16bit(color); 
+			color = *(p + (j * height / dis_height) * width + i * width / dis_width); // è¯»å–åƒç´ ç‚¹
+			color = ((color & 0xff) << 8) | (color >> 8);
+			ips114_writedata_16bit(color);
 		}
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		ÁèÍ«(²ÊÉ«ÉãÏñÍ·)Òº¾§Ëõ·ÅÏÔÊ¾º¯Êı
-// @param		*p				Í¼ÏñÊı×éµØÖ·
-// @param		width			Í¼Ïñ¿í¶È
-// @param		height			Í¼Ïñ¸ß¶È
-// @param		start_x			ÉèÖÃÏÔÊ¾ÆğµãµÄxÖá×ø±ê
-// @param		start_y			ÉèÖÃÏÔÊ¾ÆğµãµÄyÖá×ø±ê
-// @param		dis_width		Í¼ÏñÏÔÊ¾¿í¶È  1 -£¨TFT_X_MAX£©
-// @param		dis_height		Í¼ÏñÏÔÊ¾¸ß¶È  1 -£¨TFT_Y_MAX£©
+// @brief		å‡Œç³(å½©è‰²æ‘„åƒå¤´)æ¶²æ™¶ç¼©æ”¾æ˜¾ç¤ºå‡½æ•°
+// @param		*p				å›¾åƒæ•°ç»„åœ°å€
+// @param		width			å›¾åƒå®½åº¦
+// @param		height			å›¾åƒé«˜åº¦
+// @param		start_x			è®¾ç½®æ˜¾ç¤ºèµ·ç‚¹çš„xè½´åæ ‡
+// @param		start_y			è®¾ç½®æ˜¾ç¤ºèµ·ç‚¹çš„yè½´åæ ‡
+// @param		dis_width		å›¾åƒæ˜¾ç¤ºå®½åº¦  1 -ï¼ˆTFT_X_MAXï¼‰
+// @param		dis_height		å›¾åƒæ˜¾ç¤ºé«˜åº¦  1 -ï¼ˆTFT_Y_MAXï¼‰
 // @return		void
 // @since		v1.0
 // Sample usage:				ips114_displayimage8660_zoom1(scc8660_csi_image[0], SCC8660_CSI_PIC_W, SCC8660_CSI_PIC_H, 0, 0, 320, 240);
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_displayimage8660_zoom1(uint8 *p, uint16 width, uint16 height, uint16 start_x, uint16 start_y, uint16 dis_width, uint16 dis_height)
 {
-	uint32 i,j;
+	uint32 i, j;
 	uint16 color = 0;
 
-//¼ì²éÉèÖÃµÄ²ÎÊıÊÇ·ñ³¬¹ıÆÁÄ»µÄ·Ö±æÂÊ
-//	if((start_x+dis_width)>IPS114_X_MAX)	assert_param(0);
-//	if((start_y+dis_height)>IPS114_Y_MAX)	assert_param(0);
+	//æ£€æŸ¥è®¾ç½®çš„å‚æ•°æ˜¯å¦è¶…è¿‡å±å¹•çš„åˆ†è¾¨ç‡
+	//	if((start_x+dis_width)>IPS114_X_MAX)	assert_param(0);
+	//	if((start_y+dis_height)>IPS114_Y_MAX)	assert_param(0);
 
-	ips114_set_region(start_x,start_y,start_x+dis_width-1,start_y+dis_height-1);	// ÉèÖÃÏÔÊ¾ÇøÓò 
+	ips114_set_region(start_x, start_y, start_x + dis_width - 1, start_y + dis_height - 1); // è®¾ç½®æ˜¾ç¤ºåŒºåŸŸ
 
-	for(j=0;j<dis_height;j++)
+	for (j = 0; j < dis_height; j++)
 	{
-		for(i=0;i<dis_width;i++)
+		for (i = 0; i < dis_width; i++)
 		{
-			color = *(p+(j*height/dis_height)*width+i*width/dis_width);				// ¶ÁÈ¡ÏñËØµã
-			color = ((color&0xff)<<8) | (color>>8);
-			ips114_writedata_16bit(color); 
+			color = *(p + (j * height / dis_height) * width + i * width / dis_width); // è¯»å–åƒç´ ç‚¹
+			color = ((color & 0xff) << 8) | (color >> 8);
+			ips114_writedata_16bit(color);
 		}
 	}
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		Ğ¡×ê·ç(¶şÖµ»¯ÉãÏñÍ·)Òº¾§ÏÔÊ¾º¯Êı
-// @param		*p				Í¼ÏñÊı×éµØÖ·
-// @param		width			Í¼Ïñ¿í¶È
-// @param		height			Í¼Ïñ¸ß¶È
+// @brief		å°é’»é£(äºŒå€¼åŒ–æ‘„åƒå¤´)æ¶²æ™¶æ˜¾ç¤ºå‡½æ•°
+// @param		*p				å›¾åƒæ•°ç»„åœ°å€
+// @param		width			å›¾åƒå®½åº¦
+// @param		height			å›¾åƒé«˜åº¦
 // @return		void
 // @since		v1.0
-// @note		Í¼Ïñ·Ö±æÂÊĞèÒªÉèÖÃÔÚ120(¸ß)*160(¿í)ÒÔÏÂ
+// @note		å›¾åƒåˆ†è¾¨ç‡éœ€è¦è®¾ç½®åœ¨120(é«˜)*160(å®½)ä»¥ä¸‹
 //-------------------------------------------------------------------------------------------------------------------
-void ips114_displayimage7725(uint8 *p, uint16 width, uint16 height) 
+void ips114_displayimage7725(uint8 *p, uint16 width, uint16 height)
 {
-	int i,j; 
+	int i, j;
 
 	uint16 temp = 0;
-	ips114_set_region(0,0,width-1,height-1);
-	for(i=0;i<height * (width/8);i++)
+	ips114_set_region(0, 0, width - 1, height - 1);
+	for (i = 0; i < height * (width / 8); i++)
 	{
-	temp = *p;
+		temp = *p;
 		p++;
-		for(j=0; j<8; j++)
+		for (j = 0; j < 8; j++)
 		{
-			if( (temp<<j)&0x80 )
+			if ((temp << j) & 0x80)
 				ips114_writedata_16bit(WHITE);
 			else
 				ips114_writedata_16bit(BLACK);
@@ -746,47 +752,47 @@ void ips114_displayimage7725(uint8 *p, uint16 width, uint16 height)
 }
 
 //-------------------------------------------------------------------------------------------------------------------
-// @brief		ºº×ÖÏÔÊ¾
-// @param		x				ºá×ø±ê 0-£¨IPS114_X_MAX-1£©
-// @param		y				×İ×ø±ê 0-£¨IPS114_Y_MAX-1£©
-// @param		size			È¡Ä£µÄÊ±ºòÉèÖÃµÄºº×Ö×ÖÌå´óĞ¡£¬Ò²¾ÍÊÇÒ»¸öºº×ÖÕ¼ÓÃµÄµãÕó³¤¿íÎª¶àÉÙ¸öµã£¬È¡Ä£µÄÊ±ºòĞèÒª³¤¿íÊÇÒ»ÑùµÄ¡£
-// @param		*p				ĞèÒªÏÔÊ¾µÄºº×ÖÊı×é
-// @param		number			ĞèÒªÏÔÊ¾¶àÉÙÎ»
-// @param		color			ÏÔÊ¾ÑÕÉ«
+// @brief		æ±‰å­—æ˜¾ç¤º
+// @param		x				æ¨ªåæ ‡ 0-ï¼ˆIPS114_X_MAX-1ï¼‰
+// @param		y				çºµåæ ‡ 0-ï¼ˆIPS114_Y_MAX-1ï¼‰
+// @param		size			å–æ¨¡çš„æ—¶å€™è®¾ç½®çš„æ±‰å­—å­—ä½“å¤§å°ï¼Œä¹Ÿå°±æ˜¯ä¸€ä¸ªæ±‰å­—å ç”¨çš„ç‚¹é˜µé•¿å®½ä¸ºå¤šå°‘ä¸ªç‚¹ï¼Œå–æ¨¡çš„æ—¶å€™éœ€è¦é•¿å®½æ˜¯ä¸€æ ·çš„ã€‚
+// @param		*p				éœ€è¦æ˜¾ç¤ºçš„æ±‰å­—æ•°ç»„
+// @param		number			éœ€è¦æ˜¾ç¤ºå¤šå°‘ä½
+// @param		color			æ˜¾ç¤ºé¢œè‰²
 // @return		void
 // @since		v1.0
-// Sample usage:				ips114_display_chinese(0,0,16,chinese_test[0],4,RED);//ÏÔÊ¾fontÎÄ¼şÀïÃæµÄ Ê¾Àı
-// @Note		Ê¹ÓÃPCtoLCD2002Èí¼şÈ¡Ä£	ÒõÂë¡¢ÖğĞĞÊ½¡¢Ë³Ïò	16*16
+// Sample usage:				ips114_display_chinese(0,0,16,chinese_test[0],4,RED);//æ˜¾ç¤ºfontæ–‡ä»¶é‡Œé¢çš„ ç¤ºä¾‹
+// @Note		ä½¿ç”¨PCtoLCD2002è½¯ä»¶å–æ¨¡	é˜´ç ã€é€è¡Œå¼ã€é¡ºå‘	16*16
 //-------------------------------------------------------------------------------------------------------------------
 void ips114_display_chinese(uint16 x, uint16 y, uint8 size, const uint8 *p, uint8 number, uint16 color)
 {
-	int i, j, k; 
+	int i, j, k;
 	uint8 temp, temp1, temp2;
 	const uint8 *p_data;
 
-	temp2 = size/8;
+	temp2 = size / 8;
 
-	ips114_set_region(x,y,number*size-1+x,y+size-1);
+	ips114_set_region(x, y, number * size - 1 + x, y + size - 1);
 
-	for(i=0;i<size;i++)
+	for (i = 0; i < size; i++)
 	{
 		temp1 = number;
-		p_data = p+i*temp2;
-		while(temp1--)
+		p_data = p + i * temp2;
+		while (temp1--)
 		{
-			for(k=0;k<temp2;k++)
+			for (k = 0; k < temp2; k++)
 			{
-				for(j=8;j>0;j--)
+				for (j = 8; j > 0; j--)
 				{
-					temp = (*p_data>>(j-1)) & 0x01;
-					if(temp)
+					temp = (*p_data >> (j - 1)) & 0x01;
+					if (temp)
 						ips114_writedata_16bit(color);
 					else
 						ips114_writedata_16bit(IPS114_BGCOLOR);
 				}
 				p_data++;
 			}
-			p_data = p_data - temp2 + temp2*size;
+			p_data = p_data - temp2 + temp2 * size;
 		}
 	}
 }
