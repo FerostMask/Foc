@@ -36,18 +36,18 @@ Foc foc = {
 
 pidpara magnetPosition = {
     .alpha = 0.1,
-    .Kp = 0.1,
+    .Kp = 0.47,
     .Ki = 0.01,
-    .Kd = 0.1,
+    .Kd = 0.01,
     .thrsod = 10, // 限制电流
 };
 
 pidpara currentLoopQ = {
-    .alpha = 0.5,
+    .alpha = 0.3,
     .Kp = 0.02,
     .Ki = 0.00001,
     .Kd = 0,
-    .thrsod = 5,
+    .thrsod = 100,
 };
 
 pidpara currentLoopD;
@@ -76,7 +76,7 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
 
     foc->cycleGain = 7;
 
-    foc->targetCurrent = 2;
+    foc->targetCurrent = 5;
     foc->targetAngle = 10;
 
     // 常量初始化
@@ -118,6 +118,9 @@ static inline void parkTransform(struct Foc *foc, const float radian)
 {
     foc->Id = foc->alpha * cos(foc->cycleGain * radian) + foc->beta * sin(foc->cycleGain * radian);
     foc->Iq = -foc->alpha * sin(foc->cycleGain * radian) + foc->beta * cos(foc->cycleGain * radian);
+	
+//	foc->Iq = -foc->Iq;
+	foc->Id = -foc->Id;
 
     // foc->Id = -foc->Id;
     // foc->Iq = -foc->Iq;
@@ -194,6 +197,44 @@ static inline void angleCalculate(struct Foc *foc)
     // ips114_showfloat(0, 0, foc->Uref, 3, 3);
     // ips114_showfloat(0, 0, *foc->angle, 3, 3);
     // ips114_showfloat(0, 1, foc->UrefAngle, 3, 3);
+}
+/*------------------------------*/
+/*		    变换函数     	     */
+/*==============================*/
+static void transform(struct Foc *foc)
+{
+	static uint8_t count = 0;
+    foc->sensor->sampling(foc->sensor);               // 电流电压采样
+    foc->encoder->read();                             // 读取编码器位置信息
+    foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
+
+    float radian = foc->encoder->absAngle * angle2Radian; // 转子角度转弧度
+
+    clarkTransform(foc);        // Clark变换
+    parkTransform(foc, radian); // Park变换
+
+    float error = foc->targetAngle - *magnetPosition.act; // 对位置模式的优化
+    if (error < -190)
+    {
+        positionPID(&magnetPosition, foc->targetAngle + 360);
+    }
+    else if (error > 190)
+    {
+        *magnetPosition.act += 360;
+        positionPID(&magnetPosition, foc->targetAngle);
+    }
+    else
+    {
+        positionPID(&magnetPosition, foc->targetAngle);
+    }
+//    foc->targetCurrent = magnetPosition.rs;
+	ips114_showint16(0, 0, *currentLoopQ.act);
+    augmentedPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
+    augmentedPID(&currentLoopD, 0);
+
+    reverseParkTransform(foc, radian); // 反Park变换
+
+    angleCalculate(foc); // 计算Uref的值和角度
 }
 
 static void calculateSVPWM(struct Foc *foc)
@@ -295,41 +336,6 @@ static void calculateSVPWM(struct Foc *foc)
     // ips114_showuint16(0, 0, dutyA);
     // ips114_showuint16(0, 1, dutyB);
     // ips114_showuint16(0, 2, dutyC);
-}
-
-static void transform(struct Foc *foc)
-{
-    foc->sensor->sampling(foc->sensor);               // 电流电压采样
-    foc->encoder->read();                             // 读取编码器位置信息
-    foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
-
-    float radian = foc->encoder->absAngle * angle2Radian; // 转子角度转弧度
-
-    clarkTransform(foc);        // Clark变换
-    parkTransform(foc, radian); // Park变换
-
-    float error = foc->targetAngle - *magnetPosition.act;
-    if (error < -190)
-    {
-        positionPID(&magnetPosition, foc->targetAngle + 360);
-    }
-    else if (error > 190)
-    {
-        *magnetPosition.act += 360;
-        positionPID(&magnetPosition, foc->targetAngle);
-    }
-    else
-    {
-        positionPID(&magnetPosition, foc->targetAngle);
-    }
-    foc->targetCurrent = magnetPosition.rs;
-    augmentedPID(&currentLoopQ, foc->targetCurrent); // 电流环PID计算
-    augmentedPID(&currentLoopD, 0);
-
-    reverseParkTransform(foc, radian); // 反Park变换
-
-    angleCalculate(foc); // 计算Uref的值和角度
-    // calculateSVPWM(foc);
 }
 /*------------------------------*/
 /*		    临时示波器   	     */
