@@ -7,12 +7,14 @@
 /*--------------------------------------------------------------*/
 /* 						   枚举类型定义							*/
 /*==============================================================*/
+
 enum THREAD_INFO
 {
     THREAD_PRIORITY = 7,
     THREAD_STACK_SIZE = 256,
     THREAD_TIMESLICE = 30,
 };
+
 /*--------------------------------------------------------------*/
 /* 							 函数声明 							*/
 /*==============================================================*/
@@ -39,7 +41,7 @@ void displayInit(void)
 {
     ips114_init();
     ips114_showstr(0, 0, "Welcome back!");
-    tidDisplay = rt_thread_create("display", displayEntry, RT_NULL, 256, 0, 100);
+    tidDisplay = rt_thread_create("display", displayEntry, RT_NULL, THREAD_STACK_SIZE, THREAD_PRIORITY, THREAD_TIMESLICE);
     if (tidDisplay != RT_NULL)
     {
         rt_thread_startup(tidDisplay);

@@ -16,7 +16,12 @@
  * @Taobao			https://seekfree.taobao.com/
  * @date				2020-11-23
  ********************************************************************************************************************/
-
+//?
+//?          _    _    _   __     __   _
+//?         / _  / )  / )  ) )    ) ) )_)\_) (
+//?        (__( (_/  (_/  /_/    /_/ / /  /  o
+//?
+//?
 #include "headfile.h"
 #include "display.h"
 #include "mm32_device.h"
@@ -40,26 +45,17 @@
 // **************************** 变量定义 ****************************
 
 // **************************** 变量定义 ****************************
-uint32_t *value;
-uint32_t val;
-int judge = 0;
-int start = 0;
+
 // **************************** 代码区域 ****************************
 INIT_DEVICE_EXPORT(displayInit);
 int main(void)
 {
 	//此处编写用户代码(例如：外设初始化代码等)
-	// displayInit();
+
 	//此处编写用户代码(例如：外设初始化代码等)
-	RCC_HSEConfig(RCC_HSE_ON);
-	value = RCC->CFGR;
-	while (1)
-	{
-		judge = READ_BIT(RCC->CR, RCC_CR_HSERDY)>>RCC_CR_HSERDY_Pos;
-		val = RCC_GetSYSCLKSource();
-//		val = *value & RCC_CFGR_SW; 
-//		ips114_showint32(0, 0, *value, 10);
-		start = 1;
-	}
+	// while (1)
+	// {
+
+	// }
 }
 // **************************** 代码区域 ****************************
