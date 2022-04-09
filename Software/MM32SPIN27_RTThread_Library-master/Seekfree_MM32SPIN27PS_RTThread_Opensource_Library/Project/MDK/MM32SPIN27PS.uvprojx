@@ -422,6 +422,11 @@
               <FileType>1</FileType>
               <FilePath>..\CODE\display.c</FilePath>
             </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\pid.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
