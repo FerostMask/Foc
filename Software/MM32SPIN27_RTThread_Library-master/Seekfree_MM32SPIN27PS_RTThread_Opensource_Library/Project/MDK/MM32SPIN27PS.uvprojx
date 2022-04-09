@@ -427,6 +427,11 @@
               <FileType>1</FileType>
               <FilePath>..\CODE\pid.c</FilePath>
             </File>
+            <File>
+              <FileName>device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\device.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

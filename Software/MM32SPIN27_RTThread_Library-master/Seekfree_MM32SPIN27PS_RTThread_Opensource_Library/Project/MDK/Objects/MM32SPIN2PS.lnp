@@ -3,6 +3,7 @@
 ".\objects\main.o"
 ".\objects\display.o"
 ".\objects\pid.o"
+".\objects\device.o"
 ".\objects\board.o"
 ".\objects\common.o"
 ".\objects\seekfree_printf.o"
