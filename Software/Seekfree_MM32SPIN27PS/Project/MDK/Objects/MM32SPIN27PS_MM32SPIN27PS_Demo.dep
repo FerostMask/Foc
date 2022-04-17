@@ -1,5 +1,5 @@
 Dependencies for Project 'MM32SPIN27PS', Target 'MM32SPIN27PS_Demo': (DO NOT MODIFY !)
-F (..\USER\src\isr.c)(0x623D3B91)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
+F (..\USER\src\isr.c)(0x62408DF7)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
 I (..\..\Libraries\seekfree_libraries\headfile.h)(0x608B6615)
 I (D:\Software\Keil_MDK5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (..\..\\Libraries\seekfree_libraries\board\board.h)(0x608B6615)
@@ -78,9 +78,9 @@ I (..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h)(0x6198AC16)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.h)(0x608B6615)
 I (..\USER\inc\isr.h)(0x608B6615)
 I (..\CODE\slave.h)(0x623D29BE)
-I (..\CODE\foc.h)(0x623D629B)
-I (..\CODE\driver.h)(0x623E85DE)
-F (..\USER\src\main.c)(0x624048CC)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\CODE\foc.h)(0x625123BA)
+I (..\CODE\driver.h)(0x62408EF9)
+F (..\USER\src\main.c)(0x62499115)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\..\Libraries\seekfree_libraries\headfile.h)(0x608B6615)
 I (D:\Software\Keil_MDK5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (..\..\\Libraries\seekfree_libraries\board\board.h)(0x608B6615)
@@ -158,12 +158,12 @@ I (..\..\Libraries\seekfree_peripheral\SEEKFREE_VIRSCO.h)(0x608B6615)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h)(0x6198AC16)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.h)(0x608B6615)
 I (..\CODE\slave.h)(0x623D29BE)
-I (..\CODE\foc.h)(0x623D629B)
-I (..\CODE\driver.h)(0x623E85DE)
+I (..\CODE\foc.h)(0x625123BA)
+I (..\CODE\driver.h)(0x62408EF9)
 F (..\USER\inc\isr.h)(0x608B6615)()
 F (..\CODE\本文件夹作用.txt)(0x608B6615)()
-F (..\CODE\foc.c)(0x62400DCE)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\foc.o --omf_browse .\objects\foc.crf --depend .\objects\foc.d)
-I (..\CODE\foc.h)(0x623D629B)
+F (..\CODE\foc.c)(0x625123BB)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\foc.o --omf_browse .\objects\foc.crf --depend .\objects\foc.d)
+I (..\CODE\foc.h)(0x625123BA)
 I (D:\Software\Keil_MDK5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Software\Keil_MDK5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
 I (..\..\Libraries\seekfree_libraries\zf_adc.h)(0x608B6615)
@@ -193,7 +193,7 @@ I (..\..\Libraries\seekfree_libraries\zf_tim.h)(0x608B6615)
 I (..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_misc.h)(0x608B6615)
 I (..\..\Libraries\seekfree_libraries\zf_systick.h)(0x608B6615)
 I (..\CODE\slave.h)(0x623D29BE)
-I (..\CODE\driver.h)(0x623E85DE)
+I (..\CODE\driver.h)(0x62408EF9)
 I (..\CODE\funcinter.h)(0x6235F3B3)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_IPS114_SPI.h)(0x608B6615)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_FONT.h)(0x608B6615)
@@ -228,8 +228,8 @@ I (..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc\hal_gpio.h)(0x608B6615)
 I (..\..\Libraries\seekfree_libraries\zf_systick.h)(0x608B6615)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_IPS114_SPI.h)(0x608B6615)
 I (..\..\Libraries\seekfree_peripheral\SEEKFREE_FONT.h)(0x608B6615)
-F (..\CODE\driver.c)(0x623D19C1)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\driver.o --omf_browse .\objects\driver.crf --depend .\objects\driver.d)
-I (..\CODE\driver.h)(0x623E85DE)
+F (..\CODE\driver.c)(0x6251B7E9)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -W -O0 --apcs=interwork --split_sections --signed_chars -I ..\CODE -I ..\USER\src -I ..\USER\inc -I ..\..\Libraries\seekfree_libraries\common -I ..\..\\Libraries\seekfree_libraries\board -I ..\..\Libraries\seekfree_libraries\system -I ..\..\Libraries\seekfree_libraries -I ..\..\Libraries\seekfree_peripheral -I ..\..\Libraries\Device\CMSIS\KEIL_Core -I ..\..\Libraries\Device\MM32SPIN2xx_p\Include -I ..\..\Libraries\Device\MM32SPIN2xx_p\HAL_Lib\Inc-I.\RTE\_MM32SPIN27PS_Demo-ID:\Software\Keil_MDK5\ARM\CMSIS\Include-D__UVISION_VERSION="528"-o .\objects\driver.o --omf_browse .\objects\driver.crf --depend .\objects\driver.d)
+I (..\CODE\driver.h)(0x62408EF9)
 I (D:\Software\Keil_MDK5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Software\Keil_MDK5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
 I (..\..\Libraries\seekfree_libraries\zf_adc.h)(0x608B6615)

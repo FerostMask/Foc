@@ -24,6 +24,10 @@ parameterPID_t *instance;
 /*------------------------------------------------------*/
 /*                       函数定义                       */
 /*======================================================*/
+static void _errorHandler(void){
+	while(1);
+}
+
 void updateSetPoint(struct parameterPID_t *param, object_t value)
 {
     param->setPoint = value; // 更新目标值
@@ -43,7 +47,7 @@ parameterPID_t *_parameterPID(float Kp, float Ki, float Kd, object_t threshold, 
     p = (parameterPID_t *)malloc(sizeof(parameterPID_t));
     if (p == 0)
     {
-        return 0; // *没有申请到空间，直接用的话可能会炸
+        _errorHandler(); // *没有申请到空间，直接用的话会炸 | 写个while(1)在这里防止程序继续执行
     }
     memset(p, 0, sizeof(parameterPID_t));
     // 参数初始化
@@ -59,7 +63,7 @@ parameterPID_t *_parameterPID(float Kp, float Ki, float Kd, object_t threshold, 
 /*==============================*/
 void augmentedPIDTypeC(struct parameterPID_t *param)
 {
-    // 保存误差
+    // 保存实际值、计算误差
     param->PV2 = param->PV1;
     param->PV1 = *param->processValue;
     param->e1 = param->setPoint - *param->processValue;

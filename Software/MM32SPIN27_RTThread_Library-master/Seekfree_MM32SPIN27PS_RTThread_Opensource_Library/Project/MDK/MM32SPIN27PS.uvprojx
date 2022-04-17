@@ -432,6 +432,16 @@
               <FileType>1</FileType>
               <FilePath>..\CODE\device.c</FilePath>
             </File>
+            <File>
+              <FileName>driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>scope.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\scope.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

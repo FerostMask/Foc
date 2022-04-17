@@ -25,8 +25,10 @@
 #include "headfile.h"
 #include "display.h"
 #include "device.h"
+#include "driver.h"
 #include "mm32_device.h"
 #include "string.h"
+#include "scope.h"
 // *************************** 例程说明 ***************************
 //
 // 测试需要准备逐飞科技MM32SPIIN27PS核心板一块
@@ -51,14 +53,14 @@ char *str = "hello\n";
 // **************************** 代码区域 ****************************
 INIT_DEVICE_EXPORT(displayInit);
 INIT_DEVICE_EXPORT(deviceInit);
+INIT_DEVICE_EXPORT(scopeInit);
 int main(void)
 {
-	uart_init(UART_2, 115200, UART2_TX_C04, UART2_RX_C05);
+	driver.init();
+//	test();
 	// uart_init(UART_1, 115200, UART1_TX_A10, UART1_RX_A09);
 	//此处编写用户代码(例如：外设初始化代码等)
-	while(1){
-		encoder.read();
-	}
+
 	//此处编写用户代码(例如：外设初始化代码等)
 }
 // **************************** 代码区域 ****************************

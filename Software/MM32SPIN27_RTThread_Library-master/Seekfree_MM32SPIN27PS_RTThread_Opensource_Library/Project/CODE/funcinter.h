@@ -32,6 +32,10 @@ typedef enum
 #define gpioSetHigh(pin) gpio_set(pin, HIGH_LEVEL)    // 拉高电平
 #define gpioReadLevel(pin) gpio_get(pin)              // 读取IO口电平
 /*------------------------------*/
+/*		        GPIO     		*/
+/*==============================*/
+#define uartInit(baud, tx, rx) uart_init(UART_N, baud, tx, rx)
+/*------------------------------*/
 /*		       DELAY     		*/
 /*==============================*/
 // "zf_systick.h"

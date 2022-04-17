@@ -21,7 +21,7 @@ uint8_t *readAngle = {0xFF, 0xFF};
 Magenc encoder = {
     .read = readEncoder,
     .absAngle = 0,
-    .biasAngle = 2.864,
+    .biasAngle = 0,
     .rawData = 0,
     .checkMode = false, // 是否进行奇偶校验
 };
