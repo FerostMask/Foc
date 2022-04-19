@@ -34,10 +34,11 @@ ListNode_t *ListNode(void);
 /*------------------------------------------------------*/
 /*                       变量定义                       */
 /*======================================================*/
-ListNode_t *listHead;         // 链表头
-ListNode_t *listEnd;          // 链表尾
-static size_t listLength = 0; // 链表长度
-static size_t nameLength = 0; // 数据名长度
+ListNode_t *listHead;             // 链表头
+ListNode_t *listEnd;              // 链表尾
+static size_t listLength = 0;     // 链表长度
+static size_t nameLength = 0;     // 数据名长度
+static size_t lastListLength = 0; // 最后一次记录的链表长度
 
 int value = 10;
 double value2 = 20.22;
@@ -90,7 +91,6 @@ void scopeSendList(void)
 
 void scopeSendValue(void)
 {
-    static lastListLength = 0;
     if (lastListLength != listLength)
     { // 检测是否新添加发送数据
         lastListLength = listLength;
@@ -129,32 +129,10 @@ void scopeSendValue(void)
 
 void test()
 {
+    scopeSendList();
+    rt_thread_mdelay(1);
     scopeSendValue();
 }
-
-// void test()
-// {
-//     char *name = "value";
-//     scopePushValue(&value, sizeof(value), name, false);
-//     ListNode_t *iter;
-//     iter = listHead;
-//     while (iter->next != 0)
-//     {
-//         iter = iter->next;
-//         if (iter->isInteger == true)
-//         {
-//             long showValue = 0;
-//             memcpy(&showValue, iter->p, iter->len);
-//             ips114_showint16(0, 1, showValue);
-//         }
-//         else
-//         {
-//             double showValue = 0;
-//             memcpy(&showValue, iter->p, iter->len);
-//             ips114_showfloat(0, 0, showValue, 3, 3);
-//         }
-//     }
-// }
 
 static void _errorHandler(void)
 {
