@@ -57,10 +57,13 @@ INIT_DEVICE_EXPORT(scopeInit);
 int main(void)
 {
 	driver.init();
-//	test();
 	// uart_init(UART_1, 115200, UART1_TX_A10, UART1_RX_A09);
 	//此处编写用户代码(例如：外设初始化代码等)
-
+	while (1)
+	{
+		test();
+		rt_thread_mdelay(100);
+	}
 	//此处编写用户代码(例如：外设初始化代码等)
 }
 // **************************** 代码区域 ****************************

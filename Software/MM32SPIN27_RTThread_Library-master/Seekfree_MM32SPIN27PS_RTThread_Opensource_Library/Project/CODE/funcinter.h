@@ -34,7 +34,9 @@ typedef enum
 /*------------------------------*/
 /*		        GPIO     		*/
 /*==============================*/
-#define uartInit(baud, tx, rx) uart_init(UART_N, baud, tx, rx)
+#define uartInit(baud, tx, rx) uart_init(UART_N, baud, tx, rx) // UART初始化
+#define uartPutString(str) uart_putstr(UART_N, str)
+#define uartPutBuff(src, len) uart_putbuff(UART_N, src, len)
 /*------------------------------*/
 /*		       DELAY     		*/
 /*==============================*/

@@ -11,6 +11,6 @@
 /*                       外部声明                       */
 /*======================================================*/
 void scopeInit(void);
-void scopeAddValue(void *p, size_t length, char *name, bool isInt);
-// void test();
+void scopePushValue(void *p, size_t length, char *name, bool isInt);
+void test();
 #endif
