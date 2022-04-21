@@ -28,12 +28,12 @@ static rt_thread_t tidDisplay = RT_NULL;
 void displayEntry(void)
 {
     static char count = 0;
-    // while (1)
-    // {
-    //     ips114_showint8(0, 0, count);
-    //     count++;
-    //     rt_thread_mdelay(100);
-    // }
+//    while (1)
+//    {
+//        ips114_showint8(0, 0, count);
+//        count++;
+//        rt_thread_mdelay(200);
+//    }
 }
 
 void displayInit(void)

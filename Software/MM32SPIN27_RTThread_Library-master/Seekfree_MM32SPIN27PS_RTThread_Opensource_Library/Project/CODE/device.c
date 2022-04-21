@@ -6,10 +6,29 @@
 #include "zf_systick.h"
 #include "SEEKFREE_IPS114_SPI.h"
 #include "string.h"
+#include "scope.h"
 /*------------------------------------------------------*/
 /*                       类型定义                       */
 /*======================================================*/
+enum DEVICE_enum
+{
+    SPI_SCK = B3,  // 时钟脚
+    SPI_MOSI = B5, // 主发从收
+    SPI_MISO = B4, // 主收从发
+    ENC_CS = A15,  // 编码器片选引脚
+    DRV_CS = C6,   // DRV8301SPI片选引脚
 
+    ADDRESS_BIT = 11, // 地址位
+    UMax14 = 16384 - 1,
+    CIRCLE = 360,
+
+    COMN_CYCLE = 32, // 通信周期
+    DATA_MSB = 15,   // 数据最高位
+    ERRORFRAME = 14, // 指令校验位
+
+    DC_CAL = D3,
+    EN_GATE = A12,
+};
 /*------------------------------------------------------*/
 /*                       函数声明                       */
 /*======================================================*/
@@ -20,11 +39,16 @@ void readEncoder(void);
 uint8_t *readAngle = {0xFF, 0xFF};
 Magenc encoder = {
     .read = readEncoder,
-    .absAngle = 0,
+    .absAngle = 10,
     .biasAngle = 0,
     .rawData = 0,
     .checkMode = false, // 是否进行奇偶校验
 };
+
+// Drv drv = {
+//     .info = infoGet,
+//     .gainSet = gainSet,
+// };
 /*------------------------------------------------------*/
 /*                       函数定义                       */
 /*======================================================*/
@@ -41,6 +65,8 @@ void deviceInit(void)
     outputPinInit(EN_GATE);
     gpioSetLow(DC_CAL);
     gpioSetHigh(EN_GATE);
+    // push data into scope
+    scopePushValue(&encoder.absAngle, sizeof(encoder.absAngle), "angle", false);
 }
 
 static void readEncoder(void)
@@ -100,6 +126,6 @@ static void readEncoder(void)
     encoder.absAngle = encoder.absAngle + encoder.biasAngle;                     // 加上偏移角度
     encoder.absAngle = fmod(encoder.absAngle, 360);
 
-    ips114_showfloat(0, 2, encoder.absAngle, 3, 2);
-    //    ips114_showuint16(0, 1, encoder.rawData);
+    // ips114_showfloat(0, 2, encoder.absAngle, 3, 2);
+    // ips114_showuint16(0, 1, encoder.rawData);
 }

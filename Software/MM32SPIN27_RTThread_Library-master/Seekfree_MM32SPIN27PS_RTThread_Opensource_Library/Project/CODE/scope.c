@@ -4,6 +4,7 @@
 #include "stdio.h"
 #include "scope.h"
 #include "string.h"
+#include "stdint.h"
 #include "funcinter.h"
 #include "SEEKFREE_IPS114_SPI.h"
 /*------------------------------------------------------*/
@@ -18,13 +19,13 @@ typedef struct ListNode_t
     struct ListNode *next;
 } ListNode_t;
 
-typedef enum SCOPE_UART_Enum
+enum SCOPE_UART_Enum
 {
     UART_N = UART_2,         // 用到的UART模块
     SCOPE_RX = UART2_RX_C05, // UART接收引脚
     SCOPE_TX = UART2_TX_C04, // UART发送引脚
     SCOPE_BAUD = 115200,     // UART波特率
-} SCOPE_UART_Enum;
+};
 
 #define FLOAT_FORMAT "%.3f"
 /*------------------------------------------------------*/
@@ -39,9 +40,6 @@ ListNode_t *listEnd;              // 链表尾
 static size_t listLength = 0;     // 链表长度
 static size_t nameLength = 0;     // 数据名长度
 static size_t lastListLength = 0; // 最后一次记录的链表长度
-
-int value = 10;
-double value2 = 20.22;
 /*------------------------------------------------------*/
 /*                       函数定义                       */
 /*======================================================*/
@@ -53,8 +51,8 @@ void scopeInit(void)
     listHead = ListNode();
     listEnd = listHead;
     uartInit(SCOPE_BAUD, SCOPE_TX, SCOPE_RX);
-    scopePushValue(&value, sizeof(value), "int", true);
-    scopePushValue(&value2, sizeof(value2), "double", false);
+    // scopePushValue(&value, sizeof(value), "int", true);
+    // scopePushValue(&value2, sizeof(value2), "double", false);
 }
 /*------------------------------*/
 /*        添加示波器显示        */
@@ -108,7 +106,6 @@ void scopeSendValue(void)
         {
             long value;
             memcpy(&value, iter->p, iter->len);
-            ips114_showint16(0, 1, value);
             char input[20];
             sprintf(input, "%ld", value);
             uartPutBuff(",", 1);
@@ -117,7 +114,16 @@ void scopeSendValue(void)
         else
         {
             double value;
-            memcpy(&value, iter->p, iter->len);
+            if (iter->len == sizeof(float)) // float转double需要额外转换
+            {
+                float transform;
+                memcpy(&transform, iter->p, iter->len);
+                value = (double)transform;
+            }
+            else
+            {
+                memcpy(&value, iter->p, iter->len);
+            }
             char input[20];
             sprintf(input, FLOAT_FORMAT, value);
             uartPutBuff(",", 1);
@@ -127,9 +133,15 @@ void scopeSendValue(void)
     uartPutBuff("\n", 1);
 }
 
-void test()
+void scope(void)
 {
-    scopeSendList();
+    static uint8_t count = 0;
+    count++;
+    if (count >= 25)
+    {
+        count = 0;
+        scopeSendList();
+    }
     rt_thread_mdelay(1);
     scopeSendValue();
 }

@@ -47,13 +47,13 @@
 // **************************** 宏定义 ****************************
 
 // **************************** 变量定义 ****************************
-char *str = "hello\n";
+
 // **************************** 变量定义 ****************************
 
 // **************************** 代码区域 ****************************
+INIT_DEVICE_EXPORT(scopeInit);
 INIT_DEVICE_EXPORT(displayInit);
 INIT_DEVICE_EXPORT(deviceInit);
-INIT_DEVICE_EXPORT(scopeInit);
 int main(void)
 {
 	driver.init();
@@ -61,8 +61,9 @@ int main(void)
 	//此处编写用户代码(例如：外设初始化代码等)
 	while (1)
 	{
-		test();
-		rt_thread_mdelay(100);
+		encoder.read();
+		scope();
+		rt_thread_mdelay(50);
 	}
 	//此处编写用户代码(例如：外设初始化代码等)
 }

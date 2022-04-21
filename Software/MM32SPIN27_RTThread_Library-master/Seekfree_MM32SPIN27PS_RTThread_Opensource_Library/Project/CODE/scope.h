@@ -12,5 +12,5 @@
 /*======================================================*/
 void scopeInit(void);
 void scopePushValue(void *p, size_t length, char *name, bool isInt);
-void test();
+void scope(void);
 #endif
