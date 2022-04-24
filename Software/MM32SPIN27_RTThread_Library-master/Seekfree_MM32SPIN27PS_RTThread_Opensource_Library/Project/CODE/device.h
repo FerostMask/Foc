@@ -15,11 +15,6 @@ typedef enum CSA_GAIN_Enum
     GAIN_80VPERV = 0x03, // 11
 } CSA_GAIN_Enum;
 
-typedef enum DRIVER_INFO_Enum
-{
-    GAIN_SET = GAIN_40VPERV,
-} DRIVER_INFO_Enum;
-
 typedef enum DRV_REGISTER_Enum
 {
     STATUS_REGISTERS_FIRST = 0x00,
@@ -45,8 +40,8 @@ typedef struct Magenc
 
 typedef struct Drv
 {
-    void (*info)(void);             // 读取寄存器信息
-    void (*gainSet)(CSA_GAIN_Enum); // 设置电流检测增益
+    void (*info)(DRV_REGISTER_Enum); // 读取寄存器信息
+    void (*gainSet)(CSA_GAIN_Enum);  // 设置电流检测增益
 } Drv;
 
 typedef struct SPISlave
@@ -59,5 +54,5 @@ typedef struct SPISlave
 /*                       外部声明                       */
 /*======================================================*/
 void deviceInit(void);
-extern Magenc encoder;
+extern SPISlave spiDevice;
 #endif

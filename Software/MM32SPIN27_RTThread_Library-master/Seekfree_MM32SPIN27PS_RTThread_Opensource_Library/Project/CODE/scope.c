@@ -63,7 +63,7 @@ void scopePushValue(void *p, size_t length, char *name, bool isInteger)
     listEnd = listEnd->next;
     listEnd->p = p;
     listEnd->len = length;
-    listEnd->name = name;
+    listEnd->name = name; // 注意使用的时候命名不要重复，不然示波器会炸
     listEnd->isInteger = isInteger;
     listLength++;                   // 维护链表长度
     nameLength += strlen(name) + 1; // 维护数据名长度

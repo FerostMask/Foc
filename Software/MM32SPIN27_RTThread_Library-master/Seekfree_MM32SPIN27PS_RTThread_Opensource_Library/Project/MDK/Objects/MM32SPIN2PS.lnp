@@ -6,6 +6,7 @@
 ".\objects\device.o"
 ".\objects\driver.o"
 ".\objects\scope.o"
+".\objects\foc.o"
 ".\objects\board.o"
 ".\objects\common.o"
 ".\objects\seekfree_printf.o"

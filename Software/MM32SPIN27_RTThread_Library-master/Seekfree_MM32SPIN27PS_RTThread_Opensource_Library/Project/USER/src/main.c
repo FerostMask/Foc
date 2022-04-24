@@ -29,6 +29,8 @@
 #include "mm32_device.h"
 #include "string.h"
 #include "scope.h"
+#include "driver.h"
+#include "foc.h"
 // *************************** 例程说明 ***************************
 //
 // 测试需要准备逐飞科技MM32SPIIN27PS核心板一块
@@ -52,18 +54,20 @@
 
 // **************************** 代码区域 ****************************
 INIT_DEVICE_EXPORT(scopeInit);
-INIT_DEVICE_EXPORT(displayInit);
-INIT_DEVICE_EXPORT(deviceInit);
+INIT_COMPONENT_EXPORT(displayInit);
+INIT_COMPONENT_EXPORT(deviceInit);
+INIT_ENV_EXPORT(driverInit);
 int main(void)
 {
-	driver.init();
-	// uart_init(UART_1, 115200, UART1_TX_A10, UART1_RX_A09);
+	// 设备初始化
+	driver.sensor->calibration(driver.sensor);
+	foc.init(&foc, &driver, spiDevice.enc);
 	//此处编写用户代码(例如：外设初始化代码等)
 	while (1)
 	{
-		encoder.read();
+		foc.transform(&foc);
 		scope();
-		rt_thread_mdelay(50);
+		rt_thread_mdelay(10);
 	}
 	//此处编写用户代码(例如：外设初始化代码等)
 }
