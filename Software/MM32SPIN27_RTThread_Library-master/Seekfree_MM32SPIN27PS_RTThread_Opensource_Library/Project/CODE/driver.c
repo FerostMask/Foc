@@ -22,35 +22,9 @@ enum BLDC_ADC_Enum
     DCCAL_SAMPLING_TIMES = 30,
 };
 
-enum BLDC_PWM_Enum
-{
-    BITS_A = 2, // A相占位
-    BITS_B = 1, // B相占位
-    BITS_C = 0, // C相占位
-
-    TIM_N = TIM_1,         // 定时器模块
-    INH_A = TIM_1_CH2_A01, // A相 | 高侧输入
-    INL_A = A2,            // A相 | 低侧输入
-    INH_B = TIM_1_CH3_A03, // B相 | 高侧输入
-    INL_B = A4,            // B相 | 低侧输入
-    INH_C = TIM_1_CH1_A08, // C相 | 高侧输入
-    INL_C = A7,            // C相 | 低侧输入
-
-    AFMODE_AL = GPIO_AF3, // A相 | 引脚复用模式
-    AFMODE_BL = GPIO_AF3, // B相 | 引脚复用模式
-    AFMODE_CL = GPIO_AF2, // C相 | 引脚复用模式
-
-    IO_AF_MODE = GPO_AF_PUSH_PUL, // 复用IO模式
-
-    PWM_DEFAULT_FREQUENCY = 20000, // 默认频率 |
-    PWM_DEFAULT_DUTY = 0,          // 默认占空比
-    PWM_MAX_DUTY = PWM_DUTY_MAX,   // 最大占空比
-    DELAY_FOR_SPEED = 10,          // 延时控速 | ms
-};
-
 enum DRIVER_INFO_Enum
 {
-    GAIN_SET = GAIN_40VPERV,
+    GAIN_SET = GAIN_10VPERV,
 };
 /*------------------------------------------------------*/
 /*                       函数声明                       */
@@ -113,9 +87,10 @@ void driverInit(void)
     afioInit(INL_A, AFMODE_AL);                              // AN | L
     afioInit(INL_B, AFMODE_BL);                              // BN | L
     afioInit(INL_C, AFMODE_CL);                              // CN | L
-                                                             //? DRV set current shunt amplifiers GAIN
-    delay_ms(10);                                            // 等待10ms，等之前的任务处理完
-    spiDevice.drv->gainSet(GAIN_SET);                        // 设置电流检测增益
+
+    //? DRV set current shunt amplifiers GAIN
+    delay_ms(10);                     // 等待10ms，等之前的任务处理完
+    spiDevice.drv->gainSet(GAIN_SET); // 设置电流检测增益
 
     sensor.ratio = sensor.vRef / ADC_UMAXW;          // ADC采样转换系数
     sensor.shuntResistor = 1 / sensor.shuntResistor; // 分流电阻倒数

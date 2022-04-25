@@ -51,11 +51,11 @@ typedef struct Foc
     float Id; // Park变换获得的Id | 目标值为0
     float Iq; // Park变换获得的Iq
 
-    float *afterId;
-    float *afterIq;
+    float *commandId;
+    float *commandIq;
 
-    float revAlpha; // 反Park变换获得的alpha值
-    float revBeta;  // 反Park变换获得的beta值
+    float commandAlpha; // 反Park变换获得的alpha值
+    float commandBeta;  // 反Park变换获得的beta值
 
     float Uref;
     float UrefAngle;
@@ -63,20 +63,20 @@ typedef struct Foc
     SECTION_Enum section;
 } Foc;
 
-typedef struct pidpara
-{
-    float *act; // 实际值
+// typedef struct pidpara
+// {
+//     float *act; // 实际值
 
-    float alpha; // 一阶低通滤波系数
-    float Kp;
-    float Ki;
-    float Kd;
-    //	计算相关
-    float I;          // 积分项暂存
-    float e1, e2, e3; // 误差
-    float rs;         // 计算结果
-    float thrsod;     // 阈值
-} pidpara;
+//     float alpha; // 一阶低通滤波系数
+//     float Kp;
+//     float Ki;
+//     float Kd;
+//     //	计算相关
+//     float I;          // 积分项暂存
+//     float e1, e2, e3; // 误差
+//     float rs;         // 计算结果
+//     float thrsod;     // 阈值
+// } pidpara;
 /*------------------------------------------------------*/
 /*                       外部声明                       */
 /*======================================================*/

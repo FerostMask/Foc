@@ -24,8 +24,10 @@ parameterPID_t *instance;
 /*------------------------------------------------------*/
 /*                       函数定义                       */
 /*======================================================*/
-static void _errorHandler(void){
-	while(1);
+static void _errorHandler(void)
+{
+    while (1)
+        ;
 }
 
 void updateSetPoint(struct parameterPID_t *param, object_t value)
@@ -68,7 +70,7 @@ void augmentedPIDTypeC(struct parameterPID_t *param)
     param->PV1 = *param->processValue;
     param->e1 = param->setPoint - *param->processValue;
     // PID公式计算 | Type C
-    param->controllerOutput += -param->Kp * (*param->processValue - param->PV1) + param->Ki * param->e1 - param->Kd * (*param->processValue - 2 * param->PV1 + param->PV2);
+    param->controllerOutput = -param->Kp * (*param->processValue - param->PV1) + param->Ki * param->e1 - param->Kd * (*param->processValue - 2 * param->PV1 + param->PV2);
     // 阈值限制
     if (fabs(param->controllerOutput) > param->threshold)
     {

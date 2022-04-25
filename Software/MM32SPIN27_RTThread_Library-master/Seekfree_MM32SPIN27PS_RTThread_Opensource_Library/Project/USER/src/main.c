@@ -59,6 +59,7 @@ INIT_COMPONENT_EXPORT(deviceInit);
 INIT_ENV_EXPORT(driverInit);
 int main(void)
 {
+	static short count = 0;
 	// 设备初始化
 	driver.sensor->calibration(driver.sensor);
 	foc.init(&foc, &driver, spiDevice.enc);
@@ -66,8 +67,13 @@ int main(void)
 	while (1)
 	{
 		foc.transform(&foc);
-		scope();
-		rt_thread_mdelay(10);
+		foc.svpwmAction(&foc);
+		if (count > 10)
+		{
+			count = 0;
+			scope();
+		}
+		rt_thread_mdelay(1);
 	}
 	//此处编写用户代码(例如：外设初始化代码等)
 }
