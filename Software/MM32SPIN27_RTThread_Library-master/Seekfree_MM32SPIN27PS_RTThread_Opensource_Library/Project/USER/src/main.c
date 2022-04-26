@@ -54,7 +54,7 @@
 
 // **************************** 代码区域 ****************************
 INIT_DEVICE_EXPORT(scopeInit);
-INIT_COMPONENT_EXPORT(displayInit);
+//INIT_COMPONENT_EXPORT(displayInit);
 INIT_COMPONENT_EXPORT(deviceInit);
 INIT_ENV_EXPORT(driverInit);
 int main(void)
@@ -68,12 +68,13 @@ int main(void)
 	{
 		foc.transform(&foc);
 		foc.svpwmAction(&foc);
-		if (count > 10)
-		{
-			count = 0;
-			scope();
-		}
-		rt_thread_mdelay(1);
+		// count++;
+		// if (count > 100)
+		// {
+		// 	count = 0;
+		// 	scope();
+		// }
+//		rt_thread_mdelay(1);
 	}
 	//此处编写用户代码(例如：外设初始化代码等)
 }

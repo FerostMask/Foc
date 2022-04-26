@@ -28,6 +28,7 @@ Foc foc = {
 
 parameterPID_t *currentLoopD;
 parameterPID_t *currentLoopQ;
+parameterPID_t *position;
 
 float UrefAngleTemp = 0;
 // 计算常量
@@ -42,10 +43,10 @@ float sqrtof3;
 static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encoder)
 {
     //? PID参数
-    float iKp = 0.1f;
-    float iKi = 0.05f;
-    float iKd = 0.02f;
-    float threshold = 20;
+    float iKp = 0.6f;
+    float iKi = 0.008f;
+    float iKd = 0.002f;
+    float threshold = 100;
     //! Foc结构体初始化
     foc->transform = transform;
     foc->svpwmAction = calculateSVPWM;
@@ -65,14 +66,15 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
     foc->cycleGain = 7;
 
     foc->targetCurrent = 5;
-    foc->targetAngle = 10;
+    foc->targetAngle = 180;
 
     //? PID结构初始化
     currentLoopD = _parameterPID(iKp, iKi, iKd, threshold, &foc->Id);
     currentLoopQ = _parameterPID(iKp, iKi, iKd, threshold, &foc->Iq);
+    position = _parameterPID(1, 0.09, 0.0001, 60, foc->angle);
 
     currentLoopD->setPoint = 0;
-    currentLoopQ->setPoint = -10;
+    currentLoopQ->setPoint = 0.1;
 
     foc->commandId = &currentLoopD->controllerOutput;
     foc->commandIq = &currentLoopQ->controllerOutput;
@@ -88,12 +90,12 @@ static void focInit(struct Foc *foc, struct Driver *driver, struct Magenc *encod
     //? push data into scope
     scopePushValue(foc->angle, sizeof(*foc->angle), "angle", false);
 
-    scopePushValue(&foc->currentA, sizeof(foc->currentA), "currentA", false);
-    scopePushValue(foc->currentB, sizeof(*foc->currentB), "currentB", false);
-    scopePushValue(foc->currentC, sizeof(*foc->currentC), "currentC", false);
+    // scopePushValue(&foc->currentA, sizeof(foc->currentA), "currentA", false);
+    // scopePushValue(foc->currentB, sizeof(*foc->currentB), "currentB", false);
+    // scopePushValue(foc->currentC, sizeof(*foc->currentC), "currentC", false);
 
-    scopePushValue(&foc->alpha, sizeof(foc->alpha), "Alpha", false);
-    scopePushValue(&foc->beta, sizeof(foc->beta), "Beta", false);
+    // scopePushValue(&foc->alpha, sizeof(foc->alpha), "Alpha", false);
+    // scopePushValue(&foc->beta, sizeof(foc->beta), "Beta", false);
 
     scopePushValue(&foc->Id, sizeof(foc->alpha), "Id", false);
     scopePushValue(&foc->Iq, sizeof(foc->beta), "Iq", false);
@@ -115,21 +117,10 @@ static inline void clarkTransform(struct Foc *foc)
 }
 static inline void parkTransform(struct Foc *foc, const float radian)
 {
-    float Id;
-    float Iq;
-    float alpha = 0.6;
     float theta = foc->cycleGain * radian;
 
-    // Id = -(foc->alpha * cos(theta) + foc->beta * sin(theta));
-    // Iq = -(-foc->alpha * sin(theta) + foc->beta * cos(theta));
-
-    // foc->Id = alpha * foc->Id + (1.f - alpha) * Id;
-    // foc->Iq = alpha * foc->Iq + (1.f - alpha) * Iq;
     foc->Id = foc->alpha * cos(theta) + foc->beta * sin(theta);
     foc->Iq = -foc->alpha * sin(theta) + foc->beta * cos(theta);
-
-    // foc->Id = -foc->Id;
-    // foc->Iq = -foc->Iq;
 
     // tempScope(foc->Id, foc->Iq, 0, 2);
 }
@@ -207,22 +198,29 @@ static inline void angleCalculate(struct Foc *foc)
 static void transform(struct Foc *foc)
 {
     static int16_t count = 0;
-    foc->sensor->sampling(foc->sensor);               // 电流电压采样
-    foc->encoder->read();                             // 读取编码器位置信息
-    foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
+    foc->encoder->read(); // 读取编码器位置信息
 
     // foc->encoder->absAngle = (int)(foc->encoder->absAngle); // 丢弃精度 | 消抖
     float radian = foc->encoder->absAngle * angle2Radian; // 转子角度转弧度
 
-    clarkTransform(foc);        // Clark变换
-    parkTransform(foc, radian); // Park变换
-
     count++;
-    if (count > 50)
+    if (count > 20)
     {
         count = 0;
-        augmentedPIDTypeC(currentLoopD);
-        augmentedPIDTypeC(currentLoopQ);
+        foc->sensor->sampling(foc->sensor);               // 电流电压采样
+        foc->currentA = -*foc->currentB - *foc->currentC; // 计算A相电流
+        clarkTransform(foc);                              // Clark变换
+        parkTransform(foc, radian);                       // Park变换
+
+        position->setPoint = foc->targetAngle;
+        // augmentedPIDTypeC(position);
+        // currentLoopQ->setPoint = position->controllerOutput;
+
+        if (fabs(currentLoopQ->setPoint - foc->Iq) > 0.001) // 误差极小时不计算，防止误差累积
+        {
+            augmentedPIDTypeC(currentLoopD);
+            augmentedPIDTypeC(currentLoopQ);
+        }
     }
 
     invertedParkTransform(foc, radian); // 反Park变换
